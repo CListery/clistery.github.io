@@ -95,11 +95,20 @@ body.DarkMode .mobile-menu-list a i {
     color: rgba(255, 255, 255, 0.6) !important;
 }
 body.DarkMode .bg-color {
-    background-image:linear-gradient(to right, #282c34 0, rgba(52,50,50,0.7) 100%);
-    opacity:.8
+    /* background-image:linear-gradient(to right, #282c34 0, rgba(52,50,50,0.7) 100%); */
+    /* opacity:.8 */
 }
 body.DarkMode span.bg-color {
-    background-image:linear-gradient(to right, #282c34 0, rgba(52,50,50,0.7) 100%)
+    /* background-image:linear-gradient(to right, #282c34 0, rgba(52,50,50,0.7) 100%) */
+}
+
+body.DarkMode::before,
+body.DarkMode::after {
+    content: "";
+    position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0; 
+    background: rgba(0, 0, 0, 0.15);
+    pointer-events: none;
 }
 
 /* 背景颜色变黑色 */
@@ -317,11 +326,7 @@ body.DarkMode img, body.DarkMode strong {
     filter:brightness(.7)
 }
 
-body.DarkMode {
-    background-image: url(/medias_webp/sunset.webp);
-}
-
-body.DarkMode #vcomments textarea,
+/* body.DarkMode #vcomments textarea,
 body.DarkMode #waline textarea {
     background: url(/medias_webp/simiao.webp) 100% 100% no-repeat;
     box-sizing: border-box;
@@ -332,7 +337,7 @@ body.DarkMode #waline textarea {
     caret-color: red;
     color: #b8abab;
     white-space: pre-line
-}
+} */
 /* 黑夜模式动画 */
 .Cuteen_DarkSky,
 .Cuteen_DarkSky:before {

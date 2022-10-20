@@ -6,7 +6,7 @@
   <link href="http://clistery.github.io/atom.xml" rel="self"/>
   
   <link href="http://clistery.github.io/"/>
-  <updated>2022-10-18T00:41:23.930Z</updated>
+  <updated>2022-10-20T02:14:09.283Z</updated>
   <id>http://clistery.github.io/</id>
   
   <author>
@@ -17,27 +17,300 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://clistery.github.io/2022/10/18/hello-world/"/>
-    <id>http://clistery.github.io/2022/10/18/hello-world/</id>
-    <published>2022-10-18T00:41:23.930Z</published>
-    <updated>2022-10-18T00:41:23.930Z</updated>
+    <title>在 HexoMatery 主题下配置 utteranc 评论插件</title>
+    <link href="http://clistery.github.io/2022/10/20/blog/hexo-matery-setup-utteranc/"/>
+    <id>http://clistery.github.io/2022/10/20/blog/hexo-matery-setup-utteranc/</id>
+    <published>2022-10-20T01:10:16.000Z</published>
+    <updated>2022-10-20T02:14:09.283Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;在-HexoMatery-主题下配置-utteranc-评论插件&quot;&gt;&lt;a href=&quot;#在-HexoMatery-主题下配置-utteranc-评论插件&quot; class=&quot;headerlink&quot; title=&quot;在 HexoMatery 主题下配置 utteranc</summary>
         
       
     
     
     
-    <category term="Hello" scheme="http://clistery.github.io/categories/Hello/"/>
+    <category term="博客搭建" scheme="http://clistery.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
     
-    <category term="Hi" scheme="http://clistery.github.io/tags/Hi/"/>
+    <category term="hexo" scheme="http://clistery.github.io/tags/hexo/"/>
+    
+    <category term="Github Pages" scheme="http://clistery.github.io/tags/Github-Pages/"/>
+    
+    <category term="utteranc" scheme="http://clistery.github.io/tags/utteranc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于 Github Pages 的 hexo 博客搭建</title>
+    <link href="http://clistery.github.io/2022/10/19/blog/hexo-setup/"/>
+    <id>http://clistery.github.io/2022/10/19/blog/hexo-setup/</id>
+    <published>2022-10-19T08:33:05.000Z</published>
+    <updated>2022-10-20T02:14:09.283Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;基于-Github-Pages-的-hexo-博客搭建&quot;&gt;&lt;a href=&quot;#基于-Github-Pages-的-hexo-博客搭建&quot; class=&quot;headerlink&quot; title=&quot;基于 Github Pages 的 hexo 博客搭建&quot;&gt;&lt;/a&gt;基于</summary>
+        
+      
+    
+    
+    
+    <category term="博客搭建" scheme="http://clistery.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="hexo" scheme="http://clistery.github.io/tags/hexo/"/>
+    
+    <category term="Github Pages" scheme="http://clistery.github.io/tags/Github-Pages/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Google AOSP 源码获取</title>
+    <link href="http://clistery.github.io/2022/10/19/android/aosp-get/"/>
+    <id>http://clistery.github.io/2022/10/19/android/aosp-get/</id>
+    <published>2022-10-19T07:35:41.000Z</published>
+    <updated>2022-10-20T02:14:09.283Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;AOSP&quot;&gt;&lt;a href=&quot;#AOSP&quot; class=&quot;headerlink&quot; title=&quot;AOSP&quot;&gt;&lt;/a&gt;AOSP&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;AOSP，全称”Android Open Source</summary>
+        
+      
+    
+    
+    
+    <category term="aosp" scheme="http://clistery.github.io/categories/aosp/"/>
+    
+    
+    <category term="google" scheme="http://clistery.github.io/tags/google/"/>
+    
+    <category term="android" scheme="http://clistery.github.io/tags/android/"/>
+    
+    <category term="aosp" scheme="http://clistery.github.io/tags/aosp/"/>
+    
+    <category term="repo" scheme="http://clistery.github.io/tags/repo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何清除 Android Button 中自带的 padding</title>
+    <link href="http://clistery.github.io/2022/10/19/android/button-without-padding/"/>
+    <id>http://clistery.github.io/2022/10/19/android/button-without-padding/</id>
+    <published>2022-10-19T02:04:38.000Z</published>
+    <updated>2022-10-20T02:14:09.283Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;去除 Android 自带的 padding 效果有两种方式&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;布局文件中去除&lt;/p&gt;
+  &lt;pre class=&quot;line-numbers language-markup&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="android" scheme="http://clistery.github.io/categories/android/"/>
+    
+    
+    <category term="android" scheme="http://clistery.github.io/tags/android/"/>
+    
+    <category term="widgets" scheme="http://clistery.github.io/tags/widgets/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>scp 命令</title>
+    <link href="http://clistery.github.io/2022/10/18/ubuntu/scp/"/>
+    <id>http://clistery.github.io/2022/10/18/ubuntu/scp/</id>
+    <published>2022-10-18T09:06:18.000Z</published>
+    <updated>2022-10-20T02:14:09.283Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Linux scp 命令用于 Linux 之间复制文件和目录。&lt;br&gt;scp 是 secure copy 的缩写, scp 是 linux 系统下基于 ssh 登陆进行安全的远程文件拷贝命令。&lt;br&gt;scp 是加密的，rcp 是不加密的，scp</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
+    
+    
+    <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
+    
+    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
+    
+    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>rsync 命令</title>
+    <link href="http://clistery.github.io/2022/10/18/ubuntu/rsync/"/>
+    <id>http://clistery.github.io/2022/10/18/ubuntu/rsync/</id>
+    <published>2022-10-18T09:06:08.000Z</published>
+    <updated>2022-10-20T02:14:09.283Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;rsync 全称 Remote Sync.&lt;br&gt;rsync是linux系统下的数据镜像备份工具。使用快速增量备份工具Remote</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
+    
+    
+    <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
+    
+    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
+    
+    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jobs 命令</title>
+    <link href="http://clistery.github.io/2022/10/18/ubuntu/jobs/"/>
+    <id>http://clistery.github.io/2022/10/18/ubuntu/jobs/</id>
+    <published>2022-10-18T09:05:58.000Z</published>
+    <updated>2022-10-20T02:14:09.283Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;jobs是Linux命令。jobs命令显示了当前shell环境中已启动的作业状态。如果JobID参数没有指定特定作业，就显示所有的活动的作业的状态信息。如果报告了一个作业的终止，shell从当前的shell环境已知的列表中删除作业的进程标识。&lt;/p</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
+    
+    
+    <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
+    
+    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
+    
+    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>at 命令</title>
+    <link href="http://clistery.github.io/2022/10/18/ubuntu/at/"/>
+    <id>http://clistery.github.io/2022/10/18/ubuntu/at/</id>
+    <published>2022-10-18T09:05:48.000Z</published>
+    <updated>2022-10-20T02:14:09.283Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;at 命令可以将某些命令或任务放到指定的时间自动执行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&quot;TIPS&quot;&gt;&lt;a href=&quot;#TIPS&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
+    
+    
+    <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
+    
+    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
+    
+    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>markdown 示例</title>
+    <link href="http://clistery.github.io/2022/10/18/markdown-sample/"/>
+    <id>http://clistery.github.io/2022/10/18/markdown-sample/</id>
+    <published>2022-10-18T07:45:22.000Z</published>
+    <updated>2022-10-20T02:14:09.283Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Markdown-使用示例&quot;&gt;&lt;a href=&quot;#Markdown-使用示例&quot; class=&quot;headerlink&quot; title=&quot;Markdown 使用示例&quot;&gt;&lt;/a&gt;Markdown 使用示例&lt;/h1&gt;&lt;hr&gt;
+&lt;h3 id=&quot;1-斜体和粗体&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="markdown" scheme="http://clistery.github.io/categories/markdown/"/>
+    
+    
+    <category term="markdown" scheme="http://clistery.github.io/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Ubuntu 中用命令行查看流量占用</title>
+    <link href="http://clistery.github.io/2022/10/18/ubuntu/nethogs/"/>
+    <id>http://clistery.github.io/2022/10/18/ubuntu/nethogs/</id>
+    <published>2022-10-18T06:36:55.000Z</published>
+    <updated>2022-10-20T02:14:09.283Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;使用 nethogs 工具，我们可以 top 命令一样查看网卡\进程的流量占用情况&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
+    
+    
+    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
+    
+    <category term="net" scheme="http://clistery.github.io/tags/net/"/>
     
   </entry>
   

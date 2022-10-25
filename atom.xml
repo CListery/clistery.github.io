@@ -6,7 +6,7 @@
   <link href="http://clistery.github.io/atom.xml" rel="self"/>
   
   <link href="http://clistery.github.io/"/>
-  <updated>2022-10-24T01:07:49.578Z</updated>
+  <updated>2022-10-25T02:04:03.461Z</updated>
   <id>http://clistery.github.io/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>使用 token 访问 git 仓库</title>
+    <link href="http://clistery.github.io/2022/10/24/git/token-use/"/>
+    <id>http://clistery.github.io/2022/10/24/git/token-use/</id>
+    <published>2022-10-24T09:04:17.000Z</published>
+    <updated>2022-10-25T02:04:03.461Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;使用-token-访问-git-仓库&quot;&gt;&lt;a href=&quot;#使用-token-访问-git-仓库&quot; class=&quot;headerlink&quot; title=&quot;使用 token 访问 git 仓库&quot;&gt;&lt;/a&gt;使用 token 访问 git</summary>
+        
+      
+    
+    
+    
+    <category term="git" scheme="http://clistery.github.io/categories/git/"/>
+    
+    
+    <category term="token" scheme="http://clistery.github.io/tags/token/"/>
+    
+    <category term="git" scheme="http://clistery.github.io/tags/git/"/>
+    
+    <category term="gitlab" scheme="http://clistery.github.io/tags/gitlab/"/>
+    
+    <category term="github" scheme="http://clistery.github.io/tags/github/"/>
+    
+    <category term="svc" scheme="http://clistery.github.io/tags/svc/"/>
+    
+  </entry>
+  
+  <entry>
     <title>在 HexoMatery 主题下配置 utteranc 评论插件</title>
     <link href="http://clistery.github.io/2022/10/20/blog/hexo-matery-setup-utteranc/"/>
     <id>http://clistery.github.io/2022/10/20/blog/hexo-matery-setup-utteranc/</id>
     <published>2022-10-20T01:10:16.000Z</published>
-    <updated>2022-10-24T01:07:49.578Z</updated>
+    <updated>2022-10-25T02:04:03.461Z</updated>
     
     
       
@@ -50,7 +83,7 @@
     <link href="http://clistery.github.io/2022/10/19/blog/hexo-setup/"/>
     <id>http://clistery.github.io/2022/10/19/blog/hexo-setup/</id>
     <published>2022-10-19T08:33:05.000Z</published>
-    <updated>2022-10-24T01:07:49.578Z</updated>
+    <updated>2022-10-25T02:04:03.461Z</updated>
     
     
       
@@ -77,7 +110,7 @@
     <link href="http://clistery.github.io/2022/10/19/android/aosp-get/"/>
     <id>http://clistery.github.io/2022/10/19/android/aosp-get/</id>
     <published>2022-10-19T07:35:41.000Z</published>
-    <updated>2022-10-24T01:07:49.578Z</updated>
+    <updated>2022-10-25T02:04:03.457Z</updated>
     
     
       
@@ -109,7 +142,7 @@
     <link href="http://clistery.github.io/2022/10/19/android/button-without-padding/"/>
     <id>http://clistery.github.io/2022/10/19/android/button-without-padding/</id>
     <published>2022-10-19T02:04:38.000Z</published>
-    <updated>2022-10-24T01:07:49.578Z</updated>
+    <updated>2022-10-25T02:04:03.461Z</updated>
     
     
       
@@ -141,7 +174,7 @@
     <link href="http://clistery.github.io/2022/10/18/ubuntu/scp/"/>
     <id>http://clistery.github.io/2022/10/18/ubuntu/scp/</id>
     <published>2022-10-18T09:06:18.000Z</published>
-    <updated>2022-10-24T01:07:49.578Z</updated>
+    <updated>2022-10-25T02:04:03.461Z</updated>
     
     
       
@@ -171,15 +204,15 @@
     <link href="http://clistery.github.io/2022/10/18/ubuntu/rsync/"/>
     <id>http://clistery.github.io/2022/10/18/ubuntu/rsync/</id>
     <published>2022-10-18T09:06:08.000Z</published>
-    <updated>2022-10-24T01:07:49.578Z</updated>
+    <updated>2022-10-25T02:04:03.461Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;rsync 全称 Remote Sync.&lt;br&gt;rsync是linux系统下的数据镜像备份工具。使用快速增量备份工具Remote</summary>
+    <summary type="html">&lt;h1 id=&quot;rsync-命令&quot;&gt;&lt;a href=&quot;#rsync-命令&quot; class=&quot;headerlink&quot; title=&quot;rsync 命令&quot;&gt;&lt;/a&gt;rsync 命令&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;rsync 全称 Remote</summary>
         
       
     
@@ -201,7 +234,7 @@
     <link href="http://clistery.github.io/2022/10/18/ubuntu/jobs/"/>
     <id>http://clistery.github.io/2022/10/18/ubuntu/jobs/</id>
     <published>2022-10-18T09:05:58.000Z</published>
-    <updated>2022-10-24T01:07:49.578Z</updated>
+    <updated>2022-10-25T02:04:03.461Z</updated>
     
     
       
@@ -231,7 +264,7 @@
     <link href="http://clistery.github.io/2022/10/18/ubuntu/at/"/>
     <id>http://clistery.github.io/2022/10/18/ubuntu/at/</id>
     <published>2022-10-18T09:05:48.000Z</published>
-    <updated>2022-10-24T01:07:49.578Z</updated>
+    <updated>2022-10-25T02:04:03.461Z</updated>
     
     
       
@@ -263,7 +296,7 @@
     <link href="http://clistery.github.io/2022/10/18/markdown-sample/"/>
     <id>http://clistery.github.io/2022/10/18/markdown-sample/</id>
     <published>2022-10-18T07:45:22.000Z</published>
-    <updated>2022-10-24T01:07:49.578Z</updated>
+    <updated>2022-10-25T02:04:03.461Z</updated>
     
     
       
@@ -289,7 +322,7 @@
     <link href="http://clistery.github.io/2022/10/18/ubuntu/nethogs/"/>
     <id>http://clistery.github.io/2022/10/18/ubuntu/nethogs/</id>
     <published>2022-10-18T06:36:55.000Z</published>
-    <updated>2022-10-24T01:07:49.578Z</updated>
+    <updated>2022-10-25T02:04:03.461Z</updated>
     
     
       

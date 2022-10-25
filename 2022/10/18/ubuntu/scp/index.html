@@ -397,16 +397,15 @@ Linux scp 命令用于 Linux 之间复制文件和目录。scp 是 secure copy �
                 <blockquote>
 <p>Linux scp 命令用于 Linux 之间复制文件和目录。<br>scp 是 secure copy 的缩写, scp 是 linux 系统下基于 ssh 登陆进行安全的远程文件拷贝命令。<br>scp 是加密的，rcp 是不加密的，scp 是 rcp 的加强版。</p>
 </blockquote>
-<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><ul>
-<li>-B 使用批处理模式（传输过程中不询问传输口令或短语）</li>
-<li>-C 允许压缩。（将-C标志传递给ssh，从而打开压缩功能）</li>
-<li>-p 保留原文件的修改时间，访问时间和访问权限。</li>
-<li>-q 不显示传输进度条。</li>
-<li>-r 递归复制整个目录。</li>
-<li>-v 详细方式显示输出。scp和ssh(1)会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题。</li>
-<li>-l limit 限定用户所能使用的带宽，以Kbit/s为单位。</li>
-<li>-P port：注意是大写的P, port是指定数据传输用到的端口号</li>
-</ul>
+<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-B</span> 使用批处理模式（传输过程中不询问传输口令或短语）
+<span class="token parameter variable">-C</span> 允许压缩。（将-C标志传递给ssh，从而打开压缩功能）
+<span class="token parameter variable">-p</span> 保留原文件的修改时间，访问时间和访问权限。
+<span class="token parameter variable">-q</span> 不显示传输进度条。
+<span class="token parameter variable">-r</span> 递归复制整个目录。
+<span class="token parameter variable">-v</span> 详细方式显示输出。scp和ssh<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题。
+<span class="token parameter variable">-l</span> limit 限定用户所能使用的带宽，以Kbit/s为单位。
+<span class="token parameter variable">-P</span> port：注意是大写的P, port是指定数据传输用到的端口号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
 <li><p>从本地复制到远程</p>
 <ul>
@@ -903,7 +902,7 @@ Linux scp 命令用于 Linux 之间复制文件和目录。scp 是 secure copy �
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">5k</span>
+                        class="white-color">5.2k</span>
             
             
             

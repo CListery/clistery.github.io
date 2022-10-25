@@ -4,16 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="at 命令, CYH的技术博客">
-    <meta name="description" content="
-at 命令可以将某些命令或任务放到指定的时间自动执行
+    <meta name="keywords" content="script 命令, CYH的技术博客">
+    <meta name="description" content="script 命令
+有时我们需要在脚本中加入一些有进度状态的命令，为了既能让我们的脚本无需人工守候，又能方便的监测到这些命令的执行情况时，就该 script 登场了
 
-TIPS
-at 命令与 jobs 命令有所不同，当登录用户退出后 jobs 命令的任务会被取消，而 at 命令则不会
-
-命令说明-V 输出版本号
--f 指定脚本文件
--l 查看查看任">
+常用参数-a 以追加的形式，将命令的执行状态输出到指定的文件中
+-c 运">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +21,7 @@ at 命令与 jobs 命令有所不同，当登录用户退出后 jobs 命令的�
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>at 命令 | CYH的技术博客</title>
+    <title>script 命令 | CYH的技术博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -295,12 +291,12 @@ at 命令与 jobs 命令有所不同，当登录用户退出后 jobs 命令的�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/images/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/images/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">at 命令</h1>
+                    <h1 class="description center-align post-title">script 命令</h1>
                 </div>
             </div>
         </div>
@@ -357,7 +353,7 @@ at 命令与 jobs 命令有所不同，当登录用户退出后 jobs 命令的�
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-18
+                    2022-10-25
                 </div>
                 
 
@@ -371,7 +367,7 @@ at 命令与 jobs 命令有所不同，当登录用户退出后 jobs 命令的�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    275
+                    183
                 </div>
                 
 
@@ -401,33 +397,18 @@ at 命令与 jobs 命令有所不同，当登录用户退出后 jobs 命令的�
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>at 命令可以将某些命令或任务放到指定的时间自动执行</p>
+                <h1 id="script-命令"><a href="#script-命令" class="headerlink" title="script 命令"></a>script 命令</h1><blockquote>
+<p>有时我们需要在脚本中加入一些有进度状态的命令，为了既能让我们的脚本无需人工守候，又能方便的监测到这些命令的执行情况时，就该 script 登场了</p>
 </blockquote>
-<h5 id="TIPS"><a href="#TIPS" class="headerlink" title="TIPS"></a>TIPS</h5><blockquote>
-<p><code>at 命令与 jobs 命令有所不同，当登录用户退出后 jobs 命令的任务会被取消，而 at 命令则不会</code></p>
-</blockquote>
-<h3 id="命令说明"><a href="#命令说明" class="headerlink" title="命令说明"></a>命令说明</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-V</span> 输出版本号
-<span class="token parameter variable">-f</span> 指定脚本文件
-<span class="token parameter variable">-l</span> 查看查看任务队列，等同于atq
-<span class="token parameter variable">-d</span> 删除指定任务，等同于atrm
-<span class="token parameter variable">-r</span> 删除指定任务，等同于atrm
-<span class="token parameter variable">-c</span> 打印任务的内容到标准输出
+<h2 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-a</span> 以追加的形式，将命令的执行状态输出到指定的文件中
+<span class="token parameter variable">-c</span> 运行指定命令
+<span class="token parameter variable">-q</span> 让 <span class="token parameter variable">-c</span> 指定的命令以静默方式运行，比如删除文件时的确认提示<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-atrm 删除指定任务
-atq 查看任务队列<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>创建指定时间执行命令的任务</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">~ at <span class="token number">17</span>:13 <span class="token comment"># 设定当时间到达 17:13 时</span>
-at<span class="token operator">&gt;</span> <span class="token builtin class-name">echo</span> <span class="token string">"hello"</span> <span class="token operator">&gt;&gt;</span> a <span class="token comment"># 将 `hello` 输出到 a 文件中</span>
-at<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>EOT<span class="token operator">&gt;</span> <span class="token comment"># 按下 `ctrl+d` 创建任务</span>
-job <span class="token number">9</span> at Tue Oct <span class="token number">18</span> <span class="token number">17</span>:13:00 <span class="token number">2022</span> <span class="token comment"># 返回任务 id 为 9 并将在指定的时间执行该任务</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>创建指定时间执行脚本的任务</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">at <span class="token parameter variable">-f</span> upload.sh <span class="token number">17</span>:13<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>或者也可以使用立即执行的方式来实现等同于 <code>&amp;</code> 的效果</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">at <span class="token parameter variable">-f</span> upload.sh now<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><ul>
+<li><p>记录 scp 过程</p>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">script <span class="token parameter variable">-q</span> <span class="token parameter variable">-a</span> record.log <span class="token parameter variable">-c</span> <span class="token string">"scp xxx.zip remote:/"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>当然 script 能做到的不止这些，你还可以使用该命令去记录每个 shell 用户的所有操作，等等</p>
 
                 
             </div>
@@ -454,7 +435,7 @@ job <span class="token number">9</span> at Tue Oct <span class="token number">18
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://clistery.github.io/2022/10/18/ubuntu/at/">http://clistery.github.io/2022/10/18/ubuntu/at/</a>
+                    <a href="http://clistery.github.io/2022/10/25/ubuntu/script/">http://clistery.github.io/2022/10/25/ubuntu/script/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -628,17 +609,18 @@ job <span class="token number">9</span> at Tue Oct <span class="token number">18
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/10/18/ubuntu/jobs/">
+                <a href="/2022/10/25/ubuntu/script/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/images/0.jpg" class="responsive-img" alt="jobs 命令">
+                        <img src="/medias/images/0.jpg" class="responsive-img" alt="script 命令">
                         
-                        <span class="card-title">jobs 命令</span>
+                        <span class="card-title">script 命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -648,9 +630,9 @@ job <span class="token number">9</span> at Tue Oct <span class="token number">18
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -663,6 +645,7 @@ job <span class="token number">9</span> at Tue Oct <span class="token number">18
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -689,13 +672,13 @@ job <span class="token number">9</span> at Tue Oct <span class="token number">18
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/18/markdown-sample/">
+                <a href="/2022/10/24/git/token-use/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/images/2.jpg" class="responsive-img" alt="markdown 示例">
+                        <img src="/medias/images/2.jpg" class="responsive-img" alt="使用 token 访问 git 仓库">
                         
-                        <span class="card-title">markdown 示例</span>
+                        <span class="card-title">使用 token 访问 git 仓库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -706,14 +689,14 @@ job <span class="token number">9</span> at Tue Oct <span class="token number">18
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/markdown/" class="post-category">
-                                    markdown
+                            <a href="/categories/git/" class="post-category">
+                                    git
                                 </a>
                             
                             
@@ -723,8 +706,24 @@ job <span class="token number">9</span> at Tue Oct <span class="token number">18
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/markdown/">
-                        <span class="chip bg-color">markdown</span>
+                    <a href="/tags/token/">
+                        <span class="chip bg-color">token</span>
+                    </a>
+                    
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
+                    </a>
+                    
+                    <a href="/tags/gitlab/">
+                        <span class="chip bg-color">gitlab</span>
+                    </a>
+                    
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
+                    </a>
+                    
+                    <a href="/tags/svc/">
+                        <span class="chip bg-color">svc</span>
                     </a>
                     
                 </div>

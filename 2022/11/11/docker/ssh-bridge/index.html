@@ -4,18 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="在 Ubuntu 中用命令行查看流量占用, CYH的技术博客">
-    <meta name="description" content="
-使用 nethogs 工具，我们可以 top 命令一样查看网卡\进程的流量占用情况
-
-安装sudo apt install nethogs
-
-运行sudo nethogs
-
-
-如果没有报错的话你就会看到下面的界面
-
-命令说明-V : 显示">
+    <meta name="keywords" content="通过 ssh 桥接方式连接远程 docker 中的 ubuntu, CYH的技术博客">
+    <meta name="description" content="通过 ssh 桥接方式连接远程 docker 中的 ubuntu
+很多时候我们的 docker 环境都不在本地，而通过 ssh 连接远程服务器然后在通过 docker 命令进入容器貌似又有点繁琐，所以直接一步到位搞个跳板可以让我们直接访问到">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -27,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>在 Ubuntu 中用命令行查看流量占用 | CYH的技术博客</title>
+    <title>通过 ssh 桥接方式连接远程 docker 中的 ubuntu | CYH的技术博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -302,7 +293,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">在 Ubuntu 中用命令行查看流量占用</h1>
+                    <h1 class="description center-align post-title">通过 ssh 桥接方式连接远程 docker 中的 ubuntu</h1>
                 </div>
             </div>
         </div>
@@ -326,12 +317,16 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/docker/">
+                                <span class="chip bg-color">docker</span>
+                            </a>
+                        
                             <a href="/tags/ubuntu/">
                                 <span class="chip bg-color">ubuntu</span>
                             </a>
                         
-                            <a href="/tags/net/">
-                                <span class="chip bg-color">net</span>
+                            <a href="/tags/ssh/">
+                                <span class="chip bg-color">ssh</span>
                             </a>
                         
                     </div>
@@ -342,8 +337,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/tools/" class="post-category">
-                                tools
+                            <a href="/categories/docker/" class="post-category">
+                                docker
                             </a>
                         
                     </div>
@@ -355,7 +350,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-18
+                    2022-11-11
                 </div>
                 
 
@@ -369,7 +364,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    193
+                    248
                 </div>
                 
 
@@ -399,29 +394,50 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>使用 nethogs 工具，我们可以 top 命令一样查看网卡\进程的流量占用情况</p>
+                <h1 id="通过-ssh-桥接方式连接远程-docker-中的-ubuntu"><a href="#通过-ssh-桥接方式连接远程-docker-中的-ubuntu" class="headerlink" title="通过 ssh 桥接方式连接远程 docker 中的 ubuntu"></a>通过 ssh 桥接方式连接远程 docker 中的 ubuntu</h1><blockquote>
+<p>很多时候我们的 docker 环境都不在本地，而通过 ssh 连接远程服务器然后在通过 docker 命令进入容器貌似又有点繁琐，所以直接一步到位搞个跳板可以让我们直接访问到容器</p>
 </blockquote>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> nethogs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="配置容器"><a href="#配置容器" class="headerlink" title="配置容器"></a>配置容器</h2><h3 id="DockerCompose"><a href="#DockerCompose" class="headerlink" title="DockerCompose"></a>DockerCompose</h3><ul>
+<li><p>配置 <code>docker-compose.yml</code></p>
+  <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3.8"</span>
 
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> nethogs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+    <span class="token key atrule">ccc</span><span class="token punctuation">:</span>
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">:</span><span class="token number">20.04</span>
+        <span class="token key atrule">container_name</span><span class="token punctuation">:</span> <span class="token string">"ubuntu_2004"</span>
+        <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+        <span class="token key atrule">tty</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> <span class="token string">"9500:80"</span>
+            <span class="token punctuation">-</span> <span class="token string">"9501:22"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>运行</p>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>进入容器</p>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> ubuntu_2004 /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>安装 openssh-server</p>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">apt</span> <span class="token function">install</span> openssh-server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>配置 ssh 公钥</p>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> ~/.ssh <span class="token operator">&amp;&amp;</span> <span class="token function">touch</span> ~/.ssh/authorized_keys <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> <span class="token number">600</span> ~/.ssh/authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+<p>最后将公钥写入到 <code>~/.ssh/authorized_keys</code> 文件中，就完成了容器配置</p>
+<h3 id="本地跳板配置"><a href="#本地跳板配置" class="headerlink" title="本地跳板配置"></a>本地跳板配置</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 远程主机(跳板)</span>
+Host ubuntu
+    Port <span class="token number">22</span>
+    User ubuntu
+    IdentityFile ~/.ssh/id_rsa
+<span class="token comment"># docker 容器</span>
+Host docker_ubuntu
+    HostName <span class="token number">0.0</span>.0.0
+    Port <span class="token number">9501</span>
+    User root
+    IdentityFile ~/.ssh/id_rsa
+    ProxyCommand <span class="token function">ssh</span> <span class="token parameter variable">-q</span> <span class="token parameter variable">-W</span> %h:%p ubuntu<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<blockquote>
-<p>如果没有报错的话你就会看到下面的界面<br><img src="/medias/images/nethogs.png" alt="nethogs运行效果"></p>
-</blockquote>
-<h3 id="命令说明"><a href="#命令说明" class="headerlink" title="命令说明"></a>命令说明</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-V</span> <span class="token builtin class-name">:</span> 显示版本
-<span class="token parameter variable">-h</span> <span class="token builtin class-name">:</span> 显示帮助信息
-<span class="token parameter variable">-b</span> <span class="token builtin class-name">:</span> 比 <span class="token parameter variable">-t</span> 更为详细的跟踪模式
-<span class="token parameter variable">-d</span> <span class="token builtin class-name">:</span> 数据刷新时间 如 nethogs <span class="token parameter variable">-d</span> <span class="token number">1</span> 就是每秒刷新一次
-<span class="token parameter variable">-v</span> <span class="token builtin class-name">:</span> 查看模式<span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">=</span> KB/s, <span class="token number">1</span> <span class="token operator">=</span> 显示总流量单位KB, <span class="token number">2</span> <span class="token operator">=</span> 显示总流量单位B, <span class="token number">3</span> <span class="token operator">=</span> 显示总流量单位MB<span class="token punctuation">)</span>. 默认为 <span class="token number">0</span>.
-<span class="token parameter variable">-c</span> <span class="token builtin class-name">:</span> 刷新次数
-<span class="token parameter variable">-t</span> <span class="token builtin class-name">:</span> 跟踪模式
-
-在 nethogs 运行过程中按下<span class="token punctuation">(</span>类似 <span class="token function">top</span> 快捷键<span class="token punctuation">)</span>:
-q: 退出
-s: 按发送流量排序
-r: 按接收流量排序
-m: 切换查看模式 <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>然后通过 <code>ssh docker_ubuntu</code> 命令就可以直接访问到远程 docker 容器了~</p>
 
                 
             </div>
@@ -448,7 +464,7 @@ m: 切换查看模式 <span class="token parameter variable">-v</span><span aria
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://clistery.github.io/2022/10/18/ubuntu/nethogs/">http://clistery.github.io/2022/10/18/ubuntu/nethogs/</a>
+                    <a href="http://clistery.github.io/2022/11/11/docker/ssh-bridge/">http://clistery.github.io/2022/11/11/docker/ssh-bridge/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -486,12 +502,16 @@ m: 切换查看模式 <span class="token parameter variable">-v</span><span aria
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/docker/">
+                                    <span class="chip bg-color">docker</span>
+                                </a>
+                            
                                 <a href="/tags/ubuntu/">
                                     <span class="chip bg-color">ubuntu</span>
                                 </a>
                             
-                                <a href="/tags/net/">
-                                    <span class="chip bg-color">net</span>
+                                <a href="/tags/ssh/">
+                                    <span class="chip bg-color">ssh</span>
                                 </a>
                             
                         </div>
@@ -618,66 +638,18 @@ m: 切换查看模式 <span class="token parameter variable">-v</span><span aria
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/10/18/markdown-sample/">
+                <a href="/2022/11/11/docker/ssh-bridge/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/images/2.jpg" class="responsive-img" alt="markdown 示例">
+                        <img src="/medias/images/0.jpg" class="responsive-img" alt="通过 ssh 桥接方式连接远程 docker 中的 ubuntu">
                         
-                        <span class="card-title">markdown 示例</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-18
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/markdown/" class="post-category">
-                                    markdown
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/markdown/">
-                        <span class="chip bg-color">markdown</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/10/18/ubuntu/nethogs/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/images/0.jpg" class="responsive-img" alt="在 Ubuntu 中用命令行查看流量占用">
-                        
-                        <span class="card-title">在 Ubuntu 中用命令行查看流量占用</span>
+                        <span class="card-title">通过 ssh 桥接方式连接远程 docker 中的 ubuntu</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -688,7 +660,65 @@ m: 切换查看模式 <span class="token parameter variable">-v</span><span aria
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/docker/" class="post-category">
+                                    docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
+                    </a>
+                    
+                    <a href="/tags/ubuntu/">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
+                    
+                    <a href="/tags/ssh/">
+                        <span class="chip bg-color">ssh</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/10/25/ubuntu/script/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/images/0.jpg" class="responsive-img" alt="script 命令">
+                        
+                        <span class="card-title">script 命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-25
                             </span>
                         <span class="publish-author">
                             
@@ -702,7 +732,6 @@ m: 切换查看模式 <span class="token parameter variable">-v</span><span aria
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -710,8 +739,12 @@ m: 切换查看模式 <span class="token parameter variable">-v</span><span aria
                         <span class="chip bg-color">ubuntu</span>
                     </a>
                     
-                    <a href="/tags/net/">
-                        <span class="chip bg-color">net</span>
+                    <a href="/tags/tools/">
+                        <span class="chip bg-color">tools</span>
+                    </a>
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
                     </a>
                     
                 </div>

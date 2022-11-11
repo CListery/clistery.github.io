@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>通过 ssh 桥接方式连接远程 docker 中的 ubuntu</title>
+      <link href="/2022/11/11/docker/ssh-bridge/"/>
+      <url>/2022/11/11/docker/ssh-bridge/</url>
+      
+        <content type="html"><![CDATA[<h1 id="通过-ssh-桥接方式连接远程-docker-中的-ubuntu"><a href="#通过-ssh-桥接方式连接远程-docker-中的-ubuntu" class="headerlink" title="通过 ssh 桥接方式连接远程 docker 中的 ubuntu"></a>通过 ssh 桥接方式连接远程 docker 中的 ubuntu</h1><blockquote><p>很多时候我们的 docker 环境都不在本地，而通过 ssh 连接远程服务器然后在通过 docker 命令进入容器貌似又有点繁琐，所以直接一步到位搞个跳板可以让我们直接访问到容器</p></blockquote><h2 id="配置容器"><a href="#配置容器" class="headerlink" title="配置容器"></a>配置容器</h2><h3 id="DockerCompose"><a href="#DockerCompose" class="headerlink" title="DockerCompose"></a>DockerCompose</h3><ul><li><p>配置 <code>docker-compose.yml</code></p>  <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3.8"</span><span class="token key atrule">services</span><span class="token punctuation">:</span>    <span class="token key atrule">ccc</span><span class="token punctuation">:</span>        <span class="token key atrule">image</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">:</span><span class="token number">20.04</span>        <span class="token key atrule">container_name</span><span class="token punctuation">:</span> <span class="token string">"ubuntu_2004"</span>        <span class="token key atrule">restart</span><span class="token punctuation">:</span> always        <span class="token key atrule">tty</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>        <span class="token key atrule">ports</span><span class="token punctuation">:</span>            <span class="token punctuation">-</span> <span class="token string">"9500:80"</span>            <span class="token punctuation">-</span> <span class="token string">"9501:22"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>运行</p>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>进入容器</p>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> ubuntu_2004 /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>安装 openssh-server</p>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">apt</span> <span class="token function">install</span> openssh-server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>配置 ssh 公钥</p>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> ~/.ssh <span class="token operator">&amp;&amp;</span> <span class="token function">touch</span> ~/.ssh/authorized_keys <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> <span class="token number">600</span> ~/.ssh/authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul><p>最后将公钥写入到 <code>~/.ssh/authorized_keys</code> 文件中，就完成了容器配置</p><h3 id="本地跳板配置"><a href="#本地跳板配置" class="headerlink" title="本地跳板配置"></a>本地跳板配置</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 远程主机(跳板)</span>Host ubuntu    Port <span class="token number">22</span>    User ubuntu    IdentityFile ~/.ssh/id_rsa<span class="token comment"># docker 容器</span>Host docker_ubuntu    HostName <span class="token number">0.0</span>.0.0    Port <span class="token number">9501</span>    User root    IdentityFile ~/.ssh/id_rsa    ProxyCommand <span class="token function">ssh</span> <span class="token parameter variable">-q</span> <span class="token parameter variable">-W</span> %h:%p ubuntu<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>然后通过 <code>ssh docker_ubuntu</code> 命令就可以直接访问到远程 docker 容器了~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> ubuntu </tag>
+            
+            <tag> ssh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>script 命令</title>
       <link href="/2022/10/25/ubuntu/script/"/>
       <url>/2022/10/25/ubuntu/script/</url>
@@ -20,9 +49,9 @@
       
         <tags>
             
-            <tag> tools </tag>
-            
             <tag> ubuntu </tag>
+            
+            <tag> tools </tag>
             
             <tag> shell </tag>
             
@@ -196,9 +225,9 @@
       
         <tags>
             
-            <tag> tools </tag>
-            
             <tag> ubuntu </tag>
+            
+            <tag> tools </tag>
             
             <tag> shell </tag>
             
@@ -225,9 +254,9 @@
       
         <tags>
             
-            <tag> tools </tag>
-            
             <tag> ubuntu </tag>
+            
+            <tag> tools </tag>
             
             <tag> shell </tag>
             
@@ -254,9 +283,9 @@
       
         <tags>
             
-            <tag> tools </tag>
-            
             <tag> ubuntu </tag>
+            
+            <tag> tools </tag>
             
             <tag> shell </tag>
             
@@ -283,9 +312,9 @@
       
         <tags>
             
-            <tag> tools </tag>
-            
             <tag> ubuntu </tag>
+            
+            <tag> tools </tag>
             
             <tag> shell </tag>
             

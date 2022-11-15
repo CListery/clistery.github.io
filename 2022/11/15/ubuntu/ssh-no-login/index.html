@@ -4,9 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="通过 ssh 桥接方式连接远程 docker 中的 ubuntu, CYH的技术博客">
-    <meta name="description" content="通过 ssh 桥接方式连接远程 docker 中的 ubuntu
-很多时候我们的 docker 环境都不在本地，而通过 ssh 连接远程服务器然后在通过 docker 命令进入容器貌似又有点繁琐，所以直接一步到位搞个跳板可以让我们直接访问到">
+    <meta name="keywords" content="ssh-no-login, CYH的技术博客">
+    <meta name="description" content="ssh 实现指定用户仅认证不登录
+当我们有 ssh 代理代理转发的需求时，就可以在跳板机上做一个仅任认证不登录的用户，用来防止跳板机被以外登录
+
+创建用户sudo adduser jump
+
+配置 sshd先切换到 jump 用户
+欢迎信息">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +23,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>通过 ssh 桥接方式连接远程 docker 中的 ubuntu | CYH的技术博客</title>
+    <title>ssh-no-login | CYH的技术博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -293,7 +298,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">通过 ssh 桥接方式连接远程 docker 中的 ubuntu</h1>
+                    <h1 class="description center-align post-title">ssh-no-login</h1>
                 </div>
             </div>
         </div>
@@ -315,33 +320,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/docker/">
-                                <span class="chip bg-color">docker</span>
-                            </a>
-                        
-                            <a href="/tags/ubuntu/">
-                                <span class="chip bg-color">ubuntu</span>
-                            </a>
-                        
-                            <a href="/tags/ssh/">
-                                <span class="chip bg-color">ssh</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/docker/" class="post-category">
-                                docker
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -350,7 +334,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-11
+                    2022-11-15
                 </div>
                 
 
@@ -364,7 +348,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    248
+                    493
                 </div>
                 
 
@@ -394,50 +378,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="通过-ssh-桥接方式连接远程-docker-中的-ubuntu"><a href="#通过-ssh-桥接方式连接远程-docker-中的-ubuntu" class="headerlink" title="通过 ssh 桥接方式连接远程 docker 中的 ubuntu"></a>通过 ssh 桥接方式连接远程 docker 中的 ubuntu</h1><blockquote>
-<p>很多时候我们的 docker 环境都不在本地，而通过 ssh 连接远程服务器然后在通过 docker 命令进入容器貌似又有点繁琐，所以直接一步到位搞个跳板可以让我们直接访问到容器</p>
+                <h1 id="ssh-实现指定用户仅认证不登录"><a href="#ssh-实现指定用户仅认证不登录" class="headerlink" title="ssh 实现指定用户仅认证不登录"></a>ssh 实现指定用户仅认证不登录</h1><blockquote>
+<p>当我们有 ssh 代理代理转发的需求时，就可以在跳板机上做一个仅任认证不登录的用户，用来防止跳板机被以外登录</p>
 </blockquote>
-<h2 id="配置容器"><a href="#配置容器" class="headerlink" title="配置容器"></a>配置容器</h2><h3 id="DockerCompose"><a href="#DockerCompose" class="headerlink" title="DockerCompose"></a>DockerCompose</h3><ul>
-<li><p>配置 <code>docker-compose.yml</code></p>
-  <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3.8"</span>
+<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> adduser jump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<span class="token key atrule">services</span><span class="token punctuation">:</span>
-    <span class="token key atrule">ccc</span><span class="token punctuation">:</span>
-        <span class="token key atrule">image</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">:</span><span class="token number">20.04</span>
-        <span class="token key atrule">container_name</span><span class="token punctuation">:</span> <span class="token string">"ubuntu_2004"</span>
-        <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
-        <span class="token key atrule">tty</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
-            <span class="token punctuation">-</span> <span class="token string">"9500:80"</span>
-            <span class="token punctuation">-</span> <span class="token string">"9501:22"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>运行</p>
-  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>进入容器</p>
-  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> ubuntu_2004 /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>安装 openssh-server</p>
-  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">apt</span> <span class="token function">install</span> openssh-server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>配置 ssh 公钥</p>
-  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> ~/.ssh <span class="token operator">&amp;&amp;</span> <span class="token function">touch</span> ~/.ssh/authorized_keys <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> <span class="token number">600</span> ~/.ssh/authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ul>
-<p>最后将公钥写入到 <code>~/.ssh/authorized_keys</code> 文件中，就完成了容器配置</p>
-<h3 id="本地跳板配置"><a href="#本地跳板配置" class="headerlink" title="本地跳板配置"></a>本地跳板配置</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 远程主机(跳板)</span>
-Host ubuntu
-    Port <span class="token number">22</span>
-    User ubuntu
-    IdentityFile ~/.ssh/id_rsa
-<span class="token comment"># docker 容器</span>
-Host docker_ubuntu
-    HostName <span class="token number">0.0</span>.0.0
-    Port <span class="token number">9501</span>
-    User root
-    IdentityFile ~/.ssh/id_rsa
-    ProxyCommand <span class="token function">ssh</span> <span class="token parameter variable">-q</span> <span class="token parameter variable">-W</span> %h:%p ubuntu<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="配置-sshd"><a href="#配置-sshd" class="headerlink" title="配置 sshd"></a>配置 sshd</h3><p>先切换到 jump 用户</p>
+<h4 id="欢迎信息"><a href="#欢迎信息" class="headerlink" title="欢迎信息"></a>欢迎信息</h4><p><code>vim /home/jump/banner</code></p>
+<pre class="line-numbers language-banner" data-language="banner"><code class="language-banner">Ok! You've successfully authenticated.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>然后通过 <code>ssh docker_ubuntu</code> 命令就可以直接访问到远程 docker 容器了~</p>
+<h4 id="创建-authorized-keys"><a href="#创建-authorized-keys" class="headerlink" title="创建 authorized_keys"></a>创建 authorized_keys</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> /home/jump/.ssh <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> <span class="token number">755</span> /home/jump/.ssh
+<span class="token function">vim</span> /home/jump/.ssh/authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>将公钥添加到 <code>authorized_keys</code> 文件中</p>
+<h4 id="修改-sshd-config"><a href="#修改-sshd-config" class="headerlink" title="修改 sshd_config"></a>修改 sshd_config</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/ssh/sshd_config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>将下面的内容添加到 <code>sshd_config</code> 文件末尾</p>
+<pre class="line-numbers language-sshd_config" data-language="sshd_config"><code class="language-sshd_config">Match User jump
+  Banner /home/jump/banner
+  AuthorizedKeysFile /home/jump/.ssh/authorized_keys
+  PasswordAuthentication no
+  PubkeyAuthentication yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="重启-sshd"><a href="#重启-sshd" class="headerlink" title="重启 sshd"></a>重启 sshd</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/init.d/ssh restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>到这里就可以通过正常的 ssh 方式登录 jump 用户了，而且登录时第一行会看到 <code>banner</code> 文件中的内容</p>
+<h3 id="修改-shell-禁用登录"><a href="#修改-shell-禁用登录" class="headerlink" title="修改 shell (禁用登录)"></a>修改 shell (禁用登录)</h3><p><code>vim /etc/passwd</code></p>
+<p>找到 <code>jump</code>，将最后的 <code>/bin/bash</code> 改为 <code>/bin/false</code></p>
+<p>现在再通过 ssh 的方式登录，会先登录成功，然后紧接着就被关闭连接</p>
+<p><code>到这里就已经基本实现了仅认证不登录的实现</code></p>
+<h3 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h3><h4 id="去除登录后显示的系统信息登录信息"><a href="#去除登录后显示的系统信息登录信息" class="headerlink" title="去除登录后显示的系统信息登录信息"></a>去除登录后显示的系统信息登录信息</h4><p>在登录成功后默认会展示一大堆内容，这些是不需要的，所以如何隐藏它？</p>
+<p>很简单，直接在 <code>jump</code> 用户目录下创建一个 <code>.hushlogin</code> 文件即可</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">touch</span> /home/jump/.hushlogin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后再通过 ssh 登录就看不到默认输出的一大堆内容了，就只会看到 <code>banner</code> 文件中的内容</p>
+<h4 id="优化显示登录信息"><a href="#优化显示登录信息" class="headerlink" title="优化显示登录信息"></a>优化显示登录信息</h4><p>如果只想显示登录信息改如何修改？</p>
+<p>还是先按照上面的内容，通过创建 <code>.hushlogin</code> 文件去除默认信息</p>
+<p>然后再通过创建 <code>rc</code> 文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /home/jump/.ssh/rc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>将以下内容写入到 <code>rc</code> 文件中</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lastlog <span class="token parameter variable">-u</span> <span class="token environment constant">$USER</span> <span class="token operator">|</span> perl <span class="token parameter variable">-lane</span> <span class="token string">'END{print "Last login: @F[3..6] $F[8] from $F[2]"}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>再通过 ssh 登录，就只会看到上一次的登录信息了</p>
 
                 
             </div>
@@ -464,7 +447,7 @@ Host docker_ubuntu
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://clistery.github.io/2022/11/11/docker/ssh-bridge/">http://clistery.github.io/2022/11/11/docker/ssh-bridge/</a>
+                    <a href="http://clistery.github.io/2022/11/15/ubuntu/ssh-no-login/">http://clistery.github.io/2022/11/15/ubuntu/ssh-no-login/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -501,19 +484,7 @@ Host docker_ubuntu
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/docker/">
-                                    <span class="chip bg-color">docker</span>
-                                </a>
-                            
-                                <a href="/tags/ubuntu/">
-                                    <span class="chip bg-color">ubuntu</span>
-                                </a>
-                            
-                                <a href="/tags/ssh/">
-                                    <span class="chip bg-color">ssh</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -642,13 +613,13 @@ Host docker_ubuntu
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/11/11/docker/port-22-bug/">
+                <a href="/2022/11/15/cygwin/setup-cygwin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/images/0.jpg" class="responsive-img" alt="port-22-bug">
+                        <img src="/medias/images/0.jpg" class="responsive-img" alt="setup-cygwin">
                         
-                        <span class="card-title">port-22-bug</span>
+                        <span class="card-title">setup-cygwin</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -659,7 +630,7 @@ Host docker_ubuntu
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-11
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-15
                         </span>
                         <span class="publish-author">
                             
@@ -679,13 +650,13 @@ Host docker_ubuntu
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/25/ubuntu/script/">
+                <a href="/2022/11/11/docker/port-22-bug/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/images/0.jpg" class="responsive-img" alt="script 命令">
+                        <img src="/medias/images/0.jpg" class="responsive-img" alt="port-22-bug">
                         
-                        <span class="card-title">script 命令</span>
+                        <span class="card-title">port-22-bug</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -696,35 +667,15 @@ Host docker_ubuntu
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-11
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/tools/" class="post-category">
-                                    tools
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            CListery
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/ubuntu/">
-                        <span class="chip bg-color">ubuntu</span>
-                    </a>
-                    
-                    <a href="/tags/tools/">
-                        <span class="chip bg-color">tools</span>
-                    </a>
-                    
-                    <a href="/tags/shell/">
-                        <span class="chip bg-color">shell</span>
-                    </a>
-                    
                 </div>
                 
             </div>

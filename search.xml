@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>setup-cygwin</title>
+      <title>设置 Cygwin</title>
       <link href="/2022/11/15/cygwin/setup-cygwin/"/>
       <url>/2022/11/15/cygwin/setup-cygwin/</url>
       
@@ -17,7 +17,7 @@
     
     
     <entry>
-      <title>ssh-no-login</title>
+      <title>ssh 实现指定用户仅认证不登录</title>
       <link href="/2022/11/15/ubuntu/ssh-no-login/"/>
       <url>/2022/11/15/ubuntu/ssh-no-login/</url>
       
@@ -30,7 +30,7 @@
     
     
     <entry>
-      <title>port-22-bug</title>
+      <title>记一次 DockerCompose 配置 22 端口映射遇到的坑</title>
       <link href="/2022/11/11/docker/port-22-bug/"/>
       <url>/2022/11/11/docker/port-22-bug/</url>
       

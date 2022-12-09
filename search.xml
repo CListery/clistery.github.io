@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>微信小程序解包</title>
+      <link href="/2022/12/09/reverse/unpkg-wx-app/"/>
+      <url>/2022/12/09/reverse/unpkg-wx-app/</url>
+      
+        <content type="html"><![CDATA[<h1 id="微信小程序解包"><a href="#微信小程序解包" class="headerlink" title="微信小程序解包"></a>微信小程序解包</h1><blockquote><p>通过解包小程序文件我们可以做一些小程序内的代码分析和资源获取</p></blockquote><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="拿到-wxapkg"><a href="#拿到-wxapkg" class="headerlink" title="拿到 wxapkg"></a>拿到 wxapkg</h3><p>第一步先拿到小程序的 wxapkg 文件</p><h4 id="两种方式"><a href="#两种方式" class="headerlink" title="两种方式"></a>两种方式</h4><h5 id="安卓-需要root设备"><a href="#安卓-需要root设备" class="headerlink" title="安卓(需要root设备)"></a>安卓(需要root设备)</h5><p>在以下目录中找到小程序包，如果不确定是哪一个，直接全部删除，然后再重新打开一遍你需要的小程序，然后再看目录下的文件</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/data/data/com.tencent.mm/MicroMsg/<span class="token punctuation">{</span><span class="token punctuation">{</span>user哈希值<span class="token punctuation">}</span><span class="token punctuation">}</span>/appbrand/pkg/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h5 id="windows-需要解密"><a href="#windows-需要解密" class="headerlink" title="windows(需要解密)"></a>windows(需要解密)</h5><p>先打开微信设置，然后找到文件管理</p><p>如下所示，然后点击打开文件夹</p><p><img src="/medias/images/wx-pc-settings-filemanager.png" alt="微信文件管理"></p><p>在打开的文件夹中再找到 <code>Applet</code> 文件夹并打开，就可以看到一堆小程序文件夹了，然后找到你需要的即可<br>如果不确定是哪一个，直接全部删除，然后再重新打开一遍你需要的小程序即可</p><h5 id="解密-wxapkg"><a href="#解密-wxapkg" class="headerlink" title="解密 wxapkg"></a>解密 wxapkg</h5><p>如果你是通过 windows 端获取到的 wxapkg，那么在这之前还需要进行一次解密操作</p><p>下载解密工具 <a href="https://github.com/BlackTrace/pc_wxapkg_decrypt">https://github.com/BlackTrace/pc_wxapkg_decrypt</a></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pc_wxapkg_decrypt.exe <span class="token parameter variable">-wxid</span> <span class="token operator">&lt;</span>appid<span class="token operator">&gt;</span> <span class="token parameter variable">-in</span> <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>.wxapkg <span class="token parameter variable">-out</span> <span class="token operator">&lt;</span>path<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="解压-wxapkg"><a href="#解压-wxapkg" class="headerlink" title="解压 wxapkg"></a>解压 wxapkg</h3><p>下载解压工具 <a href="https://github.com/qwerty472123/wxappUnpacker">https://github.com/qwerty472123/wxappUnpacker</a></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">node</span> wuWxapkg.js <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>.wxapkg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>完事~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> reverse </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> reverse </tag>
+            
+            <tag> wechat </tag>
+            
+            <tag> wxapp </tag>
+            
+            <tag> wxapkg </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>设置 Cygwin</title>
       <link href="/2022/11/15/cygwin/setup-cygwin/"/>
       <url>/2022/11/15/cygwin/setup-cygwin/</url>
@@ -11,6 +42,22 @@
         <content type="html"><![CDATA[<h1 id="设置-Cygwin"><a href="#设置-Cygwin" class="headerlink" title="设置 Cygwin"></a>设置 Cygwin</h1><h2 id="Windows-Terminal-Cygwin"><a href="#Windows-Terminal-Cygwin" class="headerlink" title="Windows Terminal + Cygwin"></a>Windows Terminal + Cygwin</h2><p><a href="https://github.com/microsoft/terminal">Windows Terminal</a></p><p>命令行：<code>${Cygwin安装目录}\Cygwin.bat</code><br>启动目录：勾选使用父进程</p><ul><li>zsh</li></ul><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/passwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>找到你当前用户一行，将末尾改为 <code>/bin/zsh</code></p><h2 id="IntelliJ系列-Cygwin"><a href="#IntelliJ系列-Cygwin" class="headerlink" title="IntelliJ系列 + Cygwin"></a>IntelliJ系列 + Cygwin</h2><p>Settings -&gt; Tools -&gt; Terminal -&gt; Application Settings -&gt; Shell path: <code>${Cygwin安装目录}\Cygwin.bat</code></p><h2 id="VSCode-Cygwin"><a href="#VSCode-Cygwin" class="headerlink" title="VSCode + Cygwin"></a>VSCode + Cygwin</h2><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"terminal.integrated.profiles.windows"</span><span class="token operator">:</span> <span class="token punctuation">{</span>    <span class="token property">"Cygwin"</span><span class="token operator">:</span> <span class="token punctuation">{</span>        <span class="token property">"path"</span><span class="token operator">:</span> <span class="token punctuation">[</span>            <span class="token string">"${Cygwin安装目录}\Cygwin.bat"</span>        <span class="token punctuation">]</span><span class="token punctuation">,</span>        <span class="token property">"icon"</span><span class="token operator">:</span> <span class="token string">"terminal-cmd"</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       
       
+      <categories>
+          
+          <category> cygwin </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cygwin </tag>
+            
+            <tag> linux </tag>
+            
+            <tag> shell </tag>
+            
+        </tags>
       
     </entry>
     
@@ -24,6 +71,20 @@
         <content type="html"><![CDATA[<h1 id="ssh-实现指定用户仅认证不登录"><a href="#ssh-实现指定用户仅认证不登录" class="headerlink" title="ssh 实现指定用户仅认证不登录"></a>ssh 实现指定用户仅认证不登录</h1><blockquote><p>当我们有 ssh 代理代理转发的需求时，就可以在跳板机上做一个仅任认证不登录的用户，用来防止跳板机被以外登录</p></blockquote><h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> adduser jump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="配置-sshd"><a href="#配置-sshd" class="headerlink" title="配置 sshd"></a>配置 sshd</h3><p>先切换到 jump 用户</p><h4 id="欢迎信息"><a href="#欢迎信息" class="headerlink" title="欢迎信息"></a>欢迎信息</h4><p><code>vim /home/jump/banner</code></p><pre class="line-numbers language-banner" data-language="banner"><code class="language-banner">Ok! You've successfully authenticated.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="创建-authorized-keys"><a href="#创建-authorized-keys" class="headerlink" title="创建 authorized_keys"></a>创建 authorized_keys</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> /home/jump/.ssh <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> <span class="token number">755</span> /home/jump/.ssh<span class="token function">vim</span> /home/jump/.ssh/authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>将公钥添加到 <code>authorized_keys</code> 文件中</p><h4 id="修改-sshd-config"><a href="#修改-sshd-config" class="headerlink" title="修改 sshd_config"></a>修改 sshd_config</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/ssh/sshd_config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>将下面的内容添加到 <code>sshd_config</code> 文件末尾</p><pre class="line-numbers language-sshd_config" data-language="sshd_config"><code class="language-sshd_config">Match User jump  Banner /home/jump/banner  AuthorizedKeysFile /home/jump/.ssh/authorized_keys  PasswordAuthentication no  PubkeyAuthentication yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="重启-sshd"><a href="#重启-sshd" class="headerlink" title="重启 sshd"></a>重启 sshd</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/init.d/ssh restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>到这里就可以通过正常的 ssh 方式登录 jump 用户了，而且登录时第一行会看到 <code>banner</code> 文件中的内容</p><h3 id="修改-shell-禁用登录"><a href="#修改-shell-禁用登录" class="headerlink" title="修改 shell (禁用登录)"></a>修改 shell (禁用登录)</h3><p><code>vim /etc/passwd</code></p><p>找到 <code>jump</code>，将最后的 <code>/bin/bash</code> 改为 <code>/bin/false</code></p><p>现在再通过 ssh 的方式登录，会先登录成功，然后紧接着就被关闭连接</p><p><code>到这里就已经基本实现了仅认证不登录的实现</code></p><h3 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h3><h4 id="去除登录后显示的系统信息登录信息"><a href="#去除登录后显示的系统信息登录信息" class="headerlink" title="去除登录后显示的系统信息登录信息"></a>去除登录后显示的系统信息登录信息</h4><p>在登录成功后默认会展示一大堆内容，这些是不需要的，所以如何隐藏它？</p><p>很简单，直接在 <code>jump</code> 用户目录下创建一个 <code>.hushlogin</code> 文件即可</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">touch</span> /home/jump/.hushlogin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>然后再通过 ssh 登录就看不到默认输出的一大堆内容了，就只会看到 <code>banner</code> 文件中的内容</p><h4 id="优化显示登录信息"><a href="#优化显示登录信息" class="headerlink" title="优化显示登录信息"></a>优化显示登录信息</h4><p>如果只想显示登录信息改如何修改？</p><p>还是先按照上面的内容，通过创建 <code>.hushlogin</code> 文件去除默认信息</p><p>然后再通过创建 <code>rc</code> 文件</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /home/jump/.ssh/rc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>将以下内容写入到 <code>rc</code> 文件中</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lastlog <span class="token parameter variable">-u</span> <span class="token environment constant">$USER</span> <span class="token operator">|</span> perl <span class="token parameter variable">-lane</span> <span class="token string">'END{print "Last login: @F[3..6] $F[8] from $F[2]"}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>再通过 ssh 登录，就只会看到上一次的登录信息了</p>]]></content>
       
       
+      <categories>
+          
+          <category> ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> ssh </tag>
+            
+        </tags>
       
     </entry>
     
@@ -37,6 +98,24 @@
         <content type="html"><![CDATA[<h1 id="记一次-DockerCompose-配置-22-端口映射遇到的坑"><a href="#记一次-DockerCompose-配置-22-端口映射遇到的坑" class="headerlink" title="记一次 DockerCompose 配置 22 端口映射遇到的坑"></a>记一次 DockerCompose 配置 22 端口映射遇到的坑</h1><blockquote><p>在一次偶然的机会下触发了一个端口映射的bug</p></blockquote><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><code>docker-compose.yml</code></p><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3.8"</span><span class="token key atrule">services</span><span class="token punctuation">:</span>    <span class="token key atrule">machine</span><span class="token punctuation">:</span>        <span class="token key atrule">image</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">:</span><span class="token number">20.04</span>        <span class="token key atrule">container_name</span><span class="token punctuation">:</span> <span class="token string">"ubuntu_2004"</span>        <span class="token key atrule">restart</span><span class="token punctuation">:</span> always        <span class="token key atrule">tty</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>        <span class="token key atrule">ports</span><span class="token punctuation">:</span>            <span class="token punctuation">-</span> 9500<span class="token punctuation">:</span><span class="token number">80</span>            <span class="token punctuation">-</span> 9501<span class="token punctuation">:</span><span class="token number">22</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>乍一看没啥毛病是吧，运行试一下</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">docker-compose</span> upCreating network <span class="token string">"ubuntu2_default"</span> with the default driverCreating ubuntu_2004 <span class="token punctuation">..</span>. errorERROR: <span class="token keyword">for</span> ubuntu_2004  Cannot create container <span class="token keyword">for</span> <span class="token function">service</span> machine: invalid port specification: <span class="token string">"570082"</span>ERROR: <span class="token keyword">for</span> machine  Cannot create container <span class="token keyword">for</span> <span class="token function">service</span> machine: invalid port specification: <span class="token string">"570082"</span>ERROR: Encountered errors <span class="token keyword">while</span> bringing up the project.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>这就是 22 端口导致的问题，我们把配置文件的端口改为以下写法就可以解决问题了</p><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">ports</span><span class="token punctuation">:</span>    <span class="token punctuation">-</span> <span class="token string">"9500:80"</span>    <span class="token punctuation">-</span> <span class="token string">"9501:22"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>]]></content>
       
       
+      <categories>
+          
+          <category> docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ssh </tag>
+            
+            <tag> docker </tag>
+            
+            <tag> 22-port </tag>
+            
+            <tag> bugs </tag>
+            
+        </tags>
       
     </entry>
     
@@ -59,11 +138,11 @@
       
         <tags>
             
+            <tag> ssh </tag>
+            
             <tag> docker </tag>
             
             <tag> ubuntu </tag>
-            
-            <tag> ssh </tag>
             
         </tags>
       
@@ -88,11 +167,11 @@
       
         <tags>
             
+            <tag> shell </tag>
+            
             <tag> ubuntu </tag>
             
             <tag> tools </tag>
-            
-            <tag> shell </tag>
             
         </tags>
       
@@ -264,11 +343,11 @@
       
         <tags>
             
+            <tag> shell </tag>
+            
             <tag> ubuntu </tag>
             
             <tag> tools </tag>
-            
-            <tag> shell </tag>
             
         </tags>
       
@@ -293,11 +372,11 @@
       
         <tags>
             
+            <tag> shell </tag>
+            
             <tag> ubuntu </tag>
             
             <tag> tools </tag>
-            
-            <tag> shell </tag>
             
         </tags>
       
@@ -322,11 +401,11 @@
       
         <tags>
             
+            <tag> shell </tag>
+            
             <tag> ubuntu </tag>
             
             <tag> tools </tag>
-            
-            <tag> shell </tag>
             
         </tags>
       
@@ -351,11 +430,11 @@
       
         <tags>
             
+            <tag> shell </tag>
+            
             <tag> ubuntu </tag>
             
             <tag> tools </tag>
-            
-            <tag> shell </tag>
             
         </tags>
       

@@ -6,7 +6,7 @@
   <link href="http://clistery.github.io/atom.xml" rel="self"/>
   
   <link href="http://clistery.github.io/"/>
-  <updated>2022-12-09T03:01:44.342Z</updated>
+  <updated>2023-02-16T02:58:25.595Z</updated>
   <id>http://clistery.github.io/</id>
   
   <author>
@@ -17,11 +17,104 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Cygwin 自定义主题</title>
+    <link href="http://clistery.github.io/2023/02/16/cygwin/customize-theme-cygwin/"/>
+    <id>http://clistery.github.io/2023/02/16/cygwin/customize-theme-cygwin/</id>
+    <published>2023-02-16T02:03:20.000Z</published>
+    <updated>2023-02-16T02:58:25.595Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Cygwin-自定义主题&quot;&gt;&lt;a href=&quot;#Cygwin-自定义主题&quot; class=&quot;headerlink&quot; title=&quot;Cygwin 自定义主题&quot;&gt;&lt;/a&gt;Cygwin</summary>
+        
+      
+    
+    
+    
+    <category term="cygwin" scheme="http://clistery.github.io/categories/cygwin/"/>
+    
+    
+    <category term="cygwin" scheme="http://clistery.github.io/tags/cygwin/"/>
+    
+    <category term="theme" scheme="http://clistery.github.io/tags/theme/"/>
+    
+    <category term="linux" scheme="http://clistery.github.io/tags/linux/"/>
+    
+    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
+    
+    <category term="git" scheme="http://clistery.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cygwin 设置 HOME 目录</title>
+    <link href="http://clistery.github.io/2023/02/16/cygwin/setup-home-dir-cygwin/"/>
+    <id>http://clistery.github.io/2023/02/16/cygwin/setup-home-dir-cygwin/</id>
+    <published>2023-02-16T01:38:36.000Z</published>
+    <updated>2023-02-16T02:58:25.595Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Cygwin-设置-HOME-目录&quot;&gt;&lt;a href=&quot;#Cygwin-设置-HOME-目录&quot; class=&quot;headerlink&quot; title=&quot;Cygwin 设置 HOME 目录&quot;&gt;&lt;/a&gt;Cygwin 设置 HOME</summary>
+        
+      
+    
+    
+    
+    <category term="cygwin" scheme="http://clistery.github.io/categories/cygwin/"/>
+    
+    
+    <category term="cygwin" scheme="http://clistery.github.io/tags/cygwin/"/>
+    
+    <category term="linux" scheme="http://clistery.github.io/tags/linux/"/>
+    
+    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cygwin 创建文件权限问题</title>
+    <link href="http://clistery.github.io/2023/02/15/cygwin/fstab-error-cygwin/"/>
+    <id>http://clistery.github.io/2023/02/15/cygwin/fstab-error-cygwin/</id>
+    <published>2023-02-15T08:38:17.000Z</published>
+    <updated>2023-02-16T02:58:25.595Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Cygwin-创建文件问题&quot;&gt;&lt;a href=&quot;#Cygwin-创建文件问题&quot; class=&quot;headerlink&quot; title=&quot;Cygwin 创建文件问题&quot;&gt;&lt;/a&gt;Cygwin</summary>
+        
+      
+    
+    
+    
+    <category term="cygwin" scheme="http://clistery.github.io/categories/cygwin/"/>
+    
+    
+    <category term="cygwin" scheme="http://clistery.github.io/tags/cygwin/"/>
+    
+    <category term="linux" scheme="http://clistery.github.io/tags/linux/"/>
+    
+    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
+    
+    <category term="fstab" scheme="http://clistery.github.io/tags/fstab/"/>
+    
+  </entry>
+  
+  <entry>
     <title>微信小程序解包</title>
     <link href="http://clistery.github.io/2022/12/09/reverse/unpkg-wx-app/"/>
     <id>http://clistery.github.io/2022/12/09/reverse/unpkg-wx-app/</id>
     <published>2022-12-09T02:15:15.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -52,7 +145,7 @@
     <link href="http://clistery.github.io/2022/11/15/cygwin/setup-cygwin/"/>
     <id>http://clistery.github.io/2022/11/15/cygwin/setup-cygwin/</id>
     <published>2022-11-15T03:05:43.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -81,7 +174,7 @@
     <link href="http://clistery.github.io/2022/11/15/ubuntu/ssh-no-login/"/>
     <id>http://clistery.github.io/2022/11/15/ubuntu/ssh-no-login/</id>
     <published>2022-11-15T03:05:16.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -108,7 +201,7 @@
     <link href="http://clistery.github.io/2022/11/11/docker/port-22-bug/"/>
     <id>http://clistery.github.io/2022/11/11/docker/port-22-bug/</id>
     <published>2022-11-11T09:31:57.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -139,7 +232,7 @@
     <link href="http://clistery.github.io/2022/11/11/docker/ssh-bridge/"/>
     <id>http://clistery.github.io/2022/11/11/docker/ssh-bridge/</id>
     <published>2022-11-11T06:44:56.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -168,7 +261,7 @@
     <link href="http://clistery.github.io/2022/10/25/ubuntu/script/"/>
     <id>http://clistery.github.io/2022/10/25/ubuntu/script/</id>
     <published>2022-10-25T03:00:05.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -197,7 +290,7 @@
     <link href="http://clistery.github.io/2022/10/24/git/token-use/"/>
     <id>http://clistery.github.io/2022/10/24/git/token-use/</id>
     <published>2022-10-24T09:04:17.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -213,9 +306,9 @@
     <category term="git" scheme="http://clistery.github.io/categories/git/"/>
     
     
-    <category term="token" scheme="http://clistery.github.io/tags/token/"/>
-    
     <category term="git" scheme="http://clistery.github.io/tags/git/"/>
+    
+    <category term="token" scheme="http://clistery.github.io/tags/token/"/>
     
     <category term="gitlab" scheme="http://clistery.github.io/tags/gitlab/"/>
     
@@ -230,7 +323,7 @@
     <link href="http://clistery.github.io/2022/10/20/blog/hexo-matery-setup-utteranc/"/>
     <id>http://clistery.github.io/2022/10/20/blog/hexo-matery-setup-utteranc/</id>
     <published>2022-10-20T01:10:16.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -259,7 +352,7 @@
     <link href="http://clistery.github.io/2022/10/19/blog/hexo-setup/"/>
     <id>http://clistery.github.io/2022/10/19/blog/hexo-setup/</id>
     <published>2022-10-19T08:33:05.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -286,7 +379,7 @@
     <link href="http://clistery.github.io/2022/10/19/android/aosp-get/"/>
     <id>http://clistery.github.io/2022/10/19/android/aosp-get/</id>
     <published>2022-10-19T07:35:41.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -318,7 +411,7 @@
     <link href="http://clistery.github.io/2022/10/19/android/button-without-padding/"/>
     <id>http://clistery.github.io/2022/10/19/android/button-without-padding/</id>
     <published>2022-10-19T02:04:38.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -350,7 +443,7 @@
     <link href="http://clistery.github.io/2022/10/18/ubuntu/scp/"/>
     <id>http://clistery.github.io/2022/10/18/ubuntu/scp/</id>
     <published>2022-10-18T09:06:18.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -380,7 +473,7 @@
     <link href="http://clistery.github.io/2022/10/18/ubuntu/rsync/"/>
     <id>http://clistery.github.io/2022/10/18/ubuntu/rsync/</id>
     <published>2022-10-18T09:06:08.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -410,7 +503,7 @@
     <link href="http://clistery.github.io/2022/10/18/ubuntu/jobs/"/>
     <id>http://clistery.github.io/2022/10/18/ubuntu/jobs/</id>
     <published>2022-10-18T09:05:58.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -440,7 +533,7 @@
     <link href="http://clistery.github.io/2022/10/18/ubuntu/at/"/>
     <id>http://clistery.github.io/2022/10/18/ubuntu/at/</id>
     <published>2022-10-18T09:05:48.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -472,7 +565,7 @@
     <link href="http://clistery.github.io/2022/10/18/markdown-sample/"/>
     <id>http://clistery.github.io/2022/10/18/markdown-sample/</id>
     <published>2022-10-18T07:45:22.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       
@@ -498,7 +591,7 @@
     <link href="http://clistery.github.io/2022/10/18/ubuntu/nethogs/"/>
     <id>http://clistery.github.io/2022/10/18/ubuntu/nethogs/</id>
     <published>2022-10-18T06:36:55.000Z</published>
-    <updated>2022-12-09T03:01:44.342Z</updated>
+    <updated>2023-02-16T02:58:25.595Z</updated>
     
     
       

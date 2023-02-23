@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>2023 年 Apple Developer Enterprise Program 续订审核</title>
+      <link href="/2023/02/23/apple/2023-apple-developer-enterprise-program/"/>
+      <url>/2023/02/23/apple/2023-apple-developer-enterprise-program/</url>
+      
+        <content type="html"><![CDATA[<h1 id="2023-Apple-Developer-Enterprise-Program-续订审核"><a href="#2023-Apple-Developer-Enterprise-Program-续订审核" class="headerlink" title="2023 Apple Developer Enterprise Program 续订审核"></a>2023 Apple Developer Enterprise Program 续订审核</h1><blockquote><p>又到了一年一度的 Apple 企业级开发帐号的续费了，随之而来的就是帐号续订资格的审核，这里只能说一句，事儿真多，审核这种东西真的有用？意思人家搞灰产的会给你在里面填：“噢，亲爱的库克，真是不好意思，我拿着你的资源搞了灰产，请你给我审核通过一下哦~”，此处应有掌声。我只想，说给你钱还搞那么多逼事儿，真是恶心死人不偿命。</p></blockquote><h2 id="步骤详解"><a href="#步骤详解" class="headerlink" title="步骤详解"></a>步骤详解</h2><h3 id="Your-Organization"><a href="#Your-Organization" class="headerlink" title="Your Organization"></a>Your Organization</h3><ul><li><p>Which best describes your entity? <code>组织的类型</code></p><ul><li>如实填写</li></ul></li><li><p>Is this the correct name of your organization? <code>组织的名称是否正确</code></p><ul><li>Yes</li></ul></li><li><p>Is this the correct URL for your organization’s website? <code>组织官网是否正确</code></p><ul><li>Yes</li></ul></li><li><p>Is this your correct email address? <code>电子邮件地址是否正确</code></p><ul><li>Yes</li></ul></li><li><p>Are you an employee of the organization? <code>你是否为该组织员工</code></p><ul><li>Yes</li></ul></li><li><p>Do you have the authority to accept legal agreements on behalf of your organization? <code>你是否有权代为接受法律协议</code></p><ul><li>Yes</li></ul></li><li><p><code>重点！！！</code>How many employees does your organization have? <code>该组织的员工数量</code></p><ul><li>这里必须选择大于 100 人的选项，否则你就会收到 库克 ♂ 你 的邮件！<br><img src="/../../medias/images/2023_APEP_error_1.png" alt="库克 ♂ 你"></li></ul></li><li><p>Briefly describe your organization’s primary industry. <code>描述该组织的经营范围</code></p><ul><li>如实填写</li></ul></li></ul><h3 id="App-Development"><a href="#App-Development" class="headerlink" title="App Development"></a>App Development</h3><ul><li><p>Tell us about an app you’ve developed or distributed through the program that’s been used for at least 6 months. Describe the app’s purpose and functionality, and how frequently it’s used. Include the bundle identifier. <code>告诉我们您通过该计划开发或分发的应用，该应用已使用至少 6 个月。描述应用的用途和功能，以及使用频率。包括捆绑标识符。</code></p><ul><li>如实填写</li></ul></li><li><p>Who builds your in-house apps? <code>由谁生成应用程序</code></p><ul><li>Employees</li></ul></li><li><p>How many employees are on your internal app development team? <code>开发团队成员数量</code></p><ul><li>1-29</li></ul></li><li><p>How many enterprise apps have you built or are you currently building? <code>已构建或正在构建的应用数量</code></p><ul><li>1-9</li></ul></li><li><p>Do you own the intellectual property rights for all of your in-house apps? <code>是否拥有所有内部应用程序的知识产权？</code></p><ul><li>Yes</li></ul></li><li><p>Do you own the source code for all of your in-house apps? <code>是否拥有所有内部应用程序的源代码？</code></p><ul><li>Yes</li></ul></li><li><p>Are you currently developing or distributing enterprise apps for macOS? <code>目前正在开发或分发适用于 macOS 的企业应用程序吗？</code></p><ul><li>Yes</li></ul></li></ul><h3 id="App-Distribution-and-Code-Sharing"><a href="#App-Distribution-and-Code-Sharing" class="headerlink" title="App Distribution and Code Sharing"></a>App Distribution and Code Sharing</h3><ul><li><p>Do you re-sign compiled apps from other developers to use within your organization? <code>是否对来自其他开发人员的已编译应用重新签名以在组织内使用？</code></p><ul><li>No</li></ul></li><li><p>Do you act as an app development contractor for other organizations? <code>您是否担任其他组织的应用程序开发承包商？</code></p><ul><li>No</li></ul></li><li><p>Who are your app’s users? <code>谁是应用的用户？</code></p><ul><li>Employees within your organization</li></ul></li><li><p>Describe in detail how you distribute your apps to users. <code>详细描述如何将应用分发给用户</code></p><ul><li>描述分发过程</li></ul></li><li><p>To how many devices does your organization distribute apps using this program? <code>您的组织使用此程序向多少台设备分发应用程序？</code></p><ul><li>尽量多</li></ul></li></ul><h3 id="Security-and-App-Testing"><a href="#Security-and-App-Testing" class="headerlink" title="Security and App Testing"></a>Security and App Testing</h3><ul><li><p>What mechanisms have you put in place to ensure your apps can only be installed by your employees and permitted users? <code>你采取了哪些机制来确保你的应用只能由你的员工和允许的用户安装？</code></p><ul><li>如实填写</li></ul></li><li><p>Have you ever shared the sign in credentials of the Account Holder with others, including contractors or coworkers? <code>您是否曾经与其他人（包括承包商或同事）共享帐户持有人的登录凭据？</code></p><ul><li>No</li></ul></li><li><p>Who has access to the sign in credentials of the Account Holder? <code>谁有权访问帐户持有人的登录凭据？</code></p><ul><li>Account holders</li></ul></li><li><p>Who has access to your Enterprise App Distribution Certificates? <code>谁有权访问您的企业应用分发证书？</code></p><ul><li>Account holders and authorized developers</li></ul></li><li><p>How do you monitor and control access to your Enterprise App Distribution Certificates? <code>如何监视和控制对企业应用分发证书的访问？</code></p><ul><li>Enable two-factor authentication, administrator hold, generate P12 to developers</li></ul></li><li><p>Do you use program resources to test apps before publishing them on the App Store? <code>在将应用发布到 App Store 之前，您是否使用程序资源来测试它们？</code></p><ul><li>No <code>因为未发布到AppStore</code></li></ul></li><li><p>Does your organization have more than one membership in the Apple Developer Enterprise Program? <code>您的组织是否在 Apple 开发人员企业计划中拥有多个成员资格？</code></p><ul><li>No</li></ul></li><li><p>Which of the following uses of the program are necessary for your organization? <code>您的组织需要以下哪些程序用途？</code></p><ul><li>如实填写</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> apple </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Apple Developer Enterprise Program </tag>
+            
+            <tag> 内鬼‘蒂姆·库克’ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Cygwin 自定义主题</title>
       <link href="/2023/02/16/cygwin/customize-theme-cygwin/"/>
       <url>/2023/02/16/cygwin/customize-theme-cygwin/</url>

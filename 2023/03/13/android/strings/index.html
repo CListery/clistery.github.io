@@ -4,14 +4,28 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ssh 实现指定用户仅认证不登录, CYH的技术博客">
-    <meta name="description" content="ssh 实现指定用户仅认证不登录
-当我们有 ssh 代理代理转发的需求时，就可以在跳板机上做一个仅任认证不登录的用户，用来防止跳板机被以外登录
+    <meta name="keywords" content="Android strings.xml 中支持的特殊字符, CYH的技术博客">
+    <meta name="description" content="
+要在 string.xml 中显示特殊符号、如@号冒号等、直接写会显示乱码，必须要改为 ASCII 十进制交换编码书写
 
-创建用户sudo adduser jump
+编码对照表
 
-配置 sshd先切换到 jump 用户
-欢迎信息">
+
+编码
+字符
+
+
+
+&amp;amp;#064;
+@
+
+
+&amp;amp;#058;
+:
+
+
+&amp;amp;#160;
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +37,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ssh 实现指定用户仅认证不登录 | CYH的技术博客</title>
+    <title>Android strings.xml 中支持的特殊字符 | CYH的技术博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -315,12 +329,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/images/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/images/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ssh 实现指定用户仅认证不登录</h1>
+                    <h1 class="description center-align post-title">Android strings.xml 中支持的特殊字符</h1>
                 </div>
             </div>
         </div>
@@ -344,12 +358,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/android/">
+                                <span class="chip bg-color">android</span>
                             </a>
                         
-                            <a href="/tags/ssh/">
-                                <span class="chip bg-color">ssh</span>
+                            <a href="/tags/strings/">
+                                <span class="chip bg-color">strings</span>
                             </a>
                         
                     </div>
@@ -360,8 +374,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/ubuntu/" class="post-category">
-                                ubuntu
+                            <a href="/categories/android/" class="post-category">
+                                android
                             </a>
                         
                     </div>
@@ -373,7 +387,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-15
+                    2023-03-13
                 </div>
                 
 
@@ -387,14 +401,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    493
+                    576
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -417,49 +431,1045 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ssh-实现指定用户仅认证不登录"><a href="#ssh-实现指定用户仅认证不登录" class="headerlink" title="ssh 实现指定用户仅认证不登录"></a>ssh 实现指定用户仅认证不登录</h1><blockquote>
-<p>当我们有 ssh 代理代理转发的需求时，就可以在跳板机上做一个仅任认证不登录的用户，用来防止跳板机被以外登录</p>
+                <blockquote>
+<p>要在 string.xml 中显示特殊符号、如@号冒号等、直接写会显示乱码，必须要改为 ASCII 十进制交换编码书写</p>
 </blockquote>
-<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> adduser jump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="配置-sshd"><a href="#配置-sshd" class="headerlink" title="配置 sshd"></a>配置 sshd</h3><p>先切换到 jump 用户</p>
-<h4 id="欢迎信息"><a href="#欢迎信息" class="headerlink" title="欢迎信息"></a>欢迎信息</h4><p><code>vim /home/jump/banner</code></p>
-<pre class="line-numbers language-banner" data-language="banner"><code class="language-banner">Ok! You've successfully authenticated.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h4 id="创建-authorized-keys"><a href="#创建-authorized-keys" class="headerlink" title="创建 authorized_keys"></a>创建 authorized_keys</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> /home/jump/.ssh <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> <span class="token number">755</span> /home/jump/.ssh
-<span class="token function">vim</span> /home/jump/.ssh/authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>将公钥添加到 <code>authorized_keys</code> 文件中</p>
-<h4 id="修改-sshd-config"><a href="#修改-sshd-config" class="headerlink" title="修改 sshd_config"></a>修改 sshd_config</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/ssh/sshd_config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>将下面的内容添加到 <code>sshd_config</code> 文件末尾</p>
-<pre class="line-numbers language-sshd_config" data-language="sshd_config"><code class="language-sshd_config">Match User jump
-  Banner /home/jump/banner
-  AuthorizedKeysFile /home/jump/.ssh/authorized_keys
-  PasswordAuthentication no
-  PubkeyAuthentication yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="重启-sshd"><a href="#重启-sshd" class="headerlink" title="重启 sshd"></a>重启 sshd</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/init.d/ssh restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>到这里就可以通过正常的 ssh 方式登录 jump 用户了，而且登录时第一行会看到 <code>banner</code> 文件中的内容</p>
-<h3 id="修改-shell-禁用登录"><a href="#修改-shell-禁用登录" class="headerlink" title="修改 shell (禁用登录)"></a>修改 shell (禁用登录)</h3><p><code>vim /etc/passwd</code></p>
-<p>找到 <code>jump</code>，将最后的 <code>/bin/bash</code> 改为 <code>/bin/false</code></p>
-<p>现在再通过 ssh 的方式登录，会先登录成功，然后紧接着就被关闭连接</p>
-<p><code>到这里就已经基本实现了仅认证不登录的实现</code></p>
-<h3 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h3><h4 id="去除登录后显示的系统信息登录信息"><a href="#去除登录后显示的系统信息登录信息" class="headerlink" title="去除登录后显示的系统信息登录信息"></a>去除登录后显示的系统信息登录信息</h4><p>在登录成功后默认会展示一大堆内容，这些是不需要的，所以如何隐藏它？</p>
-<p>很简单，直接在 <code>jump</code> 用户目录下创建一个 <code>.hushlogin</code> 文件即可</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">touch</span> /home/jump/.hushlogin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>然后再通过 ssh 登录就看不到默认输出的一大堆内容了，就只会看到 <code>banner</code> 文件中的内容</p>
-<h4 id="优化显示登录信息"><a href="#优化显示登录信息" class="headerlink" title="优化显示登录信息"></a>优化显示登录信息</h4><p>如果只想显示登录信息改如何修改？</p>
-<p>还是先按照上面的内容，通过创建 <code>.hushlogin</code> 文件去除默认信息</p>
-<p>然后再通过创建 <code>rc</code> 文件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /home/jump/.ssh/rc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>将以下内容写入到 <code>rc</code> 文件中</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lastlog <span class="token parameter variable">-u</span> <span class="token environment constant">$USER</span> <span class="token operator">|</span> perl <span class="token parameter variable">-lane</span> <span class="token string">'END{print "Last login: @F[3..6] $F[8] from $F[2]"}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>再通过 ssh 登录，就只会看到上一次的登录信息了</p>
+<h1 id="编码对照表"><a href="#编码对照表" class="headerlink" title="编码对照表"></a>编码对照表</h1><table>
+<thead>
+<tr>
+<th>编码</th>
+<th>字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;#064;</td>
+<td>@</td>
+</tr>
+<tr>
+<td>&amp;#058;</td>
+<td>:</td>
+</tr>
+<tr>
+<td>&amp;#160;</td>
+<td>(空格)</td>
+</tr>
+<tr>
+<td>&amp;#032;</td>
+<td>(空格)</td>
+</tr>
+<tr>
+<td>&amp;#033;</td>
+<td>!</td>
+</tr>
+<tr>
+<td>&amp;#034;</td>
+<td>“</td>
+</tr>
+<tr>
+<td>&amp;#035;</td>
+<td>#</td>
+</tr>
+<tr>
+<td>&amp;#036;</td>
+<td>$</td>
+</tr>
+<tr>
+<td>&amp;#037;</td>
+<td>%</td>
+</tr>
+<tr>
+<td>&amp;#038;</td>
+<td>&amp;</td>
+</tr>
+<tr>
+<td>&amp;#039;</td>
+<td>´</td>
+</tr>
+<tr>
+<td>&amp;#040;</td>
+<td>(</td>
+</tr>
+<tr>
+<td>&amp;#041;</td>
+<td>)</td>
+</tr>
+<tr>
+<td>&amp;#042;</td>
+<td>*</td>
+</tr>
+<tr>
+<td>&amp;#043;</td>
+<td>+</td>
+</tr>
+<tr>
+<td>&amp;#044;</td>
+<td>,</td>
+</tr>
+<tr>
+<td>&amp;#045;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>&amp;#046;</td>
+<td>.</td>
+</tr>
+<tr>
+<td>&amp;#047;</td>
+<td>/</td>
+</tr>
+<tr>
+<td>&amp;#058;</td>
+<td>:</td>
+</tr>
+<tr>
+<td>&amp;#059;</td>
+<td>;</td>
+</tr>
+<tr>
+<td>&amp;#060;</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>&amp;#061;</td>
+<td>=</td>
+</tr>
+<tr>
+<td>&amp;#062;</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>&amp;#063;</td>
+<td>?</td>
+</tr>
+<tr>
+<td>&amp;#064;</td>
+<td>@</td>
+</tr>
+<tr>
+<td>&amp;#091;</td>
+<td>[</td>
+</tr>
+<tr>
+<td>&amp;#093;</td>
+<td>]</td>
+</tr>
+<tr>
+<td>&amp;#094;</td>
+<td>^</td>
+</tr>
+<tr>
+<td>&amp;#095;</td>
+<td>_</td>
+</tr>
+<tr>
+<td>&amp;#096;</td>
+<td>`</td>
+</tr>
+<tr>
+<td>&amp;#123;</td>
+<td>{</td>
+</tr>
+<tr>
+<td>&amp;#124;</td>
+<td></td>
+</tr>
+<tr>
+<td>&amp;#125;</td>
+<td>}</td>
+</tr>
+<tr>
+<td>&amp;#126;</td>
+<td>~</td>
+</tr>
+<tr>
+<td>&amp;#161;</td>
+<td>¡</td>
+</tr>
+<tr>
+<td>&amp;#162;</td>
+<td>¢</td>
+</tr>
+<tr>
+<td>&amp;#163;</td>
+<td>£</td>
+</tr>
+<tr>
+<td>&amp;#164;</td>
+<td>¤</td>
+</tr>
+<tr>
+<td>&amp;#165;</td>
+<td>¥</td>
+</tr>
+<tr>
+<td>&amp;#166;</td>
+<td>¦</td>
+</tr>
+<tr>
+<td>&amp;#167;</td>
+<td>§</td>
+</tr>
+<tr>
+<td>&amp;#168;</td>
+<td>¨</td>
+</tr>
+<tr>
+<td>&amp;#169;</td>
+<td>©</td>
+</tr>
+<tr>
+<td>&amp;#170;</td>
+<td>ª</td>
+</tr>
+<tr>
+<td>&amp;#171;</td>
+<td>«</td>
+</tr>
+<tr>
+<td>&amp;#172;</td>
+<td>¬</td>
+</tr>
+<tr>
+<td>&amp;#173;</td>
+<td>­</td>
+</tr>
+<tr>
+<td>&amp;#174;</td>
+<td>®</td>
+</tr>
+<tr>
+<td>&amp;#175;</td>
+<td>¯</td>
+</tr>
+<tr>
+<td>&amp;#176;</td>
+<td>°</td>
+</tr>
+<tr>
+<td>&amp;#177;</td>
+<td>±</td>
+</tr>
+<tr>
+<td>&amp;#178;</td>
+<td>²</td>
+</tr>
+<tr>
+<td>&amp;#179;</td>
+<td>³</td>
+</tr>
+<tr>
+<td>&amp;#180;</td>
+<td>´</td>
+</tr>
+<tr>
+<td>&amp;#181;</td>
+<td>µ</td>
+</tr>
+<tr>
+<td>&amp;#182;</td>
+<td>¶</td>
+</tr>
+<tr>
+<td>&amp;#183;</td>
+<td>•</td>
+</tr>
+<tr>
+<td>&amp;#184;</td>
+<td>¸</td>
+</tr>
+<tr>
+<td>&amp;#185;</td>
+<td>¹</td>
+</tr>
+<tr>
+<td>&amp;#186;</td>
+<td>º</td>
+</tr>
+<tr>
+<td>&amp;#187;</td>
+<td>»</td>
+</tr>
+<tr>
+<td>&amp;#188;</td>
+<td>¼</td>
+</tr>
+<tr>
+<td>&amp;#189;</td>
+<td>½</td>
+</tr>
+<tr>
+<td>&amp;#190;</td>
+<td>¾</td>
+</tr>
+<tr>
+<td>&amp;#191;</td>
+<td>¿</td>
+</tr>
+<tr>
+<td>&amp;#192;</td>
+<td>À</td>
+</tr>
+<tr>
+<td>&amp;#193;</td>
+<td>Á</td>
+</tr>
+<tr>
+<td>&amp;#194;</td>
+<td>Â</td>
+</tr>
+<tr>
+<td>&amp;#195;</td>
+<td>Ã</td>
+</tr>
+<tr>
+<td>&amp;#196;</td>
+<td>Ä</td>
+</tr>
+<tr>
+<td>&amp;#197;</td>
+<td>Å</td>
+</tr>
+<tr>
+<td>&amp;#198;</td>
+<td>Æ</td>
+</tr>
+<tr>
+<td>&amp;#199;</td>
+<td>Ç</td>
+</tr>
+<tr>
+<td>&amp;#200;</td>
+<td>È</td>
+</tr>
+<tr>
+<td>&amp;#201;</td>
+<td>É</td>
+</tr>
+<tr>
+<td>&amp;#202;</td>
+<td>Ê</td>
+</tr>
+<tr>
+<td>&amp;#203;</td>
+<td>Ë</td>
+</tr>
+<tr>
+<td>&amp;#204;</td>
+<td>Ì</td>
+</tr>
+<tr>
+<td>&amp;#205;</td>
+<td>Í</td>
+</tr>
+<tr>
+<td>&amp;#206;</td>
+<td>Î</td>
+</tr>
+<tr>
+<td>&amp;#207;</td>
+<td>Ï</td>
+</tr>
+<tr>
+<td>&amp;#208;</td>
+<td>Ð</td>
+</tr>
+<tr>
+<td>&amp;#209;</td>
+<td>Ñ</td>
+</tr>
+<tr>
+<td>&amp;#210;</td>
+<td>Ò</td>
+</tr>
+<tr>
+<td>&amp;#211;</td>
+<td>Ó</td>
+</tr>
+<tr>
+<td>&amp;#212;</td>
+<td>Ô</td>
+</tr>
+<tr>
+<td>&amp;#213;</td>
+<td>Õ</td>
+</tr>
+<tr>
+<td>&amp;#214;</td>
+<td>Ö</td>
+</tr>
+<tr>
+<td>&amp;#215;</td>
+<td>×</td>
+</tr>
+<tr>
+<td>&amp;#216;</td>
+<td>Ø</td>
+</tr>
+<tr>
+<td>&amp;#217;</td>
+<td>Ù</td>
+</tr>
+<tr>
+<td>&amp;#218;</td>
+<td>Ú</td>
+</tr>
+<tr>
+<td>&amp;#219;</td>
+<td>Û</td>
+</tr>
+<tr>
+<td>&amp;#220;</td>
+<td>Ü</td>
+</tr>
+<tr>
+<td>&amp;#221;</td>
+<td>Ý</td>
+</tr>
+<tr>
+<td>&amp;#222;</td>
+<td>Þ</td>
+</tr>
+<tr>
+<td>&amp;#223;</td>
+<td>ß</td>
+</tr>
+<tr>
+<td>&amp;#224;</td>
+<td>à</td>
+</tr>
+<tr>
+<td>&amp;#225;</td>
+<td>á</td>
+</tr>
+<tr>
+<td>&amp;#226;</td>
+<td>â</td>
+</tr>
+<tr>
+<td>&amp;#227;</td>
+<td>ã</td>
+</tr>
+<tr>
+<td>&amp;#228;</td>
+<td>ä</td>
+</tr>
+<tr>
+<td>&amp;#229;</td>
+<td>å</td>
+</tr>
+<tr>
+<td>&amp;#230;</td>
+<td>æ</td>
+</tr>
+<tr>
+<td>&amp;#231;</td>
+<td>ç</td>
+</tr>
+<tr>
+<td>&amp;#232;</td>
+<td>è</td>
+</tr>
+<tr>
+<td>&amp;#233;</td>
+<td>é</td>
+</tr>
+<tr>
+<td>&amp;#234;</td>
+<td>ê</td>
+</tr>
+<tr>
+<td>&amp;#235;</td>
+<td>ë</td>
+</tr>
+<tr>
+<td>&amp;#236;</td>
+<td>ì</td>
+</tr>
+<tr>
+<td>&amp;#237;</td>
+<td>í</td>
+</tr>
+<tr>
+<td>&amp;#238;</td>
+<td>î</td>
+</tr>
+<tr>
+<td>&amp;#239;</td>
+<td>ï</td>
+</tr>
+<tr>
+<td>&amp;#240;</td>
+<td>ð</td>
+</tr>
+<tr>
+<td>&amp;#241;</td>
+<td>ñ</td>
+</tr>
+<tr>
+<td>&amp;#242;</td>
+<td>ò</td>
+</tr>
+<tr>
+<td>&amp;#243;</td>
+<td>ó</td>
+</tr>
+<tr>
+<td>&amp;#244;</td>
+<td>ô</td>
+</tr>
+<tr>
+<td>&amp;#245;</td>
+<td>õ</td>
+</tr>
+<tr>
+<td>&amp;#246;</td>
+<td>ö</td>
+</tr>
+<tr>
+<td>&amp;#247;</td>
+<td>÷</td>
+</tr>
+<tr>
+<td>&amp;#248;</td>
+<td>ø</td>
+</tr>
+<tr>
+<td>&amp;#249;</td>
+<td>ù</td>
+</tr>
+<tr>
+<td>&amp;#250;</td>
+<td>ú</td>
+</tr>
+<tr>
+<td>&amp;#251;</td>
+<td>û</td>
+</tr>
+<tr>
+<td>&amp;#252;</td>
+<td>ü</td>
+</tr>
+<tr>
+<td>&amp;#253;</td>
+<td>ý</td>
+</tr>
+<tr>
+<td>&amp;#254;</td>
+<td>þ</td>
+</tr>
+<tr>
+<td>&amp;#255;</td>
+<td>ÿ</td>
+</tr>
+<tr>
+<td>&amp;#256;</td>
+<td>Ā</td>
+</tr>
+<tr>
+<td>&amp;#257;</td>
+<td>ā</td>
+</tr>
+<tr>
+<td>&amp;#258;</td>
+<td>Ă</td>
+</tr>
+<tr>
+<td>&amp;#259;</td>
+<td>ă</td>
+</tr>
+<tr>
+<td>&amp;#260;</td>
+<td>Ą</td>
+</tr>
+<tr>
+<td>&amp;#261;</td>
+<td>ą</td>
+</tr>
+<tr>
+<td>&amp;#262;</td>
+<td>Ć</td>
+</tr>
+<tr>
+<td>&amp;#263;</td>
+<td>ć</td>
+</tr>
+<tr>
+<td>&amp;#264;</td>
+<td>Ĉ</td>
+</tr>
+<tr>
+<td>&amp;#265;</td>
+<td>ĉ</td>
+</tr>
+<tr>
+<td>&amp;#266;</td>
+<td>Ċ</td>
+</tr>
+<tr>
+<td>&amp;#267;</td>
+<td>ċ</td>
+</tr>
+<tr>
+<td>&amp;#268;</td>
+<td>Č</td>
+</tr>
+<tr>
+<td>&amp;#269;</td>
+<td>č</td>
+</tr>
+<tr>
+<td>&amp;#270;</td>
+<td>Ď</td>
+</tr>
+<tr>
+<td>&amp;#271;</td>
+<td>ď</td>
+</tr>
+<tr>
+<td>&amp;#272;</td>
+<td>Đ</td>
+</tr>
+<tr>
+<td>&amp;#273;</td>
+<td>đ</td>
+</tr>
+<tr>
+<td>&amp;#274;</td>
+<td>Ē</td>
+</tr>
+<tr>
+<td>&amp;#275;</td>
+<td>ē</td>
+</tr>
+<tr>
+<td>&amp;#276;</td>
+<td>Ĕ</td>
+</tr>
+<tr>
+<td>&amp;#277;</td>
+<td>ĕ</td>
+</tr>
+<tr>
+<td>&amp;#278;</td>
+<td>Ė</td>
+</tr>
+<tr>
+<td>&amp;#279;</td>
+<td>ė</td>
+</tr>
+<tr>
+<td>&amp;#280;</td>
+<td>Ę</td>
+</tr>
+<tr>
+<td>&amp;#281;</td>
+<td>ę</td>
+</tr>
+<tr>
+<td>&amp;#282;</td>
+<td>Ě</td>
+</tr>
+<tr>
+<td>&amp;#283;</td>
+<td>ě</td>
+</tr>
+<tr>
+<td>&amp;#284;</td>
+<td>Ĝ</td>
+</tr>
+<tr>
+<td>&amp;#285;</td>
+<td>ĝ</td>
+</tr>
+<tr>
+<td>&amp;#286;</td>
+<td>Ğ</td>
+</tr>
+<tr>
+<td>&amp;#287;</td>
+<td>ğ</td>
+</tr>
+<tr>
+<td>&amp;#288;</td>
+<td>Ġ</td>
+</tr>
+<tr>
+<td>&amp;#289;</td>
+<td>ġ</td>
+</tr>
+<tr>
+<td>&amp;#290;</td>
+<td>Ģ</td>
+</tr>
+<tr>
+<td>&amp;#291;</td>
+<td>ģ</td>
+</tr>
+<tr>
+<td>&amp;#292;</td>
+<td>Ĥ</td>
+</tr>
+<tr>
+<td>&amp;#293;</td>
+<td>ĥ</td>
+</tr>
+<tr>
+<td>&amp;#294;</td>
+<td>Ħ</td>
+</tr>
+<tr>
+<td>&amp;#295;</td>
+<td>ħ</td>
+</tr>
+<tr>
+<td>&amp;#296;</td>
+<td>Ĩ</td>
+</tr>
+<tr>
+<td>&amp;#297;</td>
+<td>ĩ</td>
+</tr>
+<tr>
+<td>&amp;#298;</td>
+<td>Ī</td>
+</tr>
+<tr>
+<td>&amp;#299;</td>
+<td>ī</td>
+</tr>
+<tr>
+<td>&amp;#300;</td>
+<td>Ĭ</td>
+</tr>
+<tr>
+<td>&amp;#301;</td>
+<td>ĭ</td>
+</tr>
+<tr>
+<td>&amp;#302;</td>
+<td>Į</td>
+</tr>
+<tr>
+<td>&amp;#303;</td>
+<td>į</td>
+</tr>
+<tr>
+<td>&amp;#304;</td>
+<td>İ</td>
+</tr>
+<tr>
+<td>&amp;#305;</td>
+<td>ı</td>
+</tr>
+<tr>
+<td>&amp;#306;</td>
+<td>Ĳ</td>
+</tr>
+<tr>
+<td>&amp;#307;</td>
+<td>ĳ</td>
+</tr>
+<tr>
+<td>&amp;#308;</td>
+<td>Ĵ</td>
+</tr>
+<tr>
+<td>&amp;#309;</td>
+<td>ĵ</td>
+</tr>
+<tr>
+<td>&amp;#310;</td>
+<td>Ķ</td>
+</tr>
+<tr>
+<td>&amp;#311;</td>
+<td>ķ</td>
+</tr>
+<tr>
+<td>&amp;#312;</td>
+<td>ĸ</td>
+</tr>
+<tr>
+<td>&amp;#313;</td>
+<td>Ĺ</td>
+</tr>
+<tr>
+<td>&amp;#314;</td>
+<td>ĺ</td>
+</tr>
+<tr>
+<td>&amp;#315;</td>
+<td>Ļ</td>
+</tr>
+<tr>
+<td>&amp;#316;</td>
+<td>ļ</td>
+</tr>
+<tr>
+<td>&amp;#317;</td>
+<td>Ľ</td>
+</tr>
+<tr>
+<td>&amp;#318;</td>
+<td>ľ</td>
+</tr>
+<tr>
+<td>&amp;#319;</td>
+<td>Ŀ</td>
+</tr>
+<tr>
+<td>&amp;#320;</td>
+<td>ŀ</td>
+</tr>
+<tr>
+<td>&amp;#321;</td>
+<td>Ł</td>
+</tr>
+<tr>
+<td>&amp;#322;</td>
+<td>ł</td>
+</tr>
+<tr>
+<td>&amp;#323;</td>
+<td>Ń</td>
+</tr>
+<tr>
+<td>&amp;#324;</td>
+<td>ń</td>
+</tr>
+<tr>
+<td>&amp;#325;</td>
+<td>Ņ</td>
+</tr>
+<tr>
+<td>&amp;#326;</td>
+<td>ņ</td>
+</tr>
+<tr>
+<td>&amp;#327;</td>
+<td>Ň</td>
+</tr>
+<tr>
+<td>&amp;#328;</td>
+<td>ň</td>
+</tr>
+<tr>
+<td>&amp;#329;</td>
+<td>ŉ</td>
+</tr>
+<tr>
+<td>&amp;#330;</td>
+<td>Ŋ</td>
+</tr>
+<tr>
+<td>&amp;#331;</td>
+<td>ŋ</td>
+</tr>
+<tr>
+<td>&amp;#332;</td>
+<td>Ō</td>
+</tr>
+<tr>
+<td>&amp;#333;</td>
+<td>ō</td>
+</tr>
+<tr>
+<td>&amp;#334;</td>
+<td>Ŏ</td>
+</tr>
+<tr>
+<td>&amp;#335;</td>
+<td>ŏ</td>
+</tr>
+<tr>
+<td>&amp;#336;</td>
+<td>Ő</td>
+</tr>
+<tr>
+<td>&amp;#337;</td>
+<td>ő</td>
+</tr>
+<tr>
+<td>&amp;#338;</td>
+<td>Œ</td>
+</tr>
+<tr>
+<td>&amp;#339;</td>
+<td>œ</td>
+</tr>
+<tr>
+<td>&amp;#340;</td>
+<td>Ŕ</td>
+</tr>
+<tr>
+<td>&amp;#341;</td>
+<td>ŕ</td>
+</tr>
+<tr>
+<td>&amp;#342;</td>
+<td>Ŗ</td>
+</tr>
+<tr>
+<td>&amp;#343;</td>
+<td>ŗ</td>
+</tr>
+<tr>
+<td>&amp;#344;</td>
+<td>Ř</td>
+</tr>
+<tr>
+<td>&amp;#345;</td>
+<td>ř</td>
+</tr>
+<tr>
+<td>&amp;#346;</td>
+<td>Ś</td>
+</tr>
+<tr>
+<td>&amp;#347;</td>
+<td>ś</td>
+</tr>
+<tr>
+<td>&amp;#348;</td>
+<td>Ŝ</td>
+</tr>
+<tr>
+<td>&amp;#349;</td>
+<td>ŝ</td>
+</tr>
+<tr>
+<td>&amp;#350;</td>
+<td>Ş</td>
+</tr>
+<tr>
+<td>&amp;#351;</td>
+<td>ş</td>
+</tr>
+<tr>
+<td>&amp;#352;</td>
+<td>Š</td>
+</tr>
+<tr>
+<td>&amp;#353;</td>
+<td>š</td>
+</tr>
+<tr>
+<td>&amp;#354;</td>
+<td>Ţ</td>
+</tr>
+<tr>
+<td>&amp;#355;</td>
+<td>ţ</td>
+</tr>
+<tr>
+<td>&amp;#356;</td>
+<td>Ť</td>
+</tr>
+<tr>
+<td>&amp;#357;</td>
+<td>ť</td>
+</tr>
+<tr>
+<td>&amp;#358;</td>
+<td>Ŧ</td>
+</tr>
+<tr>
+<td>&amp;#359;</td>
+<td>ŧ</td>
+</tr>
+<tr>
+<td>&amp;#360;</td>
+<td>Ũ</td>
+</tr>
+<tr>
+<td>&amp;#361;</td>
+<td>ũ</td>
+</tr>
+<tr>
+<td>&amp;#362;</td>
+<td>Ū</td>
+</tr>
+<tr>
+<td>&amp;#363;</td>
+<td>ū</td>
+</tr>
+<tr>
+<td>&amp;#364;</td>
+<td>Ŭ</td>
+</tr>
+<tr>
+<td>&amp;#365;</td>
+<td>ŭ</td>
+</tr>
+<tr>
+<td>&amp;#366;</td>
+<td>Ů</td>
+</tr>
+<tr>
+<td>&amp;#367;</td>
+<td>ů</td>
+</tr>
+<tr>
+<td>&amp;#368;</td>
+<td>Ű</td>
+</tr>
+<tr>
+<td>&amp;#369;</td>
+<td>ű</td>
+</tr>
+<tr>
+<td>&amp;#370;</td>
+<td>Ų</td>
+</tr>
+<tr>
+<td>&amp;#371;</td>
+<td>ų</td>
+</tr>
+<tr>
+<td>&amp;#372;</td>
+<td>Ŵ</td>
+</tr>
+<tr>
+<td>&amp;#373;</td>
+<td>ŵ</td>
+</tr>
+<tr>
+<td>&amp;#374;</td>
+<td>Ŷ</td>
+</tr>
+<tr>
+<td>&amp;#375;</td>
+<td>ŷ</td>
+</tr>
+<tr>
+<td>&amp;#376;</td>
+<td>Ÿ</td>
+</tr>
+<tr>
+<td>&amp;#377;</td>
+<td>Ź</td>
+</tr>
+<tr>
+<td>&amp;#378;</td>
+<td>ź</td>
+</tr>
+<tr>
+<td>&amp;#379;</td>
+<td>Ż</td>
+</tr>
+<tr>
+<td>&amp;#380;</td>
+<td>ż</td>
+</tr>
+<tr>
+<td>&amp;#381;</td>
+<td>Ž</td>
+</tr>
+<tr>
+<td>&amp;#382;</td>
+<td>ž</td>
+</tr>
+</tbody></table>
 
                 
             </div>
@@ -486,7 +1496,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://clistery.github.io/2022/11/15/ubuntu/ssh-no-login/">http://clistery.github.io/2022/11/15/ubuntu/ssh-no-login/</a>
+                    <a href="http://clistery.github.io/2023/03/13/android/strings/">http://clistery.github.io/2023/03/13/android/strings/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -524,12 +1534,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
+                                <a href="/tags/android/">
+                                    <span class="chip bg-color">android</span>
                                 </a>
                             
-                                <a href="/tags/ssh/">
-                                    <span class="chip bg-color">ssh</span>
+                                <a href="/tags/strings/">
+                                    <span class="chip bg-color">strings</span>
                                 </a>
                             
                         </div>
@@ -660,13 +1670,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/11/15/cygwin/setup-cygwin/">
+                <a href="/2023/04/21/tools/v2ray-install-setup/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/images/2.jpg" class="responsive-img" alt="设置 Cygwin">
+                        <img src="/medias/images/0.jpg" class="responsive-img" alt="安装及配置 v2ray">
                         
-                        <span class="card-title">设置 Cygwin</span>
+                        <span class="card-title">安装及配置 v2ray</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -677,14 +1687,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-21
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/cygwin/" class="post-category">
-                                    cygwin
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
                                 </a>
                             
                             
@@ -694,16 +1704,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/cygwin/">
-                        <span class="chip bg-color">cygwin</span>
+                    <a href="/tags/v2ray/">
+                        <span class="chip bg-color">v2ray</span>
                     </a>
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
+                    <a href="/tags/clash/">
+                        <span class="chip bg-color">clash</span>
                     </a>
                     
-                    <a href="/tags/shell/">
-                        <span class="chip bg-color">shell</span>
+                    <a href="/tags/vpn/">
+                        <span class="chip bg-color">vpn</span>
                     </a>
                     
                 </div>
@@ -717,13 +1727,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/11/docker/port-22-bug/">
+                <a href="/2023/02/23/apple/2023-apple-developer-enterprise-program/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/images/1.jpg" class="responsive-img" alt="记一次 DockerCompose 配置 22 端口映射遇到的坑">
+                        <img src="/medias/images/1.jpg" class="responsive-img" alt="2023 年 Apple Developer Enterprise Program 续订审核">
                         
-                        <span class="card-title">记一次 DockerCompose 配置 22 端口映射遇到的坑</span>
+                        <span class="card-title">2023 年 Apple Developer Enterprise Program 续订审核</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -734,14 +1744,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/docker/" class="post-category">
-                                    docker
+                            <a href="/categories/apple/" class="post-category">
+                                    apple
                                 </a>
                             
                             
@@ -751,20 +1761,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ssh/">
-                        <span class="chip bg-color">ssh</span>
+                    <a href="/tags/Apple-Developer-Enterprise-Program/">
+                        <span class="chip bg-color">Apple Developer Enterprise Program</span>
                     </a>
                     
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
-                    </a>
-                    
-                    <a href="/tags/22-port/">
-                        <span class="chip bg-color">22-port</span>
-                    </a>
-                    
-                    <a href="/tags/bugs/">
-                        <span class="chip bg-color">bugs</span>
+                    <a href="/tags/%E5%86%85%E9%AC%BC%E2%80%98%E8%92%82%E5%A7%86%C2%B7%E5%BA%93%E5%85%8B%E2%80%99/">
+                        <span class="chip bg-color">内鬼‘蒂姆·库克’</span>
                     </a>
                     
                 </div>

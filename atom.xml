@@ -6,7 +6,7 @@
   <link href="http://clistery.github.io/atom.xml" rel="self"/>
   
   <link href="http://clistery.github.io/"/>
-  <updated>2023-04-23T06:20:32.185Z</updated>
+  <updated>2023-05-08T03:02:01.913Z</updated>
   <id>http://clistery.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>让特定应用程序绕过用户帐户控制通知弹窗</title>
+    <link href="http://clistery.github.io/2023/05/06/windows/bypass-user-account-control-notifications/"/>
+    <id>http://clistery.github.io/2023/05/06/windows/bypass-user-account-control-notifications/</id>
+    <published>2023-05-06T00:39:54.000Z</published>
+    <updated>2023-05-08T03:02:01.913Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;让特定应用程序绕过用户帐户控制通知弹窗&quot;&gt;&lt;a href=&quot;#让特定应用程序绕过用户帐户控制通知弹窗&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="windows" scheme="http://clistery.github.io/categories/windows/"/>
+    
+    
+    <category term="User Account Control Notifications" scheme="http://clistery.github.io/tags/User-Account-Control-Notifications/"/>
+    
+    <category term="Windows 小技巧" scheme="http://clistery.github.io/tags/Windows-%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>安装及配置 v2ray</title>
     <link href="http://clistery.github.io/2023/04/21/tools/v2ray-install-setup/"/>
     <id>http://clistery.github.io/2023/04/21/tools/v2ray-install-setup/</id>
     <published>2023-04-21T07:25:02.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -47,11 +74,44 @@
   </entry>
   
   <entry>
+    <title>AMD VMware Workstation 15.1 安装 MacOS Catalina 10.15.5</title>
+    <link href="http://clistery.github.io/2023/04/13/vmware/amd-vmware15.1-install-macos-10.15.x/"/>
+    <id>http://clistery.github.io/2023/04/13/vmware/amd-vmware15.1-install-macos-10.15.x/</id>
+    <published>2023-04-13T03:34:38.000Z</published>
+    <updated>2023-05-08T03:02:01.909Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;AMD-平台-VMware-安装-MacOS&quot;&gt;&lt;a href=&quot;#AMD-平台-VMware-安装-MacOS&quot; class=&quot;headerlink&quot; title=&quot;AMD 平台 VMware 安装 MacOS&quot;&gt;&lt;/a&gt;AMD 平台 VMware 安装</summary>
+        
+      
+    
+    
+    
+    <category term="vmware" scheme="http://clistery.github.io/categories/vmware/"/>
+    
+    
+    <category term="vmware" scheme="http://clistery.github.io/tags/vmware/"/>
+    
+    <category term="MacOS Catalina 10.15.x" scheme="http://clistery.github.io/tags/MacOS-Catalina-10-15-x/"/>
+    
+    <category term="黑苹果" scheme="http://clistery.github.io/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/"/>
+    
+    <category term="真香系列" scheme="http://clistery.github.io/tags/%E7%9C%9F%E9%A6%99%E7%B3%BB%E5%88%97/"/>
+    
+    <category term="AMD yyds" scheme="http://clistery.github.io/tags/AMD-yyds/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android strings.xml 中支持的特殊字符</title>
     <link href="http://clistery.github.io/2023/03/13/android/strings/"/>
     <id>http://clistery.github.io/2023/03/13/android/strings/</id>
     <published>2023-03-13T05:58:01.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -81,7 +141,7 @@
     <link href="http://clistery.github.io/2023/02/23/apple/2023-apple-developer-enterprise-program/"/>
     <id>http://clistery.github.io/2023/02/23/apple/2023-apple-developer-enterprise-program/</id>
     <published>2023-02-23T03:15:21.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -108,7 +168,7 @@
     <link href="http://clistery.github.io/2023/02/16/cygwin/customize-theme-cygwin/"/>
     <id>http://clistery.github.io/2023/02/16/cygwin/customize-theme-cygwin/</id>
     <published>2023-02-16T02:03:20.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -141,7 +201,7 @@
     <link href="http://clistery.github.io/2023/02/16/cygwin/setup-home-dir-cygwin/"/>
     <id>http://clistery.github.io/2023/02/16/cygwin/setup-home-dir-cygwin/</id>
     <published>2023-02-16T01:38:36.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -170,7 +230,7 @@
     <link href="http://clistery.github.io/2023/02/15/cygwin/fstab-error-cygwin/"/>
     <id>http://clistery.github.io/2023/02/15/cygwin/fstab-error-cygwin/</id>
     <published>2023-02-15T08:38:17.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -201,7 +261,7 @@
     <link href="http://clistery.github.io/2022/12/09/reverse/unpkg-wx-app/"/>
     <id>http://clistery.github.io/2022/12/09/reverse/unpkg-wx-app/</id>
     <published>2022-12-09T02:15:15.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -232,7 +292,7 @@
     <link href="http://clistery.github.io/2022/11/15/cygwin/setup-cygwin/"/>
     <id>http://clistery.github.io/2022/11/15/cygwin/setup-cygwin/</id>
     <published>2022-11-15T03:05:43.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -261,7 +321,7 @@
     <link href="http://clistery.github.io/2022/11/15/ubuntu/ssh-no-login/"/>
     <id>http://clistery.github.io/2022/11/15/ubuntu/ssh-no-login/</id>
     <published>2022-11-15T03:05:16.000Z</published>
-    <updated>2023-04-23T06:20:32.189Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -288,7 +348,7 @@
     <link href="http://clistery.github.io/2022/11/11/docker/port-22-bug/"/>
     <id>http://clistery.github.io/2022/11/11/docker/port-22-bug/</id>
     <published>2022-11-11T09:31:57.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -304,9 +364,9 @@
     <category term="docker" scheme="http://clistery.github.io/categories/docker/"/>
     
     
-    <category term="ssh" scheme="http://clistery.github.io/tags/ssh/"/>
-    
     <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
+    
+    <category term="ssh" scheme="http://clistery.github.io/tags/ssh/"/>
     
     <category term="22-port" scheme="http://clistery.github.io/tags/22-port/"/>
     
@@ -319,7 +379,7 @@
     <link href="http://clistery.github.io/2022/11/11/docker/ssh-bridge/"/>
     <id>http://clistery.github.io/2022/11/11/docker/ssh-bridge/</id>
     <published>2022-11-11T06:44:56.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -335,11 +395,11 @@
     <category term="docker" scheme="http://clistery.github.io/categories/docker/"/>
     
     
-    <category term="ssh" scheme="http://clistery.github.io/tags/ssh/"/>
-    
     <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
     
     <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
+    
+    <category term="ssh" scheme="http://clistery.github.io/tags/ssh/"/>
     
   </entry>
   
@@ -348,7 +408,7 @@
     <link href="http://clistery.github.io/2022/10/25/ubuntu/script/"/>
     <id>http://clistery.github.io/2022/10/25/ubuntu/script/</id>
     <published>2022-10-25T03:00:05.000Z</published>
-    <updated>2023-04-23T06:20:32.189Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -377,7 +437,7 @@
     <link href="http://clistery.github.io/2022/10/24/git/token-use/"/>
     <id>http://clistery.github.io/2022/10/24/git/token-use/</id>
     <published>2022-10-24T09:04:17.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -410,7 +470,7 @@
     <link href="http://clistery.github.io/2022/10/20/blog/hexo-matery-setup-utteranc/"/>
     <id>http://clistery.github.io/2022/10/20/blog/hexo-matery-setup-utteranc/</id>
     <published>2022-10-20T01:10:16.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -439,7 +499,7 @@
     <link href="http://clistery.github.io/2022/10/19/blog/hexo-setup/"/>
     <id>http://clistery.github.io/2022/10/19/blog/hexo-setup/</id>
     <published>2022-10-19T08:33:05.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -466,7 +526,7 @@
     <link href="http://clistery.github.io/2022/10/19/android/aosp-get/"/>
     <id>http://clistery.github.io/2022/10/19/android/aosp-get/</id>
     <published>2022-10-19T07:35:41.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -498,7 +558,7 @@
     <link href="http://clistery.github.io/2022/10/19/android/button-without-padding/"/>
     <id>http://clistery.github.io/2022/10/19/android/button-without-padding/</id>
     <published>2022-10-19T02:04:38.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -530,7 +590,7 @@
     <link href="http://clistery.github.io/2022/10/18/ubuntu/scp/"/>
     <id>http://clistery.github.io/2022/10/18/ubuntu/scp/</id>
     <published>2022-10-18T09:06:18.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
+    <updated>2023-05-08T03:02:01.909Z</updated>
     
     
       
@@ -539,66 +599,6 @@
         
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;Linux scp 命令用于 Linux 之间复制文件和目录。&lt;br&gt;scp 是 secure copy 的缩写, scp 是 linux 系统下基于 ssh 登陆进行安全的远程文件拷贝命令。&lt;br&gt;scp 是加密的，rcp 是不加密的，scp</summary>
-        
-      
-    
-    
-    
-    <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
-    
-    
-    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
-    
-    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
-    
-    <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>rsync 命令</title>
-    <link href="http://clistery.github.io/2022/10/18/ubuntu/rsync/"/>
-    <id>http://clistery.github.io/2022/10/18/ubuntu/rsync/</id>
-    <published>2022-10-18T09:06:08.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;rsync-命令&quot;&gt;&lt;a href=&quot;#rsync-命令&quot; class=&quot;headerlink&quot; title=&quot;rsync 命令&quot;&gt;&lt;/a&gt;rsync 命令&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;rsync 全称 Remote</summary>
-        
-      
-    
-    
-    
-    <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
-    
-    
-    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
-    
-    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
-    
-    <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jobs 命令</title>
-    <link href="http://clistery.github.io/2022/10/18/ubuntu/jobs/"/>
-    <id>http://clistery.github.io/2022/10/18/ubuntu/jobs/</id>
-    <published>2022-10-18T09:05:58.000Z</published>
-    <updated>2023-04-23T06:20:32.185Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;jobs是Linux命令。jobs命令显示了当前shell环境中已启动的作业状态。如果JobID参数没有指定特定作业，就显示所有的活动的作业的状态信息。如果报告了一个作业的终止，shell从当前的shell环境已知的列表中删除作业的进程标识。&lt;/p</summary>
         
       
     

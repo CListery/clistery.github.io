@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>禁用 PC 版微信的图片文字识别功能</title>
+      <link href="/2023/08/02/other/disable-wechat-ocr/"/>
+      <url>/2023/08/02/other/disable-wechat-ocr/</url>
+      
+        <content type="html"><![CDATA[<h1 id="禁用-PC-版微信的图片文字识别功能"><a href="#禁用-PC-版微信的图片文字识别功能" class="headerlink" title="禁用 PC 版微信的图片文字识别功能"></a>禁用 PC 版微信的图片文字识别功能</h1><blockquote><p>自从微信增加了自动识别图片文字功能后，确实带来了一些便利，可以不用再对着截图一个字一个字敲了，但是同时也带来了不方便的地方，有些图片需要放大或拖拽时便显得不那么友好了，说到底还是制杖产品经理搞出来的反人类交互体验。</p></blockquote><h2 id="开始表演"><a href="#开始表演" class="headerlink" title="开始表演"></a>开始表演</h2><ol><li>推出微信</li><li>在资源管理器中的地址栏中输入 %AppData%，并回车</li><li>然后找到 Tencent\WeChat\XPlugin\Plugins\WeChatOCR</li><li>在 WeChatOCR 打开名称为数字的文件，然后再打开 extracted，如：WeChatOCR\7053\extracted</li><li>删除 WeChatOCR.exe</li><li>创建一个空白文本文档，将名字修改为 WeChatOCR.exe 并保存</li><li>重新打开微信，图片中的文件就不会再自动转换为文本了</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> other </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> diss wechat </tag>
+            
+            <tag> tencent </tag>
+            
+            <tag> 制杖产品 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>在 Docker 中为 Nginx:alpine 安装模块</title>
       <link href="/2023/07/27/docker/apline-nginx-install-module/"/>
       <url>/2023/07/27/docker/apline-nginx-install-module/</url>

@@ -70,7 +70,17 @@ $(function () {
 
     /*文章内容详情的一些初始化特性*/
     let articleInit = function () {
-        $('#articleContent a').attr('target', '_blank');
+        $('#articleContent a').each(function () {
+            let isLocalLink = window.location.host === this.host;
+            if (isLocalLink) {
+                if (this.pathname !== window.location.pathname) {
+                    $(this).attr('target', '_blank');
+                }
+            } else {
+                $(this).attr('target', '_blank');
+                $(this).addClass('external-link');
+            }
+        });
 
         $('#articleContent img').each(function () {
             let imgPath = $(this).attr('src');

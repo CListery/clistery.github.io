@@ -4,14 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ssh 实现指定用户仅认证不登录, CYH的技术博客">
-    <meta name="description" content="ssh 实现指定用户仅认证不登录
-当我们有 ssh 代理代理转发的需求时，就可以在跳板机上做一个仅任认证不登录的用户，用来防止跳板机被以外登录
-
-创建用户sudo adduser jump
-
-配置 sshd先切换到 jump 用户
-欢迎信息">
+    <meta name="keywords" content="解决 SVN 每次都需要输入密码, CYH的技术博客">
+    <meta name="description" content="解决 SVN 每次都需要输入密码
+由于每次 svn 操作都要求输入账号密码，为了优雅的使用 svn，在搜索引擎上找了一圈，全都是让你去改 config、server 文件，实际操作下来然并卵，只会浪费你的一天。原因是自从 svn 1.12 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ssh 实现指定用户仅认证不登录 | CYH的技术博客</title>
+    <title>解决 SVN 每次都需要输入密码 | CYH的技术博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -315,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/images/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/images/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ssh 实现指定用户仅认证不登录</h1>
+                    <h1 class="description center-align post-title">解决 SVN 每次都需要输入密码</h1>
                 </div>
             </div>
         </div>
@@ -344,12 +339,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
-                            </a>
-                        
-                            <a href="/tags/ssh/">
-                                <span class="chip bg-color">ssh</span>
+                            <a href="/tags/svn/">
+                                <span class="chip bg-color">svn</span>
                             </a>
                         
                     </div>
@@ -360,8 +351,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/ubuntu/" class="post-category">
-                                ubuntu
+                            <a href="/categories/svn/" class="post-category">
+                                svn
                             </a>
                         
                     </div>
@@ -373,7 +364,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-15
+                    2023-09-26
                 </div>
                 
 
@@ -387,7 +378,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    493
+                    396
                 </div>
                 
 
@@ -417,49 +408,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ssh-实现指定用户仅认证不登录"><a href="#ssh-实现指定用户仅认证不登录" class="headerlink" title="ssh 实现指定用户仅认证不登录"></a>ssh 实现指定用户仅认证不登录</h1><blockquote>
-<p>当我们有 ssh 代理代理转发的需求时，就可以在跳板机上做一个仅任认证不登录的用户，用来防止跳板机被以外登录</p>
+                <h1 id="解决-SVN-每次都需要输入密码"><a href="#解决-SVN-每次都需要输入密码" class="headerlink" title="解决 SVN 每次都需要输入密码"></a>解决 SVN 每次都需要输入密码</h1><blockquote>
+<p>由于每次 svn 操作都要求输入账号密码，为了<i class="hover-effect" data-hover-text="偷懒">优雅</i>的使用 svn，在搜索引擎上找了一圈，全都是让你去改 config、server 文件，实际操作下来然并卵，只会浪费你的一天。原因是自从 svn 1.12 版本之后<a target="_blank" rel="noopener" href="https://subversion.apache.org/docs/release-notes/1.12#client-server-improvements">发行说明</a> ，就不再支持明文保存密码了。</p>
 </blockquote>
-<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> adduser jump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>Ubuntu 20.04.6 LTS</li>
+<li>SVN 1.13.0 (r1867053)</li>
+</ul>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><blockquote>
+<p>由于新版本的 svn 使用了 gpg-agent 来保存秘钥信息，所以我们需要对 gpg-agent 进行配置</p>
+</blockquote>
+<ol>
+<li><p>安装和配置 gpg-agent</p>
+<ul>
+<li><p>安装 gpg agent</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> gnupg-agent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>安装 pinentry-tty</p>
+<blockquote>
+<p>pinentry-tty 是更简单的文本界面</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> pinentry-tty
+<span class="token builtin class-name">echo</span> <span class="token string">"pinentry-program /usr/bin/pinentry-tty"</span> <span class="token operator">&gt;&gt;</span> ~/.gnupg/gpg-agent.conf
+gpg-connect-agent reloadagent /bye<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p>修改 .profile 文件，将以下内容添加到文件尾部</p>
+ <pre class="line-numbers language-.profile" data-language=".profile"><code class="language-.profile">export GPG_TTY=$(tty)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="配置-sshd"><a href="#配置-sshd" class="headerlink" title="配置 sshd"></a>配置 sshd</h3><p>先切换到 jump 用户</p>
-<h4 id="欢迎信息"><a href="#欢迎信息" class="headerlink" title="欢迎信息"></a>欢迎信息</h4><p><code>vim /home/jump/banner</code></p>
-<pre class="line-numbers language-banner" data-language="banner"><code class="language-banner">Ok! You've successfully authenticated.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p> 保存后执行 <code>. ~/.profile</code> 使配置生效</p>
+</li>
+<li><p>删除 svn 已保存的认证信息</p>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> <span class="token parameter variable">-rf</span> ~/.subversion/auth<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h4 id="创建-authorized-keys"><a href="#创建-authorized-keys" class="headerlink" title="创建 authorized_keys"></a>创建 authorized_keys</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> /home/jump/.ssh <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> <span class="token number">755</span> /home/jump/.ssh
-<span class="token function">vim</span> /home/jump/.ssh/authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>将公钥添加到 <code>authorized_keys</code> 文件中</p>
-<h4 id="修改-sshd-config"><a href="#修改-sshd-config" class="headerlink" title="修改 sshd_config"></a>修改 sshd_config</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/ssh/sshd_config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>将下面的内容添加到 <code>sshd_config</code> 文件末尾</p>
-<pre class="line-numbers language-sshd_config" data-language="sshd_config"><code class="language-sshd_config">Match User jump
-  Banner /home/jump/banner
-  AuthorizedKeysFile /home/jump/.ssh/authorized_keys
-  PasswordAuthentication no
-  PubkeyAuthentication yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="重启-sshd"><a href="#重启-sshd" class="headerlink" title="重启 sshd"></a>重启 sshd</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/init.d/ssh restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>到这里就可以通过正常的 ssh 方式登录 jump 用户了，而且登录时第一行会看到 <code>banner</code> 文件中的内容</p>
-<h3 id="修改-shell-禁用登录"><a href="#修改-shell-禁用登录" class="headerlink" title="修改 shell (禁用登录)"></a>修改 shell (禁用登录)</h3><p><code>vim /etc/passwd</code></p>
-<p>找到 <code>jump</code>，将最后的 <code>/bin/bash</code> 改为 <code>/bin/false</code></p>
-<p>现在再通过 ssh 的方式登录，会先登录成功，然后紧接着就被关闭连接</p>
-<p><code>到这里就已经基本实现了仅认证不登录的实现</code></p>
-<h3 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h3><h4 id="去除登录后显示的系统信息登录信息"><a href="#去除登录后显示的系统信息登录信息" class="headerlink" title="去除登录后显示的系统信息登录信息"></a>去除登录后显示的系统信息登录信息</h4><p>在登录成功后默认会展示一大堆内容，这些是不需要的，所以如何隐藏它？</p>
-<p>很简单，直接在 <code>jump</code> 用户目录下创建一个 <code>.hushlogin</code> 文件即可</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">touch</span> /home/jump/.hushlogin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>然后再通过 ssh 登录就看不到默认输出的一大堆内容了，就只会看到 <code>banner</code> 文件中的内容</p>
-<h4 id="优化显示登录信息"><a href="#优化显示登录信息" class="headerlink" title="优化显示登录信息"></a>优化显示登录信息</h4><p>如果只想显示登录信息改如何修改？</p>
-<p>还是先按照上面的内容，通过创建 <code>.hushlogin</code> 文件去除默认信息</p>
-<p>然后再通过创建 <code>rc</code> 文件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /home/jump/.ssh/rc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>将以下内容写入到 <code>rc</code> 文件中</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lastlog <span class="token parameter variable">-u</span> <span class="token environment constant">$USER</span> <span class="token operator">|</span> perl <span class="token parameter variable">-lane</span> <span class="token string">'END{print "Last login: @F[3..6] $F[8] from $F[2]"}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>再通过 ssh 登录，就只会看到上一次的登录信息了</p>
+<p> 重新执行 svn 操作，会提示你输入用户密码，同时 GPG-Agent 会缓存密码，下次操作时就不需要再次输入密码了</p>
+</li>
+<li><p>修改缓存过期时间</p>
+<blockquote>
+<p>由于 gpg-agent 会将秘钥缓存，那既然是缓存，那肯定会过期，所以我们还要修改 gpg-agent 的配置，来延长缓存有效期，但是重启系统后还是会失效</p>
+</blockquote>
+<p> 修改 ~/.gnupg/gpg-agent.conf 文件，添加以下内容<br> <strong>注意：这将会降低安全性</strong></p>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">default-cache-ttl <span class="token number">0</span> <span class="token comment"># 缓存时间，0 表示永久</span>
+max-cache-ttl <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
 
                 
             </div>
@@ -486,7 +477,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://clistery.github.io/2022/11/15/ubuntu/ssh-no-login/">http://clistery.github.io/2022/11/15/ubuntu/ssh-no-login/</a>
+                    <a href="http://clistery.github.io/2023/09/26/svn/svn-save-password/">http://clistery.github.io/2023/09/26/svn/svn-save-password/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -524,12 +515,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
-                                </a>
-                            
-                                <a href="/tags/ssh/">
-                                    <span class="chip bg-color">ssh</span>
+                                <a href="/tags/svn/">
+                                    <span class="chip bg-color">svn</span>
                                 </a>
                             
                         </div>
@@ -656,17 +643,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/11/15/cygwin/setup-cygwin/">
+                <a href="/2023/09/26/svn/svn-save-password/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/images/2.jpg" class="responsive-img" alt="设置 Cygwin">
+                        <img src="/medias/images/0.jpg" class="responsive-img" alt="解决 SVN 每次都需要输入密码">
                         
-                        <span class="card-title">设置 Cygwin</span>
+                        <span class="card-title">解决 SVN 每次都需要输入密码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -676,34 +664,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/cygwin/" class="post-category">
-                                    cygwin
+                            <a href="/categories/svn/" class="post-category">
+                                    svn
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/cygwin/">
-                        <span class="chip bg-color">cygwin</span>
-                    </a>
-                    
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
-                    </a>
-                    
-                    <a href="/tags/shell/">
-                        <span class="chip bg-color">shell</span>
+                    <a href="/tags/svn/">
+                        <span class="chip bg-color">svn</span>
                     </a>
                     
                 </div>
@@ -717,13 +698,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/11/docker/port-22-bug/">
+                <a href="/2023/09/15/ubuntu/usb-net/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/images/1.jpg" class="responsive-img" alt="记一次 DockerCompose 配置 22 端口映射遇到的坑">
+                        <img src="/medias/images/1.jpg" class="responsive-img" alt="Ubuntu Server 2204配置无线网卡">
                         
-                        <span class="card-title">记一次 DockerCompose 配置 22 端口映射遇到的坑</span>
+                        <span class="card-title">Ubuntu Server 2204配置无线网卡</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -734,14 +715,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/docker/" class="post-category">
-                                    docker
+                            <a href="/categories/ubuntu/" class="post-category">
+                                    ubuntu
                                 </a>
                             
                             
@@ -751,20 +732,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
+                    <a href="/tags/ubuntu/">
+                        <span class="chip bg-color">ubuntu</span>
                     </a>
                     
-                    <a href="/tags/ssh/">
-                        <span class="chip bg-color">ssh</span>
+                    <a href="/tags/RTL8192EU/">
+                        <span class="chip bg-color">RTL8192EU</span>
                     </a>
                     
-                    <a href="/tags/22-port/">
-                        <span class="chip bg-color">22-port</span>
+                    <a href="/tags/wlan-adapter/">
+                        <span class="chip bg-color">wlan adapter</span>
                     </a>
                     
-                    <a href="/tags/bugs/">
-                        <span class="chip bg-color">bugs</span>
+                    <a href="/tags/network/">
+                        <span class="chip bg-color">network</span>
                     </a>
                     
                 </div>

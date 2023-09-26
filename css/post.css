@@ -99,3 +99,75 @@
     display: inline-block;
     margin-left: 0.5rem;
 }
+
+.hover-effect {
+  display: inline-block;
+  position: relative;
+  font-style: normal;
+  font-weight: 600;
+  box-sizing: border-box;
+  transition: color 0.5s;
+  color: black;
+  text-decoration: none;
+  margin: 0 2px 0 -1px;
+}
+
+.hover-effect::after {
+  position: absolute;
+  content: attr(data-hover-text);
+  left: 0;
+  font-style: normal;
+  transition: color 0.5s;
+  color: transparent;
+}
+
+.hover-effect:hover::after {
+  color: black;
+}
+
+.hover-effect:hover {
+  color: rgba(255, 255, 255, 100);
+}
+
+.hidden-text {
+  background-color: black;
+  color: transparent;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  transition: color 0.3s ease-in-out;
+}
+
+.hidden-text:hover {
+  color: white;
+}
+
+.hover-effect {
+  display: inline-block;
+  position: relative;
+  font-style: normal;
+  font-weight: 600;
+  box-sizing: border-box;
+  transition: color 0.5s;
+  color: black;
+  text-decoration: none;
+  margin: 0 2px 0 -1px;
+}
+
+.hover-effect::after {
+  position: absolute;
+  content: attr(data-hover-text);
+  left: 0;
+  font-style: normal;
+  transition: color 0.5s;
+  color: transparent;
+}
+
+.hover-effect:hover::after {
+  color: black;
+}
+
+.hover-effect:hover {
+  color: rgba(255, 255, 255, 100);
+}

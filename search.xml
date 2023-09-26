@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>解决 SVN 每次都需要输入密码</title>
+      <link href="/2023/09/26/svn/svn-save-password/"/>
+      <url>/2023/09/26/svn/svn-save-password/</url>
+      
+        <content type="html"><![CDATA[<h1 id="解决-SVN-每次都需要输入密码"><a href="#解决-SVN-每次都需要输入密码" class="headerlink" title="解决 SVN 每次都需要输入密码"></a>解决 SVN 每次都需要输入密码</h1><blockquote><p>由于每次 svn 操作都要求输入账号密码，为了<i class="hover-effect" data-hover-text="偷懒">优雅</i>的使用 svn，在搜索引擎上找了一圈，全都是让你去改 config、server 文件，实际操作下来然并卵，只会浪费你的一天。原因是自从 svn 1.12 版本之后<a href="https://subversion.apache.org/docs/release-notes/1.12#client-server-improvements">发行说明</a> ，就不再支持明文保存密码了。</p></blockquote><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul><li>Ubuntu 20.04.6 LTS</li><li>SVN 1.13.0 (r1867053)</li></ul><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><blockquote><p>由于新版本的 svn 使用了 gpg-agent 来保存秘钥信息，所以我们需要对 gpg-agent 进行配置</p></blockquote><ol><li><p>安装和配置 gpg-agent</p><ul><li><p>安装 gpg agent</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> gnupg-agent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>安装 pinentry-tty</p><blockquote><p>pinentry-tty 是更简单的文本界面</p></blockquote><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> pinentry-tty<span class="token builtin class-name">echo</span> <span class="token string">"pinentry-program /usr/bin/pinentry-tty"</span> <span class="token operator">&gt;&gt;</span> ~/.gnupg/gpg-agent.confgpg-connect-agent reloadagent /bye<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li></ul></li><li><p>修改 .profile 文件，将以下内容添加到文件尾部</p> <pre class="line-numbers language-.profile" data-language=".profile"><code class="language-.profile">export GPG_TTY=$(tty)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p> 保存后执行 <code>. ~/.profile</code> 使配置生效</p></li><li><p>删除 svn 已保存的认证信息</p> <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> <span class="token parameter variable">-rf</span> ~/.subversion/auth<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p> 重新执行 svn 操作，会提示你输入用户密码，同时 GPG-Agent 会缓存密码，下次操作时就不需要再次输入密码了</p></li><li><p>修改缓存过期时间</p><blockquote><p>由于 gpg-agent 会将秘钥缓存，那既然是缓存，那肯定会过期，所以我们还要修改 gpg-agent 的配置，来延长缓存有效期，但是重启系统后还是会失效</p></blockquote><p> 修改 ~/.gnupg/gpg-agent.conf 文件，添加以下内容<br> <strong>注意：这将会降低安全性</strong></p> <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">default-cache-ttl <span class="token number">0</span> <span class="token comment"># 缓存时间，0 表示永久</span>max-cache-ttl <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> svn </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> svn </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Ubuntu Server 2204配置无线网卡</title>
       <link href="/2023/09/15/ubuntu/usb-net/"/>
       <url>/2023/09/15/ubuntu/usb-net/</url>

@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>优化 docker 镜像构建时需要重复下载 apk</title>
+      <link href="/2023/10/07/docker/apline-apk-locally/"/>
+      <url>/2023/10/07/docker/apline-apk-locally/</url>
+      
+        <content type="html"><![CDATA[<h1 id="优化-docker-镜像构建时需要重复下载-apk"><a href="#优化-docker-镜像构建时需要重复下载-apk" class="headerlink" title="优化 docker 镜像构建时需要重复下载 apk"></a>优化 docker 镜像构建时需要重复下载 apk</h1><blockquote><p>众所周知，如果我们需要在 docker 镜像构建时通过包管理器下载一些软件，那么每次我们在修改 DockerFile 时，都需要重新下载一遍，这样会导致构建时间变长，而且如果我们的网络不是很好，那么下载的过程中还可能会出现失败的情况，这样就会导致构建失败，所以我们需要优化这个过程。</p></blockquote><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ol><li>宿主机: 20.04.6 LTS (Focal Fossa)</li><li>docker: Docker version 24.0.4, build 3713ee1</li><li>docker-compose: docker-compose version 1.27.4, build 40524192</li><li>alpine: 3.11.6</li></ol><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><blockquote><p>这里以 <a href="https://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/#DockerFile">在 Docker 中为 Nginx:alpine 安装模块</a> 为例</p></blockquote><p>在这个 DockerFile 中，我们需要编译 nginx，所以有以下这行命令被执行：</p><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># ...</span>apk add --no-cache --virtual dependency gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers \<span class="token comment"># ...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>每次在构建镜像时都会重新下载这些包 <code>gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers</code>，每次只要修改的内容在这行命令之前都会重新触发下载，这将大大增加构建时间，也白白浪费带宽。</p><ul><li><p>优化思路</p><blockquote><p>办法很简单，就是将这些包保存到本地，在构建时在使用已经下载完成的包进行安装，整过构建流程就会被加快</p></blockquote></li></ul><h2 id="获取-apk-包"><a href="#获取-apk-包" class="headerlink" title="获取 apk 包"></a>获取 apk 包</h2><blockquote><p>这里以 <code>gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers</code> 为例</p></blockquote><ol><li><p>进入 alpine 镜像</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-it</span> alpine:3.11.6 /bin/sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>将包下载到本地</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置镜像源</span><span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">"s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g"</span> /etc/apk/repositories<span class="token comment"># 下载包</span>apk fetch <span class="token parameter variable">--recursive</span> --no-cache gcc libc-dev <span class="token function">make</span> openssl-dev pcre-dev zlib-dev linux-headers <span class="token parameter variable">-o</span> /tmp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>下载后的 apk 文件会保存在 <code>/tmp</code> 目录下</p></li><li><p>将包复制到宿主机</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token function">cp</span> <span class="token operator">&lt;</span>containerId<span class="token operator">&gt;</span>:/tmp /host/path/apk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol><h2 id="使用本地-apk-包"><a href="#使用本地-apk-包" class="headerlink" title="使用本地 apk 包"></a>使用本地 apk 包</h2><ol><li><p>修改 DockerFile</p><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># ...</span><span class="token instruction"><span class="token keyword">COPY</span> /host/path/apk /tmp # 将本地的 apk 复制到镜像中</span><span class="token instruction"><span class="token keyword">RUN</span> apk add --no-cache --virtual dependency /tmp/*.apk \ # 使用本地的 apk 进行安装</span><span class="token comment"># ...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>构建镜像</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> build <span class="token parameter variable">-t</span> nginx:alpine <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>到这里，我们就可以发现构建速度已经有了较大的提升</p></li></ol><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>总结一下优缺点：</p><ul><li><p>优点</p><ol><li>构建速度提升</li><li>避免了因为网络问题而导致构建失败</li><li>足够灵活，如果我们不需要某个包或需要临时增加某个包，只需要修改本地的 apk 包即可</li></ol></li><li><p>缺点</p><ol><li>需要手动下载 apk 包，并复制到镜像中</li><li>需要匹配包的版本和镜像的版本，否则可能会出现不兼容的情况，当然这种情况只需要重新下载即可</li></ol></li></ul><p>当然，不仅仅只有这一种方式，还有其他的方式，比如通过创建一个已经安装好这些包的基础镜像，再通过这个基础镜像进行后续编译，但是这种方式的弊端也比较明显，不够灵活，所以我个人还是更喜欢上面这种方式。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> alpine </tag>
+            
+            <tag> dockerfile </tag>
+            
+            <tag> docker image </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解决 SVN 每次都需要输入密码</title>
       <link href="/2023/09/26/svn/svn-save-password/"/>
       <url>/2023/09/26/svn/svn-save-password/</url>
@@ -109,11 +140,11 @@
             
             <tag> docker </tag>
             
+            <tag> alpine </tag>
+            
             <tag> nginx </tag>
             
             <tag> nginx-module </tag>
-            
-            <tag> alpine </tag>
             
         </tags>
       

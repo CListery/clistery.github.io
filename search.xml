@@ -4,6 +4,136 @@
   
     
     <entry>
+      <title>在 Linux 环境下为 DSM 安装软件</title>
+      <link href="/2023/12/06/dsm/install-pkg-with-entware/"/>
+      <url>/2023/12/06/dsm/install-pkg-with-entware/</url>
+      
+        <content type="html"><![CDATA[<h1 id="在-Linux-环境下为-DSM-安装软件"><a href="#在-Linux-环境下为-DSM-安装软件" class="headerlink" title="在 Linux 环境下为 DSM 安装软件"></a>在 Linux 环境下为 DSM 安装软件</h1><blockquote><p>之前介绍了如何通过 ssh 连接到 DSM，现在我们需要在 DSM 中安装一些软件，本文将介绍如何在 DSM 中安装软件。</p></blockquote><p>首先需要将 ssh 连接到 DSM 中，具体可以参考 <a href="https://clistery.github.io/2023/12/07/dsm/access-dsm-ssh/">通过 ssh 连接 docker 中的 dsm</a></p><h2 id="安装-Entware"><a href="#安装-Entware" class="headerlink" title="安装 Entware"></a>安装 Entware</h2><blockquote><p>由于 Linux DSM 不同于普通的 Linux 发布版，所以我们不能直接使用 apt 或者 yum 等包管理器来安装软件，所以需要通过 Entware 来安装软件</p></blockquote><ol><li><p>首先查看平台架构</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">uname</span> <span class="token parameter variable">-m</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>Entware 支持如下几种平台：</p><ul><li>armv7</li><li>x86</li><li>x86_64</li><li>armv5</li><li>mips</li><li>mipsel</li><li>armv8/aarch64</li></ul></li><li><p>创建 Entware 安装目录</p><ul><li><p>确保 <code>/opt</code> 目录可以被操作</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">stat</span> <span class="token parameter variable">-c</span> <span class="token string">'%a'</span> /opt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>如果返回大于等于 <code>600</code>，则可以继续操作</p></li><li><p>创建 <code>/opt</code> 并挂载</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /volume1/@Entware/opt<span class="token function">rm</span> <span class="token parameter variable">-rf</span> /opt<span class="token function">mkdir</span> /opt<span class="token function">mount</span> <span class="token parameter variable">-o</span> <span class="token builtin class-name">bind</span> /volume1/@Entware/opt /opt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p>如果挂载失败，则使用软链接的方式创建目录</p></blockquote><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> <span class="token parameter variable">-s</span> /volume1/@Entware/opt/ /opt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul></li><li><p>安装 Entware</p></li></ol><p>根据平台架构选择对应的安装命令</p><ul><li><p>armv7</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-O</span> - https://bin.entware.net/armv7sf-k2.6/installer/generic.sh <span class="token operator">|</span> <span class="token function">sh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>x86</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-O</span> - https://bin.entware.net/x86-k2.6/installer/generic.sh <span class="token operator">|</span> <span class="token function">sh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>x86_64</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-O</span> - https://bin.entware.net/x64-k3.2/installer/generic.sh <span class="token operator">|</span> <span class="token function">sh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>armv5</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-O</span> - https://bin.entware.net/armv5sf-k3.2/installer/generic.sh <span class="token operator">|</span> <span class="token function">sh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>mips</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-O</span> - https://bin.entware.net/mipssf-k3.4/installer/generic.sh <span class="token operator">|</span> <span class="token function">sh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>mipsel</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-O</span> - https://bin.entware.net/mipselsf-k3.4/installer/generic.sh <span class="token operator">|</span> <span class="token function">sh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>armv8/aarch64</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-O</span> - https://bin.entware.net/aarch64-k3.10/installer/generic.sh <span class="token operator">|</span> <span class="token function">sh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul><ol start="4"><li><p>EntWare 自启动</p><ol><li><p>使用具有管理员权限的账号登录 DSM</p></li><li><p>打开控制面板</p></li><li><p>选择任务计划</p></li><li><p>新增 &gt; 触发的任务 &gt; 用户定义的脚本</p><ul><li><p>常规</p><ul><li>名称：EntWare StartUp</li><li>用户账号：root</li><li>事件：开机</li></ul></li><li><p>任务设置</p><ul><li><p>将下面的脚本粘贴到<code>运行命令</code></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh</span><span class="token comment"># Mount EntWare</span><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /opt<span class="token function">mount</span> <span class="token parameter variable">-o</span> <span class="token builtin class-name">bind</span> /volume1/@Entware/opt /opt/opt/etc/init.d/rc.unslung start<span class="token comment"># Add EntWare Profile in Global Profile</span><span class="token keyword">if</span> <span class="token function">grep</span> <span class="token parameter variable">-qF</span> <span class="token string">'/opt/etc/profile'</span> /etc/profile<span class="token punctuation">;</span> <span class="token keyword">then</span>  <span class="token builtin class-name">echo</span> <span class="token string">"Confirmed: EntWare Profile in Global Profile"</span><span class="token keyword">else</span>  <span class="token builtin class-name">echo</span> <span class="token string">"Adding: EntWare Profile in Global Profile"</span>  <span class="token function">cat</span> <span class="token operator">&gt;&gt;</span>/etc/profile <span class="token operator">&lt;&lt;</span><span class="token string">"EOF"# Load EntWare Profile[ -r "/opt/etc/profile" ] &amp;&amp; . /opt/etc/profileEOF</span><span class="token keyword">fi</span><span class="token comment"># Configure EntWare Mirror</span><span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">'s|https\?://bin.entware.net|https://mirrors.bfsu.edu.cn/entware|g'</span> /opt/etc/opkg.conf<span class="token comment"># Update EntWare List</span>/opt/bin/opkg update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul></li></ul></li><li><p>确定</p></li><li><p>重启 DSM</p></li></ol></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> dsm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> dsm </tag>
+            
+            <tag> virtual dsm </tag>
+            
+            <tag> synology dsm </tag>
+            
+            <tag> Linux DSM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>修复 virtual DSM 无法访问网络</title>
+      <link href="/2023/12/06/dsm/fix-dsm-network-issue/"/>
+      <url>/2023/12/06/dsm/fix-dsm-network-issue/</url>
+      
+        <content type="html"><![CDATA[<h1 id="修复-virtual-DSM-无法访问网络"><a href="#修复-virtual-DSM-无法访问网络" class="headerlink" title="修复 virtual DSM 无法访问网络"></a>修复 virtual DSM 无法访问网络</h1><blockquote><p>之前我们在 <a href="https://clistery.github.io/2023/12/07/dsm/install-with-docker/">在 docker 中安装 DSM</a> 时，我们在 docker 中安装了一个虚拟的 DSM，但是在安装完成后，我们发现 DSM 可以正常安装套件，但是 NTP 和 邮件通知 等服务都无法正常工作，所以我们需要修复这个问题。</p></blockquote><h2 id="添加-DNS"><a href="#添加-DNS" class="headerlink" title="添加 DNS"></a>添加 DNS</h2><ol><li><p>修改 docker-compose.yml</p><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">services</span><span class="token punctuation">:</span>  <span class="token key atrule">dsm</span><span class="token punctuation">:</span>    <span class="token comment"># ...</span>    <span class="token key atrule">dns</span><span class="token punctuation">:</span>      <span class="token punctuation">-</span> 8.8.8.8      <span class="token punctuation">-</span> 1.0.0.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>修改 DSM 网络配置</p><ol><li>打开 DSM <code>控制面板</code></li><li>点击<code>网络</code></li><li>切换到<code>常规</code>选项卡</li><li>勾选<code>手动配置 DNS 服务器</code><br>首选 DNS: <code>8.8.8.8</code><br>备选 DNS: <code>1.0.0.1</code></li></ol></li></ol><h2 id="重启-DSM"><a href="#重启-DSM" class="headerlink" title="重启 DSM"></a>重启 DSM</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> restart dsm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> dsm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> dsm </tag>
+            
+            <tag> virtual dsm </tag>
+            
+            <tag> synology dsm </tag>
+            
+            <tag> network error </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>通过 ssh 连接 docker 中的 dsm</title>
+      <link href="/2023/12/06/dsm/access-dsm-ssh/"/>
+      <url>/2023/12/06/dsm/access-dsm-ssh/</url>
+      
+        <content type="html"><![CDATA[<h1 id="通过-ssh-连接-docker-中的-dsm"><a href="#通过-ssh-连接-docker-中的-dsm" class="headerlink" title="通过 ssh 连接 docker 中的 dsm"></a>通过 ssh 连接 docker 中的 dsm</h1><blockquote><p>之前我们在 <a href="https://clistery.github.io/2023/12/07/dsm/install-with-docker/">在 docker 中安装 DSM</a> 安装了 DSM，现在我们需要通过 ssh 连接到 DSM 中，本文将介绍如何通过 ssh 连接到 DSM 中。</p></blockquote><p>由于 DSM 是搭建在 docker 下的，所以我们要连接到 DSM 大概思路如下</p><ol><li>通过 ssh 连接到宿主机</li><li>再通过宿主机 ssh 连接本地端口登录到 DSM</li></ol><p>有点繁琐，简化一下操作，通过宿主机建立一个 ssh jump server，然后通过 ssh jump server 连接到 DSM，这样一步就完成了登录 DSM</p><p>关于 ssh jump server 的搭建流程可以查看这篇博客 <a href="https://clistery.github.io/2022/11/11/docker/ssh-bridge/">通过 ssh 桥接方式连接远程 docker 中的 ubuntu</a>, 这里不再赘述</p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol><li><p>需要先打开 DSM 的 ssh 服务</p><blockquote><p>打开 DSM <code>控制面板</code> -&gt; <code>终端机和 SNMP</code> -&gt; <code>终端机</code> -&gt; <code>启用 SSH 服务</code></p></blockquote></li><li><p>修改 docker-compose.yml</p><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">services</span><span class="token punctuation">:</span>  <span class="token key atrule">dsm</span><span class="token punctuation">:</span>    <span class="token comment"># ...</span>    <span class="token key atrule">ports</span><span class="token punctuation">:</span>      <span class="token punctuation">-</span> 3456<span class="token punctuation">:</span><span class="token number">22</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>重启 DSM</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> restart dsm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>创建 home 目录</p><p>因为 ssh 登录后默认会进入到用户的 home 目录，所以我们需要创建一个用户所对应的 home 目录</p><p>这一步需要在 DSM 中完成，操作非常简单，只需要安装 <code>Synology Photos</code> 即可，安装完成后会自动创建 home 目录</p></li><li><p>配置 ssh 公钥</p><p>将你的公钥写入到 <code>/var/services/homes/&lt;username&gt;/authorized_keys</code> 文件中</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/ssh/sshd_config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre class="line-numbers language-sshd_config" data-language="sshd_config"><code class="language-sshd_config">Match User &lt;username&gt;  AuthorizedKeysFile /var/services/homes/&lt;username&gt;/authorized_keys  PasswordAuthentication no  PubkeyAuthentication yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>修改宿主机 ssh 跳板</p><p>这一步可以参考 <a href="https://clistery.github.io/2022/11/11/docker/ssh-bridge/">通过 ssh 桥接方式连接远程 docker 中的 ubuntu</a> 完成</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/ssh/sshd_config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre class="line-numbers language-sshd_config" data-language="sshd_config"><code class="language-sshd_config">Match User dsm  AuthorizedKeysFile /home/app/.ssh/authorized_keys  PasswordAuthentication no  PubkeyAuthentication yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>配置客户端 ssh</p><p>这一步可以参考 <a href="https://clistery.github.io/2022/11/11/docker/ssh-bridge/">通过 ssh 桥接方式连接远程 docker 中的 ubuntu</a> 完成</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> ~/.ssh/config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre class="line-numbers language-ssh_config" data-language="ssh_config"><code class="language-ssh_config">Host app HostName &lt;host&gt; Port 22 User dsm IdentityFile ~/.ssh/id_rsaHost docker_dsm  HostName 0.0.0.0  Port 3456  User &lt;username&gt;  IdentityFile ~/.ssh/id_rsa  ProxyCommand ssh -q -W %h:%p app<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>连接 DSM</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> docker_dsm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> dsm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> dsm </tag>
+            
+            <tag> virtual dsm </tag>
+            
+            <tag> synology dsm </tag>
+            
+            <tag> ssh jump server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在 docker 中安装 DSM</title>
+      <link href="/2023/12/06/dsm/install-with-docker/"/>
+      <url>/2023/12/06/dsm/install-with-docker/</url>
+      
+        <content type="html"><![CDATA[<h1 id="在-docker-中安装-DSM"><a href="#在-docker-中安装-DSM" class="headerlink" title="在 docker 中安装 DSM"></a>在 docker 中安装 DSM</h1><blockquote><p>是的，你没有看错，这篇文章的标题是在 docker 中安装 DSM，而不是在 docker 中安装 DSM，这里的 DSM 是指 Synology DSM，也就是群晖的操作系统，这里我们将在 docker 中安装一个虚拟的 DSM，这样我们就可以在不购买群晖硬件的情况下体验 DSM 的功能了。</p></blockquote><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ol><li>宿主机: 20.04.6 LTS (Focal Fossa)</li><li>docker: Docker version 24.0.6, build ed223bc</li><li>docker compose: Docker Compose version v2.21.0</li><li>DSM: 7.2.1-69057-1</li></ol><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul><li>创建 docker-compose.yml</li></ul><blockquote><p>更多的配置可以参考 <a href="https://github.com/vdsm/virtual-dsm">Virtual DSM</a></p></blockquote><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3'</span><span class="token key atrule">services</span><span class="token punctuation">:</span>  <span class="token key atrule">dsm</span><span class="token punctuation">:</span>    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> dsm    <span class="token key atrule">image</span><span class="token punctuation">:</span> docker.io/clistery/virtual<span class="token punctuation">-</span>dsm<span class="token punctuation">:</span>latest    <span class="token key atrule">environment</span><span class="token punctuation">:</span>      <span class="token key atrule">URL</span><span class="token punctuation">:</span> <span class="token string">'https://cndl.synology.cn/download/DSM/release/7.2.1/69057-1/DSM_VirtualDSM_69057.pat'</span>      <span class="token key atrule">DISK_SIZE</span><span class="token punctuation">:</span> <span class="token string">'100G'</span>      <span class="token key atrule">DISK2_SIZE</span><span class="token punctuation">:</span> <span class="token string">'100G'</span>      <span class="token key atrule">RAM_SIZE</span><span class="token punctuation">:</span> <span class="token string">'4G'</span>      <span class="token key atrule">CPU_CORES</span><span class="token punctuation">:</span> <span class="token string">'4'</span>    <span class="token key atrule">devices</span><span class="token punctuation">:</span>      <span class="token punctuation">-</span> /dev/kvm      <span class="token punctuation">-</span> /dev/net/tun      <span class="token punctuation">-</span> /dev/vhost<span class="token punctuation">-</span>net    <span class="token key atrule">device_cgroup_rules</span><span class="token punctuation">:</span>      <span class="token punctuation">-</span> <span class="token string">'c *:* rwm'</span>    <span class="token key atrule">cap_add</span><span class="token punctuation">:</span>      <span class="token punctuation">-</span> NET_ADMIN    <span class="token key atrule">ports</span><span class="token punctuation">:</span>      <span class="token punctuation">-</span> <span class="token string">'5000:5000'</span>    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>      <span class="token punctuation">-</span> $<span class="token punctuation">{</span>PWD<span class="token punctuation">}</span>/pat<span class="token punctuation">:</span>/pat<span class="token punctuation">:</span>ro      <span class="token punctuation">-</span> $<span class="token punctuation">{</span>PWD<span class="token punctuation">}</span>/storage/sda1<span class="token punctuation">:</span>/storage<span class="token punctuation">:</span>rw      <span class="token punctuation">-</span> $<span class="token punctuation">{</span>PWD<span class="token punctuation">}</span>/storage/sda2<span class="token punctuation">:</span>/storage2<span class="token punctuation">:</span>rw    <span class="token key atrule">restart</span><span class="token punctuation">:</span> on<span class="token punctuation">-</span>failure    <span class="token key atrule">stop_grace_period</span><span class="token punctuation">:</span> 1m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p>其中镜像 docker.io/clistery/virtual-dsm:latest 是基于 <a href="https://github.com/vdsm/virtual-dsm">Virtual DSM</a> 构建，在其之上做了一些加速优化，及一些工具配置，也可以直接替换为 vdsm/virtual-dsm:latest。</p></blockquote><ul><li>创建目录</li></ul><ol><li>创建 pat 目录</li><li>创建 storage 目录</li></ol><blockquote><p>创建完成后的目录结构如下：</p></blockquote><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">.</span>├── docker-compose.yml├── pat└── storage<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h2 id="安装加速（可选）"><a href="#安装加速（可选）" class="headerlink" title="安装加速（可选）"></a>安装加速（可选）</h2><blockquote><p>如果使用的镜像是 virtual-dsm:latest，那么可以跳过这一步。这里我们实际安装的版本是 7.2.1，但是由于 7.2.1 中系统关键文件无法解包，只能先通过 7.0.1 解包出关键文件，再进行 7.2.1 版本的安装</p></blockquote><ol><li><p>进入 pat 目录</p></li><li><p>下载 PAT 文件</p><ul><li><p>7.0.1</p><p><a href="https://cndl.synology.cn/download/DSM/release/7.0.1/42218/DSM_VirtualDSM_42218.pat">https://cndl.synology.cn/download/DSM/release/7.0.1/42218/DSM_VirtualDSM_42218.pat</a></p><ul><li><p>dsm.rd</p><blockquote><p>7.0.1 其中的关键文件，可用于加速安装，非必须，如果不提前准备的话，安装过程中会自动下载</p></blockquote><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-r</span> <span class="token string">"65627648-71021835"</span> <span class="token parameter variable">-sfk</span> <span class="token parameter variable">-o</span> <span class="token string">"DSM_VirtualDSM_42218-dsm.rd"</span> <span class="token string">"https://cndl.synology.cn/download/DSM/release/7.0.1/42218/DSM_VirtualDSM_42218.pat"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul></li><li><p>7.2.1: <a href="https://cndl.synology.cn/download/DSM/release/7.2.1/69057-1/DSM_VirtualDSM_69057.pat">https://cndl.synology.cn/download/DSM/release/7.2.1/69057-1/DSM_VirtualDSM_69057.pat</a></p></li></ul><blockquote><p>链接使用了大陆加速，如果无法下载，将链接中的 <code>cndl.synology.cn</code> 替换为 <code>global.download.synology.com</code></p></blockquote></li></ol><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>然后就可以打开 docker 日志查看安装进度了，直到看到如下日志，就可以用浏览器通过 <host>:5000 端口访问 docker 容器下的 DSM 了</host></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">❯ --------------------------------------------------------❯  You can now login to DSM at port <span class="token number">5000</span>❯ --------------------------------------------------------<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> dsm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> dsm </tag>
+            
+            <tag> virtual dsm </tag>
+            
+            <tag> synology dsm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>优化 docker 镜像构建时需要重复下载 apk</title>
       <link href="/2023/10/07/docker/apline-apk-locally/"/>
       <url>/2023/10/07/docker/apline-apk-locally/</url>

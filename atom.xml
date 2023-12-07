@@ -6,7 +6,7 @@
   <link href="http://clistery.github.io/atom.xml" rel="self"/>
   
   <link href="http://clistery.github.io/"/>
-  <updated>2023-10-07T07:31:15.659Z</updated>
+  <updated>2023-12-07T08:17:37.406Z</updated>
   <id>http://clistery.github.io/</id>
   
   <author>
@@ -17,11 +17,141 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>在 Linux 环境下为 DSM 安装软件</title>
+    <link href="http://clistery.github.io/2023/12/06/dsm/install-pkg-with-entware/"/>
+    <id>http://clistery.github.io/2023/12/06/dsm/install-pkg-with-entware/</id>
+    <published>2023-12-06T09:01:58.000Z</published>
+    <updated>2023-12-07T08:17:37.406Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;在-Linux-环境下为-DSM-安装软件&quot;&gt;&lt;a href=&quot;#在-Linux-环境下为-DSM-安装软件&quot; class=&quot;headerlink&quot; title=&quot;在 Linux 环境下为 DSM 安装软件&quot;&gt;&lt;/a&gt;在 Linux 环境下为 DSM</summary>
+        
+      
+    
+    
+    
+    <category term="dsm" scheme="http://clistery.github.io/categories/dsm/"/>
+    
+    
+    <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
+    
+    <category term="dsm" scheme="http://clistery.github.io/tags/dsm/"/>
+    
+    <category term="virtual dsm" scheme="http://clistery.github.io/tags/virtual-dsm/"/>
+    
+    <category term="synology dsm" scheme="http://clistery.github.io/tags/synology-dsm/"/>
+    
+    <category term="Linux DSM" scheme="http://clistery.github.io/tags/Linux-DSM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>修复 virtual DSM 无法访问网络</title>
+    <link href="http://clistery.github.io/2023/12/06/dsm/fix-dsm-network-issue/"/>
+    <id>http://clistery.github.io/2023/12/06/dsm/fix-dsm-network-issue/</id>
+    <published>2023-12-06T08:35:42.000Z</published>
+    <updated>2023-12-07T08:17:37.406Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;修复-virtual-DSM-无法访问网络&quot;&gt;&lt;a href=&quot;#修复-virtual-DSM-无法访问网络&quot; class=&quot;headerlink&quot; title=&quot;修复 virtual DSM 无法访问网络&quot;&gt;&lt;/a&gt;修复 virtual DSM</summary>
+        
+      
+    
+    
+    
+    <category term="dsm" scheme="http://clistery.github.io/categories/dsm/"/>
+    
+    
+    <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
+    
+    <category term="dsm" scheme="http://clistery.github.io/tags/dsm/"/>
+    
+    <category term="virtual dsm" scheme="http://clistery.github.io/tags/virtual-dsm/"/>
+    
+    <category term="synology dsm" scheme="http://clistery.github.io/tags/synology-dsm/"/>
+    
+    <category term="network error" scheme="http://clistery.github.io/tags/network-error/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>通过 ssh 连接 docker 中的 dsm</title>
+    <link href="http://clistery.github.io/2023/12/06/dsm/access-dsm-ssh/"/>
+    <id>http://clistery.github.io/2023/12/06/dsm/access-dsm-ssh/</id>
+    <published>2023-12-06T07:41:41.000Z</published>
+    <updated>2023-12-07T08:17:37.406Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;通过-ssh-连接-docker-中的-dsm&quot;&gt;&lt;a href=&quot;#通过-ssh-连接-docker-中的-dsm&quot; class=&quot;headerlink&quot; title=&quot;通过 ssh 连接 docker 中的 dsm&quot;&gt;&lt;/a&gt;通过 ssh 连接 docker</summary>
+        
+      
+    
+    
+    
+    <category term="dsm" scheme="http://clistery.github.io/categories/dsm/"/>
+    
+    
+    <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
+    
+    <category term="dsm" scheme="http://clistery.github.io/tags/dsm/"/>
+    
+    <category term="virtual dsm" scheme="http://clistery.github.io/tags/virtual-dsm/"/>
+    
+    <category term="synology dsm" scheme="http://clistery.github.io/tags/synology-dsm/"/>
+    
+    <category term="ssh jump server" scheme="http://clistery.github.io/tags/ssh-jump-server/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 docker 中安装 DSM</title>
+    <link href="http://clistery.github.io/2023/12/06/dsm/install-with-docker/"/>
+    <id>http://clistery.github.io/2023/12/06/dsm/install-with-docker/</id>
+    <published>2023-12-06T07:40:04.000Z</published>
+    <updated>2023-12-07T08:17:37.406Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;在-docker-中安装-DSM&quot;&gt;&lt;a href=&quot;#在-docker-中安装-DSM&quot; class=&quot;headerlink&quot; title=&quot;在 docker 中安装 DSM&quot;&gt;&lt;/a&gt;在 docker 中安装</summary>
+        
+      
+    
+    
+    
+    <category term="dsm" scheme="http://clistery.github.io/categories/dsm/"/>
+    
+    
+    <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
+    
+    <category term="dsm" scheme="http://clistery.github.io/tags/dsm/"/>
+    
+    <category term="virtual dsm" scheme="http://clistery.github.io/tags/virtual-dsm/"/>
+    
+    <category term="synology dsm" scheme="http://clistery.github.io/tags/synology-dsm/"/>
+    
+  </entry>
+  
+  <entry>
     <title>优化 docker 镜像构建时需要重复下载 apk</title>
     <link href="http://clistery.github.io/2023/10/07/docker/apline-apk-locally/"/>
     <id>http://clistery.github.io/2023/10/07/docker/apline-apk-locally/</id>
     <published>2023-10-07T02:14:18.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -52,7 +182,7 @@
     <link href="http://clistery.github.io/2023/09/26/svn/svn-save-password/"/>
     <id>http://clistery.github.io/2023/09/26/svn/svn-save-password/</id>
     <published>2023-09-26T03:34:54.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -77,7 +207,7 @@
     <link href="http://clistery.github.io/2023/09/15/ubuntu/usb-net/"/>
     <id>http://clistery.github.io/2023/09/15/ubuntu/usb-net/</id>
     <published>2023-09-15T13:39:17.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -108,7 +238,7 @@
     <link href="http://clistery.github.io/2023/08/02/other/disable-wechat-ocr/"/>
     <id>http://clistery.github.io/2023/08/02/other/disable-wechat-ocr/</id>
     <published>2023-08-02T03:33:46.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -137,7 +267,7 @@
     <link href="http://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/"/>
     <id>http://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/</id>
     <published>2023-07-27T00:37:26.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -170,7 +300,7 @@
     <link href="http://clistery.github.io/2023/07/20/ubuntu/user-group/"/>
     <id>http://clistery.github.io/2023/07/20/ubuntu/user-group/</id>
     <published>2023-07-20T02:10:05.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -202,7 +332,7 @@
     <link href="http://clistery.github.io/2023/05/06/windows/bypass-user-account-control-notifications/"/>
     <id>http://clistery.github.io/2023/05/06/windows/bypass-user-account-control-notifications/</id>
     <published>2023-05-06T00:39:54.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -229,7 +359,7 @@
     <link href="http://clistery.github.io/2023/04/21/tools/v2ray-install-setup/"/>
     <id>http://clistery.github.io/2023/04/21/tools/v2ray-install-setup/</id>
     <published>2023-04-21T07:25:02.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -259,7 +389,7 @@
     <link href="http://clistery.github.io/2023/04/13/vmware/amd-vmware15.1-install-macos-10.15.x/"/>
     <id>http://clistery.github.io/2023/04/13/vmware/amd-vmware15.1-install-macos-10.15.x/</id>
     <published>2023-04-13T03:34:38.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -292,7 +422,7 @@
     <link href="http://clistery.github.io/2023/03/13/android/strings/"/>
     <id>http://clistery.github.io/2023/03/13/android/strings/</id>
     <published>2023-03-13T05:58:01.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -322,7 +452,7 @@
     <link href="http://clistery.github.io/2023/02/23/apple/2023-apple-developer-enterprise-program/"/>
     <id>http://clistery.github.io/2023/02/23/apple/2023-apple-developer-enterprise-program/</id>
     <published>2023-02-23T03:15:21.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -349,7 +479,7 @@
     <link href="http://clistery.github.io/2023/02/16/cygwin/customize-theme-cygwin/"/>
     <id>http://clistery.github.io/2023/02/16/cygwin/customize-theme-cygwin/</id>
     <published>2023-02-16T02:03:20.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -382,7 +512,7 @@
     <link href="http://clistery.github.io/2023/02/16/cygwin/setup-home-dir-cygwin/"/>
     <id>http://clistery.github.io/2023/02/16/cygwin/setup-home-dir-cygwin/</id>
     <published>2023-02-16T01:38:36.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -411,7 +541,7 @@
     <link href="http://clistery.github.io/2023/02/15/cygwin/fstab-error-cygwin/"/>
     <id>http://clistery.github.io/2023/02/15/cygwin/fstab-error-cygwin/</id>
     <published>2023-02-15T08:38:17.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -442,7 +572,7 @@
     <link href="http://clistery.github.io/2022/12/09/reverse/unpkg-wx-app/"/>
     <id>http://clistery.github.io/2022/12/09/reverse/unpkg-wx-app/</id>
     <published>2022-12-09T02:15:15.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -473,7 +603,7 @@
     <link href="http://clistery.github.io/2022/11/15/cygwin/setup-cygwin/"/>
     <id>http://clistery.github.io/2022/11/15/cygwin/setup-cygwin/</id>
     <published>2022-11-15T03:05:43.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
+    <updated>2023-12-07T08:17:37.406Z</updated>
     
     
       
@@ -494,122 +624,6 @@
     <category term="linux" scheme="http://clistery.github.io/tags/linux/"/>
     
     <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ssh 实现指定用户仅认证不登录</title>
-    <link href="http://clistery.github.io/2022/11/15/ubuntu/ssh-no-login/"/>
-    <id>http://clistery.github.io/2022/11/15/ubuntu/ssh-no-login/</id>
-    <published>2022-11-15T03:05:16.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;ssh-实现指定用户仅认证不登录&quot;&gt;&lt;a href=&quot;#ssh-实现指定用户仅认证不登录&quot; class=&quot;headerlink&quot; title=&quot;ssh 实现指定用户仅认证不登录&quot;&gt;&lt;/a&gt;ssh</summary>
-        
-      
-    
-    
-    
-    <category term="ubuntu" scheme="http://clistery.github.io/categories/ubuntu/"/>
-    
-    
-    <category term="linux" scheme="http://clistery.github.io/tags/linux/"/>
-    
-    <category term="ssh" scheme="http://clistery.github.io/tags/ssh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一次 DockerCompose 配置 22 端口映射遇到的坑</title>
-    <link href="http://clistery.github.io/2022/11/11/docker/port-22-bug/"/>
-    <id>http://clistery.github.io/2022/11/11/docker/port-22-bug/</id>
-    <published>2022-11-11T09:31:57.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;记一次-DockerCompose-配置-22-端口映射遇到的坑&quot;&gt;&lt;a href=&quot;#记一次-DockerCompose-配置-22-端口映射遇到的坑&quot; class=&quot;headerlink&quot; title=&quot;记一次 DockerCompose 配置 22</summary>
-        
-      
-    
-    
-    
-    <category term="docker" scheme="http://clistery.github.io/categories/docker/"/>
-    
-    
-    <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
-    
-    <category term="ssh" scheme="http://clistery.github.io/tags/ssh/"/>
-    
-    <category term="22-port" scheme="http://clistery.github.io/tags/22-port/"/>
-    
-    <category term="bugs" scheme="http://clistery.github.io/tags/bugs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>通过 ssh 桥接方式连接远程 docker 中的 ubuntu</title>
-    <link href="http://clistery.github.io/2022/11/11/docker/ssh-bridge/"/>
-    <id>http://clistery.github.io/2022/11/11/docker/ssh-bridge/</id>
-    <published>2022-11-11T06:44:56.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;通过-ssh-桥接方式连接远程-docker-中的-ubuntu&quot;&gt;&lt;a href=&quot;#通过-ssh-桥接方式连接远程-docker-中的-ubuntu&quot; class=&quot;headerlink&quot; title=&quot;通过 ssh 桥接方式连接远程 docker 中的</summary>
-        
-      
-    
-    
-    
-    <category term="docker" scheme="http://clistery.github.io/categories/docker/"/>
-    
-    
-    <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
-    
-    <category term="ssh" scheme="http://clistery.github.io/tags/ssh/"/>
-    
-    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>script 命令</title>
-    <link href="http://clistery.github.io/2022/10/25/ubuntu/script/"/>
-    <id>http://clistery.github.io/2022/10/25/ubuntu/script/</id>
-    <published>2022-10-25T03:00:05.000Z</published>
-    <updated>2023-10-07T07:31:15.659Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;script-命令&quot;&gt;&lt;a href=&quot;#script-命令&quot; class=&quot;headerlink&quot; title=&quot;script 命令&quot;&gt;&lt;/a&gt;script</summary>
-        
-      
-    
-    
-    
-    <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
-    
-    
-    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
-    
-    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
-    
-    <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
     
   </entry>
   

@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>在win10上安装基于embedded包的python环境</title>
+      <link href="/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/"/>
+      <url>/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/</url>
+      
+        <content type="html"><![CDATA[<h1 id="在-win10-上安装基于-embedded-包的-python-环境"><a href="#在-win10-上安装基于-embedded-包的-python-环境" class="headerlink" title="在 win10 上安装基于 embedded 包的 python 环境"></a>在 win10 上安装基于 embedded 包的 python 环境</h1><blockquote><p>便携可移植，啥也不说了，干就完了</p></blockquote><h2 id="安装-embedded-package"><a href="#安装-embedded-package" class="headerlink" title="安装 embedded package"></a>安装 embedded package</h2><ul><li><p>安装<br>通过 <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a> 下载最新或你需要的版本，对应的 embedded 包即可</p></li><li><p>解压</p><blockquote><p>这个就不谈了，随意</p></blockquote></li><li><p>配置</p><ol><li><p>进入到刚才解压的目录中</p></li><li><p>找到 <code>python&lt;version&gt;.zip</code> 的压缩包，将其中的内容解压到 Lib 目录，没有就创建一个</p></li><li><p>修改 <code>python&lt;version&gt;._pth</code>，将内容修改为：</p> <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token punctuation">.</span>\Lib<span class="token punctuation">.</span>\Scripts<span class="token punctuation">.</span><span class="token comment"># Uncomment to run site.main() automatically</span><span class="token keyword">import</span> site<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>修改 site-packages 默认路径<br> 创建 <code>sitecustomize.py</code></p> <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> sys<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>检查路径配置是否正确</p> <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python <span class="token parameter variable">-c</span> <span class="token string">"import sys;print(sys.path)"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>安装 pip</p> <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://bootstrap.pypa.io/get-pip.pypython get-pip.pypython <span class="token parameter variable">-m</span> pip <span class="token function">install</span> <span class="token parameter variable">--upgrade</span> pip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><blockquote><p>参阅 <a href="https://pip.pypa.io/en/stable/installation/">pip documentation</a></p></blockquote></li></ol></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> embedded package </tag>
+            
+            <tag> win10 </tag>
+            
+            <tag> environment </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>在 Linux 环境下为 DSM 安装软件</title>
       <link href="/2023/12/06/dsm/install-pkg-with-entware/"/>
       <url>/2023/12/06/dsm/install-pkg-with-entware/</url>

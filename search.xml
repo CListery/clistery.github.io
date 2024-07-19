@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>自制 USBasp</title>
+      <link href="/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/"/>
+      <url>/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="自制-USBAsp"><a href="#自制-USBAsp" class="headerlink" title="自制 USBAsp"></a>自制 USBAsp</h1><blockquote><p>本文将 <code>STEP BY STEP</code> 介绍如何制作一个 USBAsp 烧录器，如果在制作过程中遇到问题，请先检查焊接是否有问题，再检查是否与本教程的操作是否有出入</p></blockquote><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ul><li>Arduino UNO</li><li><a href="https://oshwhub.com/clistery/usbasp-atmega8a">USBasp</a> 根据 PCB 打板，并准备好上面的所有元器件</li><li><a href="https://www.arduino.cc/en/software/">ArduinoIDE</a></li><li><a href="https://github.com/ZakKemble/AVRDUDESS/releases">AVRDUDE 软件</a></li><li><a href="https://zadig.akeo.ie/">Zadig 驱动安装器</a></li><li><a href="https://www.fischl.de/usbasp/">usbasp 固件</a></li></ul><h2 id="要点提醒"><a href="#要点提醒" class="headerlink" title="要点提醒"></a>要点提醒</h2><ul><li>电路中的 3V3、68Ω 相当重要，不能随意更换为其他参数</li><li>仅支持 Atmega8、Atmega48、Atmega88 系列单片机制作 USBasp</li><li>如果你对你的焊接水平不够自信，那么最好先焊接好 USBasp 上的 Type-C 接口，然后再用万用表检查是否短路和虚焊，避免烧毁 PC 的 USB 接口</li></ul><h2 id="开始制作"><a href="#开始制作" class="headerlink" title="开始制作"></a>开始制作</h2><ol><li><p>给 Arduino UNO 烧写 ArduinoISP 程序</p><ul><li>打开 ArduinoISP 示例代码<br><img src="/../../medias/images/make-a-Usbasp-for-Atmel_AVR-MCU/ArduinoISP-code.png" alt="Open ArduinoISP examples code"></li><li>并将其编译上传到 Arduino UNO</li></ul></li><li><p>将两块板子按以下表格连接</p><table><thead><tr><th>Arduino UNO</th><th>USBasp(SPI2)</th></tr></thead><tbody><tr><td>5V(OUT)</td><td>VCC</td></tr><tr><td>GND</td><td>GND</td></tr><tr><td>D13</td><td>SCK</td></tr><tr><td>D12</td><td>MISO</td></tr><tr><td>D11</td><td>MOSI</td></tr><tr><td>D10</td><td>RST</td></tr></tbody></table></li><li><p>先烧录一个测试代码以保证 USBasp 上的单片机工作没有问题</p><blockquote><p>首先短接 USBASP、SELF_PROG 跳线<br>如果是全新的芯片，有可能会无法写入，在烧录之前需要用镊子短接一下 SLOW_SCK</p></blockquote><ul><li><p>给 USBasp 上传 bootloader<br><img src="/../../medias/images/make-a-Usbasp-for-Atmel_AVR-MCU/atmega8-flash-bootloader.png" alt="atmega8 flash bootloader"></p></li><li><p>编译并上传 GPIO 检测代码</p><pre class="line-numbers language-arduino" data-language="arduino"><code class="language-arduino"><span class="token keyword">void</span> <span class="token keyword">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token function">pinMode</span><span class="token punctuation">(</span>PC0<span class="token punctuation">,</span> <span class="token constant">OUTPUT</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">void</span> <span class="token keyword">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token function">digitalWrite</span><span class="token punctuation">(</span>PC0<span class="token punctuation">,</span> <span class="token constant">HIGH</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token function">digitalWrite</span><span class="token punctuation">(</span>PC0<span class="token punctuation">,</span> <span class="token constant">LOW</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>然后拔掉两块板子 VCC 和 GND 的连接，使用 Type-C 接口给 USBasp 直接供电，如果没有意外的话，PC0 这个 IO 口连接的 LED 将会开始闪烁（如果没有输出，那你就得检查下焊接了）</p></li><li><p>断开 Type-C 连接，恢复两块板子的 VCC 和 GND 连接，并将 Arduino UNO 连接到 PC</p></li></ul></li><li><p>通过 AVRDUDE 配置 USBasp</p><blockquote><p>如果是全新的芯片，有可能会无法写入，在烧录之前需要用镊子短接一下 SLOW_SCK</p></blockquote><ul><li><p>打开 AVRDUDE，并烧录固件，我这里使用的是 Atmega8a<br><img src="/../../medias/images/make-a-Usbasp-for-Atmel_AVR-MCU/atmega8-flash-fireware.png" alt="flash firmware"></p></li><li><p>设置熔丝位（千万千万要小心，设置错误会导致锁芯片）</p><ul><li>这里提供几个芯片的熔丝设置<table><thead><tr><th>TARGET</th><th>LFUSE</th><th>HFUSE</th></tr></thead><tbody><tr><td>Atmega8</td><td>0xEF</td><td>0xC9</td></tr><tr><td>Atmega48</td><td>0xFF</td><td>0xDD</td></tr><tr><td>Atmega88</td><td>0xFF</td><td>0xDD</td></tr></tbody></table></li></ul><blockquote><p>如果你的芯片与我使用的不一样，那就需要参考芯片手册，并在 <a href="https://www.engbedded.com/fusecalc">https://www.engbedded.com/fusecalc</a> 先尝试熔丝位设置</p></blockquote><p><img src="/../../medias/images/make-a-Usbasp-for-Atmel_AVR-MCU/atmega8-fuse.png" alt="atmega8-fuse"></p></li></ul><blockquote><p>断开 SELF_PROG 跳线</p></blockquote></li><li><p>安装驱动</p><ul><li>断开两块板子的连接，将 USBasp 连接到 PC</li><li>打开设备管理器，没问题的话将会显示 USBasp，如果显示的是 libusb 那就需要安装驱动</li><li>打开 Zadig，在 Options 中勾选 “List ALL Devices”</li><li>在第一个下拉框中选中 libusb 设备</li><li>在驱动选择中选中 WinUSB，然后点击 Install WCID Diver</li><li>安装完成后设备管理器应该就正常显示 USBasp 了</li></ul></li><li><p>在 ArduinoIDE 中使用 USBasp 给其他芯片烧写 bootloader</p><blockquote><p>这里以 Atmega328P-AU 为例</p></blockquote><p> <img src="/../../medias/images/make-a-Usbasp-for-Atmel_AVR-MCU/USBasp-flash-atmega328p.png" alt="USBasp flash atmega328p"></p></li></ol><h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>这块板子也可以作为最小板使用，只需要断开 USBASP 跳线，一些外围电阻、稳压管可以去掉</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Programmer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MCU </tag>
+            
+            <tag> Atmel </tag>
+            
+            <tag> Arduino </tag>
+            
+            <tag> Programmer </tag>
+            
+            <tag> AVR </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>在win10上安装基于embedded包的python环境</title>
       <link href="/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/"/>
       <url>/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/</url>

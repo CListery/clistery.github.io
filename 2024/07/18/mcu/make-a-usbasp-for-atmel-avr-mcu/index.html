@@ -391,14 +391,14 @@ USBasp 根据 PC">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-07-19
+                    2024-07-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    748
+                    693
                 </div>
                 
 
@@ -490,23 +490,22 @@ USBasp 根据 PC">
 <p>首先短接 USBASP、SELF_PROG 跳线<br>如果是全新的芯片，有可能会无法写入，在烧录之前需要用镊子短接一下 SLOW_SCK</p>
 </blockquote>
 <ul>
-<li><p>给 USBasp 上传 bootloader<br><img src="/../../medias/images/make-a-Usbasp-for-Atmel_AVR-MCU/atmega8-flash-bootloader.png" alt="atmega8 flash bootloader"></p>
-</li>
 <li><p>编译并上传 GPIO 检测代码</p>
-<pre class="line-numbers language-arduino" data-language="arduino"><code class="language-arduino"><span class="token keyword">void</span> <span class="token keyword">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">pinMode</span><span class="token punctuation">(</span>PC0<span class="token punctuation">,</span> <span class="token constant">OUTPUT</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-arduino" data-language="arduino"><code class="language-arduino"><span class="token keyword">void</span> <span class="token keyword">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  DDRC <span class="token operator">=</span> <span class="token number">0xFF</span><span class="token punctuation">;</span>
+  PORTC <span class="token operator">=</span> <span class="token number">0xFF</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token keyword">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">digitalWrite</span><span class="token punctuation">(</span>PC0<span class="token punctuation">,</span> <span class="token constant">HIGH</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">digitalWrite</span><span class="token punctuation">(</span>PC0<span class="token punctuation">,</span> <span class="token constant">LOW</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">void</span> <span class="token keyword">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  PORTC <span class="token operator">=</span> <span class="token number">0xFE</span><span class="token punctuation">;</span>
+  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  PORTC <span class="token operator">=</span> <span class="token number">0xFD</span><span class="token punctuation">;</span>
+  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>然后拔掉两块板子 VCC 和 GND 的连接，使用 Type-C 接口给 USBasp 直接供电，如果没有意外的话，PC0 这个 IO 口连接的 LED 将会开始闪烁（如果没有输出，那你就得检查下焊接了）</p>
-</li>
-<li><p>断开 Type-C 连接，恢复两块板子的 VCC 和 GND 连接，并将 Arduino UNO 连接到 PC</p>
+<li><p>等待写入完成后，PC0、PC1 这两个 IO 口连接的 LED 将会开始交替闪烁（如果没有输出，那你就得检查下焊接了）</p>
 </li>
 </ul>
 </li>
@@ -1080,7 +1079,7 @@ USBasp 根据 PC">
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">16.5k</span>
+                        class="white-color">16.4k</span>
             
             
             

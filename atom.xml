@@ -6,7 +6,7 @@
   <link href="http://clistery.github.io/atom.xml" rel="self"/>
   
   <link href="http://clistery.github.io/"/>
-  <updated>2024-08-30T20:12:00.547Z</updated>
+  <updated>2024-08-31T15:55:18.380Z</updated>
   <id>http://clistery.github.io/</id>
   
   <author>
@@ -21,15 +21,17 @@
     <link href="http://clistery.github.io/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/"/>
     <id>http://clistery.github.io/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/</id>
     <published>2024-07-18T09:04:41.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.380Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;自制-USBAsp&quot;&gt;&lt;a href=&quot;#自制-USBAsp&quot; class=&quot;headerlink&quot; title=&quot;自制 USBAsp&quot;&gt;&lt;/a&gt;自制 USBAsp&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;本文将 &lt;code&gt;STEP BY</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文将 &lt;code&gt;STEP BY STEP&lt;/code&gt; 介绍如何制作一个 USBAsp 烧录器，如果在制作过程中遇到问题，请先检查焊接是否有问题，再检查是否与本教程的操作是否有出入&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2</summary>
         
       
     
@@ -51,18 +53,21 @@
   </entry>
   
   <entry>
-    <title>在win10上安装基于embedded包的python环境</title>
+    <title>在 win10 上安装基于 embedded 包的 python 环境</title>
     <link href="http://clistery.github.io/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/"/>
     <id>http://clistery.github.io/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/</id>
     <published>2024-01-11T03:02:48.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.380Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;在-win10-上安装基于-embedded-包的-python-环境&quot;&gt;&lt;a href=&quot;#在-win10-上安装基于-embedded-包的-python-环境&quot; class=&quot;headerlink&quot; title=&quot;在 win10 上安装基于</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;便携可移植，啥也不说了，干就完了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;安装-embedded-package&quot;&gt;&lt;a href=&quot;#安装-embedded-package&quot; class=&quot;headerlink&quot; title=&quot;安装</summary>
         
       
     
@@ -86,14 +91,17 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/install-pkg-with-entware/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/install-pkg-with-entware/</id>
     <published>2023-12-06T09:01:58.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.376Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;在-Linux-环境下为-DSM-安装软件&quot;&gt;&lt;a href=&quot;#在-Linux-环境下为-DSM-安装软件&quot; class=&quot;headerlink&quot; title=&quot;在 Linux 环境下为 DSM 安装软件&quot;&gt;&lt;/a&gt;在 Linux 环境下为 DSM</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;之前介绍了如何通过 ssh 连接到 DSM，现在我们需要在 DSM 中安装一些软件，本文将介绍如何在 DSM 中安装软件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先需要将 ssh 连接到 DSM 中，具体可以参考 &lt;a</summary>
         
       
     
@@ -119,14 +127,15 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/fix-dsm-network-issue/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/fix-dsm-network-issue/</id>
     <published>2023-12-06T08:35:42.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.376Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;修复-virtual-DSM-无法访问网络&quot;&gt;&lt;a href=&quot;#修复-virtual-DSM-无法访问网络&quot; class=&quot;headerlink&quot; title=&quot;修复 virtual DSM 无法访问网络&quot;&gt;&lt;/a&gt;修复 virtual DSM</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;之前我们在 &lt;a href=&quot;https://clistery.github.io/2023/12/07/dsm/install-with-docker/&quot;&gt;在 docker 中安装 DSM&lt;/a&gt; 时，我们在 docker 中安装了一个虚拟的</summary>
         
       
     
@@ -152,14 +161,15 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/access-dsm-ssh/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/access-dsm-ssh/</id>
     <published>2023-12-06T07:41:41.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.376Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;通过-ssh-连接-docker-中的-dsm&quot;&gt;&lt;a href=&quot;#通过-ssh-连接-docker-中的-dsm&quot; class=&quot;headerlink&quot; title=&quot;通过 ssh 连接 docker 中的 dsm&quot;&gt;&lt;/a&gt;通过 ssh 连接 docker</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;之前我们在 &lt;a href=&quot;https://clistery.github.io/2023/12/07/dsm/install-with-docker/&quot;&gt;在 docker 中安装 DSM&lt;/a&gt; 安装了 DSM，现在我们需要通过 ssh</summary>
         
       
     
@@ -185,14 +195,15 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/install-with-docker/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/install-with-docker/</id>
     <published>2023-12-06T07:40:04.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.376Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;在-docker-中安装-DSM&quot;&gt;&lt;a href=&quot;#在-docker-中安装-DSM&quot; class=&quot;headerlink&quot; title=&quot;在 docker 中安装 DSM&quot;&gt;&lt;/a&gt;在 docker 中安装</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;是的，你没有看错，这篇文章的标题是在 docker 中安装 DSM，而不是在 docker 中安装 DSM，这里的 DSM 是指 Synology DSM，也就是群晖的操作系统，这里我们将在 docker 中安装一个虚拟的</summary>
         
       
     
@@ -216,14 +227,15 @@
     <link href="http://clistery.github.io/2023/10/07/docker/apline-apk-locally/"/>
     <id>http://clistery.github.io/2023/10/07/docker/apline-apk-locally/</id>
     <published>2023-10-07T02:14:18.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.376Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;优化-docker-镜像构建时需要重复下载-apk&quot;&gt;&lt;a href=&quot;#优化-docker-镜像构建时需要重复下载-apk&quot; class=&quot;headerlink&quot; title=&quot;优化 docker 镜像构建时需要重复下载 apk&quot;&gt;&lt;/a&gt;优化 docker</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;众所周知，如果我们需要在 docker 镜像构建时通过包管理器下载一些软件，那么每次我们在修改 DockerFile</summary>
         
       
     
@@ -243,18 +255,19 @@
   </entry>
   
   <entry>
-    <title>解决 SVN 每次都需要输入密码</title>
+    <title>避免 SVN 每次都需要输入密码</title>
     <link href="http://clistery.github.io/2023/09/26/svn/svn-save-password/"/>
     <id>http://clistery.github.io/2023/09/26/svn/svn-save-password/</id>
     <published>2023-09-26T03:34:54.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.380Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;解决-SVN-每次都需要输入密码&quot;&gt;&lt;a href=&quot;#解决-SVN-每次都需要输入密码&quot; class=&quot;headerlink&quot; title=&quot;解决 SVN 每次都需要输入密码&quot;&gt;&lt;/a&gt;解决 SVN</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;由于每次 svn 操作都要求输入账号密码，为了&lt;i class=&quot;hover-effect&quot; data-hover-text=&quot;偷懒&quot;&gt;优雅&lt;/i&gt;的使用 svn，在搜索引擎上找了一圈，全都是让你去改 config、server</summary>
         
       
     
@@ -272,14 +285,17 @@
     <link href="http://clistery.github.io/2023/09/15/ubuntu/usb-net/"/>
     <id>http://clistery.github.io/2023/09/15/ubuntu/usb-net/</id>
     <published>2023-09-15T13:39:17.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.380Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Ubuntu-Server-2204配置无线网卡&quot;&gt;&lt;a href=&quot;#Ubuntu-Server-2204配置无线网卡&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu Server 2204配置无线网卡&quot;&gt;&lt;/a&gt;Ubuntu Server</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文主要介绍如何在 Ubuntu Server 2204 上配置无线网卡，以及如何安装驱动。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;环境描述&quot;&gt;&lt;a href=&quot;#环境描述&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -303,14 +319,16 @@
     <link href="http://clistery.github.io/2023/08/02/other/disable-wechat-ocr/"/>
     <id>http://clistery.github.io/2023/08/02/other/disable-wechat-ocr/</id>
     <published>2023-08-02T03:33:46.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.380Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;禁用-PC-版微信的图片文字识别功能&quot;&gt;&lt;a href=&quot;#禁用-PC-版微信的图片文字识别功能&quot; class=&quot;headerlink&quot; title=&quot;禁用 PC 版微信的图片文字识别功能&quot;&gt;&lt;/a&gt;禁用 PC</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;自从微信增加了自动识别图片文字功能后，确实带来了一些便利，可以不用再对着截图一个字一个字敲了，但是同时也带来了不方便的地方，有些图片需要放大或拖拽时便显得不那么友好了，说到底还是制杖产品经理搞出来的反人类交互体验。&lt;/p&gt;
+&lt;/blockquote</summary>
         
       
     
@@ -332,14 +350,17 @@
     <link href="http://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/"/>
     <id>http://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/</id>
     <published>2023-07-27T00:37:26.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.376Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;在-Docker-中为-Nginx-安装模块&quot;&gt;&lt;a href=&quot;#在-Docker-中为-Nginx-安装模块&quot; class=&quot;headerlink&quot; title=&quot;在 Docker 中为 Nginx 安装模块&quot;&gt;&lt;/a&gt;在 Docker 中为 Nginx</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;通过 DockerFile 给基于 nginx:apline 构建的镜像安装 HTTP Echo 模块&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -365,7 +386,7 @@
     <link href="http://clistery.github.io/2023/07/20/ubuntu/user-group/"/>
     <id>http://clistery.github.io/2023/07/20/ubuntu/user-group/</id>
     <published>2023-07-20T02:10:05.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.380Z</updated>
     
     
       
@@ -393,18 +414,19 @@
   </entry>
   
   <entry>
-    <title>让特定应用程序绕过用户帐户控制通知弹窗</title>
+    <title>如何优雅地让特定应用程序绕过用户帐户控制通知弹窗</title>
     <link href="http://clistery.github.io/2023/05/06/windows/bypass-user-account-control-notifications/"/>
     <id>http://clistery.github.io/2023/05/06/windows/bypass-user-account-control-notifications/</id>
     <published>2023-05-06T00:39:54.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.380Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;让特定应用程序绕过用户帐户控制通知弹窗&quot;&gt;&lt;a href=&quot;#让特定应用程序绕过用户帐户控制通知弹窗&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;我们在使用 Windows 系统时，在打开一些应用程序时，经常会看到 “用户账户控制”</summary>
         
       
     
@@ -424,15 +446,17 @@
     <link href="http://clistery.github.io/2023/04/21/tools/v2ray-install-setup/"/>
     <id>http://clistery.github.io/2023/04/21/tools/v2ray-install-setup/</id>
     <published>2023-04-21T07:25:02.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.380Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;安装与配置-V2ray&quot;&gt;&lt;a href=&quot;#安装与配置-V2ray&quot; class=&quot;headerlink&quot; title=&quot;安装与配置 V2ray&quot;&gt;&lt;/a&gt;安装与配置 V2ray&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;基于 ubuntu 22.04 搭建</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;基于 ubuntu 22.04 搭建 Nginx + TLS + VMess + WebSocket + HTTP/2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前提&quot;&gt;&lt;a href=&quot;#前提&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -454,14 +478,17 @@
     <link href="http://clistery.github.io/2023/04/13/vmware/amd-vmware15.1-install-macos-10.15.x/"/>
     <id>http://clistery.github.io/2023/04/13/vmware/amd-vmware15.1-install-macos-10.15.x/</id>
     <published>2023-04-13T03:34:38.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.380Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;AMD-平台-VMware-安装-MacOS&quot;&gt;&lt;a href=&quot;#AMD-平台-VMware-安装-MacOS&quot; class=&quot;headerlink&quot; title=&quot;AMD 平台 VMware 安装 MacOS&quot;&gt;&lt;/a&gt;AMD 平台 VMware 安装</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;辣鸡 MacBook，配置低不说，还卖得贼拉贵，所以我等穷鬼只能走歪门邪道。。。真香&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前提条件&quot;&gt;&lt;a href=&quot;#前提条件&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -487,7 +514,7 @@
     <link href="http://clistery.github.io/2023/03/13/android/strings/"/>
     <id>http://clistery.github.io/2023/03/13/android/strings/</id>
     <published>2023-03-13T05:58:01.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.376Z</updated>
     
     
       
@@ -497,7 +524,7 @@
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;要在 string.xml 中显示特殊符号、如@号冒号等、直接写会显示乱码，必须要改为 ASCII 十进制交换编码书写&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;编码对照表&quot;&gt;&lt;a href=&quot;#编码对照表&quot;</summary>
+&lt;h2 id=&quot;编码对照表&quot;&gt;&lt;a href=&quot;#编码对照表&quot;</summary>
         
       
     
@@ -517,14 +544,15 @@
     <link href="http://clistery.github.io/2023/02/23/apple/2023-apple-developer-enterprise-program/"/>
     <id>http://clistery.github.io/2023/02/23/apple/2023-apple-developer-enterprise-program/</id>
     <published>2023-02-23T03:15:21.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.376Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;2023-Apple-Developer-Enterprise-Program-续订审核&quot;&gt;&lt;a href=&quot;#2023-Apple-Developer-Enterprise-Program-续订审核&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;又到了一年一度的 Apple</summary>
         
       
     
@@ -544,14 +572,17 @@
     <link href="http://clistery.github.io/2023/02/16/cygwin/customize-theme-cygwin/"/>
     <id>http://clistery.github.io/2023/02/16/cygwin/customize-theme-cygwin/</id>
     <published>2023-02-16T02:03:20.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.376Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Cygwin-自定义主题&quot;&gt;&lt;a href=&quot;#Cygwin-自定义主题&quot; class=&quot;headerlink&quot; title=&quot;Cygwin 自定义主题&quot;&gt;&lt;/a&gt;Cygwin</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;定制一个自己喜欢的主题，展示一些个性化的内容&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -577,14 +608,15 @@
     <link href="http://clistery.github.io/2023/02/16/cygwin/setup-home-dir-cygwin/"/>
     <id>http://clistery.github.io/2023/02/16/cygwin/setup-home-dir-cygwin/</id>
     <published>2023-02-16T01:38:36.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.376Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Cygwin-设置-HOME-目录&quot;&gt;&lt;a href=&quot;#Cygwin-设置-HOME-目录&quot; class=&quot;headerlink&quot; title=&quot;Cygwin 设置 HOME 目录&quot;&gt;&lt;/a&gt;Cygwin 设置 HOME</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;由于 Windows 下复杂的环境问题，通过其他软件结合 Cygwin 打开命令行时，默认的 HOME 目录极有可能出现问题，且新版本 &lt;code&gt;Windows Terminal + Cygwin&lt;/code&gt; 在 Windows</summary>
         
       
     
@@ -606,14 +638,15 @@
     <link href="http://clistery.github.io/2023/02/15/cygwin/fstab-error-cygwin/"/>
     <id>http://clistery.github.io/2023/02/15/cygwin/fstab-error-cygwin/</id>
     <published>2023-02-15T08:38:17.000Z</published>
-    <updated>2024-08-30T20:12:00.547Z</updated>
+    <updated>2024-08-31T15:55:18.376Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Cygwin-创建文件问题&quot;&gt;&lt;a href=&quot;#Cygwin-创建文件问题&quot; class=&quot;headerlink&quot; title=&quot;Cygwin 创建文件问题&quot;&gt;&lt;/a&gt;Cygwin</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;在通过命令行，如：&lt;code&gt;mkdir test&lt;/code&gt; 创建一个目录或文件后，通过右键属性打开安全选项卡时，Windows 会提示 &lt;code&gt;test</summary>
         
       
     

@@ -3,52 +3,51 @@
   <entry>
     <title>markdown 示例</title>
     <url>/2022/10/18/markdown-sample/</url>
-    <content><![CDATA[<h1 id="Markdown-使用示例"><a href="#Markdown-使用示例" class="headerlink" title="Markdown 使用示例"></a>Markdown 使用示例</h1><hr>
-<h3 id="1-斜体和粗体"><a href="#1-斜体和粗体" class="headerlink" title="1. 斜体和粗体"></a>1. 斜体和粗体</h3><p>使用 * 和 ** 表示斜体和粗体。</p>
+    <content><![CDATA[<h2 id="1-斜体和粗体"><a href="#1-斜体和粗体" class="headerlink" title="1. 斜体和粗体"></a>1. 斜体和粗体</h2><p>使用 * 和 ** 表示斜体和粗体。</p>
 <p>示例：</p>
 <p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
-<h3 id="2-分级标题"><a href="#2-分级标题" class="headerlink" title="2. 分级标题"></a>2. 分级标题</h3><p>使用 === 表示一级标题，使用 — 表示二级标题。</p>
+<h2 id="2-分级标题"><a href="#2-分级标题" class="headerlink" title="2. 分级标题"></a>2. 分级标题</h2><p>使用 === 表示一级标题，使用 — 表示二级标题。</p>
 <p>示例：</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">这是一个一级标题</span><br><span class="line">============================</span><br><span class="line">这是一个二级标题</span><br><span class="line">--------------------------------------------------</span><br><span class="line">### 这是一个三级标题</span><br></pre></td></tr></tbody></table></figure></div>
 
 <p>你也可以选择在行首加井号表示不同级别的标题 (H1-H6)，例如：</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"># H1</span><br><span class="line">## H2</span><br><span class="line">### H3</span><br><span class="line">#### H4</span><br><span class="line">##### H5</span><br><span class="line">###### H6</span><br></pre></td></tr></tbody></table></figure></div>
 
-<h3 id="3-外链接"><a href="#3-外链接" class="headerlink" title="3. 外链接"></a>3. 外链接</h3><p>使用 [描述](链接地址) 为文字增加外链接。</p>
+<h2 id="3-外链接"><a href="#3-外链接" class="headerlink" title="3. 外链接"></a>3. 外链接</h2><p>使用 [描述](链接地址) 为文字增加外链接。</p>
 <p>示例：</p>
 <p>这是去往 <a href="https://clistery.github.io/">本人博客</a> 的链接。</p>
-<h3 id="4-无序列表"><a href="#4-无序列表" class="headerlink" title="4. 无序列表"></a>4. 无序列表</h3><p>使用 *，+，- 表示无序列表。</p>
+<h2 id="4-无序列表"><a href="#4-无序列表" class="headerlink" title="4. 无序列表"></a>4. 无序列表</h2><p>使用 *，+，- 表示无序列表。</p>
 <p>示例：</p>
 <ul>
 <li>无序列表项 一</li>
 <li>无序列表项 二</li>
 <li>无序列表项 三</li>
 </ul>
-<h3 id="5-有序列表"><a href="#5-有序列表" class="headerlink" title="5. 有序列表"></a>5. 有序列表</h3><p>使用数字和点表示有序列表。</p>
+<h2 id="5-有序列表"><a href="#5-有序列表" class="headerlink" title="5. 有序列表"></a>5. 有序列表</h2><p>使用数字和点表示有序列表。</p>
 <p>示例：</p>
 <ol>
 <li>有序列表项 一</li>
 <li>有序列表项 二</li>
 <li>有序列表项 三</li>
 </ol>
-<h3 id="6-文字引用"><a href="#6-文字引用" class="headerlink" title="6. 文字引用"></a>6. 文字引用</h3><p>使用 &gt; 表示文字引用。</p>
+<h2 id="6-文字引用"><a href="#6-文字引用" class="headerlink" title="6. 文字引用"></a>6. 文字引用</h2><p>使用 &gt; 表示文字引用。</p>
 <p>示例：</p>
 <blockquote>
 <p>野火烧不尽，春风吹又生。</p>
 </blockquote>
-<h3 id="7-行内代码块"><a href="#7-行内代码块" class="headerlink" title="7. 行内代码块"></a>7. 行内代码块</h3><p>使用 `代码` 表示行内代码块。</p>
+<h2 id="7-行内代码块"><a href="#7-行内代码块" class="headerlink" title="7. 行内代码块"></a>7. 行内代码块</h2><p>使用 `代码` 表示行内代码块。</p>
 <p>示例：</p>
 <p>让我们聊聊 <code>html</code>。</p>
-<h3 id="8-代码块"><a href="#8-代码块" class="headerlink" title="8.  代码块"></a>8.  代码块</h3><p>使用 四个缩进空格 表示代码块。</p>
+<h2 id="8-代码块"><a href="#8-代码块" class="headerlink" title="8.  代码块"></a>8.  代码块</h2><p>使用 四个缩进空格 表示代码块。</p>
 <p>示例：</p>
 <pre><code>这是一个代码块，此行左侧有四个不可见的空格。
 </code></pre>
-<h3 id="9-插入图像"><a href="#9-插入图像" class="headerlink" title="9.  插入图像"></a>9.  插入图像</h3><p>使用 ![描述](图片链接地址) 插入图像。</p>
+<h2 id="9-插入图像"><a href="#9-插入图像" class="headerlink" title="9.  插入图像"></a>9.  插入图像</h2><p>使用 ![描述](图片链接地址) 插入图像。</p>
 <p>示例：</p>
 <p><img lazyload="" src="/images/loading.svg" data-src="https://cn.gravatar.com/userimage/185917535/6a87cb72111639876f34134e3589af12.jpg?size=100" alt="我的头像"></p>
-<h3 id="10-删除线"><a href="#10-删除线" class="headerlink" title="10. 删除线"></a>10. 删除线</h3><p>使用 ~~ 表示删除线。</p>
+<h2 id="10-删除线"><a href="#10-删除线" class="headerlink" title="10. 删除线"></a>10. 删除线</h2><p>使用 ~~ 表示删除线。</p>
 <p><del>这是一段错误的文本。</del></p>
-<h3 id="11-加强的代码块"><a href="#11-加强的代码块" class="headerlink" title="11. 加强的代码块"></a>11. 加强的代码块</h3><p>支持四十一种编程语言的语法高亮的显示，行号显示。</p>
+<h2 id="11-加强的代码块"><a href="#11-加强的代码块" class="headerlink" title="11. 加强的代码块"></a>11. 加强的代码块</h2><p>支持四十一种编程语言的语法高亮的显示，行号显示。</p>
 <p>非代码示例：</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">$ sudo apt-get install vim-gnome</span><br></pre></td></tr></tbody></table></figure></div>
 
@@ -58,7 +57,7 @@
 <p>JavaScript 示例：</p>
 <div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* nth element in the fibonacci series.</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> n &gt;= 0</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> the nth element, &gt;= 0.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fib</span>(<span class="params">n</span>) {</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>, b = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> tmp;</span><br><span class="line">  <span class="keyword">while</span> (--n &gt;= <span class="number">0</span>) {</span><br><span class="line">    tmp = a;</span><br><span class="line">    a += b;</span><br><span class="line">    b = tmp;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="title function_">fib</span>(<span class="number">10</span>));</span><br></pre></td></tr></tbody></table></figure></div>
 
-<h3 id="12-表格支持"><a href="#12-表格支持" class="headerlink" title="12. 表格支持"></a>12. 表格支持</h3><table>
+<h2 id="12-表格支持"><a href="#12-表格支持" class="headerlink" title="12. 表格支持"></a>12. 表格支持</h2><table>
 <thead>
 <tr>
 <th>项目</th>
@@ -82,7 +81,7 @@
 <td align="center">234</td>
 </tr>
 </tbody></table>
-<h3 id="13-Html-标签"><a href="#13-Html-标签" class="headerlink" title="13. Html 标签"></a>13. Html 标签</h3><p>本站支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：</p>
+<h2 id="13-Html-标签"><a href="#13-Html-标签" class="headerlink" title="13. Html 标签"></a>13. Html 标签</h2><p>本站支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：</p>
 <div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span> <span class="attr">rowspan</span>=<span class="string">"2"</span>&gt;</span>值班人员<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期一<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期二<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期三<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>李强<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>张明<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>王平<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure></div>
 
 <table>
@@ -109,7 +108,7 @@
   <entry>
     <title>Google AOSP 源码获取</title>
     <url>/2022/10/19/android/aosp-get/</url>
-    <content><![CDATA[<h1 id="AOSP"><a href="#AOSP" class="headerlink" title="AOSP"></a>AOSP</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>AOSP，全称”Android Open Source Project”，中文意为”Android 开放源代码项目”。发起者是谷歌，主要用途是移动设备的系统。</p>
 </blockquote>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="安装-REPO"><a href="#安装-REPO" class="headerlink" title="安装 REPO"></a>安装 REPO</h3><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">mkdir ~/bin</span><br><span class="line">PATH=~/bin:$PATH</span><br><span class="line">curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 如果上述 URL 不可访问，可以用下面的：</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># curl -sSL  'https://gerrit-googlesource.proxy.ustclug.org/git-repo/+/master/repo?format=TEXT' |base64 -d &gt; ~/bin/repo</span></span></span><br><span class="line">chmod a+x ~/bin/repo</span><br></pre></td></tr></tbody></table></figure></div>
@@ -195,7 +194,7 @@
     <content><![CDATA[<blockquote>
 <p>要在 string.xml 中显示特殊符号、如@号冒号等、直接写会显示乱码，必须要改为 ASCII 十进制交换编码书写</p>
 </blockquote>
-<h1 id="编码对照表"><a href="#编码对照表" class="headerlink" title="编码对照表"></a>编码对照表</h1><table>
+<h2 id="编码对照表"><a href="#编码对照表" class="headerlink" title="编码对照表"></a>编码对照表</h2><table>
 <thead>
 <tr>
 <th>编码</th>
@@ -1243,8 +1242,8 @@
   <entry>
     <title>2023 年 Apple Developer Enterprise Program 续订审核</title>
     <url>/2023/02/23/apple/2023-apple-developer-enterprise-program/</url>
-    <content><![CDATA[<h1 id="2023-Apple-Developer-Enterprise-Program-续订审核"><a href="#2023-Apple-Developer-Enterprise-Program-续订审核" class="headerlink" title="2023 Apple Developer Enterprise Program 续订审核"></a>2023 Apple Developer Enterprise Program 续订审核</h1><blockquote>
-<p>又到了一年一度的 Apple 企业级开发帐号的续费了，随之而来的就是帐号续订资格的审核，这里只能说一句，事儿真多，审核这种东西真的有用？意思人家搞灰产的会给你在里面填：“噢，亲爱的库克，真是不好意思，我拿着你的资源搞了灰产，请你给我审核通过一下哦~”，此处应有掌声。我只想，说给你钱还搞那么多逼事儿，真是恶心死人不偿命。</p>
+    <content><![CDATA[<blockquote>
+<p>又到了一年一度的 Apple 企业级开发帐号的续费了，随之而来的就是帐号续订资格的审核，这里只能说一句，13事儿真多，审核这种东西真的有用？意思人家搞灰产的会给你在里面填：“噢，亲爱的库克，真是不好意思，我拿着你的资源搞了灰产，请你给我审核通过一下哦~”，此处应有掌声。我只想说给你钱还搞那么多逼事儿，真是恶心死人不偿命。</p>
 </blockquote>
 <h2 id="步骤详解"><a href="#步骤详解" class="headerlink" title="步骤详解"></a>步骤详解</h2><h3 id="Your-Organization"><a href="#Your-Organization" class="headerlink" title="Your Organization"></a>Your Organization</h3><ul>
 <li><p>Which best describes your entity? <code>组织的类型</code></p>
@@ -1406,7 +1405,7 @@
   <entry>
     <title>在 HexoMatery 主题下配置 utteranc 评论插件</title>
     <url>/2022/10/20/blog/hexo-matery-setup-utteranc/</url>
-    <content><![CDATA[<h1 id="在-HexoMatery-主题下配置-utteranc-评论插件"><a href="#在-HexoMatery-主题下配置-utteranc-评论插件" class="headerlink" title="在 HexoMatery 主题下配置 utteranc 评论插件"></a>在 HexoMatery 主题下配置 utteranc 评论插件</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>HexoMatery 主题没有自带 utteranc 评论插件，当然我们也可以依葫芦画瓢地搞一个上去</p>
 </blockquote>
 <h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><ul>
@@ -1449,8 +1448,7 @@
   <entry>
     <title>基于 Github Pages 的 hexo 博客搭建</title>
     <url>/2022/10/19/blog/hexo-setup/</url>
-    <content><![CDATA[<h1 id="基于-Github-Pages-的-hexo-博客搭建"><a href="#基于-Github-Pages-的-hexo-博客搭建" class="headerlink" title="基于 Github Pages 的 hexo 博客搭建"></a>基于 Github Pages 的 hexo 博客搭建</h1><hr>
-<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><h3 id="网站源码库"><a href="#网站源码库" class="headerlink" title="网站源码库"></a>网站源码库</h3><ul>
+    <content><![CDATA[<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><h3 id="网站源码库"><a href="#网站源码库" class="headerlink" title="网站源码库"></a>网站源码库</h3><ul>
 <li>私有仓库，存放你手写的博客源代码，简称 <code>库1</code></li>
 </ul>
 <h3 id="主题库"><a href="#主题库" class="headerlink" title="主题库"></a>主题库</h3><ul>
@@ -1520,7 +1518,7 @@
   <entry>
     <title>Cygwin 自定义主题</title>
     <url>/2023/02/16/cygwin/customize-theme-cygwin/</url>
-    <content><![CDATA[<h1 id="Cygwin-自定义主题"><a href="#Cygwin-自定义主题" class="headerlink" title="Cygwin 自定义主题"></a>Cygwin 自定义主题</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>定制一个自己喜欢的主题，展示一些个性化的内容</p>
 </blockquote>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
@@ -1555,10 +1553,10 @@
   <entry>
     <title>Cygwin 创建文件权限问题</title>
     <url>/2023/02/15/cygwin/fstab-error-cygwin/</url>
-    <content><![CDATA[<h1 id="Cygwin-创建文件问题"><a href="#Cygwin-创建文件问题" class="headerlink" title="Cygwin 创建文件问题"></a>Cygwin 创建文件问题</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>在通过命令行，如：<code>mkdir test</code> 创建一个目录或文件后，通过右键属性打开安全选项卡时，Windows 会提示 <code>test 上的权限顺序不正确</code>，而后可能会导致一些文件权限操作上的异常问题发生</p>
 </blockquote>
-<h2 id="诱因"><a href="#诱因" class="headerlink" title="诱因"></a>诱因</h2><p>Cygwin 的主要目的是通过重新编译，将 POSIX 系统（例如 Linux、BSD，以及其他 Unix 系统）上的软件移植到 Windows 上。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>Cygwin 的主要目的是通过重新编译，将 POSIX 系统（例如 Linux、BSD，以及其他 Unix 系统）上的软件移植到 Windows 上。</p>
 <p>所以 Cygwin 自带的对文件的创建命令同样也是通过移植 POSIX 的方式实现，这一点我们可以通过 cygwin 安装目录下的 <code>/etc/fstab</code> 文件内容得到验证</p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">This is default anyway:</span></span><br><span class="line">none /cygdrive cygdrive binary,posix=0,user 0 0</span><br></pre></td></tr></tbody></table></figure></div>
 
@@ -1587,7 +1585,7 @@
   <entry>
     <title>设置 Cygwin</title>
     <url>/2022/11/15/cygwin/setup-cygwin/</url>
-    <content><![CDATA[<h1 id="设置-Cygwin"><a href="#设置-Cygwin" class="headerlink" title="设置 Cygwin"></a>设置 Cygwin</h1><h2 id="Windows-Terminal-Cygwin"><a href="#Windows-Terminal-Cygwin" class="headerlink" title="Windows Terminal + Cygwin"></a>Windows Terminal + Cygwin</h2><p><a class="link" href="https://github.com/microsoft/terminal">Windows Terminal <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+    <content><![CDATA[<h2 id="Windows-Terminal-Cygwin"><a href="#Windows-Terminal-Cygwin" class="headerlink" title="Windows Terminal + Cygwin"></a>Windows Terminal + Cygwin</h2><p><a class="link" href="https://github.com/microsoft/terminal">Windows Terminal <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p>命令行：<code>${Cygwin安装目录}\Cygwin.bat</code><br>启动目录：勾选使用父进程</p>
 <ul>
 <li>zsh</li>
@@ -1610,7 +1608,7 @@
   <entry>
     <title>Cygwin 设置 HOME 目录</title>
     <url>/2023/02/16/cygwin/setup-home-dir-cygwin/</url>
-    <content><![CDATA[<h1 id="Cygwin-设置-HOME-目录"><a href="#Cygwin-设置-HOME-目录" class="headerlink" title="Cygwin 设置 HOME 目录"></a>Cygwin 设置 HOME 目录</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>由于 Windows 下复杂的环境问题，通过其他软件结合 Cygwin 打开命令行时，默认的 HOME 目录极有可能出现问题，且新版本 <code>Windows Terminal + Cygwin</code> 在 Windows 资源管理器中右键菜单打开终端时会出现无法直接进入到当前目录的情况</p>
 </blockquote>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p><a class="link" href="https://github.com/microsoft/terminal">Windows Terminal <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> + <a class="link" href="https://cygwin.com/install.html">Cygwin <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> + <a class="link" href="https://www.zsh.org/">zsh <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
@@ -1640,7 +1638,7 @@
   <entry>
     <title>优化 docker 镜像构建时需要重复下载 apk</title>
     <url>/2023/10/07/docker/apline-apk-locally/</url>
-    <content><![CDATA[<h1 id="优化-docker-镜像构建时需要重复下载-apk"><a href="#优化-docker-镜像构建时需要重复下载-apk" class="headerlink" title="优化 docker 镜像构建时需要重复下载 apk"></a>优化 docker 镜像构建时需要重复下载 apk</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>众所周知，如果我们需要在 docker 镜像构建时通过包管理器下载一些软件，那么每次我们在修改 DockerFile 时，都需要重新下载一遍，这样会导致构建时间变长，而且如果我们的网络不是很好，那么下载的过程中还可能会出现失败的情况，这样就会导致构建失败，所以我们需要优化这个过程。</p>
 </blockquote>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ol>
@@ -1719,7 +1717,7 @@
   <entry>
     <title>在 Docker 中为 Nginx:alpine 安装模块</title>
     <url>/2023/07/27/docker/apline-nginx-install-module/</url>
-    <content><![CDATA[<h1 id="在-Docker-中为-Nginx-安装模块"><a href="#在-Docker-中为-Nginx-安装模块" class="headerlink" title="在 Docker 中为 Nginx 安装模块"></a>在 Docker 中为 Nginx 安装模块</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>通过 DockerFile 给基于 nginx:apline 构建的镜像安装 HTTP Echo 模块</p>
 </blockquote>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ol>
@@ -1750,7 +1748,7 @@
   <entry>
     <title>记一次 DockerCompose 配置 22 端口映射遇到的坑</title>
     <url>/2022/11/11/docker/port-22-bug/</url>
-    <content><![CDATA[<h1 id="记一次-DockerCompose-配置-22-端口映射遇到的坑"><a href="#记一次-DockerCompose-配置-22-端口映射遇到的坑" class="headerlink" title="记一次 DockerCompose 配置 22 端口映射遇到的坑"></a>记一次 DockerCompose 配置 22 端口映射遇到的坑</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>在一次偶然的机会下触发了一个端口映射的bug</p>
 </blockquote>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><code>docker-compose.yml</code></p>
@@ -1775,7 +1773,7 @@
   <entry>
     <title>通过 ssh 桥接方式连接远程 docker 中的 ubuntu</title>
     <url>/2022/11/11/docker/ssh-bridge/</url>
-    <content><![CDATA[<h1 id="通过-ssh-桥接方式连接远程-docker-中的-ubuntu"><a href="#通过-ssh-桥接方式连接远程-docker-中的-ubuntu" class="headerlink" title="通过 ssh 桥接方式连接远程 docker 中的 ubuntu"></a>通过 ssh 桥接方式连接远程 docker 中的 ubuntu</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>很多时候我们的 docker 环境都不在本地，而通过 ssh 连接远程服务器然后在通过 docker 命令进入容器貌似又有点繁琐，所以直接一步到位搞个跳板可以让我们直接访问到容器</p>
 </blockquote>
 <h2 id="配置容器"><a href="#配置容器" class="headerlink" title="配置容器"></a>配置容器</h2><h3 id="DockerCompose"><a href="#DockerCompose" class="headerlink" title="DockerCompose"></a>DockerCompose</h3><ul>
@@ -1811,7 +1809,7 @@
   <entry>
     <title>通过 ssh 连接 docker 中的 dsm</title>
     <url>/2023/12/06/dsm/access-dsm-ssh/</url>
-    <content><![CDATA[<h1 id="通过-ssh-连接-docker-中的-dsm"><a href="#通过-ssh-连接-docker-中的-dsm" class="headerlink" title="通过 ssh 连接 docker 中的 dsm"></a>通过 ssh 连接 docker 中的 dsm</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>之前我们在 <a href="https://clistery.github.io/2023/12/07/dsm/install-with-docker/">在 docker 中安装 DSM</a> 安装了 DSM，现在我们需要通过 ssh 连接到 DSM 中，本文将介绍如何通过 ssh 连接到 DSM 中。</p>
 </blockquote>
 <p>由于 DSM 是搭建在 docker 下的，所以我们要连接到 DSM 大概思路如下</p>
@@ -1873,7 +1871,7 @@
   <entry>
     <title>修复 virtual DSM 无法访问网络</title>
     <url>/2023/12/06/dsm/fix-dsm-network-issue/</url>
-    <content><![CDATA[<h1 id="修复-virtual-DSM-无法访问网络"><a href="#修复-virtual-DSM-无法访问网络" class="headerlink" title="修复 virtual DSM 无法访问网络"></a>修复 virtual DSM 无法访问网络</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>之前我们在 <a href="https://clistery.github.io/2023/12/07/dsm/install-with-docker/">在 docker 中安装 DSM</a> 时，我们在 docker 中安装了一个虚拟的 DSM，但是在安装完成后，我们发现 DSM 可以正常安装套件，但是 NTP 和 邮件通知 等服务都无法正常工作，所以我们需要修复这个问题。</p>
 </blockquote>
 <h2 id="添加-DNS"><a href="#添加-DNS" class="headerlink" title="添加 DNS"></a>添加 DNS</h2><ol>
@@ -1905,7 +1903,7 @@
   <entry>
     <title>在 Linux 环境下为 DSM 安装软件</title>
     <url>/2023/12/06/dsm/install-pkg-with-entware/</url>
-    <content><![CDATA[<h1 id="在-Linux-环境下为-DSM-安装软件"><a href="#在-Linux-环境下为-DSM-安装软件" class="headerlink" title="在 Linux 环境下为 DSM 安装软件"></a>在 Linux 环境下为 DSM 安装软件</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>之前介绍了如何通过 ssh 连接到 DSM，现在我们需要在 DSM 中安装一些软件，本文将介绍如何在 DSM 中安装软件。</p>
 </blockquote>
 <p>首先需要将 ssh 连接到 DSM 中，具体可以参考 <a href="https://clistery.github.io/2023/12/07/dsm/access-dsm-ssh/">通过 ssh 连接 docker 中的 dsm</a></p>
@@ -2017,7 +2015,7 @@
   <entry>
     <title>在 docker 中安装 DSM</title>
     <url>/2023/12/06/dsm/install-with-docker/</url>
-    <content><![CDATA[<h1 id="在-docker-中安装-DSM"><a href="#在-docker-中安装-DSM" class="headerlink" title="在 docker 中安装 DSM"></a>在 docker 中安装 DSM</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>是的，你没有看错，这篇文章的标题是在 docker 中安装 DSM，而不是在 docker 中安装 DSM，这里的 DSM 是指 Synology DSM，也就是群晖的操作系统，这里我们将在 docker 中安装一个虚拟的 DSM，这样我们就可以在不购买群晖硬件的情况下体验 DSM 的功能了。</p>
 </blockquote>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ol>
@@ -2093,7 +2091,7 @@
   <entry>
     <title>使用 token 访问 git 仓库</title>
     <url>/2022/10/24/git/token-use/</url>
-    <content><![CDATA[<h1 id="使用-token-访问-git-仓库"><a href="#使用-token-访问-git-仓库" class="headerlink" title="使用 token 访问 git 仓库"></a>使用 token 访问 git 仓库</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>可以在无需增加密钥配置的情况下访问指定的单个或多个仓库</p>
 </blockquote>
 <p><code>这里我们以 gitlab 为例</code></p>
@@ -2146,7 +2144,7 @@
   <entry>
     <title>自制 USBasp</title>
     <url>/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/</url>
-    <content><![CDATA[<h1 id="自制-USBAsp"><a href="#自制-USBAsp" class="headerlink" title="自制 USBAsp"></a>自制 USBAsp</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>本文将 <code>STEP BY STEP</code> 介绍如何制作一个 USBAsp 烧录器，如果在制作过程中遇到问题，请先检查焊接是否有问题，再检查是否与本教程的操作是否有出入</p>
 </blockquote>
 <h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ul>
@@ -2293,7 +2291,7 @@
   <entry>
     <title>禁用 PC 版微信的图片文字识别功能</title>
     <url>/2023/08/02/other/disable-wechat-ocr/</url>
-    <content><![CDATA[<h1 id="禁用-PC-版微信的图片文字识别功能"><a href="#禁用-PC-版微信的图片文字识别功能" class="headerlink" title="禁用 PC 版微信的图片文字识别功能"></a>禁用 PC 版微信的图片文字识别功能</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>自从微信增加了自动识别图片文字功能后，确实带来了一些便利，可以不用再对着截图一个字一个字敲了，但是同时也带来了不方便的地方，有些图片需要放大或拖拽时便显得不那么友好了，说到底还是制杖产品经理搞出来的反人类交互体验。</p>
 </blockquote>
 <h2 id="开始表演"><a href="#开始表演" class="headerlink" title="开始表演"></a>开始表演</h2><ol>
@@ -2316,9 +2314,9 @@
       </tags>
   </entry>
   <entry>
-    <title>在win10上安装基于embedded包的python环境</title>
+    <title>在 win10 上安装基于 embedded 包的 python 环境</title>
     <url>/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/</url>
-    <content><![CDATA[<h1 id="在-win10-上安装基于-embedded-包的-python-环境"><a href="#在-win10-上安装基于-embedded-包的-python-环境" class="headerlink" title="在 win10 上安装基于 embedded 包的 python 环境"></a>在 win10 上安装基于 embedded 包的 python 环境</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>便携可移植，啥也不说了，干就完了</p>
 </blockquote>
 <h2 id="安装-embedded-package"><a href="#安装-embedded-package" class="headerlink" title="安装 embedded package"></a>安装 embedded package</h2><ul>
@@ -2368,7 +2366,7 @@
   <entry>
     <title>微信小程序解包</title>
     <url>/2022/12/09/reverse/unpkg-wx-app/</url>
-    <content><![CDATA[<h1 id="微信小程序解包"><a href="#微信小程序解包" class="headerlink" title="微信小程序解包"></a>微信小程序解包</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>通过解包小程序文件我们可以做一些小程序内的代码分析和资源获取</p>
 </blockquote>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="拿到-wxapkg"><a href="#拿到-wxapkg" class="headerlink" title="拿到 wxapkg"></a>拿到 wxapkg</h3><p>第一步先拿到小程序的 wxapkg 文件</p>
@@ -2399,9 +2397,9 @@
       </tags>
   </entry>
   <entry>
-    <title>解决 SVN 每次都需要输入密码</title>
+    <title>避免 SVN 每次都需要输入密码</title>
     <url>/2023/09/26/svn/svn-save-password/</url>
-    <content><![CDATA[<h1 id="解决-SVN-每次都需要输入密码"><a href="#解决-SVN-每次都需要输入密码" class="headerlink" title="解决 SVN 每次都需要输入密码"></a>解决 SVN 每次都需要输入密码</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>由于每次 svn 操作都要求输入账号密码，为了<i class="hover-effect" data-hover-text="偷懒">优雅</i>的使用 svn，在搜索引擎上找了一圈，全都是让你去改 config、server 文件，实际操作下来然并卵，只会浪费你的一天。原因是自从 svn 1.12 版本之后<a class="link" href="https://subversion.apache.org/docs/release-notes/1.12#client-server-improvements">发行说明 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> ，就不再支持明文保存密码了。</p>
 </blockquote>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
@@ -2452,7 +2450,7 @@
   <entry>
     <title>安装及配置 v2ray</title>
     <url>/2023/04/21/tools/v2ray-install-setup/</url>
-    <content><![CDATA[<h1 id="安装与配置-V2ray"><a href="#安装与配置-V2ray" class="headerlink" title="安装与配置 V2ray"></a>安装与配置 V2ray</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>基于 ubuntu 22.04 搭建 Nginx + TLS + VMess + WebSocket + HTTP/2</p>
 </blockquote>
 <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
@@ -2630,7 +2628,7 @@
   <entry>
     <title>rsync 命令</title>
     <url>/2022/10/18/ubuntu/rsync/</url>
-    <content><![CDATA[<h1 id="rsync-命令"><a href="#rsync-命令" class="headerlink" title="rsync 命令"></a>rsync 命令</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>rsync 全称 Remote Sync.<br>rsync是linux系统下的数据镜像备份工具。使用快速增量备份工具Remote Sync可以远程同步，支持本地复制，或者与其他SSH、rsync主机同步。</p>
 </blockquote>
 <h2 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h2><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">-v, --verbose 详细模式输出</span><br><span class="line">-q, --quiet 精简输出模式</span><br><span class="line">-c, --checksum 打开校验开关，强制对文件传输进行校验</span><br><span class="line">-a, --archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD</span><br><span class="line">-r, --recursive 对子目录以递归模式处理</span><br><span class="line">-R, --relative 使用相对路径信息</span><br><span class="line">-b, --backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为~filename。可以使用--suffix选项来指定不同的备份文件前缀。</span><br><span class="line">--backup-dir 将备份文件(如~filename)存放在在目录下。</span><br><span class="line">-suffix=SUFFIX 定义备份文件前缀</span><br><span class="line">-u, --update 仅仅进行更新，也就是跳过所有已经存在于DST，并且文件时间晚于要备份的文件。(不覆盖更新的文件)</span><br><span class="line">-l, --links 保留软链结</span><br><span class="line">-L, --copy-links 想对待常规文件一样处理软链结</span><br><span class="line">--copy-unsafe-links 仅仅拷贝指向SRC路径目录树以外的链结</span><br><span class="line">--safe-links 忽略指向SRC路径目录树以外的链结</span><br><span class="line">-H, --hard-links 保留硬链结</span><br><span class="line">-p, --perms 保持文件权限</span><br><span class="line">-o, --owner 保持文件属主信息</span><br><span class="line">-g, --group 保持文件属组信息</span><br><span class="line">-D, --devices 保持设备文件信息</span><br><span class="line">-t, --times 保持文件时间信息</span><br><span class="line">-S, --sparse 对稀疏文件进行特殊处理以节省DST的空间</span><br><span class="line">-n, --dry-run现实哪些文件将被传输</span><br><span class="line">-W, --whole-file 拷贝文件，不进行增量检测</span><br><span class="line">-x, --one-file-system 不要跨越文件系统边界</span><br><span class="line">-B, --block-size=SIZE 检验算法使用的块尺寸，默认是700字节</span><br><span class="line">-e, --rsh=COMMAND 指定使用rsh、ssh方式进行数据同步</span><br><span class="line">--rsync-path=PATH 指定远程服务器上的rsync命令所在路径信息</span><br><span class="line">-C, --cvs-exclude 使用和CVS一样的方法自动忽略文件，用来排除那些不希望传输的文件</span><br><span class="line">--existing 仅仅更新那些已经存在于DST的文件，而不备份那些新创建的文件</span><br><span class="line">--delete 删除那些DST中SRC没有的文件</span><br><span class="line">--delete-excluded 同样删除接收端那些被该选项指定排除的文件</span><br><span class="line">--delete-after 传输结束以后再删除</span><br><span class="line">--ignore-errors 及时出现IO错误也进行删除</span><br><span class="line">--max-delete=NUM 最多删除NUM个文件</span><br><span class="line">--partial 保留那些因故没有完全传输的文件，以是加快随后的再次传输</span><br><span class="line">--force 强制删除目录，即使不为空</span><br><span class="line">--numeric-ids 不将数字的用户和组ID匹配为用户名和组名</span><br><span class="line">--timeout=TIME IP超时时间，单位为秒</span><br><span class="line">-I, --ignore-times 不跳过那些有同样的时间和长度的文件</span><br><span class="line">--size-only 当决定是否要备份文件时，仅仅察看文件大小而不考虑文件时间</span><br><span class="line">--modify-window=NUM 决定文件是否时间相同时使用的时间戳窗口，默认为0</span><br><span class="line">-T --temp-dir=DIR 在DIR中创建临时文件</span><br><span class="line">--compare-dest=DIR 同样比较DIR中的文件来决定是否需要备份</span><br><span class="line">-P 等同于 --partial</span><br><span class="line">--progress 显示备份过程</span><br><span class="line">-z, --compress 对备份的文件在传输时进行压缩处理</span><br><span class="line">--exclude=PATTERN 指定排除不需要传输的文件模式</span><br><span class="line">--include=PATTERN 指定不排除而需要传输的文件模式</span><br><span class="line">--exclude-from=FILE 排除FILE中指定模式的文件</span><br><span class="line">--include-from=FILE 不排除FILE指定模式匹配的文件</span><br><span class="line">--version 打印版本信息</span><br><span class="line">--address 绑定到特定的地址</span><br><span class="line">--config=FILE 指定其他的配置文件，不使用默认的rsyncd.conf文件</span><br><span class="line">--port=PORT 指定其他的rsync服务端口</span><br><span class="line">--blocking-io 对远程shell使用阻塞IO</span><br><span class="line">-stats 给出某些文件的传输状态</span><br><span class="line">--progress 在传输时现实传输过程</span><br><span class="line">--log-format=formAT 指定日志文件格式</span><br><span class="line">--password-file=FILE 从FILE中得到密码</span><br><span class="line">--bwlimit=KBPS 限制I/O带宽，KBytes per second</span><br><span class="line">-h, --help 显示帮助信息</span><br></pre></td></tr></tbody></table></figure></div>
@@ -2688,7 +2686,7 @@
   <entry>
     <title>script 命令</title>
     <url>/2022/10/25/ubuntu/script/</url>
-    <content><![CDATA[<h1 id="script-命令"><a href="#script-命令" class="headerlink" title="script 命令"></a>script 命令</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>有时我们需要在脚本中加入一些有进度状态的命令，为了既能让我们的脚本无需人工守候，又能方便的监测到这些命令的执行情况时，就该 script 登场了</p>
 </blockquote>
 <h2 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h2><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">-a 以追加的形式，将命令的执行状态输出到指定的文件中</span><br><span class="line">-c 运行指定命令</span><br><span class="line">-q 让 -c 指定的命令以静默方式运行，比如删除文件时的确认提示</span><br></pre></td></tr></tbody></table></figure></div>
@@ -2711,7 +2709,7 @@
   <entry>
     <title>ssh 实现指定用户仅认证不登录</title>
     <url>/2022/11/15/ubuntu/ssh-no-login/</url>
-    <content><![CDATA[<h1 id="ssh-实现指定用户仅认证不登录"><a href="#ssh-实现指定用户仅认证不登录" class="headerlink" title="ssh 实现指定用户仅认证不登录"></a>ssh 实现指定用户仅认证不登录</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>当我们有 ssh 代理代理转发的需求时，就可以在跳板机上做一个仅任认证不登录的用户，用来防止跳板机被以外登录</p>
 </blockquote>
 <h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo adduser jump</span><br></pre></td></tr></tbody></table></figure></div>
@@ -2761,7 +2759,7 @@
   <entry>
     <title>Ubuntu Server 2204配置无线网卡</title>
     <url>/2023/09/15/ubuntu/usb-net/</url>
-    <content><![CDATA[<h1 id="Ubuntu-Server-2204配置无线网卡"><a href="#Ubuntu-Server-2204配置无线网卡" class="headerlink" title="Ubuntu Server 2204配置无线网卡"></a>Ubuntu Server 2204配置无线网卡</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>本文主要介绍如何在 Ubuntu Server 2204 上配置无线网卡，以及如何安装驱动。</p>
 </blockquote>
 <h2 id="环境描述"><a href="#环境描述" class="headerlink" title="环境描述"></a>环境描述</h2><ul>
@@ -2885,7 +2883,7 @@
   <entry>
     <title>AMD VMware Workstation 15.1 安装 MacOS Catalina 10.15.5</title>
     <url>/2023/04/13/vmware/amd-vmware15.1-install-macos-10.15.x/</url>
-    <content><![CDATA[<h1 id="AMD-平台-VMware-安装-MacOS"><a href="#AMD-平台-VMware-安装-MacOS" class="headerlink" title="AMD 平台 VMware 安装 MacOS"></a>AMD 平台 VMware 安装 MacOS</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>辣鸡 MacBook，配置低不说，还卖得贼拉贵，所以我等穷鬼只能走歪门邪道。。。真香</p>
 </blockquote>
 <h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><ol>
@@ -2941,9 +2939,9 @@
       </tags>
   </entry>
   <entry>
-    <title>让特定应用程序绕过用户帐户控制通知弹窗</title>
+    <title>如何优雅地让特定应用程序绕过用户帐户控制通知弹窗</title>
     <url>/2023/05/06/windows/bypass-user-account-control-notifications/</url>
-    <content><![CDATA[<h1 id="让特定应用程序绕过用户帐户控制通知弹窗"><a href="#让特定应用程序绕过用户帐户控制通知弹窗" class="headerlink" title="让特定应用程序绕过用户帐户控制通知弹窗"></a>让特定应用程序绕过用户帐户控制通知弹窗</h1><blockquote>
+    <content><![CDATA[<blockquote>
 <p>我们在使用 Windows 系统时，在打开一些应用程序时，经常会看到 “用户账户控制” 的对话框，有些甚至会将屏幕背景变暗，非常不舒适，本教程可以让你对特定（你完全信任）的应用跳过这个弹窗提示，十分优雅~</p>
 </blockquote>
 <h2 id="找到应用程序可执行文件"><a href="#找到应用程序可执行文件" class="headerlink" title="找到应用程序可执行文件"></a>找到应用程序可执行文件</h2><p>直接右键应用快捷方式，然后点击 “属性”</p>
@@ -2975,7 +2973,7 @@
 <p>然后点击下一步</p>
 <p>在输入框中写入应用程序的名称，点击完成</p>
 <h2 id="稍微美化一下"><a href="#稍微美化一下" class="headerlink" title="稍微美化一下"></a>稍微美化一下</h2><blockquote>
-<p>其实到这里基本上已经基本上已经完成了配置，如果不行再搞的童鞋就可以结束了</p>
+<p>其实到这里基本上已经基本上已经完成了配置，如果不想再搞的童鞋就可以结束了</p>
 </blockquote>
 <p>右键点击刚才创建好的快捷方式，点击属性</p>
 <p>然后在 “快捷方式” 选项卡中点击更改图标，然后找到应用程序(.exe)，保存即可</p>

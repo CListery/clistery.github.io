@@ -1746,31 +1746,6 @@
       </tags>
   </entry>
   <entry>
-    <title>记一次 DockerCompose 配置 22 端口映射遇到的坑</title>
-    <url>/2022/11/11/docker/port-22-bug/</url>
-    <content><![CDATA[<blockquote>
-<p>在一次偶然的机会下触发了一个端口映射的bug</p>
-</blockquote>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><code>docker-compose.yml</code></p>
-<div class="highlight-container" data-rel="Yml"><figure class="iseeu highlight yml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.8"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">machine:</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">ubuntu:20.04</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">"ubuntu_2004"</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">        <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">9500</span><span class="string">:80</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">9501</span><span class="string">:22</span></span><br></pre></td></tr></tbody></table></figure></div>
-
-<p>乍一看没啥毛病是吧，运行试一下</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker-compose up</span></span><br><span class="line">Creating network "ubuntu2_default" with the default driver</span><br><span class="line">Creating ubuntu_2004 ... error</span><br><span class="line"></span><br><span class="line">ERROR: for ubuntu_2004  Cannot create container for service machine: invalid port specification: "570082"</span><br><span class="line"></span><br><span class="line">ERROR: for machine  Cannot create container for service machine: invalid port specification: "570082"</span><br><span class="line">ERROR: Encountered errors while bringing up the project.</span><br></pre></td></tr></tbody></table></figure></div>
-
-<p>这就是 22 端口导致的问题，我们把配置文件的端口改为以下写法就可以解决问题了</p>
-<div class="highlight-container" data-rel="Yml"><figure class="iseeu highlight yml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">"9500:80"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">"9501:22"</span></span><br></pre></td></tr></tbody></table></figure></div>
-]]></content>
-      <categories>
-        <category>docker</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>ssh</tag>
-        <tag>22-port</tag>
-        <tag>bugs</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>通过 ssh 桥接方式连接远程 docker 中的 ubuntu</title>
     <url>/2022/11/11/docker/ssh-bridge/</url>
     <content><![CDATA[<blockquote>
@@ -1802,8 +1777,33 @@
       </categories>
       <tags>
         <tag>docker</tag>
-        <tag>ssh</tag>
         <tag>ubuntu</tag>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次 DockerCompose 配置 22 端口映射遇到的坑</title>
+    <url>/2022/11/11/docker/port-22-bug/</url>
+    <content><![CDATA[<blockquote>
+<p>在一次偶然的机会下触发了一个端口映射的bug</p>
+</blockquote>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><code>docker-compose.yml</code></p>
+<div class="highlight-container" data-rel="Yml"><figure class="iseeu highlight yml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.8"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">machine:</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">ubuntu:20.04</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">"ubuntu_2004"</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">        <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">9500</span><span class="string">:80</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">9501</span><span class="string">:22</span></span><br></pre></td></tr></tbody></table></figure></div>
+
+<p>乍一看没啥毛病是吧，运行试一下</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker-compose up</span></span><br><span class="line">Creating network "ubuntu2_default" with the default driver</span><br><span class="line">Creating ubuntu_2004 ... error</span><br><span class="line"></span><br><span class="line">ERROR: for ubuntu_2004  Cannot create container for service machine: invalid port specification: "570082"</span><br><span class="line"></span><br><span class="line">ERROR: for machine  Cannot create container for service machine: invalid port specification: "570082"</span><br><span class="line">ERROR: Encountered errors while bringing up the project.</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p>这就是 22 端口导致的问题，我们把配置文件的端口改为以下写法就可以解决问题了</p>
+<div class="highlight-container" data-rel="Yml"><figure class="iseeu highlight yml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">"9500:80"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">"9501:22"</span></span><br></pre></td></tr></tbody></table></figure></div>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>ssh</tag>
+        <tag>22-port</tag>
+        <tag>bugs</tag>
       </tags>
   </entry>
   <entry>

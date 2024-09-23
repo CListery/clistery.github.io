@@ -6,7 +6,7 @@
   <link href="http://clistery.github.io/atom.xml" rel="self"/>
   
   <link href="http://clistery.github.io/"/>
-  <updated>2024-09-03T07:23:54.716Z</updated>
+  <updated>2024-09-23T07:27:14.922Z</updated>
   <id>http://clistery.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Ubuntu 添加硬盘并分区</title>
+    <link href="http://clistery.github.io/2024/09/23/ubuntu/new-disk-partition-gpt-ext4/"/>
+    <id>http://clistery.github.io/2024/09/23/ubuntu/new-disk-partition-gpt-ext4/</id>
+    <published>2024-09-23T06:59:29.000Z</published>
+    <updated>2024-09-23T07:27:14.922Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本教程将教会你如何在 Ubuntu 下如何对新加硬盘分区并挂载&lt;br&gt;我使用了一块 1T 的东芝机械硬盘，所以本文将使用 GPT 分区表 + EXT4 文件系统的方式操作新硬盘&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;知识扩展&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
+    
+    
+    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
+    
+    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
+    
+    <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
     <title>自制 USBasp</title>
     <link href="http://clistery.github.io/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/"/>
     <id>http://clistery.github.io/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/</id>
     <published>2024-07-18T09:04:41.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.922Z</updated>
     
     
       
@@ -57,7 +89,7 @@
     <link href="http://clistery.github.io/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/"/>
     <id>http://clistery.github.io/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/</id>
     <published>2024-01-11T03:02:48.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.922Z</updated>
     
     
       
@@ -91,7 +123,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/install-pkg-with-entware/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/install-pkg-with-entware/</id>
     <published>2023-12-06T09:01:58.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.922Z</updated>
     
     
       
@@ -127,7 +159,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/fix-dsm-network-issue/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/fix-dsm-network-issue/</id>
     <published>2023-12-06T08:35:42.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.922Z</updated>
     
     
       
@@ -161,7 +193,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/access-dsm-ssh/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/access-dsm-ssh/</id>
     <published>2023-12-06T07:41:41.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.922Z</updated>
     
     
       
@@ -195,7 +227,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/install-with-docker/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/install-with-docker/</id>
     <published>2023-12-06T07:40:04.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.922Z</updated>
     
     
       
@@ -227,7 +259,7 @@
     <link href="http://clistery.github.io/2023/10/07/docker/apline-apk-locally/"/>
     <id>http://clistery.github.io/2023/10/07/docker/apline-apk-locally/</id>
     <published>2023-10-07T02:14:18.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.921Z</updated>
     
     
       
@@ -259,7 +291,7 @@
     <link href="http://clistery.github.io/2023/09/26/svn/svn-save-password/"/>
     <id>http://clistery.github.io/2023/09/26/svn/svn-save-password/</id>
     <published>2023-09-26T03:34:54.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.922Z</updated>
     
     
       
@@ -285,7 +317,7 @@
     <link href="http://clistery.github.io/2023/09/15/ubuntu/usb-net/"/>
     <id>http://clistery.github.io/2023/09/15/ubuntu/usb-net/</id>
     <published>2023-09-15T13:39:17.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.923Z</updated>
     
     
       
@@ -319,7 +351,7 @@
     <link href="http://clistery.github.io/2023/08/02/other/disable-wechat-ocr/"/>
     <id>http://clistery.github.io/2023/08/02/other/disable-wechat-ocr/</id>
     <published>2023-08-02T03:33:46.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.922Z</updated>
     
     
       
@@ -350,7 +382,7 @@
     <link href="http://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/"/>
     <id>http://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/</id>
     <published>2023-07-27T00:37:26.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.921Z</updated>
     
     
       
@@ -386,7 +418,7 @@
     <link href="http://clistery.github.io/2023/07/20/ubuntu/user-group/"/>
     <id>http://clistery.github.io/2023/07/20/ubuntu/user-group/</id>
     <published>2023-07-20T02:10:05.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.923Z</updated>
     
     
       
@@ -418,7 +450,7 @@
     <link href="http://clistery.github.io/2023/05/06/windows/bypass-user-account-control-notifications/"/>
     <id>http://clistery.github.io/2023/05/06/windows/bypass-user-account-control-notifications/</id>
     <published>2023-05-06T00:39:54.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.923Z</updated>
     
     
       
@@ -446,7 +478,7 @@
     <link href="http://clistery.github.io/2023/04/21/tools/v2ray-install-setup/"/>
     <id>http://clistery.github.io/2023/04/21/tools/v2ray-install-setup/</id>
     <published>2023-04-21T07:25:02.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.922Z</updated>
     
     
       
@@ -478,7 +510,7 @@
     <link href="http://clistery.github.io/2023/04/13/vmware/amd-vmware15.1-install-macos-10.15.x/"/>
     <id>http://clistery.github.io/2023/04/13/vmware/amd-vmware15.1-install-macos-10.15.x/</id>
     <published>2023-04-13T03:34:38.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.923Z</updated>
     
     
       
@@ -514,7 +546,7 @@
     <link href="http://clistery.github.io/2023/03/13/android/strings/"/>
     <id>http://clistery.github.io/2023/03/13/android/strings/</id>
     <published>2023-03-13T05:58:01.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.921Z</updated>
     
     
       
@@ -544,7 +576,7 @@
     <link href="http://clistery.github.io/2023/02/23/apple/2023-apple-developer-enterprise-program/"/>
     <id>http://clistery.github.io/2023/02/23/apple/2023-apple-developer-enterprise-program/</id>
     <published>2023-02-23T03:15:21.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.921Z</updated>
     
     
       
@@ -572,7 +604,7 @@
     <link href="http://clistery.github.io/2023/02/16/cygwin/customize-theme-cygwin/"/>
     <id>http://clistery.github.io/2023/02/16/cygwin/customize-theme-cygwin/</id>
     <published>2023-02-16T02:03:20.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.921Z</updated>
     
     
       
@@ -608,7 +640,7 @@
     <link href="http://clistery.github.io/2023/02/16/cygwin/setup-home-dir-cygwin/"/>
     <id>http://clistery.github.io/2023/02/16/cygwin/setup-home-dir-cygwin/</id>
     <published>2023-02-16T01:38:36.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
+    <updated>2024-09-23T07:27:14.921Z</updated>
     
     
       
@@ -630,38 +662,6 @@
     <category term="linux" scheme="http://clistery.github.io/tags/linux/"/>
     
     <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cygwin 创建文件权限问题</title>
-    <link href="http://clistery.github.io/2023/02/15/cygwin/fstab-error-cygwin/"/>
-    <id>http://clistery.github.io/2023/02/15/cygwin/fstab-error-cygwin/</id>
-    <published>2023-02-15T08:38:17.000Z</published>
-    <updated>2024-09-03T07:23:54.716Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;在通过命令行，如：&lt;code&gt;mkdir test&lt;/code&gt; 创建一个目录或文件后，通过右键属性打开安全选项卡时，Windows 会提示 &lt;code&gt;test</summary>
-        
-      
-    
-    
-    
-    <category term="cygwin" scheme="http://clistery.github.io/categories/cygwin/"/>
-    
-    
-    <category term="cygwin" scheme="http://clistery.github.io/tags/cygwin/"/>
-    
-    <category term="linux" scheme="http://clistery.github.io/tags/linux/"/>
-    
-    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
-    
-    <category term="fstab" scheme="http://clistery.github.io/tags/fstab/"/>
     
   </entry>
   

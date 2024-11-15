@@ -2144,24 +2144,52 @@
   <entry>
     <title>修复 Gitlab-CE 仓库检查错误</title>
     <url>/2024/10/30/gitlab-ce/fix-repository-checks-error/</url>
-    <content><![CDATA[
-<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="6c096a4ef05bc68b60c2d7bf9cfa38a75b798321bb1c14b7eda3a45b6181149d">6c1a973b37c63d18b97c0a4b503f61a8df1b53d89082847b9e37c8b02fa2a4180387beaca4881c4395de73f71874bb1e621c52aab8c583a3d0cad4cdeec737d2820a76b48bb579d7c44bf4cb7b8cbb3b4c5985ec1c6582a0b9e98ead897ec9ace2dc37c8c6aa5fe42b3c1e5865ca6baea6af5fb6ad98b814e5fd55c75e118c51f53c773bcd1d417b8a8622134c59e2bb68adb16b100319026d5434ac57e590167a1e9a025c429cd57d9986073032baa3bd63032ec57aaecb5d352b36b2db08043d0fc124ef01b342854df71ba9ef65ec678c9994b58d1eb09a3ef6825e660fa17b8ddd1f58d28f2189d5710bca8e98b8384391f30c760bf9aef450ba10ee834514436b71762e241496581bfe593c5262480236f0adf889eea8f42286c153d26a0edaca6421505e3ab0dc8f244d40a760aef760d815a06098be06477532a7e4ff20ab8d8b4081540a0e364f15dde870d7583451f8efc97e559abffb52fb793cc22d08936b4dfdd5441773efb18f2d7acb9b8793d936b1aeec1daa11b64f3a0fc41e98518631d269e1409dc17b6251f2107d27b17bcc6a8719deeb33762a4c738ae380b58fa47f6dcf29d2688180f39bdb484dd007a700d614e8d308e003164a357f098221c3397df611e54a1324d4cf4654dd26469f8746c2d5b41ec43cac1a502e8fa28875039c1d6c47705e3e085bd4b9dd438bec0a65cd15937cb6edb59cdb06b6c601ffd0e1a77b731c1fc6042c8982e5099706745afd4b747127795fe83c45fa1475f584277bd80bbe34e363583d028c6d18b32575779f0ce3007632218a13858a81433cbf0f80c68f3d0551b148fd52a148785a17472982a47bbde54d5a9ec1835e09cc2e945059d14ebbc0a5b7a8c9b3d87bcb211386c194d5615e2a0d7e819c84ed040d4002c2f6f8bfda4d200575ae77a34b8493cfc0489c6d5d9425e95afcc8439d05cb05633d0f7ffa405a0e8b489fc39502bb7eb9b39d347cf48f60fb0207ac5476c2f7643f41358e3656eb7b88b0207ac9a7f067c6eaa9b296ac4c11b57bfdd3bf646b38811ac486284896323d1990ec7d4d59279bc02b45219b630f7be317144bfaf9859c8e95a16ec5c5abd9acb41e74ec55a99000a512230cd5f452f937bb1113a5aea493ad157292fd6e31b507997aba384fa0b92fcab7fee1c09f1e6db955cccfc5344b6f916729d1d44142d610c83a712b7347d5588cfc41e4c6d269f856919fd9e27279132d5f65ecaad11f46175c948a157e23b387902a3f40d5134930fa0f58b13b6772aa3ea60c54da130f3fa4127bccf13a279804d4f249056c25e4845b1f174e85f26e11c7d1344a29b940adb5ead7a07d552f3d1703b3756d730b5adca2762fd02f415619b3d48a48df64464b185e89b81aaf78c58cec1692956d9911cc28b23a2c2258b332e5ea414c447d0893af1cf823bd1176a0b4ed0ae25ce0d46487c1b95c0a75a2985065647251eaa463580bf539b2f2790baa098f9d9db1803cee2a32ba56266c90ddff856d5fd4675b4cba90771a215d5eb0e0fbc12f9e7460175aa957e1c88af5a2451b77e516d4522f90c0c8c935422dd0ce0b8efc709de698666bdc6f75df830f7db9f9a8aec5082711b569881f896142cf3a63191250c58ae6557c50def0e9d14aad21ec5b51727d57bfcbb87fc467181061d7f9a4e9b60febc3aee3a9d71d310dac7e456f552292b8159a83aeee19ea5f54a00e974da8fe014c7f73a1fcc5e8df1a79192146274e642d34f4aa194ae062a5296dbded814766d48d5244f6f960e8fa6b84488e8abc083ad50af5c922e99d5bf3e687bb5b422da7dc4d3837d9317a61c0adac4c5b2b4c9888b14237ce2344f38de9bd3ef9111f461d00b3195da85770a78182336024a9dadb859af2feacc6a938c530d19d70eff8cb4f683dccbb7767809c31a7f5dc18dc646c921733f5c5ab078b7d0528d5119d3c426b6062ddaa3eed45564910d6e3b3df17c01439500e1cbfeb3d4749f2ef1e0f86a2a0fe6f29ccc3f91babb535b6c6b89e600018ebeff9a8622b4bcb0811f38ae2267cb5e12b4578a33db6e7b17b9d2fa9223b137f064cd2c40ec8e852d85c27cb6eab7c2509ab54e2a0dc2f79f24f012148894c0985e3a0ec6e1fada89670660ae2e828c0805c84328ac26c6f16ec821a8a8ed9163a8ecebebec57b0923b2520718eb691a0795e8c1d484183b97d47a9948d7e7fb9f373587ce313ce7db666149650bfd2d76d8b2c0cc0e6a38d1c2fc766e68afdff5823d37822c11266238b7eef44e6e80e43c52530370d19e01efa5f7eaa36a1abe32eae6d944cb6ae53639901c5eb97288dcea83492d130badc25417f1a2a8dc8e74eb14c82ed73d5d79f8e844b011bba7ded14546987adef124ada1d4eae08728fe95a95805287da568e87dad20d68c299f228479bf93365128af3eaaa3f1784541a50eccde7fd11fe404c5aeb910471220ac2f12dcd5a188c3c38415006db1659bc7e504493935624e8f462c7a6cb62f6612bf2016d7d59053217fd954365192dbff9ba6387212f4bf85071588172abaae06605751bf0449c292f08259306b6604188a0f3c9d01cede604db4cf04a0c173f648015db27a0d491cab6e620dc7a9ae1c14ec1f0b154dca092c06a76eb2189bd3801bca37ac09929289bd0cb55af6bc93ad22f7e27b6b8a4fb6fe7b7faffeca9853ac9a93b8f26adcad6a83b4b6689c2d410dcd9d7b75b6a07dc252b2ad5794a3cd8a8ba1fd3444d893ececc7a222de915ae152cdb00c70b0bca7acb8b075058577d5173df7259a96aa732581b0eeece4842f544614e545cc76d4666b209baff0cf1277252f6689164a0576a273fced52b67a18300e3ceecc4e11694e968aeba9e90c7294b08793724afd304b9f3edad8327b0aac0846b30e08aa9805cc3347998080a16e110ffbc6e6617c70faa1bce452779cbc9458bf312e5fd921d2f9f93cb7a746f722bff50a75d487b4958fd5b61d190a32b3b765a2c5ac26ec264a119318e554ad2ca67d3e4112e6c2850942757b4b6a5a87647df5802bd37d05a98dedc12324c4224a250803f690b5d830582670ac271dc5acb1521fbb4fa909a66ddeb64a550abaf93f6d48d51f38fd2dbbd2205de184f0e9175e2de0878f460731846a6e9d7b515abb67381914e77a7d5e514e65aa0c89169396c8a33cb14c5e83aac9d1edaf52dcd95af44c25810bae3b98f22bbd3eac878420e3050b452746d9443afd1dd605c756e1c7a1fe89f71ccf829572a9213c874d2049cdc70e14ae58bc31b9c6b384328157902a651ed054e233b5788643d092ec634030fbd3804393981ecc8f2240dd9cdea4aedc645019bfbd6a2596d14c9c55b73d81d20e479509f4d0a6f898feae3ada03e340a65cf22066d8abb7793ed865931140ba50c68ed55fd6c1b6b9194024da411e54bb481b150b02e76c735d4057c1d1e77459686e8491e67a01cb54dcc5a7963d0618f3d4ca6e235fb6fbf41e7db6a5b0c4a5323d5c60ad3be8d871b6e8d61272c7c48460654162a87b1c8b60aa7094bbab712276fe5301348fc8cf2719b0f278ca957394c872f0bf7c9fead7cbd72024dd38b0a111b0b40b44bc58ae8f7cb7666bcc434e6905ba574f40c18cd7e0fb0dde4c7051c1bb7cede606d9f71a79477e6642e1ff45d15a0eacac0a47ff371a9beaa66d03089649eeeaaff040d82616e04d37a4f5aafceed30c41c0303b35ba4d295200b874ae069d2c3dd541a82e206eb24a3e5e3df1a88923234ca7068d64a427748eed80b2b8fc8b2b97f7b1a554dea07e901779b630b912da61ab1d09b0b1e596a934bcea89094e99bb13c0fc756ec364a7b049636092ce09799b183e469de19efe932401c9b3f7d5929e60cb2b6c76428d7d5fd868a63ed4dba629479352501fe54e16227596029753ca225c5637aa8d86e059ce8fe9c91799d3be5e9ea7cb728c03a05396a7618dcc9bf915b3f1fbfac69ff4479f90b8af8b171ced958f5af38fb1b00caa6bbb1d95852410105b5b0f937509c7f0d3c2fa905026439794c31ce0903aa0d546a95529f295ff244224ac6d3a0b71adfd712c143c723df78ae909e8cee8c7c60afaaf383bc6d9c46b3c6af39086f72c180d109a49547bdb3f8761ebbac03fb12e379302e114e877f4ef2b3f3ea9fdd9a7ffa27be67e9df34a1a1162a41fcc83c5a831e09b9a141010ba562975d7cc322c69850a391943eb5760628194dab5178d3870ee700ca752c746787fd64ab4415b4be97ceca3be336bf4e739ed4cdfa5570c9dac59e21683e9b196af1b9d3b0f13cdd2cb5f813b76f7c25e07f88b42c359a7e7d5b938952515017a710c99cddec616443ffc14e4dbda37d177f9e80385f30d6cf8a828a604c85e6f12cbd120dc1aa0f5383771287c284c1757fb3c0177d2a5231b0782edd3c8958563955adeebc965eef265f52dbaf50f99e715d3fa4053a813949554ce0795cd6a295235a7186432cf6576dbf6d682239f57dfaa59cd605a924398b7b7c9f712358e6d0a2cb9afb9d8010b3aeda1831a0e9ef317308965fc5385e3f3833333e0670e9d7817393762ddb3478151df7da97a90b65238224fe4176f450b707cca00f0c5ba669dc2dff47766210408b5dcbd2c9d0d5013aa88964f6508ffefd9ee4d9037fb4e694357ca5a555e43b54eba5bfb35b35a84f2e14d10239e5c10be7bec3663c630ee83291b687b81f3dfddfae0dfbee2db52cb3b4c1343c9f4ff25ec594f8650a78b7b0585521ef9a8b0e9ab454df6f8dec29bff8a83e851c8899c90b2971676cc2739802ff56e5d41d8d894478e3f7fb5202108ec1b7c76920dea470a059d3a8c96513f9ba6193f7e06801c002f251b5bce4a310f1498daba2ac92f8f2680a0078259640a146058efa00c4b4c472bbdad85b5aa4a057a7f46249547e0a970f289b70513633391834a249cf8dcb53fc4af243bc07f236aa0d1d440ee587ea1e0986e658c5f9a92d71a8a84e283974c22855b9f340ba3e41011410b6230e5cdd90b5b6bbeb6eb0db4a1e4a5ef197bd0fa380f51b57f5575fd96ad8a555e98936d3e16d912de8d7ee55fea9ae62f110b4f7e723fa70c7a187aff5fde91755619ec21eadb51033a63ab6016e676d2246b2c921c693ce4557cc5306e029182769a256db85118e5727622f568a64581234da0c7bd536db23ef7849da1802a83a1ee81e51397e81ed4e7f820c4be5fc2df9f2c92fcb5a409917efd81c3c449669437e64d01ebd534e6e897d412279952cbd302ff046003d952736618eb869e142b2c0d6dc2684e152629de66256942c48703021b634b5219ca88eb10d360765b169b85dc1c832668e4d932225e3c3e985519a2b295850627c55232d9987679d084368e5dc2ba43960111734c62248341ebce9bb8953837ce467c97615ec05d</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<link href="/css/hbe.style.css" rel="stylesheet" type="text/css"><script data-swup-reload-script type="module" src="/js/plugins/hbe.js"></script>
-<script data-swup-reload-script type="module">
-import {initHBE} from "/js/plugins/hbe.js";
-  console.log("hexo-blog-encrypt: loaded.");
-    initHBE();
-</script>
+    <content><![CDATA[<blockquote>
+<p>某一天在 gitlab 管理员邮箱中收到了 ‘GitLab Admin | One project failed its last repository check’ 的邮件，点开一看有一个仓库的自检过不了，于是有了这篇博客</p>
+</blockquote>
+<h2 id="原因调查"><a href="#原因调查" class="headerlink" title="原因调查"></a>原因调查</h2><ul>
+<li><p>根据文档提示，找到自检的日志文件</p>
+<p><code>/var/log/gitlab/gitlab-rails</code> for Omnibus GitLab installations.</p>
+<p><code>/home/git/gitlab/log</code> for installations from source.</p>
+</li>
+<li><p>文件内容</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">E, [2024-10-30T07:24:02.126920 #1053] ERROR -- : path/repository: Could not fsck repository: dangling commit d8e2ebdd41444c2b868d6a321c3246ab6831d351</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>根据日志信息，看起来是一个 dangling commit 引起的，但是仓库本身并没有这个问题，那很可能是 gitlab 的一些缓存信息出现了问题</p>
+</li>
+</ul>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ul>
+<li><p>查找 <code>path/repository</code> 仓库在服务器上的文件路径，这里引用官方的文档</p>
+<ol>
+<li>在左侧栏的底部，选择 <code>Admin</code> 。</li>
+<li>选择 <code>概览</code> &gt; <code>项目</code>，选择项目。</li>
+<li>定位 <code>相对路径</code> 字段。取值类似于：<code>"@hashed/0b/91/0b91...f9.git"</code></li>
+</ol>
+</li>
+<li><p>找到项目文件路径后，我们就可以进行修复了</p>
+<blockquote>
+<p>为避免出现不可控的情况，请确保已经对 gitlab 备份</p>
+</blockquote>
+<ol>
+<li><p>切换到 git 用户</p>
+ <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">su - git</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>执行检查(这一步出现 error 不用理会)</p>
+<blockquote>
+<p>将之前找到的项目文件路径替换到命令中</p>
+</blockquote>
+ <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">/opt/gitlab/embedded/bin/git \</span><br><span class="line">-C /var/opt/gitlab/git-data/repositories/@hashed/0b/91/0b91...f9.git fsck</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>清理缓存</p>
+ <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">/opt/gitlab/embedded/bin/git \</span><br><span class="line">-C /var/opt/gitlab/git-data/repositories/@hashed/0b/91/0b91...f9.git gc</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>重新执行检查</p>
+ <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">/opt/gitlab/embedded/bin/git \</span><br><span class="line">-C /var/opt/gitlab/git-data/repositories/@hashed/0b/91/0b91...f9.git fsck</span><br></pre></td></tr></tbody></table></figure></div></li>
+</ol>
+</li>
+<li><p>重新触发仓库自检</p>
+</li>
+</ul>
 ]]></content>
   </entry>
   <entry>

@@ -6,7 +6,7 @@
   <link href="http://clistery.github.io/atom.xml" rel="self"/>
   
   <link href="http://clistery.github.io/"/>
-  <updated>2024-11-15T07:53:32.519Z</updated>
+  <updated>2025-01-01T07:48:54.027Z</updated>
   <id>http://clistery.github.io/</id>
   
   <author>
@@ -17,11 +17,79 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ubuntu20.04 桌面版转换为服务器版</title>
+    <link href="http://clistery.github.io/2025/01/01/ubuntu/desktop-convert-server/"/>
+    <id>http://clistery.github.io/2025/01/01/ubuntu/desktop-convert-server/</id>
+    <published>2025-01-01T03:06:26.000Z</published>
+    <updated>2025-01-01T07:48:54.027Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;闲来无事瞅了一眼平时拿来做服务器的主机，发现硬盘灯一直常亮，看了一下占用，发现是 &lt;code&gt;/usr/bin/gnome-shell&lt;/code&gt; 占用了大量的内存，同时还有 20MB/s</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>修补 Honor Note10 内核</title>
+    <link href="http://clistery.github.io/2024/12/31/android/honor-note10-kirin970-fix-kernel/"/>
+    <id>http://clistery.github.io/2024/12/31/android/honor-note10-kirin970-fix-kernel/</id>
+    <published>2024-12-31T08:39:24.000Z</published>
+    <updated>2025-01-01T07:48:54.023Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文将以 Honor Note10 作为测试平台，介绍如何修改内核配置，以及如何在 docker 环境下编译内核，最后启用 SELinux 的 permissive 模式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;环境描述&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="android" scheme="http://clistery.github.io/categories/android/"/>
+    
+    
+    <category term="huawei" scheme="http://clistery.github.io/tags/huawei/"/>
+    
+    <category term="kernel" scheme="http://clistery.github.io/tags/kernel/"/>
+    
+    <category term="make" scheme="http://clistery.github.io/tags/make/"/>
+    
+    <category term="magisk" scheme="http://clistery.github.io/tags/magisk/"/>
+    
+    <category term="root" scheme="http://clistery.github.io/tags/root/"/>
+    
+    <category term="frida" scheme="http://clistery.github.io/tags/frida/"/>
+    
+    <category term="lsposed" scheme="http://clistery.github.io/tags/lsposed/"/>
+    
+    <category term="hook" scheme="http://clistery.github.io/tags/hook/"/>
+    
+    <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
+    
+    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
     <title>修复 Gitlab-CE 仓库检查错误</title>
     <link href="http://clistery.github.io/2024/10/30/gitlab-ce/fix-repository-checks-error/"/>
     <id>http://clistery.github.io/2024/10/30/gitlab-ce/fix-repository-checks-error/</id>
     <published>2024-10-30T08:29:16.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -49,7 +117,7 @@
     <link href="http://clistery.github.io/2024/09/23/ubuntu/new-disk-partition-gpt-ext4/"/>
     <id>http://clistery.github.io/2024/09/23/ubuntu/new-disk-partition-gpt-ext4/</id>
     <published>2024-09-23T06:59:29.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.027Z</updated>
     
     
       
@@ -68,9 +136,9 @@
     <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
     
     
-    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
-    
     <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
+    
+    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
     
     <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
     
@@ -81,7 +149,7 @@
     <link href="http://clistery.github.io/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/"/>
     <id>http://clistery.github.io/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/</id>
     <published>2024-07-18T09:04:41.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -117,7 +185,7 @@
     <link href="http://clistery.github.io/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/"/>
     <id>http://clistery.github.io/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/</id>
     <published>2024-01-11T03:02:48.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -151,7 +219,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/install-pkg-with-entware/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/install-pkg-with-entware/</id>
     <published>2023-12-06T09:01:58.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -187,7 +255,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/fix-dsm-network-issue/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/fix-dsm-network-issue/</id>
     <published>2023-12-06T08:35:42.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -221,7 +289,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/access-dsm-ssh/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/access-dsm-ssh/</id>
     <published>2023-12-06T07:41:41.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -255,7 +323,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/install-with-docker/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/install-with-docker/</id>
     <published>2023-12-06T07:40:04.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -287,7 +355,7 @@
     <link href="http://clistery.github.io/2023/10/07/docker/apline-apk-locally/"/>
     <id>http://clistery.github.io/2023/10/07/docker/apline-apk-locally/</id>
     <published>2023-10-07T02:14:18.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -319,7 +387,7 @@
     <link href="http://clistery.github.io/2023/09/26/svn/svn-save-password/"/>
     <id>http://clistery.github.io/2023/09/26/svn/svn-save-password/</id>
     <published>2023-09-26T03:34:54.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -345,7 +413,7 @@
     <link href="http://clistery.github.io/2023/09/15/ubuntu/usb-net/"/>
     <id>http://clistery.github.io/2023/09/15/ubuntu/usb-net/</id>
     <published>2023-09-15T13:39:17.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.027Z</updated>
     
     
       
@@ -379,7 +447,7 @@
     <link href="http://clistery.github.io/2023/08/02/other/disable-wechat-ocr/"/>
     <id>http://clistery.github.io/2023/08/02/other/disable-wechat-ocr/</id>
     <published>2023-08-02T03:33:46.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -410,7 +478,7 @@
     <link href="http://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/"/>
     <id>http://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/</id>
     <published>2023-07-27T00:37:26.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -429,9 +497,9 @@
     <category term="docker" scheme="http://clistery.github.io/categories/docker/"/>
     
     
-    <category term="linux" scheme="http://clistery.github.io/tags/linux/"/>
-    
     <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
+    
+    <category term="linux" scheme="http://clistery.github.io/tags/linux/"/>
     
     <category term="alpine" scheme="http://clistery.github.io/tags/alpine/"/>
     
@@ -446,7 +514,7 @@
     <link href="http://clistery.github.io/2023/07/20/ubuntu/user-group/"/>
     <id>http://clistery.github.io/2023/07/20/ubuntu/user-group/</id>
     <published>2023-07-20T02:10:05.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.027Z</updated>
     
     
       
@@ -465,9 +533,9 @@
     <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
     
     
-    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
-    
     <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
+    
+    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
     
     <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
     
@@ -478,7 +546,7 @@
     <link href="http://clistery.github.io/2023/05/06/windows/bypass-user-account-control-notifications/"/>
     <id>http://clistery.github.io/2023/05/06/windows/bypass-user-account-control-notifications/</id>
     <published>2023-05-06T00:39:54.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.027Z</updated>
     
     
       
@@ -506,7 +574,7 @@
     <link href="http://clistery.github.io/2023/04/21/tools/v2ray-install-setup/"/>
     <id>http://clistery.github.io/2023/04/21/tools/v2ray-install-setup/</id>
     <published>2023-04-21T07:25:02.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -538,7 +606,7 @@
     <link href="http://clistery.github.io/2023/04/13/vmware/amd-vmware15.1-install-macos-10.15.x/"/>
     <id>http://clistery.github.io/2023/04/13/vmware/amd-vmware15.1-install-macos-10.15.x/</id>
     <published>2023-04-13T03:34:38.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.027Z</updated>
     
     
       
@@ -574,7 +642,7 @@
     <link href="http://clistery.github.io/2023/03/13/android/strings/"/>
     <id>http://clistery.github.io/2023/03/13/android/strings/</id>
     <published>2023-03-13T05:58:01.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
+    <updated>2025-01-01T07:48:54.023Z</updated>
     
     
       
@@ -596,70 +664,6 @@
     <category term="android" scheme="http://clistery.github.io/tags/android/"/>
     
     <category term="strings" scheme="http://clistery.github.io/tags/strings/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023 年 Apple Developer Enterprise Program 续订审核</title>
-    <link href="http://clistery.github.io/2023/02/23/apple/2023-apple-developer-enterprise-program/"/>
-    <id>http://clistery.github.io/2023/02/23/apple/2023-apple-developer-enterprise-program/</id>
-    <published>2023-02-23T03:15:21.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;又到了一年一度的 Apple</summary>
-        
-      
-    
-    
-    
-    <category term="apple" scheme="http://clistery.github.io/categories/apple/"/>
-    
-    
-    <category term="Apple Developer Enterprise Program" scheme="http://clistery.github.io/tags/Apple-Developer-Enterprise-Program/"/>
-    
-    <category term="内鬼‘蒂姆·库克’" scheme="http://clistery.github.io/tags/%E5%86%85%E9%AC%BC%E2%80%98%E8%92%82%E5%A7%86%C2%B7%E5%BA%93%E5%85%8B%E2%80%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cygwin 自定义主题</title>
-    <link href="http://clistery.github.io/2023/02/16/cygwin/customize-theme-cygwin/"/>
-    <id>http://clistery.github.io/2023/02/16/cygwin/customize-theme-cygwin/</id>
-    <published>2023-02-16T02:03:20.000Z</published>
-    <updated>2024-11-15T07:53:32.519Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;定制一个自己喜欢的主题，展示一些个性化的内容&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="cygwin" scheme="http://clistery.github.io/categories/cygwin/"/>
-    
-    
-    <category term="cygwin" scheme="http://clistery.github.io/tags/cygwin/"/>
-    
-    <category term="theme" scheme="http://clistery.github.io/tags/theme/"/>
-    
-    <category term="linux" scheme="http://clistery.github.io/tags/linux/"/>
-    
-    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
-    
-    <category term="git" scheme="http://clistery.github.io/tags/git/"/>
     
   </entry>
   

@@ -1916,38 +1916,6 @@
       </tags>
   </entry>
   <entry>
-    <title>修复 virtual DSM 无法访问网络</title>
-    <url>/2023/12/06/dsm/fix-dsm-network-issue/</url>
-    <content><![CDATA[<blockquote>
-<p>之前我们在 <a href="https://clistery.github.io/2023/12/07/dsm/install-with-docker/">在 docker 中安装 DSM</a> 时，我们在 docker 中安装了一个虚拟的 DSM，但是在安装完成后，我们发现 DSM 可以正常安装套件，但是 NTP 和 邮件通知 等服务都无法正常工作，所以我们需要修复这个问题。</p>
-</blockquote>
-<h2 id="添加-DNS"><a href="#添加-DNS" class="headerlink" title="添加 DNS"></a>添加 DNS</h2><ol>
-<li><p>修改 docker-compose.yml</p>
-<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">dsm:</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    <span class="attr">dns:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">1.0</span><span class="number">.0</span><span class="number">.1</span></span><br></pre></td></tr></tbody></table></figure></div>
-</li>
-<li><p>修改 DSM 网络配置</p>
-<ol>
-<li>打开 DSM <code>控制面板</code></li>
-<li>点击<code>网络</code></li>
-<li>切换到<code>常规</code>选项卡</li>
-<li>勾选<code>手动配置 DNS 服务器</code><br>首选 DNS: <code>8.8.8.8</code><br>备选 DNS: <code>1.0.0.1</code></li>
-</ol>
-</li>
-</ol>
-<h2 id="重启-DSM"><a href="#重启-DSM" class="headerlink" title="重启 DSM"></a>重启 DSM</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">docker-compose restart dsm</span><br></pre></td></tr></tbody></table></figure></div>
-]]></content>
-      <categories>
-        <category>dsm</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>dsm</tag>
-        <tag>virtual dsm</tag>
-        <tag>synology dsm</tag>
-        <tag>network error</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>通过 ssh 连接 docker 中的 dsm</title>
     <url>/2023/12/06/dsm/access-dsm-ssh/</url>
     <content><![CDATA[<blockquote>
@@ -2007,6 +1975,38 @@
         <tag>virtual dsm</tag>
         <tag>synology dsm</tag>
         <tag>ssh jump server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修复 virtual DSM 无法访问网络</title>
+    <url>/2023/12/06/dsm/fix-dsm-network-issue/</url>
+    <content><![CDATA[<blockquote>
+<p>之前我们在 <a href="https://clistery.github.io/2023/12/07/dsm/install-with-docker/">在 docker 中安装 DSM</a> 时，我们在 docker 中安装了一个虚拟的 DSM，但是在安装完成后，我们发现 DSM 可以正常安装套件，但是 NTP 和 邮件通知 等服务都无法正常工作，所以我们需要修复这个问题。</p>
+</blockquote>
+<h2 id="添加-DNS"><a href="#添加-DNS" class="headerlink" title="添加 DNS"></a>添加 DNS</h2><ol>
+<li><p>修改 docker-compose.yml</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">dsm:</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    <span class="attr">dns:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">1.0</span><span class="number">.0</span><span class="number">.1</span></span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>修改 DSM 网络配置</p>
+<ol>
+<li>打开 DSM <code>控制面板</code></li>
+<li>点击<code>网络</code></li>
+<li>切换到<code>常规</code>选项卡</li>
+<li>勾选<code>手动配置 DNS 服务器</code><br>首选 DNS: <code>8.8.8.8</code><br>备选 DNS: <code>1.0.0.1</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="重启-DSM"><a href="#重启-DSM" class="headerlink" title="重启 DSM"></a>重启 DSM</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">docker-compose restart dsm</span><br></pre></td></tr></tbody></table></figure></div>
+]]></content>
+      <categories>
+        <category>dsm</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>dsm</tag>
+        <tag>virtual dsm</tag>
+        <tag>synology dsm</tag>
+        <tag>network error</tag>
       </tags>
   </entry>
   <entry>

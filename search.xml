@@ -189,6 +189,115 @@
       </tags>
   </entry>
   <entry>
+    <title>修补 Honor Note10 内核</title>
+    <url>/2024/12/31/android/honor-note10-kirin970-fix-kernel/</url>
+    <content><![CDATA[<blockquote>
+<p>本文将以 Honor Note10 作为测试平台，介绍如何修改内核配置，以及如何在 docker 环境下编译内核，最后启用 SELinux 的 permissive 模式。</p>
+</blockquote>
+<h2 id="环境描述"><a href="#环境描述" class="headerlink" title="环境描述"></a>环境描述</h2><ul>
+<li>docker-compose version 1.27.4</li>
+<li>Ubuntu 18.04.6 LTS</li>
+<li>Honor Note10<ul>
+<li>Model: RVL-AL09</li>
+<li>Root: Magisk 28.1</li>
+<li>Core: HiSilicon Kirin970</li>
+<li>Kernel: 4.9.148</li>
+<li>Security Patch: 2019-12-1</li>
+</ul>
+</li>
+</ul>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>Kernel Source Code<ul>
+<li><a class="link" href="https://consumer.huawei.com/en/opensource/">Huawei Open Source Release Center<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+</li>
+<li>Magisk Tools<ul>
+<li><a class="link" href="https://github.com/topjohnwu/Magisk">magiskboot 28.1 [x86_64]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+</li>
+<li>Android NDK<ul>
+<li><a class="link" href="https://dl.google.com/android/repository/android-ndk-r16-beta1-linux-x86_64.zip?utm_source=androiddevtools&amp;utm_medium=website">android-ndk-r16-beta1<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+</li>
+</ul>
+<h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><ol>
+<li><p>建立工作目录</p>
+ <div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">mkdir Code_Opensource</span><br><span class="line">mkdir software</span><br></pre></td></tr></tbody></table></figure></div>
+
+<ul>
+<li>将 Kernel Source Code 解压到 <code>Code_Opensource</code> 目录</li>
+<li>将 magiskboot 放到到 <code>software/magisk/</code> 目录</li>
+<li>将 Android NDK 解压到 <code>software/android-ndk-r16-beta1/</code> 目录</li>
+</ul>
+</li>
+<li><p>创建容器</p>
+<ul>
+<li><p>创建 docker-compose.yml</p>
+  <div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3.8'</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">ubuntu:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">ubuntu:bionic</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">bionic</span></span><br><span class="line">    <span class="attr">command:</span> <span class="string">tail</span> <span class="string">-f</span> <span class="string">/dev/null</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">${PWD}/Code_Opensource:/code:rw</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">${PWD}/software:/software:rw</span></span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>启动容器</p>
+  <div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></tbody></table></figure></div></li>
+</ul>
+</li>
+</ol>
+<h3 id="编译内核"><a href="#编译内核" class="headerlink" title="编译内核"></a>编译内核</h3><ol>
+<li><p>修改内核配置</p>
+<ul>
+<li><p>Code_Opensource/kernel/arch/arm64/configs/merge_kirin970_defconfig</p>
+  <div class="code-container" data-rel="Makefile"><figure class="iseeu highlight makefile"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># CONFIG_SECURITY_SELINUX_DEVELOP is not set</span></span><br><span class="line">CONFIG_SECURITY_SELINUX_DEVELOP=y</span><br></pre></td></tr></tbody></table></figure></div></li>
+</ul>
+</li>
+<li><p>编译内核</p>
+<ul>
+<li><p>配置编译环境</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置镜像源</span></span><br><span class="line">sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装编译依赖</span></span><br><span class="line">sudo apt install -y build-essential dc python</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置环境变量</span></span><br><span class="line">export PATH=/software/android-ndk-r16-beta1/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin:$PATH</span><br><span class="line">export CROSS_COMPILE=aarch64-linux-android-</span><br><span class="line">export ARCH=arm64</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CC（GNU Compiler Collection）编译器的彩色输出</span></span><br><span class="line">export GCC_COLORS=auto</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>查看原始内核信息</p>
+<ul>
+<li><p>获取内核镜像</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看内核挂载点</span></span><br><span class="line">adb shell "su -c 'ls -al /dev/block/platform/ff3c0000.ufs/by-name/kernel'"</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份 kernel 镜像</span></span><br><span class="line">adb shell "su -c 'dd if=/dev/block/xxx of=/sdcard/Download/kernel.img'"</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">拉取 kernel 镜像</span></span><br><span class="line">adb pull /sdcard/Download/kernel.img software/magisk/</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>解包原始内核</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">cd software/magisk</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解包，同时记录下日志信息</span></span><br><span class="line">./magiskboot unpack -n kernel.img</span><br></pre></td></tr></tbody></table></figure></div>
+
+<ul>
+<li><p>日志信息</p>
+  <div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Parsing boot image: [kernel.img]</span><br><span class="line">HEADER_VER      [1]</span><br><span class="line">KERNEL_SZ       [15263371]</span><br><span class="line">RAMDISK_SZ      [336956]</span><br><span class="line">SECOND_SZ       [0]</span><br><span class="line">RECOV_DTBO_SZ   [0]</span><br><span class="line">OS_VERSION      [9.0.0]</span><br><span class="line">OS_PATCH_LEVEL  [2019-12]</span><br><span class="line">PAGESIZE        [2048]</span><br><span class="line">NAME            []</span><br><span class="line">CMDLINE         [loglevel=4 initcall_debug=n page_tracker=on unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=enforcing buildvariant=user]</span><br><span class="line">CHECKSUM        [8756a966a7b8957fa7e2742a28355059cd255ab9000000000000000000000000]</span><br><span class="line">KERNEL_FMT      [gzip]</span><br><span class="line">RAMDISK_FMT     [raw]</span><br></pre></td></tr></tbody></table></figure></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>编译内核</p>
+<blockquote>
+<p>仔细看注释信息!!!<br>仔细看注释信息!!!<br>仔细看注释信息!!!</p>
+</blockquote>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">mkdir -p /code/out</span><br><span class="line">cd /code/kernel</span><br><span class="line">make ARCH=arm64 O=/code/out merge_kirin970_defconfig</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果下面这条命令失败，可以重新执行或修改 -j 参数</span></span><br><span class="line">make ARCH=arm64 O=/code/out -j32</span><br><span class="line">cp -f /code/out/arch/arm64/boot/Image.gz /code/kernel/tools</span><br><span class="line">cd /code/kernel/tools</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--cmdline 参数使用解包后的 CMDLINE，同时修改 androidboot.selinux=enforcing 为 androidboot.selinux=permissive</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--os_patch_level 只能使用 YYYY-MM-DD 格式并且只能等于或大于手机的安全补丁日期</span></span><br><span class="line">./mkbootimg --kernel Image.gz --base 0x0 \</span><br><span class="line">--cmdline "loglevel=4 initcall_debug=n page_tracker=on unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=permissive buildvariant=user" \</span><br><span class="line">--tags_offset 0x07A00000 --kernel_offset 0x00080000 --ramdisk_offset 0x07C00000 \</span><br><span class="line">--header_version 1 --os_version 9 --os_patch_level 2019-12-01 \</span><br><span class="line">--output kernel-permissive.img</span><br></pre></td></tr></tbody></table></figure></div></li>
+</ul>
+</li>
+</ol>
+<h3 id="打包内核"><a href="#打包内核" class="headerlink" title="打包内核"></a>打包内核</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">cd /software/magisk</span><br><span class="line">mv /code/kernel/tools/kernel-permissive.img ./</span><br><span class="line">./magiskboot repack -n kernel-permissive.img</span><br><span class="line">ls new-boot.img -al</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h3 id="刷入内核"><a href="#刷入内核" class="headerlink" title="刷入内核"></a>刷入内核</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">adb reboot bootloader</span><br><span class="line">fastboot flash kernel new-boot.img</span><br><span class="line">fastboot reboot</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h3 id="启用-SELinux"><a href="#启用-SELinux" class="headerlink" title="启用 SELinux"></a>启用 SELinux</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">adb shell "su -c 'setenforce 0'"</span><br><span class="line">adb shell "su -c 'getenforce'"</span><br></pre></td></tr></tbody></table></figure></div>
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>huawei</tag>
+        <tag>kernel</tag>
+        <tag>make</tag>
+        <tag>magisk</tag>
+        <tag>root</tag>
+        <tag>frida</tag>
+        <tag>lsposed</tag>
+        <tag>hook</tag>
+        <tag>docker</tag>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Android strings.xml 中支持的特殊字符</title>
     <url>/2023/03/13/android/strings/</url>
     <content><![CDATA[<blockquote>
@@ -1516,115 +1625,6 @@
       </tags>
   </entry>
   <entry>
-    <title>修补 Honor Note10 内核</title>
-    <url>/2024/12/31/android/honor-note10-kirin970-fix-kernel/</url>
-    <content><![CDATA[<blockquote>
-<p>本文将以 Honor Note10 作为测试平台，介绍如何修改内核配置，以及如何在 docker 环境下编译内核，最后启用 SELinux 的 permissive 模式。</p>
-</blockquote>
-<h2 id="环境描述"><a href="#环境描述" class="headerlink" title="环境描述"></a>环境描述</h2><ul>
-<li>docker-compose version 1.27.4</li>
-<li>Ubuntu 18.04.6 LTS</li>
-<li>Honor Note10<ul>
-<li>Model: RVL-AL09</li>
-<li>Root: Magisk 28.1</li>
-<li>Core: HiSilicon Kirin970</li>
-<li>Kernel: 4.9.148</li>
-<li>Security Patch: 2019-12-1</li>
-</ul>
-</li>
-</ul>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
-<li>Kernel Source Code<ul>
-<li><a class="link" href="https://consumer.huawei.com/en/opensource/">Huawei Open Source Release Center<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
-</ul>
-</li>
-<li>Magisk Tools<ul>
-<li><a class="link" href="https://github.com/topjohnwu/Magisk">magiskboot 28.1 [x86_64]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
-</ul>
-</li>
-<li>Android NDK<ul>
-<li><a class="link" href="https://dl.google.com/android/repository/android-ndk-r16-beta1-linux-x86_64.zip?utm_source=androiddevtools&amp;utm_medium=website">android-ndk-r16-beta1<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
-</ul>
-</li>
-</ul>
-<h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><ol>
-<li><p>建立工作目录</p>
- <div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">mkdir Code_Opensource</span><br><span class="line">mkdir software</span><br></pre></td></tr></tbody></table></figure></div>
-
-<ul>
-<li>将 Kernel Source Code 解压到 <code>Code_Opensource</code> 目录</li>
-<li>将 magiskboot 放到到 <code>software/magisk/</code> 目录</li>
-<li>将 Android NDK 解压到 <code>software/android-ndk-r16-beta1/</code> 目录</li>
-</ul>
-</li>
-<li><p>创建容器</p>
-<ul>
-<li><p>创建 docker-compose.yml</p>
-  <div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3.8'</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">ubuntu:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">ubuntu:bionic</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">bionic</span></span><br><span class="line">    <span class="attr">command:</span> <span class="string">tail</span> <span class="string">-f</span> <span class="string">/dev/null</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">${PWD}/Code_Opensource:/code:rw</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">${PWD}/software:/software:rw</span></span><br></pre></td></tr></tbody></table></figure></div>
-</li>
-<li><p>启动容器</p>
-  <div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></tbody></table></figure></div></li>
-</ul>
-</li>
-</ol>
-<h3 id="编译内核"><a href="#编译内核" class="headerlink" title="编译内核"></a>编译内核</h3><ol>
-<li><p>修改内核配置</p>
-<ul>
-<li><p>Code_Opensource/kernel/arch/arm64/configs/merge_kirin970_defconfig</p>
-  <div class="code-container" data-rel="Makefile"><figure class="iseeu highlight makefile"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># CONFIG_SECURITY_SELINUX_DEVELOP is not set</span></span><br><span class="line">CONFIG_SECURITY_SELINUX_DEVELOP=y</span><br></pre></td></tr></tbody></table></figure></div></li>
-</ul>
-</li>
-<li><p>编译内核</p>
-<ul>
-<li><p>配置编译环境</p>
-<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置镜像源</span></span><br><span class="line">sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装编译依赖</span></span><br><span class="line">sudo apt install -y build-essential dc python</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置环境变量</span></span><br><span class="line">export PATH=/software/android-ndk-r16-beta1/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin:$PATH</span><br><span class="line">export CROSS_COMPILE=aarch64-linux-android-</span><br><span class="line">export ARCH=arm64</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CC（GNU Compiler Collection）编译器的彩色输出</span></span><br><span class="line">export GCC_COLORS=auto</span><br></pre></td></tr></tbody></table></figure></div>
-</li>
-<li><p>查看原始内核信息</p>
-<ul>
-<li><p>获取内核镜像</p>
-<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看内核挂载点</span></span><br><span class="line">adb shell "su -c 'ls -al /dev/block/platform/ff3c0000.ufs/by-name/kernel'"</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份 kernel 镜像</span></span><br><span class="line">adb shell "su -c 'dd if=/dev/block/xxx of=/sdcard/Download/kernel.img'"</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">拉取 kernel 镜像</span></span><br><span class="line">adb pull /sdcard/Download/kernel.img software/magisk/</span><br></pre></td></tr></tbody></table></figure></div>
-</li>
-<li><p>解包原始内核</p>
-<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">cd software/magisk</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解包，同时记录下日志信息</span></span><br><span class="line">./magiskboot unpack -n kernel.img</span><br></pre></td></tr></tbody></table></figure></div>
-
-<ul>
-<li><p>日志信息</p>
-  <div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Parsing boot image: [kernel.img]</span><br><span class="line">HEADER_VER      [1]</span><br><span class="line">KERNEL_SZ       [15263371]</span><br><span class="line">RAMDISK_SZ      [336956]</span><br><span class="line">SECOND_SZ       [0]</span><br><span class="line">RECOV_DTBO_SZ   [0]</span><br><span class="line">OS_VERSION      [9.0.0]</span><br><span class="line">OS_PATCH_LEVEL  [2019-12]</span><br><span class="line">PAGESIZE        [2048]</span><br><span class="line">NAME            []</span><br><span class="line">CMDLINE         [loglevel=4 initcall_debug=n page_tracker=on unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=enforcing buildvariant=user]</span><br><span class="line">CHECKSUM        [8756a966a7b8957fa7e2742a28355059cd255ab9000000000000000000000000]</span><br><span class="line">KERNEL_FMT      [gzip]</span><br><span class="line">RAMDISK_FMT     [raw]</span><br></pre></td></tr></tbody></table></figure></div></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>编译内核</p>
-<blockquote>
-<p>仔细看注释信息!!!<br>仔细看注释信息!!!<br>仔细看注释信息!!!</p>
-</blockquote>
-<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">mkdir -p /code/out</span><br><span class="line">cd /code/kernel</span><br><span class="line">make ARCH=arm64 O=/code/out merge_kirin970_defconfig</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果下面这条命令失败，可以重新执行或修改 -j 参数</span></span><br><span class="line">make ARCH=arm64 O=/code/out -j32</span><br><span class="line">cp -f /code/out/arch/arm64/boot/Image.gz /code/kernel/tools</span><br><span class="line">cd /code/kernel/tools</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--cmdline 参数使用解包后的 CMDLINE，同时修改 androidboot.selinux=enforcing 为 androidboot.selinux=permissive</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--os_patch_level 只能使用 YYYY-MM-DD 格式并且只能等于或大于手机的安全补丁日期</span></span><br><span class="line">./mkbootimg --kernel Image.gz --base 0x0 \</span><br><span class="line">--cmdline "loglevel=4 initcall_debug=n page_tracker=on unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=permissive buildvariant=user" \</span><br><span class="line">--tags_offset 0x07A00000 --kernel_offset 0x00080000 --ramdisk_offset 0x07C00000 \</span><br><span class="line">--header_version 1 --os_version 9 --os_patch_level 2019-12-01 \</span><br><span class="line">--output kernel-permissive.img</span><br></pre></td></tr></tbody></table></figure></div></li>
-</ul>
-</li>
-</ol>
-<h3 id="打包内核"><a href="#打包内核" class="headerlink" title="打包内核"></a>打包内核</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">cd /software/magisk</span><br><span class="line">mv /code/kernel/tools/kernel-permissive.img ./</span><br><span class="line">./magiskboot repack -n kernel-permissive.img</span><br><span class="line">ls new-boot.img -al</span><br></pre></td></tr></tbody></table></figure></div>
-
-<h3 id="刷入内核"><a href="#刷入内核" class="headerlink" title="刷入内核"></a>刷入内核</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">adb reboot bootloader</span><br><span class="line">fastboot flash kernel new-boot.img</span><br><span class="line">fastboot reboot</span><br></pre></td></tr></tbody></table></figure></div>
-
-<h3 id="启用-SELinux"><a href="#启用-SELinux" class="headerlink" title="启用 SELinux"></a>启用 SELinux</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">adb shell "su -c 'setenforce 0'"</span><br><span class="line">adb shell "su -c 'getenforce'"</span><br></pre></td></tr></tbody></table></figure></div>
-]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>huawei</tag>
-        <tag>kernel</tag>
-        <tag>make</tag>
-        <tag>magisk</tag>
-        <tag>root</tag>
-        <tag>frida</tag>
-        <tag>lsposed</tag>
-        <tag>hook</tag>
-        <tag>docker</tag>
-        <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cygwin 自定义主题</title>
     <url>/2023/02/16/cygwin/customize-theme-cygwin/</url>
     <content><![CDATA[<blockquote>
@@ -1916,6 +1916,38 @@
       </tags>
   </entry>
   <entry>
+    <title>修复 virtual DSM 无法访问网络</title>
+    <url>/2023/12/06/dsm/fix-dsm-network-issue/</url>
+    <content><![CDATA[<blockquote>
+<p>之前我们在 <a href="https://clistery.github.io/2023/12/07/dsm/install-with-docker/">在 docker 中安装 DSM</a> 时，我们在 docker 中安装了一个虚拟的 DSM，但是在安装完成后，我们发现 DSM 可以正常安装套件，但是 NTP 和 邮件通知 等服务都无法正常工作，所以我们需要修复这个问题。</p>
+</blockquote>
+<h2 id="添加-DNS"><a href="#添加-DNS" class="headerlink" title="添加 DNS"></a>添加 DNS</h2><ol>
+<li><p>修改 docker-compose.yml</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">dsm:</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    <span class="attr">dns:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">1.0</span><span class="number">.0</span><span class="number">.1</span></span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>修改 DSM 网络配置</p>
+<ol>
+<li>打开 DSM <code>控制面板</code></li>
+<li>点击<code>网络</code></li>
+<li>切换到<code>常规</code>选项卡</li>
+<li>勾选<code>手动配置 DNS 服务器</code><br>首选 DNS: <code>8.8.8.8</code><br>备选 DNS: <code>1.0.0.1</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="重启-DSM"><a href="#重启-DSM" class="headerlink" title="重启 DSM"></a>重启 DSM</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">docker-compose restart dsm</span><br></pre></td></tr></tbody></table></figure></div>
+]]></content>
+      <categories>
+        <category>dsm</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>dsm</tag>
+        <tag>virtual dsm</tag>
+        <tag>synology dsm</tag>
+        <tag>network error</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>通过 ssh 连接 docker 中的 dsm</title>
     <url>/2023/12/06/dsm/access-dsm-ssh/</url>
     <content><![CDATA[<blockquote>
@@ -1975,38 +2007,6 @@
         <tag>virtual dsm</tag>
         <tag>synology dsm</tag>
         <tag>ssh jump server</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>修复 virtual DSM 无法访问网络</title>
-    <url>/2023/12/06/dsm/fix-dsm-network-issue/</url>
-    <content><![CDATA[<blockquote>
-<p>之前我们在 <a href="https://clistery.github.io/2023/12/07/dsm/install-with-docker/">在 docker 中安装 DSM</a> 时，我们在 docker 中安装了一个虚拟的 DSM，但是在安装完成后，我们发现 DSM 可以正常安装套件，但是 NTP 和 邮件通知 等服务都无法正常工作，所以我们需要修复这个问题。</p>
-</blockquote>
-<h2 id="添加-DNS"><a href="#添加-DNS" class="headerlink" title="添加 DNS"></a>添加 DNS</h2><ol>
-<li><p>修改 docker-compose.yml</p>
-<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">dsm:</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    <span class="attr">dns:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">1.0</span><span class="number">.0</span><span class="number">.1</span></span><br></pre></td></tr></tbody></table></figure></div>
-</li>
-<li><p>修改 DSM 网络配置</p>
-<ol>
-<li>打开 DSM <code>控制面板</code></li>
-<li>点击<code>网络</code></li>
-<li>切换到<code>常规</code>选项卡</li>
-<li>勾选<code>手动配置 DNS 服务器</code><br>首选 DNS: <code>8.8.8.8</code><br>备选 DNS: <code>1.0.0.1</code></li>
-</ol>
-</li>
-</ol>
-<h2 id="重启-DSM"><a href="#重启-DSM" class="headerlink" title="重启 DSM"></a>重启 DSM</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">docker-compose restart dsm</span><br></pre></td></tr></tbody></table></figure></div>
-]]></content>
-      <categories>
-        <category>dsm</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>dsm</tag>
-        <tag>virtual dsm</tag>
-        <tag>synology dsm</tag>
-        <tag>network error</tag>
       </tags>
   </entry>
   <entry>
@@ -3066,53 +3066,6 @@
       </tags>
   </entry>
   <entry>
-    <title>用户与用户组</title>
-    <url>/2023/07/20/ubuntu/user-group/</url>
-    <content><![CDATA[<blockquote>
-<p>对 Linux 用户及用户组进行管理与修改</p>
-</blockquote>
-<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><ul>
-<li>adduser - 添加用户</li>
-<li>userdel - 删除用户</li>
-<li>addgroup - 添加组</li>
-<li>groupdel - 删除组</li>
-<li>usermod - 修改用户组</li>
-<li>id - 查看用户信息</li>
-</ul>
-<h2 id="Commend"><a href="#Commend" class="headerlink" title="Commend"></a>Commend</h2><h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><ul>
-<li><p>添加用户</p>
-<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">adduser app</span><br></pre></td></tr></tbody></table></figure></div>
-</li>
-<li><p>删除用户</p>
-<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">userdel -r app</span><br></pre></td></tr></tbody></table></figure></div>
-</li>
-<li><p>查看用户信息</p>
-<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">id app</span><br></pre></td></tr></tbody></table></figure></div></li>
-</ul>
-<h3 id="组"><a href="#组" class="headerlink" title="组"></a>组</h3><ul>
-<li><p>添加组</p>
-<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">addgroup app-group</span><br></pre></td></tr></tbody></table></figure></div>
-</li>
-<li><p>删除组</p>
-<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">groupdel app-group</span><br></pre></td></tr></tbody></table></figure></div>
-</li>
-<li><p>修改用户组</p>
-<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">会删除 app 用户原本的组</span></span><br><span class="line">usermod -G app-group app</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将 app-group 添加到 app 用户的现有组列表中</span></span><br><span class="line">usermod -a -G app-group app</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者使用以下命令</span></span><br><span class="line">gpasswd -a app app-group</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改 app 用户登录 shell</span></span><br><span class="line">usermod -s /bin/false app</span><br></pre></td></tr></tbody></table></figure></div>
-</li>
-<li><p>在用户现有组基础上添加其他组</p>
-<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">usermod -a -G adm,dialout,cdrom,floppy,sudo,audio,dip,video,plugdev,netdev,lxd ubuntu</span><br></pre></td></tr></tbody></table></figure></div></li>
-</ul>
-]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>shell</tag>
-        <tag>tools</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu Server 2204配置无线网卡</title>
     <url>/2023/09/15/ubuntu/usb-net/</url>
     <content><![CDATA[<blockquote>
@@ -3187,6 +3140,53 @@
         <tag>RTL8192EU</tag>
         <tag>wlan adapter</tag>
         <tag>network</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用户与用户组</title>
+    <url>/2023/07/20/ubuntu/user-group/</url>
+    <content><![CDATA[<blockquote>
+<p>对 Linux 用户及用户组进行管理与修改</p>
+</blockquote>
+<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><ul>
+<li>adduser - 添加用户</li>
+<li>userdel - 删除用户</li>
+<li>addgroup - 添加组</li>
+<li>groupdel - 删除组</li>
+<li>usermod - 修改用户组</li>
+<li>id - 查看用户信息</li>
+</ul>
+<h2 id="Commend"><a href="#Commend" class="headerlink" title="Commend"></a>Commend</h2><h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><ul>
+<li><p>添加用户</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">adduser app</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>删除用户</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">userdel -r app</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>查看用户信息</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">id app</span><br></pre></td></tr></tbody></table></figure></div></li>
+</ul>
+<h3 id="组"><a href="#组" class="headerlink" title="组"></a>组</h3><ul>
+<li><p>添加组</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">addgroup app-group</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>删除组</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">groupdel app-group</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>修改用户组</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">会删除 app 用户原本的组</span></span><br><span class="line">usermod -G app-group app</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将 app-group 添加到 app 用户的现有组列表中</span></span><br><span class="line">usermod -a -G app-group app</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者使用以下命令</span></span><br><span class="line">gpasswd -a app app-group</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改 app 用户登录 shell</span></span><br><span class="line">usermod -s /bin/false app</span><br></pre></td></tr></tbody></table></figure></div>
+</li>
+<li><p>在用户现有组基础上添加其他组</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">usermod -a -G adm,dialout,cdrom,floppy,sudo,audio,dip,video,plugdev,netdev,lxd ubuntu</span><br></pre></td></tr></tbody></table></figure></div></li>
+</ul>
+]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>shell</tag>
+        <tag>tools</tag>
       </tags>
   </entry>
   <entry>

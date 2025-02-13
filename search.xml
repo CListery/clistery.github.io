@@ -2960,6 +2960,29 @@
       </tags>
   </entry>
   <entry>
+    <title>script 命令</title>
+    <url>/2022/10/25/ubuntu/script/</url>
+    <content><![CDATA[<blockquote>
+<p>有时我们需要在脚本中加入一些有进度状态的命令，为了既能让我们的脚本无需人工守候，又能方便的监测到这些命令的执行情况时，就该 script 登场了</p>
+</blockquote>
+<h2 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h2><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">-a 以追加的形式，将命令的执行状态输出到指定的文件中</span><br><span class="line">-c 运行指定命令</span><br><span class="line">-q 让 -c 指定的命令以静默方式运行，比如删除文件时的确认提示</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><ul>
+<li><p>记录 scp 过程</p>
+  <div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">script -q -a record.log -c "scp xxx.zip remote:/"</span><br></pre></td></tr></tbody></table></figure></div></li>
+</ul>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>当然 script 能做到的不止这些，你还可以使用该命令去记录每个 shell 用户的所有操作，等等</p>
+]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>shell</tag>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>scp 命令</title>
     <url>/2022/10/18/ubuntu/scp/</url>
     <content><![CDATA[<blockquote>
@@ -2982,29 +3005,6 @@
 <li><p>指定端口</p>
   <div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">scp -P 3301 xx.txt remote:/</span><br></pre></td></tr></tbody></table></figure></div></li>
 </ul>
-]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-        <tag>shell</tag>
-        <tag>tools</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>script 命令</title>
-    <url>/2022/10/25/ubuntu/script/</url>
-    <content><![CDATA[<blockquote>
-<p>有时我们需要在脚本中加入一些有进度状态的命令，为了既能让我们的脚本无需人工守候，又能方便的监测到这些命令的执行情况时，就该 script 登场了</p>
-</blockquote>
-<h2 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h2><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">-a 以追加的形式，将命令的执行状态输出到指定的文件中</span><br><span class="line">-c 运行指定命令</span><br><span class="line">-q 让 -c 指定的命令以静默方式运行，比如删除文件时的确认提示</span><br></pre></td></tr></tbody></table></figure></div>
-
-<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><ul>
-<li><p>记录 scp 过程</p>
-  <div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">script -q -a record.log -c "scp xxx.zip remote:/"</span><br></pre></td></tr></tbody></table></figure></div></li>
-</ul>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>当然 script 能做到的不止这些，你还可以使用该命令去记录每个 shell 用户的所有操作，等等</p>
 ]]></content>
       <categories>
         <category>tools</category>

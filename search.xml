@@ -1512,119 +1512,6 @@ Which of the following uses of the program are necessary for your organization? 
       </tags>
   </entry>
   <entry>
-    <title>在 HexoMatery 主题下配置 utteranc 评论插件</title>
-    <url>/2022/10/20/blog/hexo-matery-setup-utteranc/</url>
-    <content><![CDATA[
-HexoMatery 主题没有自带 utteranc 评论插件，当然我们也可以依葫芦画瓢地搞一个上去
-
-先决条件
-可以保存 utteranc 评论的公共库
-可以提交修改的主题仓库
-
-配置 utteranc 评论库
-先跟以往创建 github 仓库的方式一样创建一个公共代码库
-安装 utteranc app
-
-将 utteranc 插件添加到主题仓库
-创建评论模版 在主题 layout\_partial\ 目录下创建 utterances.ejs 请修改文件中有注释说明的部分为你自己的配置信息
- &lt;div class="card" data-aos="fade-up"&gt;&lt;div id="comment_head"&gt;    &lt;div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;"&gt;        &lt;i class="fas fa-comments fa-fw" aria-hidden="true"&gt;&lt;/i&gt;        &lt;span&gt;评论&lt;/span&gt;    &lt;/div&gt;&lt;/div&gt;&lt;script type="text/javascript"&gt;    $(function() {        if(document.getElementById('contact_plan') !== null){            document.getElementById('comment_head').remove();        }    })&lt;/script&gt;&lt;div id="utterances-container" class="card-content center-align"&gt;    &lt;span class="utterances_loading" style="align-content: center;"&gt;        &lt;i class="fas fa-spinner fa-spin"&gt;&lt;/i&gt;    &lt;/span&gt;    &lt;script type="text/javascript"&gt;        function _checkUtteranc() {            document.getElementsByClassName('utterances').length == 1            ? ($('.utterances_loading').fadeTo(1e3, 0))            : setTimeout(_checkUtteranc, 1000);        }        setTimeout(() =&gt; {            var utterances = document.createElement('script');            utterances.type = 'text/javascript';            utterances.async = true;            utterances.setAttribute('issue-term','title') // 这里我们设置为使用页面标题作为 issue titile，更多的请参阅 utterances 官网            utterances.setAttribute('repo','CListery/hexo-utterances') // 这里设置你自己的 utteranc 评论仓库            utterances.setAttribute('label','comment') // 设置 issue 的标签            $('body').hasClass('DarkMode')            ? (utterances.setAttribute('theme','github-dark'))            : (utterances.setAttribute('theme','github-light')),            utterances.crossorigin = 'anonymous';            utterances.src = 'https://utteranc.es/client.js';            document.getElementById('utterances-container').appendChild(utterances);            _checkUtteranc();        }, 1);    &lt;/script&gt;&lt;/div&gt;&lt;/div&gt;
-
-修改主题模版文件
-
-修改 layout\_partial\post-detail.ejs  在 &lt;% if (theme.gitalk &amp;&amp; theme.gitalk.enable) { %&gt; 上一行添加
-  &lt;% if (theme.utterances &amp;&amp; theme.utterances.enable) { %&gt;    &lt;%- partial('_partial/utterances') %&gt;&lt;% } %&gt;
-
-修改 layout\contact.ejs  在 &lt;% if (theme.gitalk &amp;&amp; theme.gitalk.enable) { %&gt; 上一行添加
-  &lt;% if (theme.utterances &amp;&amp; theme.utterances.enable) { %&gt;    &lt;%- partial('_partial/utterances') %&gt;&lt;% } %&gt;
-
-修改主题中的 _config.yml  添加以下内容
-  utterances:    enable: true
-
-
-
-
-最后以上就完成了 utteranc 评论插件的配置，重启 hexo 服务，不出意外就可以看到了
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>Github Pages</tag>
-        <tag>utteranc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于 Github Pages 的 hexo 博客搭建</title>
-    <url>/2022/10/19/blog/hexo-setup/</url>
-    <content><![CDATA[先决条件网站源码库
-私有仓库，存放你手写的博客源代码，简称 库1
-
-主题库
-私有仓库，存放你自定义的主题代码，将其作为 git submodule 添加到 库1，简称 库2
-
-Github Pages 库(xxx.github.io)
-公共库，存放通过前两个仓库生成的网站页面，简称 库3
-
-
-配置给公共库配置部署密钥
-用于 库1 和 库2 的代码编译后自动部署到 库3
-
-生成密钥ssh-keygen -t ed25519 -C "clistery.github.io" # 这里的名字取什么都行
-
-上传密钥到 库3
-打开 库3 -&gt; Settings -&gt; Security -&gt; Deploy keys -&gt; 将刚才生成的公钥填到这里面
-
-配置 PAT(Personal Access Token)
-用于 Workflow 自动部署是可以对库进行读写
-
-
-点击 Github 右上角头像 -&gt; Settings -&gt; Developer settings -&gt; Personal access tokens -&gt; Tokens(classic) -&gt; Generate new token (classic)
-Note 可以随意填写，最好自己看见能懂就行
-Expiration 过期时间，可以选择不过期
-Select scopes 中勾选 workflow 和 write:packages
-Generate token
-然后把生成的 token(ghp_xxxxx) 保存下来备用
-
-创建 Workflow
-让 库1 &amp; 库2 生成的代码能自动发布到 库3
-
-
-打开 库1 -&gt; Action -&gt; New workflow -&gt; Simple workflow -&gt; Configure(或者直接在 库1 的根目录创建 .github/workflows/xxx.yml)
-name: Hexo Build &amp; Deploy - Private to Publicon:  push:    branches: [ main ]jobs:  build:    runs-on: ubuntu-latest    steps:    # 检出 库1 &amp; 库2    - name: Checkout    uses: actions/checkout@v3.0.0    with:      token: ${{ secrets.CHK_PAT }} # Personal Access Token，稍后我们会在 库1 中进行配置      submodules: 'true' # 检出 submodule      persist-credentials: false    # 设置 node 环境    - name: Prepare Node env    uses: actions/setup-node@v3    with:      node-version: 16    # 设置 hexo 环境并编译    - name: Hexo    run: |      npm i -g hexo-cli      npm i      hexo clean &amp;&amp; hexo g    # 将生成的文件发布到 库3    - name: Deploy    uses: JamesIves/github-pages-deploy-action@v4.3.3    with:      ssh-key: ${{ secrets.DEPLOY_KEY }} # 部署密钥的私钥，稍后我们会在 库1 中进行配置      repository-name: clistery/clistery.github.io # 库3的名字，格式为 user/repository      branch: main # 发布到库3的 main 分支      folder: public # 库3的类型，公共库      single-commit: true      commit-message: "Deploy by source"
-
-配置 Workflows 变量
-打开 库1 -&gt; Settings -&gt; Security -&gt; Secrets -&gt; Actions
-
-配置 CHK_PAT
-
-点击 New repository secret
-Name 输入 CHK_PAT
-Secret 输入 配置 PAT(Personal Access Token) 时生成的 token
-Add secret
-
-
-配置 DEPLOY_KEY
-
-点击 New repository secret
-Name 输入 DEPLOY_KEY
-Secret 输入 生成密钥 时生成的私钥
-Add secret
-
-
-
-
-最后现在一切配置妥当之后，你就可以向 库1 和 库2 中推送代码，workflow 就会自动将代码部署到 库3 中，不出意外的话就可以在 xxx.github.io 中看到更新了
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>Github Pages</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cygwin 自定义主题</title>
     <url>/2023/02/16/cygwin/customize-theme-cygwin/</url>
     <content><![CDATA[
@@ -1742,6 +1629,119 @@ _T=${_T//\\//}if [[ $_T != "C:/WINDOWS/System32" ]]; then cd "$_T"fi
         <tag>cygwin</tag>
         <tag>linux</tag>
         <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 HexoMatery 主题下配置 utteranc 评论插件</title>
+    <url>/2022/10/20/blog/hexo-matery-setup-utteranc/</url>
+    <content><![CDATA[
+HexoMatery 主题没有自带 utteranc 评论插件，当然我们也可以依葫芦画瓢地搞一个上去
+
+先决条件
+可以保存 utteranc 评论的公共库
+可以提交修改的主题仓库
+
+配置 utteranc 评论库
+先跟以往创建 github 仓库的方式一样创建一个公共代码库
+安装 utteranc app
+
+将 utteranc 插件添加到主题仓库
+创建评论模版 在主题 layout\_partial\ 目录下创建 utterances.ejs 请修改文件中有注释说明的部分为你自己的配置信息
+ &lt;div class="card" data-aos="fade-up"&gt;&lt;div id="comment_head"&gt;    &lt;div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;"&gt;        &lt;i class="fas fa-comments fa-fw" aria-hidden="true"&gt;&lt;/i&gt;        &lt;span&gt;评论&lt;/span&gt;    &lt;/div&gt;&lt;/div&gt;&lt;script type="text/javascript"&gt;    $(function() {        if(document.getElementById('contact_plan') !== null){            document.getElementById('comment_head').remove();        }    })&lt;/script&gt;&lt;div id="utterances-container" class="card-content center-align"&gt;    &lt;span class="utterances_loading" style="align-content: center;"&gt;        &lt;i class="fas fa-spinner fa-spin"&gt;&lt;/i&gt;    &lt;/span&gt;    &lt;script type="text/javascript"&gt;        function _checkUtteranc() {            document.getElementsByClassName('utterances').length == 1            ? ($('.utterances_loading').fadeTo(1e3, 0))            : setTimeout(_checkUtteranc, 1000);        }        setTimeout(() =&gt; {            var utterances = document.createElement('script');            utterances.type = 'text/javascript';            utterances.async = true;            utterances.setAttribute('issue-term','title') // 这里我们设置为使用页面标题作为 issue titile，更多的请参阅 utterances 官网            utterances.setAttribute('repo','CListery/hexo-utterances') // 这里设置你自己的 utteranc 评论仓库            utterances.setAttribute('label','comment') // 设置 issue 的标签            $('body').hasClass('DarkMode')            ? (utterances.setAttribute('theme','github-dark'))            : (utterances.setAttribute('theme','github-light')),            utterances.crossorigin = 'anonymous';            utterances.src = 'https://utteranc.es/client.js';            document.getElementById('utterances-container').appendChild(utterances);            _checkUtteranc();        }, 1);    &lt;/script&gt;&lt;/div&gt;&lt;/div&gt;
+
+修改主题模版文件
+
+修改 layout\_partial\post-detail.ejs  在 &lt;% if (theme.gitalk &amp;&amp; theme.gitalk.enable) { %&gt; 上一行添加
+  &lt;% if (theme.utterances &amp;&amp; theme.utterances.enable) { %&gt;    &lt;%- partial('_partial/utterances') %&gt;&lt;% } %&gt;
+
+修改 layout\contact.ejs  在 &lt;% if (theme.gitalk &amp;&amp; theme.gitalk.enable) { %&gt; 上一行添加
+  &lt;% if (theme.utterances &amp;&amp; theme.utterances.enable) { %&gt;    &lt;%- partial('_partial/utterances') %&gt;&lt;% } %&gt;
+
+修改主题中的 _config.yml  添加以下内容
+  utterances:    enable: true
+
+
+
+
+最后以上就完成了 utteranc 评论插件的配置，重启 hexo 服务，不出意外就可以看到了
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>Github Pages</tag>
+        <tag>utteranc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于 Github Pages 的 hexo 博客搭建</title>
+    <url>/2022/10/19/blog/hexo-setup/</url>
+    <content><![CDATA[先决条件网站源码库
+私有仓库，存放你手写的博客源代码，简称 库1
+
+主题库
+私有仓库，存放你自定义的主题代码，将其作为 git submodule 添加到 库1，简称 库2
+
+Github Pages 库(xxx.github.io)
+公共库，存放通过前两个仓库生成的网站页面，简称 库3
+
+
+配置给公共库配置部署密钥
+用于 库1 和 库2 的代码编译后自动部署到 库3
+
+生成密钥ssh-keygen -t ed25519 -C "clistery.github.io" # 这里的名字取什么都行
+
+上传密钥到 库3
+打开 库3 -&gt; Settings -&gt; Security -&gt; Deploy keys -&gt; 将刚才生成的公钥填到这里面
+
+配置 PAT(Personal Access Token)
+用于 Workflow 自动部署是可以对库进行读写
+
+
+点击 Github 右上角头像 -&gt; Settings -&gt; Developer settings -&gt; Personal access tokens -&gt; Tokens(classic) -&gt; Generate new token (classic)
+Note 可以随意填写，最好自己看见能懂就行
+Expiration 过期时间，可以选择不过期
+Select scopes 中勾选 workflow 和 write:packages
+Generate token
+然后把生成的 token(ghp_xxxxx) 保存下来备用
+
+创建 Workflow
+让 库1 &amp; 库2 生成的代码能自动发布到 库3
+
+
+打开 库1 -&gt; Action -&gt; New workflow -&gt; Simple workflow -&gt; Configure(或者直接在 库1 的根目录创建 .github/workflows/xxx.yml)
+name: Hexo Build &amp; Deploy - Private to Publicon:  push:    branches: [ main ]jobs:  build:    runs-on: ubuntu-latest    steps:    # 检出 库1 &amp; 库2    - name: Checkout    uses: actions/checkout@v3.0.0    with:      token: ${{ secrets.CHK_PAT }} # Personal Access Token，稍后我们会在 库1 中进行配置      submodules: 'true' # 检出 submodule      persist-credentials: false    # 设置 node 环境    - name: Prepare Node env    uses: actions/setup-node@v3    with:      node-version: 16    # 设置 hexo 环境并编译    - name: Hexo    run: |      npm i -g hexo-cli      npm i      hexo clean &amp;&amp; hexo g    # 将生成的文件发布到 库3    - name: Deploy    uses: JamesIves/github-pages-deploy-action@v4.3.3    with:      ssh-key: ${{ secrets.DEPLOY_KEY }} # 部署密钥的私钥，稍后我们会在 库1 中进行配置      repository-name: clistery/clistery.github.io # 库3的名字，格式为 user/repository      branch: main # 发布到库3的 main 分支      folder: public # 库3的类型，公共库      single-commit: true      commit-message: "Deploy by source"
+
+配置 Workflows 变量
+打开 库1 -&gt; Settings -&gt; Security -&gt; Secrets -&gt; Actions
+
+配置 CHK_PAT
+
+点击 New repository secret
+Name 输入 CHK_PAT
+Secret 输入 配置 PAT(Personal Access Token) 时生成的 token
+Add secret
+
+
+配置 DEPLOY_KEY
+
+点击 New repository secret
+Name 输入 DEPLOY_KEY
+Secret 输入 生成密钥 时生成的私钥
+Add secret
+
+
+
+
+最后现在一切配置妥当之后，你就可以向 库1 和 库2 中推送代码，workflow 就会自动将代码部署到 库3 中，不出意外的话就可以在 xxx.github.io 中看到更新了
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>Github Pages</tag>
       </tags>
   </entry>
   <entry>
@@ -2336,31 +2336,6 @@ E, [2024-10-30T07:24:02.126920 #1053] ERROR -- : path/repository: Could not fsck
       </tags>
   </entry>
   <entry>
-    <title>禁用 PC 版微信的图片文字识别功能</title>
-    <url>/2023/08/02/other/disable-wechat-ocr/</url>
-    <content><![CDATA[
-自从微信增加了自动识别图片文字功能后，确实带来了一些便利，可以不用再对着截图一个字一个字敲了，但是同时也带来了不方便的地方，有些图片需要放大或拖拽时便显得不那么友好了，说到底还是制杖产品经理搞出来的反人类交互体验。
-
-开始表演
-推出微信
-在资源管理器中的地址栏中输入 %AppData%，并回车
-然后找到 Tencent\WeChat\XPlugin\Plugins\WeChatOCR
-在 WeChatOCR 打开名称为数字的文件，然后再打开 extracted，如：WeChatOCR\7053\extracted
-删除 WeChatOCR.exe
-创建一个空白文本文档，将名字修改为 WeChatOCR.exe 并保存
-重新打开微信，图片中的文件就不会再自动转换为文本了
-
-]]></content>
-      <categories>
-        <category>other</category>
-      </categories>
-      <tags>
-        <tag>diss wechat</tag>
-        <tag>tencent</tag>
-        <tag>制杖产品</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>自制 USBasp</title>
     <url>/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/</url>
     <content><![CDATA[
@@ -2508,6 +2483,31 @@ Atmega88
       </tags>
   </entry>
   <entry>
+    <title>禁用 PC 版微信的图片文字识别功能</title>
+    <url>/2023/08/02/other/disable-wechat-ocr/</url>
+    <content><![CDATA[
+自从微信增加了自动识别图片文字功能后，确实带来了一些便利，可以不用再对着截图一个字一个字敲了，但是同时也带来了不方便的地方，有些图片需要放大或拖拽时便显得不那么友好了，说到底还是制杖产品经理搞出来的反人类交互体验。
+
+开始表演
+推出微信
+在资源管理器中的地址栏中输入 %AppData%，并回车
+然后找到 Tencent\WeChat\XPlugin\Plugins\WeChatOCR
+在 WeChatOCR 打开名称为数字的文件，然后再打开 extracted，如：WeChatOCR\7053\extracted
+删除 WeChatOCR.exe
+创建一个空白文本文档，将名字修改为 WeChatOCR.exe 并保存
+重新打开微信，图片中的文件就不会再自动转换为文本了
+
+]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
+      <tags>
+        <tag>diss wechat</tag>
+        <tag>tencent</tag>
+        <tag>制杖产品</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在 win10 上安装基于 embedded 包的 python 环境</title>
     <url>/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/</url>
     <content><![CDATA[
@@ -2639,98 +2639,6 @@ sudo apt install pinentry-ttyecho "pinentry-program /usr/bin/pinentry-tty" &gt;&
       </categories>
       <tags>
         <tag>svn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>安装及配置 v2ray</title>
-    <url>/2023/04/21/tools/v2ray-install-setup/</url>
-    <content><![CDATA[
-基于 ubuntu 22.04 搭建 Nginx + TLS + VMess + WebSocket + HTTP/2
-
-前提
-墙外 VPS
-
-安装基础环境
-安装 V2ray
-
-bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
-
-
-安装 Nginx
-
-apt install nginx
-
-配置 V2ray 服务
-添加用户
-
-useradd -s /usr/sbin/nologin v2ray
-
-
-自动启动
-
-systemctl enable v2ray
-
-
-修改服务启动用户
-
-vim /etc/systemd/system/v2ray.service
-
-添加以下内容
-[Service]User=v2ray
-
-配置 Nginx + TLS
-创建 Nginx 配置
-
-vim /etc/nginx/sites-available/example.com.conf
-将以下内容粘贴到文件中
-server {        listen 80;        listen [::]:80;        root /var/www/html;        # Add index.php to the list if you are using PHP        index index.html index.htm index.nginx-debian.html;        server_name example.com;        location / {                # First attempt to serve request as file, then                # as directory, then fall back to displaying a 404.                try_files $uri $uri/ =404;        }}
-
-
-启用配置
-
-ln -s /etc/nginx/sites-available/example.com.conf /etc/nginx/sites-enabled/example.com.confnginx -tnginx -s reload
-
-
-配置 SSL 证书
-
-# 安装 acme.shcurl https://get.acme.sh | sh -s email=my@example.com# 生成证书并验证域名acme.sh --issue -d example.com --nginx# 安装证书acme.sh --install-cert -d example.com \--key-file       /path/to/keyfile/in/nginx/key.pem  \--fullchain-file /path/to/fullchain/nginx/cert.pem \--reloadcmd     "service nginx force-reload"# 查看证书acme.sh --info -d example.com
-
-
-配置 Nginx + TLS
-
-将以下内容添加到 Nginx 配置文件
-server {    listen 443 ssl;    listen [::]:443 ssl;    root /var/www/html/;    ssl_certificate       /root/.acme.sh/example.com_ecc/fullchain.cer;    ssl_certificate_key   /root/.acme.sh/example.com_ecc/example.com.key;    ssl_session_timeout 1d;    ssl_session_cache shared:MozSSL:10m;    ssl_session_tickets off;    ssl_protocols         TLSv1.2 TLSv1.3;    ssl_ciphers           ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;    ssl_prefer_server_ciphers off;    server_name           example.com;    location /vvray {        if ($http_upgrade != "websocket") {            return 404;        }        proxy_redirect off;        proxy_pass http://127.0.0.1:12345;        proxy_http_version 1.1;        proxy_set_header Upgrade $http_upgrade;        proxy_set_header Connection "upgrade";        proxy_set_header Host $host;        # Show real IP in v2ray access.log        proxy_set_header X-Real-IP $remote_addr;        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;    }}
-
-
-重新加载 Nginx 配置
-
-nginx -tnginx -s reload
-
-启动 V2ray
-配置文件
-
-vim /usr/local/etc/v2ray/config.json
-
-将以下内容添加到文件中
-{  "log": {    "loglevel": "warning"  },  "inbounds": [    {      "listen": "127.0.0.1", // 不再向外直接开放      "port": 12345, // 与 nginx 反向代理端口一致      "protocol": "vmess",      "settings": {        "clients": [          {            "id": "xxx" // 可通过 v2ray uuid 命令生成          }        ]      },      "streamSettings": {        "network": "ws",        "wsSettings": {          "path": "/vvray" // 与 nginx 反向代理一致        }      }    }  ],  "outbounds": [    {      "protocol": "freedom"    }  ]}
-
-
-启动服务
-
-systemctl start v2ray
-
-客户端
-clash 配置
-
-proxies:  - name: 'xxx'    type: vmess    server: example.com    port: 443    uuid: 43cb6fce-a840-a468-afe5-99151333b8dd    alterId: 0    cipher: auto    tls: true    skip-cert-verify: true    network: ws    ws-opts:      path: /vvray    # headers: # 按需配置    #   Host: example.com    #   User-Agent: 'xxx'
-]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-      <tags>
-        <tag>v2ray</tag>
-        <tag>clash</tag>
-        <tag>vpn</tag>
       </tags>
   </entry>
   <entry>
@@ -3217,6 +3125,98 @@ usermod -a -G adm,dialout,cdrom,floppy,sudo,audio,dip,video,plugdev,netdev,lxd u
       </tags>
   </entry>
   <entry>
+    <title>安装及配置 v2ray</title>
+    <url>/2023/04/21/tools/v2ray-install-setup/</url>
+    <content><![CDATA[
+基于 ubuntu 22.04 搭建 Nginx + TLS + VMess + WebSocket + HTTP/2
+
+前提
+墙外 VPS
+
+安装基础环境
+安装 V2ray
+
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+
+
+安装 Nginx
+
+apt install nginx
+
+配置 V2ray 服务
+添加用户
+
+useradd -s /usr/sbin/nologin v2ray
+
+
+自动启动
+
+systemctl enable v2ray
+
+
+修改服务启动用户
+
+vim /etc/systemd/system/v2ray.service
+
+添加以下内容
+[Service]User=v2ray
+
+配置 Nginx + TLS
+创建 Nginx 配置
+
+vim /etc/nginx/sites-available/example.com.conf
+将以下内容粘贴到文件中
+server {        listen 80;        listen [::]:80;        root /var/www/html;        # Add index.php to the list if you are using PHP        index index.html index.htm index.nginx-debian.html;        server_name example.com;        location / {                # First attempt to serve request as file, then                # as directory, then fall back to displaying a 404.                try_files $uri $uri/ =404;        }}
+
+
+启用配置
+
+ln -s /etc/nginx/sites-available/example.com.conf /etc/nginx/sites-enabled/example.com.confnginx -tnginx -s reload
+
+
+配置 SSL 证书
+
+# 安装 acme.shcurl https://get.acme.sh | sh -s email=my@example.com# 生成证书并验证域名acme.sh --issue -d example.com --nginx# 安装证书acme.sh --install-cert -d example.com \--key-file       /path/to/keyfile/in/nginx/key.pem  \--fullchain-file /path/to/fullchain/nginx/cert.pem \--reloadcmd     "service nginx force-reload"# 查看证书acme.sh --info -d example.com
+
+
+配置 Nginx + TLS
+
+将以下内容添加到 Nginx 配置文件
+server {    listen 443 ssl;    listen [::]:443 ssl;    root /var/www/html/;    ssl_certificate       /root/.acme.sh/example.com_ecc/fullchain.cer;    ssl_certificate_key   /root/.acme.sh/example.com_ecc/example.com.key;    ssl_session_timeout 1d;    ssl_session_cache shared:MozSSL:10m;    ssl_session_tickets off;    ssl_protocols         TLSv1.2 TLSv1.3;    ssl_ciphers           ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;    ssl_prefer_server_ciphers off;    server_name           example.com;    location /vvray {        if ($http_upgrade != "websocket") {            return 404;        }        proxy_redirect off;        proxy_pass http://127.0.0.1:12345;        proxy_http_version 1.1;        proxy_set_header Upgrade $http_upgrade;        proxy_set_header Connection "upgrade";        proxy_set_header Host $host;        # Show real IP in v2ray access.log        proxy_set_header X-Real-IP $remote_addr;        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;    }}
+
+
+重新加载 Nginx 配置
+
+nginx -tnginx -s reload
+
+启动 V2ray
+配置文件
+
+vim /usr/local/etc/v2ray/config.json
+
+将以下内容添加到文件中
+{  "log": {    "loglevel": "warning"  },  "inbounds": [    {      "listen": "127.0.0.1", // 不再向外直接开放      "port": 12345, // 与 nginx 反向代理端口一致      "protocol": "vmess",      "settings": {        "clients": [          {            "id": "xxx" // 可通过 v2ray uuid 命令生成          }        ]      },      "streamSettings": {        "network": "ws",        "wsSettings": {          "path": "/vvray" // 与 nginx 反向代理一致        }      }    }  ],  "outbounds": [    {      "protocol": "freedom"    }  ]}
+
+
+启动服务
+
+systemctl start v2ray
+
+客户端
+clash 配置
+
+proxies:  - name: 'xxx'    type: vmess    server: example.com    port: 443    uuid: 43cb6fce-a840-a468-afe5-99151333b8dd    alterId: 0    cipher: auto    tls: true    skip-cert-verify: true    network: ws    ws-opts:      path: /vvray    # headers: # 按需配置    #   Host: example.com    #   User-Agent: 'xxx'
+]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>v2ray</tag>
+        <tag>clash</tag>
+        <tag>vpn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AMD VMware Workstation 15.1 安装 MacOS Catalina 10.15.5</title>
     <url>/2023/04/13/vmware/amd-vmware15.1-install-macos-10.15.x/</url>
     <content><![CDATA[
@@ -3320,6 +3320,95 @@ C:\Windows\System32\schtasks.exe /RUN /TN "xxxxxxx"
       <tags>
         <tag>User Account Control Notifications</tag>
         <tag>Windows 小技巧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WSL 通过 adb 连接宿主机下的安卓设备</title>
+    <url>/2025/10/16/wsl/adb-connect-host-android-device/</url>
+    <content><![CDATA[
+本教程将会教你如何在不修改 wsl 内核和不安装多余的插件的情况下通过 ssh 创建隧道再通过 adb 连接宿主机下的 android 设备
+
+环境说明
+宿主机: Windows 10 (19045.5608)
+wsl: Ubuntu 24.04.3 LTS
+
+必备知识
+首先学习一下 adb 的工作方式, adb 采用 客户端&lt;-&gt;服务端&lt;-&gt;设备 的架构
+
+
+adb server: 服务端, 这是一个在 PC 上长期运行的后台进程, 当执行 adb 命令时都会先与该服务通信
+adb daemon: 守护进程(adbd), 该进程是在 android 设备上运行的后台进程
+adb client: 客户端, 这是我们在 PC 上执行 adb 命令时调用的程序, 每当执行一条该命令, 都是一个独立的客户端
+5037 端口: adb server 通信端口(这个端口是由 Android 开源项目在最初设计时人为指定的, 为了避免与其他常见服务冲突而规定的端口)
+
+原理
+通过 ssh 将 wsl 中的 5037 端口转发到宿主机的 0.0.0.0:5037 端口, 从而实现 wsl 中的 adb client 连接到 windows 的 adb server, 通过 ssh 转发后相当于直接将 wsl 的端口绑定到宿主机了, 宿主机连接了哪些设备, 相应的, wsl 中的 adb server 也连接了这些端口
+
+必要环境在 wsl 中执行以下命令
+sudo apt install openssh-serversudo service ssh restart
+
+创建 SSH 转发隧道在 windows 中执行以下命令
+ssh -R 0.0.0.0:5037:127.0.0.1:5037 &lt;wsl_user&gt;@&lt;wsl_ip&gt; -f -N
+
+命令分解
+-R
+这是关键参数，表示远程端口转发（Reverse tunneling）：
+
+本地机器：SSH 客户端所在的机器（执行命令的地方）
+远程机器：SSH 服务器所在的机器（username@wsl_ip）
+
+
+0.0.0.0:5037:127.0.0.1:5037
+这个格式是 [远程绑定地址]:[远程端口]:[本地地址]:[本地端口]
+
+0.0.0.0:5037（远程端）：
+0.0.0.0：在远程机器上监听所有网络接口
+5037：在远程机器上打开的端口
+
+127.0.0.1:5037（本地端）：
+127.0.0.1：本地回环地址（localhost）
+5037：本地机器上的 ADB Server 端口
+
+
+
+&lt;wsl_user&gt;@&lt;wsl_ip&gt;
+ssh 连接的目标机器和用户
+
+wsl_user: wsl 中的用户名
+wsl_ip: wsl 的 IP 地址
+
+
+-f
+后台运行
+
+-N
+不执行远程命令，只建立隧道
+
+
+数据流向图解  远程机器 (WSL)                     本地机器 (Windows)       ↓                                   ↓  0.0.0.0:5037     ←→ SSH隧道 ←→     127.0.0.1:5037  (监听所有接口)                        (ADB Server)       ↑                                   ↑WSL中的ADB Client                  Windows中的ADB Server
+
+可能遇到的问题
+创建隧道后，wsl 还是无法访问到设备：
+在 wsl 执行 adb kill-server 再重试 adb devices
+
+如何关闭该隧道
+
+选其一即可
+
+
+在 Windows 的任务管理器中找到名称为 ssh 的任务，终止
+在 CMD 中输入 taskkill /F /IM ssh.exe
+在 WSL 中输入 pkill sshd
+
+
+
+]]></content>
+      <categories>
+        <category>wsl</category>
+      </categories>
+      <tags>
+        <tag>wsl</tag>
+        <tag>adb</tag>
       </tags>
   </entry>
 </search>

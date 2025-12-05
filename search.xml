@@ -189,6 +189,38 @@ REPO 命令开启本地分支repo start my_branch --all
       </tags>
   </entry>
   <entry>
+    <title>删除通过adb push推送中文目录导致的乱码文件夹</title>
+    <url>/2025/12/04/android/delete-gbk-code-file/</url>
+    <content><![CDATA[
+闲来无事看看片，作为一名合格(bushi)的开发者，一般电脑下载好的影片就喜欢用 adb 推到手机上再慢慢享用
+
+概述在互联网上下载了一部影片，这部影片带了一个中文目录，在 adb push 的时候也没有修改这个目录的名称，就直接复制到手机的 /sdcard/Download 目录了，结果回头想要看一下这部片子的时候进到 /sdcard/Download 目录下后发现该目录名称是乱码，并目录变成了一个大小为 0 的文件，这时想到了应该是 GBK 编码导致的问题，所以想删除该目录及其下的文件，首先是通过手机自带的文件管理器删除失败，再通过 termux 删除也失败，再使用 MT文件管理 删除失败，最后切换到 PC 端，使用 adb 还是无法删除，最后通过 root 权限进入 /data/media/0/Download 目录下删除成功。
+目录结构
+这种目录结构简直 debuff 叠满，最后会说为什么
+
+/sdcard└── /Download &nbsp;&nbsp; └── \236\347 &nbsp;&nbsp;  &nbsp;&nbsp; └── xxx.mp4
+
+解决思路通过 adb shell 获取到该乱码目录的索引码 inode numberadb shellcd /sdcard/Downloadls -li# 记录下乱码目录的索引码: 473168473168 drwxrws--- 2 u0_a236 media_rw     3452 2025-12-04 09:42 \236\347
+
+进入到 root 下删除该目录及其下的文件sucd /data/media/0/Downloadfind . -inum 473168 -exec rm -rf {} \;# 执行命令有可能报错，但是最终会成功删除掉该目录
+
+解析为什么要拿到索引码因为在 adb shell 的环境下很可能无法直接输入中文，而且就算你输入了中文也很可能与目标文件名编码不一致
+为什么需要 root 并进入 /data/media/0 下进行删除操作首先，乱码目录下面有文件，系统在进行删除这个目录时会先进行目录下文件的删除，这会导致找不到文件的父级目录(乱码了)，如果乱码本身的只是文件，而没有任何乱码的父级目录还好，那就不需要进入到 /data/media/0 下面进行删除，这相当于 debuff 叠满了，无论移动这个乱码文件夹还是移动下面的子文件到其他地方都不行。
+这个问题的根本原因其实是安卓底层 fuse(FILESYSTEM IN USERSPACE) 的 bug，不管你使用哪种方式对 /sdcard 下面的文件进行操作，最终都会进入 fuse ，所以我们需要 root 后进入到 /data/media/0 才能绕过 fuse ，从而直接删除真实文件。
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>shell</tag>
+        <tag>adb</tag>
+        <tag>gbk</tag>
+        <tag>utf8</tag>
+        <tag>root</tag>
+        <tag>chinese</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>修补 Honor Note10 内核</title>
     <url>/2024/12/31/android/honor-note10-kirin970-fix-kernel/</url>
     <content><![CDATA[
@@ -285,11 +317,11 @@ mkdir -p /code/outcd /code/kernelmake ARCH=arm64 O=/code/out merge_kirin970_defc
         <category>android</category>
       </categories>
       <tags>
+        <tag>root</tag>
         <tag>huawei</tag>
         <tag>kernel</tag>
         <tag>make</tag>
         <tag>magisk</tag>
-        <tag>root</tag>
         <tag>frida</tag>
         <tag>lsposed</tag>
         <tag>hook</tag>
@@ -1652,10 +1684,10 @@ cyh.zsh-theme
         <category>cygwin</category>
       </categories>
       <tags>
+        <tag>shell</tag>
         <tag>cygwin</tag>
         <tag>theme</tag>
         <tag>linux</tag>
-        <tag>shell</tag>
         <tag>git</tag>
       </tags>
   </entry>
@@ -1685,9 +1717,9 @@ cygwin-sets-file-permission-to-000
         <category>cygwin</category>
       </categories>
       <tags>
+        <tag>shell</tag>
         <tag>cygwin</tag>
         <tag>linux</tag>
-        <tag>shell</tag>
         <tag>fstab</tag>
       </tags>
   </entry>
@@ -1709,9 +1741,9 @@ VSCode + Cygwin"terminal.integrated.profiles.windows": {    "Cygwin": {        "
         <category>cygwin</category>
       </categories>
       <tags>
+        <tag>shell</tag>
         <tag>cygwin</tag>
         <tag>linux</tag>
-        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -1739,9 +1771,9 @@ _T=${_T//\\//}if [[ $_T != "C:/WINDOWS/System32" ]]; then cd "$_T"fi
         <category>cygwin</category>
       </categories>
       <tags>
+        <tag>shell</tag>
         <tag>cygwin</tag>
         <tag>linux</tag>
-        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -1978,6 +2010,33 @@ ssh docker_dsm
       </tags>
   </entry>
   <entry>
+    <title>解决反向代理群晖时客户端IP不正确</title>
+    <url>/2025/05/22/dsm/fix-reverse-proxy-dsm-remote-ip/</url>
+    <content><![CDATA[
+通过 nginx 反向代理群晖流量后导致群晖显示登录 IP 不正确
+
+问题诱因由于外部用作反向代理的 nginx 和 群晖 是通过 docker 容器搭建的，所以对于 nginx 和 群晖 来讲，它们分别是处于 docker 网络环境下的不同虚拟机，所以群晖内部 nginx 自带的 set_real_ip_from 127.0.0.1 配置就无效了
+群晖内部 nginx 配置
+由于群晖重启后会重置，所以直接修改 /etc/nginx/ 下的文件不是首选
+
+所以通过找寻 nginx 模板文件 /usr/syno/share/nginx/nginx.mustache 发现有以下内容
+real_ip_header            X-Forwarded-For;real_ip_recursive         on;set_real_ip_from          127.0.0.1;   ---&gt; 这里就是群晖默认自带的信任IP{{#DSM.trust_proxy}}set_real_ip_from          {{.}};       ---&gt; 通过 DSM.trust_proxy 即可动态配置信任IP{{/DSM.trust_proxy}}
+
+通过查找相关文档 DSM.trust_proxy 可以通过群晖的 控制面板-&gt;安全性-&gt;信任的代理服务器 配置，打开 信任的代理服务器 配置后，直接新增一条 外部代理nginx 的 IP 或 IP段 即可
+]]></content>
+      <categories>
+        <category>dsm</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>dsm</tag>
+        <tag>virtual dsm</tag>
+        <tag>synology dsm</tag>
+        <tag>reverse proxy</tag>
+        <tag>remote ip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>修复 virtual DSM 无法访问网络</title>
     <url>/2023/12/06/dsm/fix-dsm-network-issue/</url>
     <content><![CDATA[
@@ -2007,33 +2066,6 @@ services:  dsm:    # ...    dns:      - 8.8.8.8      - 1.0.0.1
         <tag>virtual dsm</tag>
         <tag>synology dsm</tag>
         <tag>network error</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决反向代理群晖时客户端IP不正确</title>
-    <url>/2025/05/22/dsm/fix-reverse-proxy-dsm-remote-ip/</url>
-    <content><![CDATA[
-通过 nginx 反向代理群晖流量后导致群晖显示登录 IP 不正确
-
-问题诱因由于外部用作反向代理的 nginx 和 群晖 是通过 docker 容器搭建的，所以对于 nginx 和 群晖 来讲，它们分别是处于 docker 网络环境下的不同虚拟机，所以群晖内部 nginx 自带的 set_real_ip_from 127.0.0.1 配置就无效了
-群晖内部 nginx 配置
-由于群晖重启后会重置，所以直接修改 /etc/nginx/ 下的文件不是首选
-
-所以通过找寻 nginx 模板文件 /usr/syno/share/nginx/nginx.mustache 发现有以下内容
-real_ip_header            X-Forwarded-For;real_ip_recursive         on;set_real_ip_from          127.0.0.1;   ---&gt; 这里就是群晖默认自带的信任IP{{#DSM.trust_proxy}}set_real_ip_from          {{.}};       ---&gt; 通过 DSM.trust_proxy 即可动态配置信任IP{{/DSM.trust_proxy}}
-
-通过查找相关文档 DSM.trust_proxy 可以通过群晖的 控制面板-&gt;安全性-&gt;信任的代理服务器 配置，打开 信任的代理服务器 配置后，直接新增一条 外部代理nginx 的 IP 或 IP段 即可
-]]></content>
-      <categories>
-        <category>dsm</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>dsm</tag>
-        <tag>virtual dsm</tag>
-        <tag>synology dsm</tag>
-        <tag>reverse proxy</tag>
-        <tag>remote ip</tag>
       </tags>
   </entry>
   <entry>
@@ -2787,8 +2819,8 @@ at -f upload.sh now
         <category>tools</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
         <tag>shell</tag>
+        <tag>ubuntu</tag>
         <tag>tools</tag>
       </tags>
   </entry>
@@ -2869,8 +2901,8 @@ job 命令通常与 wait、fg、bg、kill 命令一起使用
         <category>tools</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
         <tag>shell</tag>
+        <tag>ubuntu</tag>
         <tag>tools</tag>
       </tags>
   </entry>
@@ -2986,8 +3018,8 @@ EXT4（Fourth Extended Filesystem）
         <category>tools</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
         <tag>shell</tag>
+        <tag>ubuntu</tag>
         <tag>tools</tag>
       </tags>
   </entry>
@@ -3011,8 +3043,8 @@ rsync 全称 Remote Sync.rsync是linux系统下的数据镜像备份工具。使
         <category>tools</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
         <tag>shell</tag>
+        <tag>ubuntu</tag>
         <tag>tools</tag>
       </tags>
   </entry>
@@ -3044,8 +3076,8 @@ Linux scp 命令用于 Linux 之间复制文件和目录。scp 是 secure copy �
         <category>tools</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
         <tag>shell</tag>
+        <tag>ubuntu</tag>
         <tag>tools</tag>
       </tags>
   </entry>
@@ -3067,8 +3099,8 @@ Linux scp 命令用于 Linux 之间复制文件和目录。scp 是 secure copy �
         <category>tools</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
         <tag>shell</tag>
+        <tag>ubuntu</tag>
         <tag>tools</tag>
       </tags>
   </entry>
@@ -3241,8 +3273,8 @@ usermod -a -G adm,dialout,cdrom,floppy,sudo,audio,dip,video,plugdev,netdev,lxd u
         <category>tools</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
         <tag>shell</tag>
+        <tag>ubuntu</tag>
         <tag>tools</tag>
       </tags>
   </entry>
@@ -3437,8 +3469,8 @@ wsl_ip: wsl 的 IP 地址
         <category>wsl</category>
       </categories>
       <tags>
-        <tag>wsl</tag>
         <tag>adb</tag>
+        <tag>wsl</tag>
       </tags>
   </entry>
 </search>

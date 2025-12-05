@@ -6,7 +6,7 @@
   <link href="http://clistery.github.io/atom.xml" rel="self"/>
   
   <link href="http://clistery.github.io/"/>
-  <updated>2025-10-29T09:07:52.948Z</updated>
+  <updated>2025-12-05T03:01:11.565Z</updated>
   <id>http://clistery.github.io/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>删除通过adb push推送中文目录导致的乱码文件夹</title>
+    <link href="http://clistery.github.io/2025/12/04/android/delete-gbk-code-file/"/>
+    <id>http://clistery.github.io/2025/12/04/android/delete-gbk-code-file/</id>
+    <published>2025-12-04T09:58:10.000Z</published>
+    <updated>2025-12-05T03:01:11.565Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;闲来无事看看片，作为一名合格(bushi)的开发者，一般电脑下载好的影片就喜欢用 adb 推到手机上再慢慢享用&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="android" scheme="http://clistery.github.io/categories/android/"/>
+    
+    
+    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
+    
+    <category term="adb" scheme="http://clistery.github.io/tags/adb/"/>
+    
+    <category term="gbk" scheme="http://clistery.github.io/tags/gbk/"/>
+    
+    <category term="utf8" scheme="http://clistery.github.io/tags/utf8/"/>
+    
+    <category term="root" scheme="http://clistery.github.io/tags/root/"/>
+    
+    <category term="chinese" scheme="http://clistery.github.io/tags/chinese/"/>
+    
+  </entry>
+  
+  <entry>
     <title>三国-契约之下的孤魂：诸葛亮传</title>
     <link href="http://clistery.github.io/2025/10/29/the-three-kingdoms/the-lonely-soul-under-the-contract-biography-of-zhuge-liang/"/>
     <id>http://clistery.github.io/2025/10/29/the-three-kingdoms/the-lonely-soul-under-the-contract-biography-of-zhuge-liang/</id>
     <published>2025-10-29T07:41:33.000Z</published>
-    <updated>2025-10-29T09:07:52.948Z</updated>
+    <updated>2025-12-05T03:01:11.566Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -42,7 +80,7 @@
     <link href="http://clistery.github.io/2025/10/16/wsl/adb-connect-host-android-device/"/>
     <id>http://clistery.github.io/2025/10/16/wsl/adb-connect-host-android-device/</id>
     <published>2025-10-16T09:22:57.000Z</published>
-    <updated>2025-10-29T09:07:52.949Z</updated>
+    <updated>2025-12-05T03:01:11.568Z</updated>
     
     
       
@@ -61,9 +99,9 @@
     <category term="wsl" scheme="http://clistery.github.io/categories/wsl/"/>
     
     
-    <category term="wsl" scheme="http://clistery.github.io/tags/wsl/"/>
-    
     <category term="adb" scheme="http://clistery.github.io/tags/adb/"/>
+    
+    <category term="wsl" scheme="http://clistery.github.io/tags/wsl/"/>
     
   </entry>
   
@@ -72,7 +110,7 @@
     <link href="http://clistery.github.io/2025/05/22/dsm/fix-reverse-proxy-dsm-remote-ip/"/>
     <id>http://clistery.github.io/2025/05/22/dsm/fix-reverse-proxy-dsm-remote-ip/</id>
     <published>2025-05-22T03:08:26.000Z</published>
-    <updated>2025-10-29T09:07:52.948Z</updated>
+    <updated>2025-12-05T03:01:11.566Z</updated>
     
     
       
@@ -110,7 +148,7 @@
     <link href="http://clistery.github.io/2025/01/01/ubuntu/desktop-convert-server/"/>
     <id>http://clistery.github.io/2025/01/01/ubuntu/desktop-convert-server/</id>
     <published>2025-01-01T03:06:26.000Z</published>
-    <updated>2025-10-29T09:07:52.949Z</updated>
+    <updated>2025-12-05T03:01:11.567Z</updated>
     
     
       
@@ -140,7 +178,7 @@
     <link href="http://clistery.github.io/2024/12/31/android/honor-note10-kirin970-fix-kernel/"/>
     <id>http://clistery.github.io/2024/12/31/android/honor-note10-kirin970-fix-kernel/</id>
     <published>2024-12-31T08:39:24.000Z</published>
-    <updated>2025-10-29T09:07:52.947Z</updated>
+    <updated>2025-12-05T03:01:11.565Z</updated>
     
     
       
@@ -159,6 +197,8 @@
     <category term="android" scheme="http://clistery.github.io/categories/android/"/>
     
     
+    <category term="root" scheme="http://clistery.github.io/tags/root/"/>
+    
     <category term="huawei" scheme="http://clistery.github.io/tags/huawei/"/>
     
     <category term="kernel" scheme="http://clistery.github.io/tags/kernel/"/>
@@ -166,8 +206,6 @@
     <category term="make" scheme="http://clistery.github.io/tags/make/"/>
     
     <category term="magisk" scheme="http://clistery.github.io/tags/magisk/"/>
-    
-    <category term="root" scheme="http://clistery.github.io/tags/root/"/>
     
     <category term="frida" scheme="http://clistery.github.io/tags/frida/"/>
     
@@ -186,7 +224,7 @@
     <link href="http://clistery.github.io/2024/10/30/gitlab-ce/fix-repository-checks-error/"/>
     <id>http://clistery.github.io/2024/10/30/gitlab-ce/fix-repository-checks-error/</id>
     <published>2024-10-30T08:29:16.000Z</published>
-    <updated>2025-10-29T09:07:52.948Z</updated>
+    <updated>2025-12-05T03:01:11.566Z</updated>
     
     
       
@@ -214,7 +252,7 @@
     <link href="http://clistery.github.io/2024/09/23/ubuntu/new-disk-partition-gpt-ext4/"/>
     <id>http://clistery.github.io/2024/09/23/ubuntu/new-disk-partition-gpt-ext4/</id>
     <published>2024-09-23T06:59:29.000Z</published>
-    <updated>2025-10-29T09:07:52.949Z</updated>
+    <updated>2025-12-05T03:01:11.567Z</updated>
     
     
       
@@ -233,9 +271,9 @@
     <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
     
     
-    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
-    
     <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
+    
+    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
     
     <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
     
@@ -246,7 +284,7 @@
     <link href="http://clistery.github.io/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/"/>
     <id>http://clistery.github.io/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/</id>
     <published>2024-07-18T09:04:41.000Z</published>
-    <updated>2025-10-29T09:07:52.948Z</updated>
+    <updated>2025-12-05T03:01:11.566Z</updated>
     
     
       
@@ -282,7 +320,7 @@
     <link href="http://clistery.github.io/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/"/>
     <id>http://clistery.github.io/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/</id>
     <published>2024-01-11T03:02:48.000Z</published>
-    <updated>2025-10-29T09:07:52.948Z</updated>
+    <updated>2025-12-05T03:01:11.566Z</updated>
     
     
       
@@ -316,7 +354,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/install-pkg-with-entware/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/install-pkg-with-entware/</id>
     <published>2023-12-06T09:01:58.000Z</published>
-    <updated>2025-10-29T09:07:52.948Z</updated>
+    <updated>2025-12-05T03:01:11.566Z</updated>
     
     
       
@@ -352,7 +390,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/fix-dsm-network-issue/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/fix-dsm-network-issue/</id>
     <published>2023-12-06T08:35:42.000Z</published>
-    <updated>2025-10-29T09:07:52.948Z</updated>
+    <updated>2025-12-05T03:01:11.566Z</updated>
     
     
       
@@ -386,7 +424,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/access-dsm-ssh/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/access-dsm-ssh/</id>
     <published>2023-12-06T07:41:41.000Z</published>
-    <updated>2025-10-29T09:07:52.947Z</updated>
+    <updated>2025-12-05T03:01:11.566Z</updated>
     
     
       
@@ -420,7 +458,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/install-with-docker/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/install-with-docker/</id>
     <published>2023-12-06T07:40:04.000Z</published>
-    <updated>2025-10-29T09:07:52.948Z</updated>
+    <updated>2025-12-05T03:01:11.566Z</updated>
     
     
       
@@ -452,7 +490,7 @@
     <link href="http://clistery.github.io/2023/10/07/docker/apline-apk-locally/"/>
     <id>http://clistery.github.io/2023/10/07/docker/apline-apk-locally/</id>
     <published>2023-10-07T02:14:18.000Z</published>
-    <updated>2025-10-29T09:07:52.947Z</updated>
+    <updated>2025-12-05T03:01:11.565Z</updated>
     
     
       
@@ -484,7 +522,7 @@
     <link href="http://clistery.github.io/2023/09/26/svn/svn-save-password/"/>
     <id>http://clistery.github.io/2023/09/26/svn/svn-save-password/</id>
     <published>2023-09-26T03:34:54.000Z</published>
-    <updated>2025-10-29T09:07:52.948Z</updated>
+    <updated>2025-12-05T03:01:11.566Z</updated>
     
     
       
@@ -510,7 +548,7 @@
     <link href="http://clistery.github.io/2023/09/15/ubuntu/usb-net/"/>
     <id>http://clistery.github.io/2023/09/15/ubuntu/usb-net/</id>
     <published>2023-09-15T13:39:17.000Z</published>
-    <updated>2025-10-29T09:07:52.949Z</updated>
+    <updated>2025-12-05T03:01:11.567Z</updated>
     
     
       
@@ -544,7 +582,7 @@
     <link href="http://clistery.github.io/2023/08/02/other/disable-wechat-ocr/"/>
     <id>http://clistery.github.io/2023/08/02/other/disable-wechat-ocr/</id>
     <published>2023-08-02T03:33:46.000Z</published>
-    <updated>2025-10-29T09:07:52.948Z</updated>
+    <updated>2025-12-05T03:01:11.566Z</updated>
     
     
       
@@ -575,7 +613,7 @@
     <link href="http://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/"/>
     <id>http://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/</id>
     <published>2023-07-27T00:37:26.000Z</published>
-    <updated>2025-10-29T09:07:52.947Z</updated>
+    <updated>2025-12-05T03:01:11.565Z</updated>
     
     
       
@@ -611,7 +649,7 @@
     <link href="http://clistery.github.io/2023/07/20/ubuntu/user-group/"/>
     <id>http://clistery.github.io/2023/07/20/ubuntu/user-group/</id>
     <published>2023-07-20T02:10:05.000Z</published>
-    <updated>2025-10-29T09:07:52.949Z</updated>
+    <updated>2025-12-05T03:01:11.567Z</updated>
     
     
       
@@ -630,39 +668,11 @@
     <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
     
     
-    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
-    
     <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
     
+    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
+    
     <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何优雅地让特定应用程序绕过用户帐户控制通知弹窗</title>
-    <link href="http://clistery.github.io/2023/05/06/windows/bypass-user-account-control-notifications/"/>
-    <id>http://clistery.github.io/2023/05/06/windows/bypass-user-account-control-notifications/</id>
-    <published>2023-05-06T00:39:54.000Z</published>
-    <updated>2025-10-29T09:07:52.949Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;我们在使用 Windows 系统时，在打开一些应用程序时，经常会看到 “用户账户控制”</summary>
-        
-      
-    
-    
-    
-    <category term="windows" scheme="http://clistery.github.io/categories/windows/"/>
-    
-    
-    <category term="User Account Control Notifications" scheme="http://clistery.github.io/tags/User-Account-Control-Notifications/"/>
-    
-    <category term="Windows 小技巧" scheme="http://clistery.github.io/tags/Windows-%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   

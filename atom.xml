@@ -6,7 +6,7 @@
   <link href="http://clistery.github.io/atom.xml" rel="self"/>
   
   <link href="http://clistery.github.io/"/>
-  <updated>2025-12-05T03:01:11.565Z</updated>
+  <updated>2026-01-22T09:59:48.392Z</updated>
   <id>http://clistery.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>在 Android 6.0 上部署 alpine3.22</title>
+    <link href="http://clistery.github.io/2026/01/20/android/config-python3-on-android-marshmallow/"/>
+    <id>http://clistery.github.io/2026/01/20/android/config-python3-on-android-marshmallow/</id>
+    <published>2026-01-20T08:57:43.000Z</published>
+    <updated>2026-01-22T09:59:48.392Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;日常需要定时运行各类脚本任务，若为这类轻量需求全天开启服务器设备，不仅功耗偏高且性价比低；同时部分脚本需要在不同网络环境下执行以获取多维度结果。原本计划入手低功耗小主机 /</summary>
+        
+      
+    
+    
+    
+    <category term="android" scheme="http://clistery.github.io/categories/android/"/>
+    
+    
+    <category term="alpine" scheme="http://clistery.github.io/tags/alpine/"/>
+    
+    <category term="termux" scheme="http://clistery.github.io/tags/termux/"/>
+    
+    <category term="legacy" scheme="http://clistery.github.io/tags/legacy/"/>
+    
+    <category term="environment" scheme="http://clistery.github.io/tags/environment/"/>
+    
+  </entry>
+  
+  <entry>
     <title>删除通过adb push推送中文目录导致的乱码文件夹</title>
     <link href="http://clistery.github.io/2025/12/04/android/delete-gbk-code-file/"/>
     <id>http://clistery.github.io/2025/12/04/android/delete-gbk-code-file/</id>
     <published>2025-12-04T09:58:10.000Z</published>
-    <updated>2025-12-05T03:01:11.565Z</updated>
+    <updated>2026-01-22T09:59:48.392Z</updated>
     
     
       
@@ -59,7 +91,7 @@
     <link href="http://clistery.github.io/2025/10/29/the-three-kingdoms/the-lonely-soul-under-the-contract-biography-of-zhuge-liang/"/>
     <id>http://clistery.github.io/2025/10/29/the-three-kingdoms/the-lonely-soul-under-the-contract-biography-of-zhuge-liang/</id>
     <published>2025-10-29T07:41:33.000Z</published>
-    <updated>2025-12-05T03:01:11.566Z</updated>
+    <updated>2026-01-22T09:59:48.394Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -80,7 +112,7 @@
     <link href="http://clistery.github.io/2025/10/16/wsl/adb-connect-host-android-device/"/>
     <id>http://clistery.github.io/2025/10/16/wsl/adb-connect-host-android-device/</id>
     <published>2025-10-16T09:22:57.000Z</published>
-    <updated>2025-12-05T03:01:11.568Z</updated>
+    <updated>2026-01-22T09:59:48.394Z</updated>
     
     
       
@@ -110,7 +142,7 @@
     <link href="http://clistery.github.io/2025/05/22/dsm/fix-reverse-proxy-dsm-remote-ip/"/>
     <id>http://clistery.github.io/2025/05/22/dsm/fix-reverse-proxy-dsm-remote-ip/</id>
     <published>2025-05-22T03:08:26.000Z</published>
-    <updated>2025-12-05T03:01:11.566Z</updated>
+    <updated>2026-01-22T09:59:48.393Z</updated>
     
     
       
@@ -148,7 +180,7 @@
     <link href="http://clistery.github.io/2025/01/01/ubuntu/desktop-convert-server/"/>
     <id>http://clistery.github.io/2025/01/01/ubuntu/desktop-convert-server/</id>
     <published>2025-01-01T03:06:26.000Z</published>
-    <updated>2025-12-05T03:01:11.567Z</updated>
+    <updated>2026-01-22T09:59:48.394Z</updated>
     
     
       
@@ -178,7 +210,7 @@
     <link href="http://clistery.github.io/2024/12/31/android/honor-note10-kirin970-fix-kernel/"/>
     <id>http://clistery.github.io/2024/12/31/android/honor-note10-kirin970-fix-kernel/</id>
     <published>2024-12-31T08:39:24.000Z</published>
-    <updated>2025-12-05T03:01:11.565Z</updated>
+    <updated>2026-01-22T09:59:48.392Z</updated>
     
     
       
@@ -224,7 +256,7 @@
     <link href="http://clistery.github.io/2024/10/30/gitlab-ce/fix-repository-checks-error/"/>
     <id>http://clistery.github.io/2024/10/30/gitlab-ce/fix-repository-checks-error/</id>
     <published>2024-10-30T08:29:16.000Z</published>
-    <updated>2025-12-05T03:01:11.566Z</updated>
+    <updated>2026-01-22T09:59:48.393Z</updated>
     
     
       
@@ -252,7 +284,7 @@
     <link href="http://clistery.github.io/2024/09/23/ubuntu/new-disk-partition-gpt-ext4/"/>
     <id>http://clistery.github.io/2024/09/23/ubuntu/new-disk-partition-gpt-ext4/</id>
     <published>2024-09-23T06:59:29.000Z</published>
-    <updated>2025-12-05T03:01:11.567Z</updated>
+    <updated>2026-01-22T09:59:48.394Z</updated>
     
     
       
@@ -284,7 +316,7 @@
     <link href="http://clistery.github.io/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/"/>
     <id>http://clistery.github.io/2024/07/18/mcu/make-a-usbasp-for-atmel-avr-mcu/</id>
     <published>2024-07-18T09:04:41.000Z</published>
-    <updated>2025-12-05T03:01:11.566Z</updated>
+    <updated>2026-01-22T09:59:48.393Z</updated>
     
     
       
@@ -320,7 +352,7 @@
     <link href="http://clistery.github.io/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/"/>
     <id>http://clistery.github.io/2024/01/11/python/setup-python-with-embedded-pkg-on-win10/</id>
     <published>2024-01-11T03:02:48.000Z</published>
-    <updated>2025-12-05T03:01:11.566Z</updated>
+    <updated>2026-01-22T09:59:48.393Z</updated>
     
     
       
@@ -339,13 +371,13 @@
     <category term="python" scheme="http://clistery.github.io/categories/python/"/>
     
     
+    <category term="environment" scheme="http://clistery.github.io/tags/environment/"/>
+    
     <category term="python" scheme="http://clistery.github.io/tags/python/"/>
     
     <category term="embedded package" scheme="http://clistery.github.io/tags/embedded-package/"/>
     
     <category term="win10" scheme="http://clistery.github.io/tags/win10/"/>
-    
-    <category term="environment" scheme="http://clistery.github.io/tags/environment/"/>
     
   </entry>
   
@@ -354,7 +386,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/install-pkg-with-entware/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/install-pkg-with-entware/</id>
     <published>2023-12-06T09:01:58.000Z</published>
-    <updated>2025-12-05T03:01:11.566Z</updated>
+    <updated>2026-01-22T09:59:48.393Z</updated>
     
     
       
@@ -390,7 +422,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/fix-dsm-network-issue/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/fix-dsm-network-issue/</id>
     <published>2023-12-06T08:35:42.000Z</published>
-    <updated>2025-12-05T03:01:11.566Z</updated>
+    <updated>2026-01-22T09:59:48.393Z</updated>
     
     
       
@@ -424,7 +456,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/access-dsm-ssh/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/access-dsm-ssh/</id>
     <published>2023-12-06T07:41:41.000Z</published>
-    <updated>2025-12-05T03:01:11.566Z</updated>
+    <updated>2026-01-22T09:59:48.393Z</updated>
     
     
       
@@ -458,7 +490,7 @@
     <link href="http://clistery.github.io/2023/12/06/dsm/install-with-docker/"/>
     <id>http://clistery.github.io/2023/12/06/dsm/install-with-docker/</id>
     <published>2023-12-06T07:40:04.000Z</published>
-    <updated>2025-12-05T03:01:11.566Z</updated>
+    <updated>2026-01-22T09:59:48.393Z</updated>
     
     
       
@@ -490,7 +522,7 @@
     <link href="http://clistery.github.io/2023/10/07/docker/apline-apk-locally/"/>
     <id>http://clistery.github.io/2023/10/07/docker/apline-apk-locally/</id>
     <published>2023-10-07T02:14:18.000Z</published>
-    <updated>2025-12-05T03:01:11.565Z</updated>
+    <updated>2026-01-22T09:59:48.393Z</updated>
     
     
       
@@ -507,9 +539,9 @@
     <category term="docker" scheme="http://clistery.github.io/categories/docker/"/>
     
     
-    <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
-    
     <category term="alpine" scheme="http://clistery.github.io/tags/alpine/"/>
+    
+    <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
     
     <category term="dockerfile" scheme="http://clistery.github.io/tags/dockerfile/"/>
     
@@ -522,7 +554,7 @@
     <link href="http://clistery.github.io/2023/09/26/svn/svn-save-password/"/>
     <id>http://clistery.github.io/2023/09/26/svn/svn-save-password/</id>
     <published>2023-09-26T03:34:54.000Z</published>
-    <updated>2025-12-05T03:01:11.566Z</updated>
+    <updated>2026-01-22T09:59:48.393Z</updated>
     
     
       
@@ -548,7 +580,7 @@
     <link href="http://clistery.github.io/2023/09/15/ubuntu/usb-net/"/>
     <id>http://clistery.github.io/2023/09/15/ubuntu/usb-net/</id>
     <published>2023-09-15T13:39:17.000Z</published>
-    <updated>2025-12-05T03:01:11.567Z</updated>
+    <updated>2026-01-22T09:59:48.394Z</updated>
     
     
       
@@ -582,7 +614,7 @@
     <link href="http://clistery.github.io/2023/08/02/other/disable-wechat-ocr/"/>
     <id>http://clistery.github.io/2023/08/02/other/disable-wechat-ocr/</id>
     <published>2023-08-02T03:33:46.000Z</published>
-    <updated>2025-12-05T03:01:11.566Z</updated>
+    <updated>2026-01-22T09:59:48.393Z</updated>
     
     
       
@@ -613,7 +645,7 @@
     <link href="http://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/"/>
     <id>http://clistery.github.io/2023/07/27/docker/apline-nginx-install-module/</id>
     <published>2023-07-27T00:37:26.000Z</published>
-    <updated>2025-12-05T03:01:11.565Z</updated>
+    <updated>2026-01-22T09:59:48.393Z</updated>
     
     
       
@@ -632,47 +664,15 @@
     <category term="docker" scheme="http://clistery.github.io/categories/docker/"/>
     
     
+    <category term="alpine" scheme="http://clistery.github.io/tags/alpine/"/>
+    
     <category term="docker" scheme="http://clistery.github.io/tags/docker/"/>
     
     <category term="linux" scheme="http://clistery.github.io/tags/linux/"/>
     
-    <category term="alpine" scheme="http://clistery.github.io/tags/alpine/"/>
-    
     <category term="nginx" scheme="http://clistery.github.io/tags/nginx/"/>
     
     <category term="nginx-module" scheme="http://clistery.github.io/tags/nginx-module/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用户与用户组</title>
-    <link href="http://clistery.github.io/2023/07/20/ubuntu/user-group/"/>
-    <id>http://clistery.github.io/2023/07/20/ubuntu/user-group/</id>
-    <published>2023-07-20T02:10:05.000Z</published>
-    <updated>2025-12-05T03:01:11.567Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;对 Linux 用户及用户组进行管理与修改&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;Tools&quot;&gt;&lt;a href=&quot;#Tools&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="tools" scheme="http://clistery.github.io/categories/tools/"/>
-    
-    
-    <category term="shell" scheme="http://clistery.github.io/tags/shell/"/>
-    
-    <category term="ubuntu" scheme="http://clistery.github.io/tags/ubuntu/"/>
-    
-    <category term="tools" scheme="http://clistery.github.io/tags/tools/"/>
     
   </entry>
   

@@ -189,6 +189,124 @@ REPO 命令开启本地分支repo start my_branch --all
       </tags>
   </entry>
   <entry>
+    <title>在 Android 6.0 上部署 alpine3.22</title>
+    <url>/2026/01/20/android/config-python3-on-android-marshmallow/</url>
+    <content><![CDATA[
+日常需要定时运行各类脚本任务，若为这类轻量需求全天开启服务器设备，不仅功耗偏高且性价比低；同时部分脚本需要在不同网络环境下执行以获取多维度结果。原本计划入手低功耗小主机 / 工控机，后发现家中有闲置安卓手机，何不利用这些设备实现二次利用，基于此完成了本次 Android 6.0 环境下 Alpine 3.22 的部署实践，整理成文供参考。
+
+环境及设备信息
+Android 6.0.1
+HTC m8et
+
+部署 Alpine安装并配置 F-Droid
+下载安装 F-Droid
+
+配置 F-Droid 镜像源
+
+这里列举两个
+
+
+https://mirror.nyist.edu.cn/help/fdroid/
+https://mirrors.tuna.tsinghua.edu.cn/help/fdroid/
+
+
+
+安装 Termux（Android 6.0 兼容版）
+F-Droid 仓库中无 Android 6.0 的 Termux 兼容版本，需从 Termux 官方源码仓库下载历史版本，可前往 Termux GitHub Releases 筛选适配 Android 6.0 的安装包完成安装。
+
+AnLinux + Alpine
+AnLinux 对 Android 6.0 兼容性更好，这里我们直接使用它进行 Alpine 的安装
+
+
+在 F-Droid 中搜索安装 AnLinux
+打开 AnLinux，在主界面选择需要安装的系统为 Alpine
+复制应用自动生成的 Alpine 安装脚本
+启动 Termux，粘贴脚本并执行，脚本会自动完成 Alpine 的下载、解压和初始化配置
+
+
+安装完成后先不要启动 Alpine，手机上进行命令行操作太蹩脚，所以我们切换到 PC
+
+配置 SSH
+手机开启USB 调试，并通过 USB 数据线与 PC 连接，确保 PC 端已安装 ADB 工具并能正常识别手机设备。
+
+在 PC 端执行# 生成 SSH 密钥对，替换&lt;邮箱&gt;为自己的邮箱ssh-keygen -t ed25519 -C '&lt;邮箱&gt;'# 将公钥推送至手机 /sdcard/Download 目录adb push ~/.ssh/id_ed25519.pub /sdcard/Download
+
+Termux 端配置 SSH 服务
+在手机 Termux 中执行以下命令，安装 openssh、配置公钥认证并修改 sshd 配置（禁用密码登录提升安全性）
+
+# 安装 openssh 服务pkg add openssh# 创建.ssh目录并设置权限（700为目录专属权限，关键步骤）mkdir -p ~/.ssh &amp;&amp; chmod 700 ~/.ssh# 将PC推送的公钥写入授权列表cat /sdcard/Download/id_ed25519.pub &gt;&gt; ~/.ssh/authorized_keys# 设置授权文件权限（600为文件专属权限，sshd强制要求）chmod 600 ~/.ssh/authorized_keys# 覆盖写入sshd配置文件echo 'AuthorizedKeysFile .ssh/authorized_keysPort 8022PubkeyAuthentication yesPasswordAuthentication noPrintMotd yesSubsystem sftp /data/data/com.termux/files/usr/libexec/sftp-server' &gt; $PREFIX/etc/ssh/sshd_config# 启动 sshd 服务sshd
+
+PC 端 SSH 连接手机
+确保PC和手机在同一个局域网下
+
+
+在手机 adb shell 中执行 ip addr 或 ifconfig，查看手机的局域网 IP 地址（一般为 wlan0 网卡的 inet 地址）；
+在 PC 端终端执行以下命令，通过 SSH 密钥认证连接手机 Termux，替换 &lt;手机 ip&gt; 为实际查询到的 IP：
+
+ssh &lt;手机ip&gt; -i ~/.ssh/id_ed25519 -p 8022
+
+启动并配置 Alpine启动 Alpine
+AnLinux 安装 Alpine 后，会在 Termux 的主目录生成启动脚本，在 PC 端已连接的 SSH 终端中执行以下命令启动 Alpine
+
+# 执行 Alpine 启动脚本~/./start-alpine.sh
+
+配置环境
+配置加速源 (可选)
+
+网上能找到很多，这里不列举
+
+配置完成后执行 apk update 更新索引
+
+配置 shell (可选)
+# 部分 ohmyzsh 的主题会使用 perlapk add zsh perl# 安装Oh My Zsh（一键配置脚本）sh -c "$(curl -fsSL https://install.ohmyz.sh/)"
+
+建议配置下面三个插件
+zsh-autosuggestions
+zsh-completions
+zsh-syntax-highlighting
+
+安装常用软件
+apk add curl wget git linux-toolsapk add musl-dev python3-devapk add gcc make# 安装 pythonapk add python3wget https://github.com/astral-sh/uv/releases/latest/download/uv-armv7-unknown-linux-musleabihf.tar.gztar xvf uv-armv7-unknown-linux-musleabihf.tar.gzcd uv-armv7-unknown-linux-musleabihfln -s $PWD/* /usr/bin# 验证uv安装成功uv --version# 验证Python3环境python3 --version
+
+配置 SSH 跳板
+每次进入 alpine 都需要先连接 termux，再通过 alpine 启动脚本进入，太麻烦，这里直接简化一下直接一步到位
+
+
+先通过上面的步骤进入 alpine
+
+修改 /etc/ssh/sshd_config 配置 sshd 的端口为 9001 和公钥认证，参考上面的内容
+
+配置 authorized_keys，参考上面的内容
+
+配置 profile 自动开启 sshd
+ if [ ! -f "/run/sshd.pid" ] || ! pgrep -x "sshd" &gt;/dev/null; then  /usr/sbin/sshdfi
+
+配置 termux 的 .bashrc
+ if ! pgrep "proot" &gt;/dev/null; then  /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/./start-alpine.shfi
+
+ 这样只要每次打开 termux 就会直接进入到 alpine，并且自动开启 sshd
+
+连接 alpine
+
+由于 proot 并没有隔离，所以不需要配置跳板机，直接就可以连接到 alpine 的端口
+
+ ssh &lt;手机ip&gt; -i ~/.ssh/id_ed25519 -p 9001
+
+结语本次实践基于 Android 6.0 老旧设备，通过 Termux + AnLinux 完成了轻量级 Linux 发行版 Alpine 3.22 的部署，核心实现了闲置安卓设备的二次利用，以较低成本解决了轻量脚本任务的低功耗部署需求。Alpine 系统以轻量、低资源占用、适配 ARM 架构为优势，完美契合老旧手机的硬件特性，搭配 SSH 远程控制后，操作体验与小型低功耗服务器无异，可轻松承载定时爬虫、数据同步、自动化执行脚本等日常轻量运维任务，相比单独购置工控机、小主机，大幅降低了部署成本。
+在实际使用中，还可以对硬件做优化，比如要长期稳定运行可以改成直供电的形式，避免电池损耗导致设备不稳定。
+本次部署的流程均经过实际验证，适配 Android 6.0 这类低版本 legacy 设备，希望能为有同类闲置设备和轻量部署需求的开发者、技术爱好者提供参考，让老旧数码设备充分发挥剩余价值，挖掘更多轻量化的使用场景。
+]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>alpine</tag>
+        <tag>termux</tag>
+        <tag>legacy</tag>
+        <tag>environment</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>删除通过adb push推送中文目录导致的乱码文件夹</title>
     <url>/2025/12/04/android/delete-gbk-code-file/</url>
     <content><![CDATA[
@@ -1849,8 +1967,8 @@ docker build -t nginx:alpine .
         <category>docker</category>
       </categories>
       <tags>
-        <tag>docker</tag>
         <tag>alpine</tag>
+        <tag>docker</tag>
         <tag>dockerfile</tag>
         <tag>docker image</tag>
       </tags>
@@ -1879,9 +1997,9 @@ DockerFileFROM nginx:1.19.1-alpine as baseRUN sed -i "s/dl-cdn.alpinelinux.org/m
         <category>docker</category>
       </categories>
       <tags>
+        <tag>alpine</tag>
         <tag>docker</tag>
         <tag>linux</tag>
-        <tag>alpine</tag>
         <tag>nginx</tag>
         <tag>nginx-module</tag>
       </tags>
@@ -2010,33 +2128,6 @@ ssh docker_dsm
       </tags>
   </entry>
   <entry>
-    <title>解决反向代理群晖时客户端IP不正确</title>
-    <url>/2025/05/22/dsm/fix-reverse-proxy-dsm-remote-ip/</url>
-    <content><![CDATA[
-通过 nginx 反向代理群晖流量后导致群晖显示登录 IP 不正确
-
-问题诱因由于外部用作反向代理的 nginx 和 群晖 是通过 docker 容器搭建的，所以对于 nginx 和 群晖 来讲，它们分别是处于 docker 网络环境下的不同虚拟机，所以群晖内部 nginx 自带的 set_real_ip_from 127.0.0.1 配置就无效了
-群晖内部 nginx 配置
-由于群晖重启后会重置，所以直接修改 /etc/nginx/ 下的文件不是首选
-
-所以通过找寻 nginx 模板文件 /usr/syno/share/nginx/nginx.mustache 发现有以下内容
-real_ip_header            X-Forwarded-For;real_ip_recursive         on;set_real_ip_from          127.0.0.1;   ---&gt; 这里就是群晖默认自带的信任IP{{#DSM.trust_proxy}}set_real_ip_from          {{.}};       ---&gt; 通过 DSM.trust_proxy 即可动态配置信任IP{{/DSM.trust_proxy}}
-
-通过查找相关文档 DSM.trust_proxy 可以通过群晖的 控制面板-&gt;安全性-&gt;信任的代理服务器 配置，打开 信任的代理服务器 配置后，直接新增一条 外部代理nginx 的 IP 或 IP段 即可
-]]></content>
-      <categories>
-        <category>dsm</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>dsm</tag>
-        <tag>virtual dsm</tag>
-        <tag>synology dsm</tag>
-        <tag>reverse proxy</tag>
-        <tag>remote ip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>修复 virtual DSM 无法访问网络</title>
     <url>/2023/12/06/dsm/fix-dsm-network-issue/</url>
     <content><![CDATA[
@@ -2066,6 +2157,33 @@ services:  dsm:    # ...    dns:      - 8.8.8.8      - 1.0.0.1
         <tag>virtual dsm</tag>
         <tag>synology dsm</tag>
         <tag>network error</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决反向代理群晖时客户端IP不正确</title>
+    <url>/2025/05/22/dsm/fix-reverse-proxy-dsm-remote-ip/</url>
+    <content><![CDATA[
+通过 nginx 反向代理群晖流量后导致群晖显示登录 IP 不正确
+
+问题诱因由于外部用作反向代理的 nginx 和 群晖 是通过 docker 容器搭建的，所以对于 nginx 和 群晖 来讲，它们分别是处于 docker 网络环境下的不同虚拟机，所以群晖内部 nginx 自带的 set_real_ip_from 127.0.0.1 配置就无效了
+群晖内部 nginx 配置
+由于群晖重启后会重置，所以直接修改 /etc/nginx/ 下的文件不是首选
+
+所以通过找寻 nginx 模板文件 /usr/syno/share/nginx/nginx.mustache 发现有以下内容
+real_ip_header            X-Forwarded-For;real_ip_recursive         on;set_real_ip_from          127.0.0.1;   ---&gt; 这里就是群晖默认自带的信任IP{{#DSM.trust_proxy}}set_real_ip_from          {{.}};       ---&gt; 通过 DSM.trust_proxy 即可动态配置信任IP{{/DSM.trust_proxy}}
+
+通过查找相关文档 DSM.trust_proxy 可以通过群晖的 控制面板-&gt;安全性-&gt;信任的代理服务器 配置，打开 信任的代理服务器 配置后，直接新增一条 外部代理nginx 的 IP 或 IP段 即可
+]]></content>
+      <categories>
+        <category>dsm</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>dsm</tag>
+        <tag>virtual dsm</tag>
+        <tag>synology dsm</tag>
+        <tag>reverse proxy</tag>
+        <tag>remote ip</tag>
       </tags>
   </entry>
   <entry>
@@ -2583,10 +2701,10 @@ Atmega88
         <category>python</category>
       </categories>
       <tags>
+        <tag>environment</tag>
         <tag>python</tag>
         <tag>embedded package</tag>
         <tag>win10</tag>
-        <tag>environment</tag>
       </tags>
   </entry>
   <entry>

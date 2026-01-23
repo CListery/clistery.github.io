@@ -274,7 +274,7 @@ apk add curl wget git linux-toolsapk add musl-dev python3-devapk add gcc make# �
 
 
 先通过上面的步骤进入 alpine 安装 openssh
- apk add openssh
+ apk add openssh# 创建 hostkeysssh-keygen -t rsa -P "" -f /etc/ssh/ssh_host_rsa_keyssh-keygen -t ecdsa -P "" -f /etc/ssh/ssh_host_ecdsa_keyssh-keygen -t ed25519 -P "" -f /etc/ssh/ssh_host_ed25519_key
 
 修改 /etc/ssh/sshd_config 配置 sshd 的端口为 9001 和公钥认证，参考上面的内容
 

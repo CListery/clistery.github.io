@@ -258,7 +258,7 @@ AnLinux 安装 Alpine 后，会在 Termux 的主目录生成启动脚本，在 P
 配置完成后执行 apk update 更新索引
 
 配置 shell (可选)
-# 部分 ohmyzsh 的主题会使用 perlapk add zsh perl# 安装Oh My Zsh（一键配置脚本）sh -c "$(curl -fsSL https://install.ohmyz.sh/)"
+# 部分 ohmyzsh 的主题会使用 perlapk add curl zsh perl# 安装Oh My Zsh（一键配置脚本）sh -c "$(curl -fsSL https://install.ohmyz.sh/)"
 
 建议配置下面三个插件
 zsh-autosuggestions
@@ -272,7 +272,8 @@ apk add curl wget git linux-toolsapk add musl-dev python3-devapk add gcc make# �
 每次进入 alpine 都需要先连接 termux，再通过 alpine 启动脚本进入，太麻烦，这里直接简化一下直接一步到位
 
 
-先通过上面的步骤进入 alpine
+先通过上面的步骤进入 alpine 安装 openssh
+ apk add openssh
 
 修改 /etc/ssh/sshd_config 配置 sshd 的端口为 9001 和公钥认证，参考上面的内容
 

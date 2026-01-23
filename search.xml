@@ -260,6 +260,7 @@ AnLinux 安装 Alpine 后，会在 Termux 的主目录生成启动脚本，在 P
 配置 shell (可选)
 # 部分 ohmyzsh 的主题会使用 perlapk add curl zsh perl# 安装Oh My Zsh（一键配置脚本）sh -c "$(curl -fsSL https://install.ohmyz.sh/)"
 
+修改 /etc/passwd 中的默认 shell 为 zsh
 建议配置下面三个插件
 zsh-autosuggestions
 zsh-completions

@@ -106,6 +106,993 @@ $1
       </tags>
   </entry>
   <entry>
+    <title>2023 年 Apple Developer Enterprise Program 续订审核</title>
+    <url>/2023/02/23/apple/2023-apple-developer-enterprise-program/</url>
+    <content><![CDATA[
+又到了一年一度的 Apple 企业级开发帐号的续费了，随之而来的就是帐号续订资格的审核，这里只能说一句，13事儿真多，审核这种东西真的有用？意思人家搞灰产的会给你在里面填：“噢，亲爱的库克，真是不好意思，我拿着你的资源搞了灰产，请你给我审核通过一下哦~”，此处应有掌声。我只想说给你钱还搞那么多逼事儿，真是恶心死人不偿命。
+
+步骤详解Your Organization
+Which best describes your entity? 组织的类型
+
+如实填写
+
+
+Is this the correct name of your organization? 组织的名称是否正确
+
+Yes
+
+
+Is this the correct URL for your organization’s website? 组织官网是否正确
+
+Yes
+
+
+Is this your correct email address? 电子邮件地址是否正确
+
+Yes
+
+
+Are you an employee of the organization? 你是否为该组织员工
+
+Yes
+
+
+Do you have the authority to accept legal agreements on behalf of your organization? 你是否有权代为接受法律协议
+
+Yes
+
+
+重点！！！How many employees does your organization have? 该组织的员工数量
+
+这里必须选择大于 100 人的选项，否则你就会收到 库克 ♂ 你 的邮件！
+
+
+Briefly describe your organization’s primary industry. 描述该组织的经营范围
+
+如实填写
+
+
+
+App Development
+Tell us about an app you’ve developed or distributed through the program that’s been used for at least 6 months. Describe the app’s purpose and functionality, and how frequently it’s used. Include the bundle identifier. 告诉我们您通过该计划开发或分发的应用，该应用已使用至少 6 个月。描述应用的用途和功能，以及使用频率。包括捆绑标识符。
+
+如实填写
+
+
+Who builds your in-house apps? 由谁生成应用程序
+
+Employees
+
+
+How many employees are on your internal app development team? 开发团队成员数量
+
+1-29
+
+
+How many enterprise apps have you built or are you currently building? 已构建或正在构建的应用数量
+
+1-9
+
+
+Do you own the intellectual property rights for all of your in-house apps? 是否拥有所有内部应用程序的知识产权？
+
+Yes
+
+
+Do you own the source code for all of your in-house apps? 是否拥有所有内部应用程序的源代码？
+
+Yes
+
+
+Are you currently developing or distributing enterprise apps for macOS? 目前正在开发或分发适用于 macOS 的企业应用程序吗？
+
+Yes
+
+
+
+App Distribution and Code Sharing
+Do you re-sign compiled apps from other developers to use within your organization? 是否对来自其他开发人员的已编译应用重新签名以在组织内使用？
+
+No
+
+
+Do you act as an app development contractor for other organizations? 您是否担任其他组织的应用程序开发承包商？
+
+No
+
+
+Who are your app’s users? 谁是应用的用户？
+
+Employees within your organization
+
+
+Describe in detail how you distribute your apps to users. 详细描述如何将应用分发给用户
+
+描述分发过程
+
+
+To how many devices does your organization distribute apps using this program? 您的组织使用此程序向多少台设备分发应用程序？
+
+尽量多
+
+
+
+Security and App Testing
+What mechanisms have you put in place to ensure your apps can only be installed by your employees and permitted users? 你采取了哪些机制来确保你的应用只能由你的员工和允许的用户安装？
+
+如实填写
+
+
+Have you ever shared the sign in credentials of the Account Holder with others, including contractors or coworkers? 您是否曾经与其他人（包括承包商或同事）共享帐户持有人的登录凭据？
+
+No
+
+
+Who has access to the sign in credentials of the Account Holder? 谁有权访问帐户持有人的登录凭据？
+
+Account holders
+
+
+Who has access to your Enterprise App Distribution Certificates? 谁有权访问您的企业应用分发证书？
+
+Account holders and authorized developers
+
+
+How do you monitor and control access to your Enterprise App Distribution Certificates? 如何监视和控制对企业应用分发证书的访问？
+
+Enable two-factor authentication, administrator hold, generate P12 to developers
+
+
+Do you use program resources to test apps before publishing them on the App Store? 在将应用发布到 App Store 之前，您是否使用程序资源来测试它们？
+
+No 因为未发布到AppStore
+
+
+Does your organization have more than one membership in the Apple Developer Enterprise Program? 您的组织是否在 Apple 开发人员企业计划中拥有多个成员资格？
+
+No
+
+
+Which of the following uses of the program are necessary for your organization? 您的组织需要以下哪些程序用途？
+
+如实填写
+
+
+
+]]></content>
+      <categories>
+        <category>apple</category>
+      </categories>
+      <tags>
+        <tag>Apple Developer Enterprise Program</tag>
+        <tag>内鬼‘蒂姆·库克’</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 HexoMatery 主题下配置 utteranc 评论插件</title>
+    <url>/2022/10/20/blog/hexo-matery-setup-utteranc/</url>
+    <content><![CDATA[
+HexoMatery 主题没有自带 utteranc 评论插件，当然我们也可以依葫芦画瓢地搞一个上去
+
+先决条件
+可以保存 utteranc 评论的公共库
+可以提交修改的主题仓库
+
+配置 utteranc 评论库
+先跟以往创建 github 仓库的方式一样创建一个公共代码库
+安装 utteranc app
+
+将 utteranc 插件添加到主题仓库
+创建评论模版 在主题 layout\_partial\ 目录下创建 utterances.ejs 请修改文件中有注释说明的部分为你自己的配置信息
+ &lt;div class="card" data-aos="fade-up"&gt;&lt;div id="comment_head"&gt;    &lt;div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;"&gt;        &lt;i class="fas fa-comments fa-fw" aria-hidden="true"&gt;&lt;/i&gt;        &lt;span&gt;评论&lt;/span&gt;    &lt;/div&gt;&lt;/div&gt;&lt;script type="text/javascript"&gt;    $(function() {        if(document.getElementById('contact_plan') !== null){            document.getElementById('comment_head').remove();        }    })&lt;/script&gt;&lt;div id="utterances-container" class="card-content center-align"&gt;    &lt;span class="utterances_loading" style="align-content: center;"&gt;        &lt;i class="fas fa-spinner fa-spin"&gt;&lt;/i&gt;    &lt;/span&gt;    &lt;script type="text/javascript"&gt;        function _checkUtteranc() {            document.getElementsByClassName('utterances').length == 1            ? ($('.utterances_loading').fadeTo(1e3, 0))            : setTimeout(_checkUtteranc, 1000);        }        setTimeout(() =&gt; {            var utterances = document.createElement('script');            utterances.type = 'text/javascript';            utterances.async = true;            utterances.setAttribute('issue-term','title') // 这里我们设置为使用页面标题作为 issue titile，更多的请参阅 utterances 官网            utterances.setAttribute('repo','CListery/hexo-utterances') // 这里设置你自己的 utteranc 评论仓库            utterances.setAttribute('label','comment') // 设置 issue 的标签            $('body').hasClass('DarkMode')            ? (utterances.setAttribute('theme','github-dark'))            : (utterances.setAttribute('theme','github-light')),            utterances.crossorigin = 'anonymous';            utterances.src = 'https://utteranc.es/client.js';            document.getElementById('utterances-container').appendChild(utterances);            _checkUtteranc();        }, 1);    &lt;/script&gt;&lt;/div&gt;&lt;/div&gt;
+
+修改主题模版文件
+
+修改 layout\_partial\post-detail.ejs  在 &lt;% if (theme.gitalk &amp;&amp; theme.gitalk.enable) { %&gt; 上一行添加
+  &lt;% if (theme.utterances &amp;&amp; theme.utterances.enable) { %&gt;    &lt;%- partial('_partial/utterances') %&gt;&lt;% } %&gt;
+
+修改 layout\contact.ejs  在 &lt;% if (theme.gitalk &amp;&amp; theme.gitalk.enable) { %&gt; 上一行添加
+  &lt;% if (theme.utterances &amp;&amp; theme.utterances.enable) { %&gt;    &lt;%- partial('_partial/utterances') %&gt;&lt;% } %&gt;
+
+修改主题中的 _config.yml  添加以下内容
+  utterances:    enable: true
+
+
+
+
+最后以上就完成了 utteranc 评论插件的配置，重启 hexo 服务，不出意外就可以看到了
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>Github Pages</tag>
+        <tag>utteranc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于 Github Pages 的 hexo 博客搭建</title>
+    <url>/2022/10/19/blog/hexo-setup/</url>
+    <content><![CDATA[先决条件网站源码库
+私有仓库，存放你手写的博客源代码，简称 库1
+
+主题库
+私有仓库，存放你自定义的主题代码，将其作为 git submodule 添加到 库1，简称 库2
+
+Github Pages 库(xxx.github.io)
+公共库，存放通过前两个仓库生成的网站页面，简称 库3
+
+
+配置给公共库配置部署密钥
+用于 库1 和 库2 的代码编译后自动部署到 库3
+
+生成密钥ssh-keygen -t ed25519 -C "clistery.github.io" # 这里的名字取什么都行
+
+上传密钥到 库3
+打开 库3 -&gt; Settings -&gt; Security -&gt; Deploy keys -&gt; 将刚才生成的公钥填到这里面
+
+配置 PAT(Personal Access Token)
+用于 Workflow 自动部署是可以对库进行读写
+
+
+点击 Github 右上角头像 -&gt; Settings -&gt; Developer settings -&gt; Personal access tokens -&gt; Tokens(classic) -&gt; Generate new token (classic)
+Note 可以随意填写，最好自己看见能懂就行
+Expiration 过期时间，可以选择不过期
+Select scopes 中勾选 workflow 和 write:packages
+Generate token
+然后把生成的 token(ghp_xxxxx) 保存下来备用
+
+创建 Workflow
+让 库1 &amp; 库2 生成的代码能自动发布到 库3
+
+
+打开 库1 -&gt; Action -&gt; New workflow -&gt; Simple workflow -&gt; Configure(或者直接在 库1 的根目录创建 .github/workflows/xxx.yml)
+name: Hexo Build &amp; Deploy - Private to Publicon:  push:    branches: [ main ]jobs:  build:    runs-on: ubuntu-latest    steps:    # 检出 库1 &amp; 库2    - name: Checkout    uses: actions/checkout@v3.0.0    with:      token: ${{ secrets.CHK_PAT }} # Personal Access Token，稍后我们会在 库1 中进行配置      submodules: 'true' # 检出 submodule      persist-credentials: false    # 设置 node 环境    - name: Prepare Node env    uses: actions/setup-node@v3    with:      node-version: 16    # 设置 hexo 环境并编译    - name: Hexo    run: |      npm i -g hexo-cli      npm i      hexo clean &amp;&amp; hexo g    # 将生成的文件发布到 库3    - name: Deploy    uses: JamesIves/github-pages-deploy-action@v4.3.3    with:      ssh-key: ${{ secrets.DEPLOY_KEY }} # 部署密钥的私钥，稍后我们会在 库1 中进行配置      repository-name: clistery/clistery.github.io # 库3的名字，格式为 user/repository      branch: main # 发布到库3的 main 分支      folder: public # 库3的类型，公共库      single-commit: true      commit-message: "Deploy by source"
+
+配置 Workflows 变量
+打开 库1 -&gt; Settings -&gt; Security -&gt; Secrets -&gt; Actions
+
+配置 CHK_PAT
+
+点击 New repository secret
+Name 输入 CHK_PAT
+Secret 输入 配置 PAT(Personal Access Token) 时生成的 token
+Add secret
+
+
+配置 DEPLOY_KEY
+
+点击 New repository secret
+Name 输入 DEPLOY_KEY
+Secret 输入 生成密钥 时生成的私钥
+Add secret
+
+
+
+
+最后现在一切配置妥当之后，你就可以向 库1 和 库2 中推送代码，workflow 就会自动将代码部署到 库3 中，不出意外的话就可以在 xxx.github.io 中看到更新了
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>Github Pages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cygwin 自定义主题</title>
+    <url>/2023/02/16/cygwin/customize-theme-cygwin/</url>
+    <content><![CDATA[
+定制一个自己喜欢的主题，展示一些个性化的内容
+
+步骤
+官方自带的主题文件在 .oh-my-zsh/themes 目录下，可以通过 omz theme list 命令查看所有可用的主题
+
+先通过 omz theme set {theme_name} 命令设置主题，找到一个最贴切自己喜好的主题
+
+然后可以再查看 .oh-my-zsh/themes 下同名的主题文件，复制到 .oh-my-zsh/custom/themes 目录并改名即可
+
+编辑刚才创建的文件内容，并修改其内部样式直至完美，通过 omz theme set {theme_name} 命令设置自定义主题即可
+
+
+最后贴一份我自己的主题文件
+效果
+# clistery @ work in ~ on git:master x [ababa112] [10:09:31] C:0$
+
+cyh.zsh-theme
+# Clean, simple, compatible and meaningful.# Tested on Linux, Unix and Windows under ANSI colors.# It is recommended to use with a dark background.# Colors: black, red, green, yellow, *blue, magenta, cyan, and white.## Nov 2022 CListeryRED=$fg[red]YELLOW=$fg[yellow]GREEN=$fg[green]WHITE=$fg[white]BLUE=$fg[blue]RED_BOLD=$fg_bold[red]YELLOW_BOLD=$fg_bold[yellow]GREEN_BOLD=$fg_bold[green]WHITE_BOLD=$fg_bold[white]BLUE_BOLD=$fg_bold[blue]RESET_COLOR=$reset_color# VCSCL_VCS_PROMPT_PREFIX1=" %{$reset_color%}on%{$fg[blue]%} "CL_VCS_PROMPT_PREFIX2=":%{$fg[cyan]%}"CL_VCS_PROMPT_SUFFIX="%{$reset_color%}"CL_VCS_PROMPT_DIRTY=" %{$RED%}x"CL_VCS_PROMPT_CLEAN=" %{$GREEN%}o"# Git infolocal git_info='$(git_prompt_info)$(git_prompt_short_sha)'ZSH_THEME_GIT_PROMPT_PREFIX="${CL_VCS_PROMPT_PREFIX1}git${CL_VCS_PROMPT_PREFIX2}"ZSH_THEME_GIT_PROMPT_SUFFIX="$CL_VCS_PROMPT_SUFFIX"ZSH_THEME_GIT_PROMPT_DIRTY="$CL_VCS_PROMPT_DIRTY"ZSH_THEME_GIT_PROMPT_CLEAN="$CL_VCS_PROMPT_CLEAN"# Format for git_prompt_long_sha() and git_prompt_short_sha()ZSH_THEME_GIT_PROMPT_SHA_BEFORE=" %{$reset_color%}%{$fg[white]%}[%{$YELLOW%}"ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$fg[white]%}]"# SVN infolocal svn_info='$(svn_prompt_info)'ZSH_THEME_SVN_PROMPT_PREFIX="${CL_VCS_PROMPT_PREFIX1}svn${CL_VCS_PROMPT_PREFIX2}"ZSH_THEME_SVN_PROMPT_SUFFIX="$CL_VCS_PROMPT_SUFFIX"ZSH_THEME_SVN_PROMPT_DIRTY="$CL_VCS_PROMPT_DIRTY"ZSH_THEME_SVN_PROMPT_CLEAN="$CL_VCS_PROMPT_CLEAN"# HG infolocal hg_info='$(cl_hg_prompt_info)'cl_hg_prompt_info() {  # make sure this is a hg dir  if [ -d '.hg' ]; then    echo -n "${CL_VCS_PROMPT_PREFIX1}hg${CL_VCS_PROMPT_PREFIX2}"    echo -n $(hg branch 2&gt;/dev/null)    if [[ "$(hg config oh-my-zsh.hide-dirty 2&gt;/dev/null)" != "1" ]]; then      if [ -n "$(hg status 2&gt;/dev/null)" ]; then        echo -n "$CL_VCS_PROMPT_DIRTY"      else        echo -n "$CL_VCS_PROMPT_CLEAN"      fi    fi    echo -n "$CL_VCS_PROMPT_SUFFIX"  fi}# Virtualenvlocal venv_info='$(virtenv_prompt)'CL_THEME_VIRTUALENV_PROMPT_PREFIX=" %{$GREEN%}"CL_THEME_VIRTUALENV_PROMPT_SUFFIX=" %{$reset_color%}%"virtenv_prompt() {  [[ -n "${VIRTUAL_ENV:-}" ]] || return  echo "${CL_THEME_VIRTUALENV_PROMPT_PREFIX}${VIRTUAL_ENV:t}${CL_THEME_VIRTUALENV_PROMPT_SUFFIX}"}local exit_code="%(?,,C:%{$RED%}%?%{$reset_color%})"# Prompt format:## PRIVILEGES USER @ MACHINE in DIRECTORY on git:BRANCH STATE [SHA] [TIME] C:LAST_EXIT_CODE# $ COMMAND## For example:## % clistery @ work in ~ on git:master x [ababa112] [10:09:31] C:0# $PROMPT="%{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \%(#,%{$bg[yellow]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n) \%{$reset_color%}@ \%{$GREEN%}%m \%{$reset_color%}in \%{$terminfo[bold]$YELLOW%}%~%{$reset_color%}\${hg_info}\${git_info}\${svn_info}\${venv_info}\\[%*] $exit_code%{$terminfo[bold]$RED%}$ %{$reset_color%}"
+
+]]></content>
+      <categories>
+        <category>cygwin</category>
+      </categories>
+      <tags>
+        <tag>cygwin</tag>
+        <tag>theme</tag>
+        <tag>linux</tag>
+        <tag>shell</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cygwin 创建文件权限问题</title>
+    <url>/2023/02/15/cygwin/fstab-error-cygwin/</url>
+    <content><![CDATA[
+在通过命令行，如：mkdir test 创建一个目录或文件后，通过右键属性打开安全选项卡时，Windows 会提示 test 上的权限顺序不正确，而后可能会导致一些文件权限操作上的异常问题发生
+
+原因Cygwin 的主要目的是通过重新编译，将 POSIX 系统（例如 Linux、BSD，以及其他 Unix 系统）上的软件移植到 Windows 上。
+所以 Cygwin 自带的对文件的创建命令同样也是通过移植 POSIX 的方式实现，这一点我们可以通过 cygwin 安装目录下的 /etc/fstab 文件内容得到验证
+# This is default anyway:none /cygdrive cygdrive binary,posix=0,user 0 0
+
+解决方案默认情况下，Cygwin 使用文件系统的访问控制列表 (ACL) 来实现真正的 POSIX 权限。
+某些 Windows 本地程序或进程可能会创建或修改 ACL，导致 Cygwin 将 POSIX 权限计算为 000。
+所以需要将 /etc/fstab 改为如下内容：
+none /cygdrive cygdrive binary,noacl,posix=0,user 0 0
+
+使用 noacl 挂载选项，Cygwin 会忽略文件系统 ACL，并且只会根据 DOS 只读属性伪造权限位的子集。
+最后关闭所有 Cygwin 及相关进程（或者直接重启系统），打开一个新终端并再次对您的文件执行 ls -l
+参考
+Cygwin
+cygwin-sets-file-permission-to-000
+
+]]></content>
+      <categories>
+        <category>cygwin</category>
+      </categories>
+      <tags>
+        <tag>cygwin</tag>
+        <tag>linux</tag>
+        <tag>shell</tag>
+        <tag>fstab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设置 Cygwin</title>
+    <url>/2022/11/15/cygwin/setup-cygwin/</url>
+    <content><![CDATA[Windows Terminal + CygwinWindows Terminal
+命令行：${Cygwin安装目录}\Cygwin.bat启动目录：勾选使用父进程
+
+zsh
+
+vim /etc/passwd
+
+找到你当前用户一行，将末尾改为 /bin/zsh
+IntelliJ系列 + CygwinSettings -&gt; Tools -&gt; Terminal -&gt; Application Settings -&gt; Shell path: ${Cygwin安装目录}\Cygwin.bat
+VSCode + Cygwin"terminal.integrated.profiles.windows": {    "Cygwin": {        "path": [            "${Cygwin安装目录}\Cygwin.bat"        ],        "icon": "terminal-cmd"    }}
+]]></content>
+      <categories>
+        <category>cygwin</category>
+      </categories>
+      <tags>
+        <tag>cygwin</tag>
+        <tag>linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cygwin 设置 HOME 目录</title>
+    <url>/2023/02/16/cygwin/setup-home-dir-cygwin/</url>
+    <content><![CDATA[
+由于 Windows 下复杂的环境问题，通过其他软件结合 Cygwin 打开命令行时，默认的 HOME 目录极有可能出现问题，且新版本 Windows Terminal + Cygwin 在 Windows 资源管理器中右键菜单打开终端时会出现无法直接进入到当前目录的情况
+
+环境Windows Terminal + Cygwin + zsh
+步骤
+勾选 Windows Terminal 中配置文件 Cygwin 启动目录中的 使用父进程目录
+
+
+修改 Cygwin.bat，添加以下内容
+set _T=%CD%.\zsh --login -i
+
+同时如果不想外部传入 HOME 环境变量可在第一行添加
+set HOME=
+
+修改 .zshrc
+_T=${_T//\\//}if [[ $_T != "C:/WINDOWS/System32" ]]; then cd "$_T"fi
+
+]]></content>
+      <categories>
+        <category>cygwin</category>
+      </categories>
+      <tags>
+        <tag>cygwin</tag>
+        <tag>linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>优化 docker 镜像构建时需要重复下载 apk</title>
+    <url>/2023/10/07/docker/apline-apk-locally/</url>
+    <content><![CDATA[
+众所周知，如果我们需要在 docker 镜像构建时通过包管理器下载一些软件，那么每次我们在修改 DockerFile 时，都需要重新下载一遍，这样会导致构建时间变长，而且如果我们的网络不是很好，那么下载的过程中还可能会出现失败的情况，这样就会导致构建失败，所以我们需要优化这个过程。
+
+环境
+宿主机: 20.04.6 LTS (Focal Fossa)
+docker: Docker version 24.0.4, build 3713ee1
+docker-compose: docker-compose version 1.27.4, build 40524192
+alpine: 3.11.6
+
+示例
+这里以 在 Docker 中为 Nginx:alpine 安装模块 为例
+
+在这个 DockerFile 中，我们需要编译 nginx，所以有以下这行命令被执行：
+# ...apk add --no-cache --virtual dependency gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers \# ...
+
+每次在构建镜像时都会重新下载这些包 gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers，每次只要修改的内容在这行命令之前都会重新触发下载，这将大大增加构建时间，也白白浪费带宽。
+
+优化思路
+
+办法很简单，就是将这些包保存到本地，在构建时在使用已经下载完成的包进行安装，整过构建流程就会被加快
+
+
+
+获取 apk 包
+这里以 gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers 为例
+
+
+进入 alpine 镜像
+docker run -it alpine:3.11.6 /bin/sh
+
+将包下载到本地
+# 设置镜像源sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories# 下载包apk fetch --recursive --no-cache gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers -o /tmp
+
+下载后的 apk 文件会保存在 /tmp 目录下
+
+将包复制到宿主机
+docker cp &lt;containerId&gt;:/tmp /host/path/apk
+
+使用本地 apk 包
+修改 DockerFile
+# ...COPY /host/path/apk /tmp # 将本地的 apk 复制到镜像中RUN apk add --no-cache --virtual dependency /tmp/*.apk \ # 使用本地的 apk 进行安装# ...
+
+构建镜像
+docker build -t nginx:alpine .
+
+到这里，我们就可以发现构建速度已经有了较大的提升
+
+
+后记总结一下优缺点：
+
+优点
+
+构建速度提升
+避免了因为网络问题而导致构建失败
+足够灵活，如果我们不需要某个包或需要临时增加某个包，只需要修改本地的 apk 包即可
+
+
+缺点
+
+需要手动下载 apk 包，并复制到镜像中
+需要匹配包的版本和镜像的版本，否则可能会出现不兼容的情况，当然这种情况只需要重新下载即可
+
+
+
+当然，不仅仅只有这一种方式，还有其他的方式，比如通过创建一个已经安装好这些包的基础镜像，再通过这个基础镜像进行后续编译，但是这种方式的弊端也比较明显，不够灵活，所以我个人还是更喜欢上面这种方式。
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>alpine</tag>
+        <tag>dockerfile</tag>
+        <tag>docker image</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 Docker 中为 Nginx:alpine 安装模块</title>
+    <url>/2023/07/27/docker/apline-nginx-install-module/</url>
+    <content><![CDATA[
+通过 DockerFile 给基于 nginx:apline 构建的镜像安装 HTTP Echo 模块
+
+环境
+宿主机: 20.04.6 LTS (Focal Fossa)
+docker: Docker version 24.0.4, build 3713ee1
+docker-compose: docker-compose version 1.27.4, build 40524192
+nginx: nginx:1.19.1-alpine
+nginx-module
+HTTP Echo: 0.63
+
+
+
+DockerFileFROM nginx:1.19.1-alpine as baseRUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.cernet.edu.cn/g" /etc/apk/repositories;FROM base as buildENV ECHO_NGINX_MODULE_VERSION 0.63RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.cernet.edu.cn/g" /etc/apk/repositories;RUN NGINX_VER=`nginx -v 2&gt;&amp;1 | cut -d '/' -f 2` \    &amp;&amp; cd /tmp \    &amp;&amp; wget http://nginx.org/download/nginx-${NGINX_VER}.tar.gz -O nginx-${NGINX_VER}.tar.gz \    &amp;&amp; wget https://github.com/openresty/echo-nginx-module/archive/refs/tags/v${ECHO_NGINX_MODULE_VERSION}.tar.gz -O echo-nginx-module-${ECHO_NGINX_MODULE_VERSION}.tar.gz \    &amp;&amp; apk add --no-cache --virtual dependency gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers \    &amp;&amp; tar zxf nginx-${NGINX_VER}.tar.gz \    &amp;&amp; tar zxf echo-nginx-module-${ECHO_NGINX_MODULE_VERSION}.tar.gz  \    &amp;&amp; cd nginx-${NGINX_VER} \    &amp;&amp; CONFARGS=$(nginx -V 2&gt;&amp;1 | sed -n -e 's/^configure arguments: //p') \    &amp;&amp; echo $CONFARGS \    &amp;&amp; sh -c "./configure --with-compat ${CONFARGS} --add-dynamic-module=../echo-nginx-module-${ECHO_NGINX_MODULE_VERSION}" \    &amp;&amp; make modules \    &amp;&amp; apk del dependency \    &amp;&amp; rm -rf /var/cache/apk/* \    &amp;&amp; mkdir -p /tmp/objs \    &amp;&amp; cp /tmp/nginx-${NGINX_VER}/objs/*.so /tmp/objs/ \    &amp;&amp; ls /tmp/objs -alFROM baseCOPY --from=build /tmp/objs/ngx_http_echo_module.so /etc/nginx/modulesRUN sed -i '1s/^/load_module \/etc\/nginx\/modules\/ngx_http_echo_module.so;\n/' /etc/nginx/nginx.confWORKDIR /www
+
+更多参考https://nginx.org/en/docs/configure.htmlhttps://www.nginx.com/resources/wiki/modules/
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>docker</tag>
+        <tag>alpine</tag>
+        <tag>nginx</tag>
+        <tag>nginx-module</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次 DockerCompose 配置 22 端口映射遇到的坑</title>
+    <url>/2022/11/11/docker/port-22-bug/</url>
+    <content><![CDATA[
+在一次偶然的机会下触发了一个端口映射的bug
+
+配置docker-compose.yml
+version: "3.8"services:    machine:        image: ubuntu:20.04        container_name: "ubuntu_2004"        restart: always        tty: true        ports:            - 9500:80            - 9501:22
+
+乍一看没啥毛病是吧，运行试一下
+$ docker-compose upCreating network "ubuntu2_default" with the default driverCreating ubuntu_2004 ... errorERROR: for ubuntu_2004  Cannot create container for service machine: invalid port specification: "570082"ERROR: for machine  Cannot create container for service machine: invalid port specification: "570082"ERROR: Encountered errors while bringing up the project.
+
+这就是 22 端口导致的问题，我们把配置文件的端口改为以下写法就可以解决问题了
+ports:    - "9500:80"    - "9501:22"
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>ssh</tag>
+        <tag>22-port</tag>
+        <tag>bugs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>通过 ssh 桥接方式连接远程 docker 中的 ubuntu</title>
+    <url>/2022/11/11/docker/ssh-bridge/</url>
+    <content><![CDATA[
+很多时候我们的 docker 环境都不在本地，而通过 ssh 连接远程服务器然后在通过 docker 命令进入容器貌似又有点繁琐，所以直接一步到位搞个跳板可以让我们直接访问到容器
+
+配置容器DockerCompose
+配置 docker-compose.yml
+  version: "3.8"services:    ccc:        image: ubuntu:20.04        container_name: "ubuntu_2004"        restart: always        tty: true        ports:            - "9500:80"            - "9501:22"
+
+运行
+  docker-compose up -d
+
+进入容器
+  docker exec -it ubuntu_2004 /bin/bash
+
+安装 openssh-server
+  apt update &amp;&amp; apt install openssh-server
+
+配置 ssh 公钥
+  mkdir ~/.ssh &amp;&amp; touch ~/.ssh/authorized_keys &amp;&amp; chmod 600 ~/.ssh/authorized_keys
+
+最后将公钥写入到 ~/.ssh/authorized_keys 文件中，就完成了容器配置
+本地跳板配置# 远程主机(跳板)Host ubuntu    Port 22    User ubuntu    IdentityFile ~/.ssh/id_rsa# docker 容器Host docker_ubuntu    HostName 0.0.0.0    Port 9501    User root    IdentityFile ~/.ssh/id_rsa    ProxyCommand ssh -q -W %h:%p ubuntu
+
+然后通过 ssh docker_ubuntu 命令就可以直接访问到远程 docker 容器了~
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>ssh</tag>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>通过 ssh 连接 docker 中的 dsm</title>
+    <url>/2023/12/06/dsm/access-dsm-ssh/</url>
+    <content><![CDATA[
+之前我们在 在 docker 中安装 DSM 安装了 DSM，现在我们需要通过 ssh 连接到 DSM 中，本文将介绍如何通过 ssh 连接到 DSM 中。
+
+由于 DSM 是搭建在 docker 下的，所以我们要连接到 DSM 大概思路如下
+
+通过 ssh 连接到宿主机
+再通过宿主机 ssh 连接本地端口登录到 DSM
+
+有点繁琐，简化一下操作，通过宿主机建立一个 ssh jump server，然后通过 ssh jump server 连接到 DSM，这样一步就完成了登录 DSM
+关于 ssh jump server 的搭建流程可以查看这篇博客 通过 ssh 桥接方式连接远程 docker 中的 ubuntu, 这里不再赘述
+配置
+需要先打开 DSM 的 ssh 服务
+
+打开 DSM 控制面板 -&gt; 终端机和 SNMP -&gt; 终端机 -&gt; 启用 SSH 服务
+
+
+修改 docker-compose.yml
+services:  dsm:    # ...    ports:      - 3456:22
+
+重启 DSM
+docker-compose restart dsm
+
+创建 home 目录
+因为 ssh 登录后默认会进入到用户的 home 目录，所以我们需要创建一个用户所对应的 home 目录
+这一步需要在 DSM 中完成，操作非常简单，只需要安装 Synology Photos 即可，安装完成后会自动创建 home 目录
+
+配置 ssh 公钥
+将你的公钥写入到 /var/services/homes/&lt;username&gt;/authorized_keys 文件中
+vim /etc/ssh/sshd_config
+
+Match User &lt;username&gt;  AuthorizedKeysFile /var/services/homes/&lt;username&gt;/authorized_keys  PasswordAuthentication no  PubkeyAuthentication yes
+
+修改宿主机 ssh 跳板
+这一步可以参考 通过 ssh 桥接方式连接远程 docker 中的 ubuntu 完成
+sudo vim /etc/ssh/sshd_config
+
+Match User dsm  AuthorizedKeysFile /home/app/.ssh/authorized_keys  PasswordAuthentication no  PubkeyAuthentication yes
+
+配置客户端 ssh
+这一步可以参考 通过 ssh 桥接方式连接远程 docker 中的 ubuntu 完成
+vim ~/.ssh/config
+
+Host app HostName &lt;host&gt; Port 22 User dsm IdentityFile ~/.ssh/id_rsaHost docker_dsm  HostName 0.0.0.0  Port 3456  User &lt;username&gt;  IdentityFile ~/.ssh/id_rsa  ProxyCommand ssh -q -W %h:%p app
+
+连接 DSM
+ssh docker_dsm
+
+]]></content>
+      <categories>
+        <category>dsm</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>dsm</tag>
+        <tag>virtual dsm</tag>
+        <tag>synology dsm</tag>
+        <tag>ssh jump server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修复 virtual DSM 无法访问网络</title>
+    <url>/2023/12/06/dsm/fix-dsm-network-issue/</url>
+    <content><![CDATA[
+之前我们在 在 docker 中安装 DSM 时，我们在 docker 中安装了一个虚拟的 DSM，但是在安装完成后，我们发现 DSM 可以正常安装套件，但是 NTP 和 邮件通知 等服务都无法正常工作，所以我们需要修复这个问题。
+
+添加 DNS
+修改 docker-compose.yml
+services:  dsm:    # ...    dns:      - 8.8.8.8      - 1.0.0.1
+
+修改 DSM 网络配置
+
+打开 DSM 控制面板
+点击网络
+切换到常规选项卡
+勾选手动配置 DNS 服务器首选 DNS: 8.8.8.8备选 DNS: 1.0.0.1
+
+
+
+重启 DSMdocker-compose restart dsm
+]]></content>
+      <categories>
+        <category>dsm</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>dsm</tag>
+        <tag>virtual dsm</tag>
+        <tag>synology dsm</tag>
+        <tag>network error</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决反向代理群晖时客户端IP不正确</title>
+    <url>/2025/05/22/dsm/fix-reverse-proxy-dsm-remote-ip/</url>
+    <content><![CDATA[
+通过 nginx 反向代理群晖流量后导致群晖显示登录 IP 不正确
+
+问题诱因由于外部用作反向代理的 nginx 和 群晖 是通过 docker 容器搭建的，所以对于 nginx 和 群晖 来讲，它们分别是处于 docker 网络环境下的不同虚拟机，所以群晖内部 nginx 自带的 set_real_ip_from 127.0.0.1 配置就无效了
+群晖内部 nginx 配置
+由于群晖重启后会重置，所以直接修改 /etc/nginx/ 下的文件不是首选
+
+所以通过找寻 nginx 模板文件 /usr/syno/share/nginx/nginx.mustache 发现有以下内容
+real_ip_header            X-Forwarded-For;real_ip_recursive         on;set_real_ip_from          127.0.0.1;   ---&gt; 这里就是群晖默认自带的信任IP{{#DSM.trust_proxy}}set_real_ip_from          {{.}};       ---&gt; 通过 DSM.trust_proxy 即可动态配置信任IP{{/DSM.trust_proxy}}
+
+通过查找相关文档 DSM.trust_proxy 可以通过群晖的 控制面板-&gt;安全性-&gt;信任的代理服务器 配置，打开 信任的代理服务器 配置后，直接新增一条 外部代理nginx 的 IP 或 IP段 即可
+]]></content>
+      <categories>
+        <category>dsm</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>dsm</tag>
+        <tag>virtual dsm</tag>
+        <tag>synology dsm</tag>
+        <tag>reverse proxy</tag>
+        <tag>remote ip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 Linux 环境下为 DSM 安装软件</title>
+    <url>/2023/12/06/dsm/install-pkg-with-entware/</url>
+    <content><![CDATA[
+之前介绍了如何通过 ssh 连接到 DSM，现在我们需要在 DSM 中安装一些软件，本文将介绍如何在 DSM 中安装软件。
+
+首先需要将 ssh 连接到 DSM 中，具体可以参考 通过 ssh 连接 docker 中的 dsm
+安装 Entware
+由于 Linux DSM 不同于普通的 Linux 发布版，所以我们不能直接使用 apt 或者 yum 等包管理器来安装软件，所以需要通过 Entware 来安装软件
+
+
+首先查看平台架构
+uname -m
+
+Entware 支持如下几种平台：
+
+armv7
+x86
+x86_64
+armv5
+mips
+mipsel
+armv8/aarch64
+
+
+创建 Entware 安装目录
+
+确保 /opt 目录可以被操作
+stat -c '%a' /opt
+
+如果返回大于等于 600，则可以继续操作
+
+创建 /opt 并挂载
+mkdir -p /volume1/@Entware/optrm -rf /optmkdir /optmount -o bind /volume1/@Entware/opt /opt
+
+
+如果挂载失败，则使用软链接的方式创建目录
+
+ln -s /volume1/@Entware/opt/ /opt
+
+
+安装 Entware
+
+
+根据平台架构选择对应的安装命令
+
+armv7
+wget -O - https://bin.entware.net/armv7sf-k2.6/installer/generic.sh | sh
+
+x86
+wget -O - https://bin.entware.net/x86-k2.6/installer/generic.sh | sh
+
+x86_64
+wget -O - https://bin.entware.net/x64-k3.2/installer/generic.sh | sh
+
+armv5
+wget -O - https://bin.entware.net/armv5sf-k3.2/installer/generic.sh | sh
+
+mips
+wget -O - https://bin.entware.net/mipssf-k3.4/installer/generic.sh | sh
+
+mipsel
+wget -O - https://bin.entware.net/mipselsf-k3.4/installer/generic.sh | sh
+
+armv8/aarch64
+wget -O - https://bin.entware.net/aarch64-k3.10/installer/generic.sh | sh
+
+
+EntWare 自启动
+
+使用具有管理员权限的账号登录 DSM
+
+打开控制面板
+
+选择任务计划
+
+新增 &gt; 触发的任务 &gt; 用户定义的脚本
+
+常规
+
+名称：EntWare StartUp
+用户账号：root
+事件：开机
+
+
+任务设置
+
+将下面的脚本粘贴到运行命令
+#!/bin/sh# Mount EntWaremkdir -p /optmount -o bind /volume1/@Entware/opt /opt/opt/etc/init.d/rc.unslung start# Add EntWare Profile in Global Profileif grep -qF '/opt/etc/profile' /etc/profile; then  echo "Confirmed: EntWare Profile in Global Profile"else  echo "Adding: EntWare Profile in Global Profile"  cat &gt;&gt;/etc/profile &lt;&lt;"EOF"# Load EntWare Profile[ -r "/opt/etc/profile" ] &amp;&amp; . /opt/etc/profileEOFfi# Configure EntWare Mirrorsed -i 's|https\?://bin.entware.net|https://mirrors.bfsu.edu.cn/entware|g' /opt/etc/opkg.conf# Update EntWare List/opt/bin/opkg update
+
+
+
+
+确定
+
+重启 DSM
+
+
+
+
+]]></content>
+      <categories>
+        <category>dsm</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>dsm</tag>
+        <tag>virtual dsm</tag>
+        <tag>synology dsm</tag>
+        <tag>Linux DSM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 docker 中安装 DSM</title>
+    <url>/2023/12/06/dsm/install-with-docker/</url>
+    <content><![CDATA[
+是的，你没有看错，这篇文章的标题是在 docker 中安装 DSM，而不是在 docker 中安装 DSM，这里的 DSM 是指 Synology DSM，也就是群晖的操作系统，这里我们将在 docker 中安装一个虚拟的 DSM，这样我们就可以在不购买群晖硬件的情况下体验 DSM 的功能了。
+
+环境
+宿主机: 20.04.6 LTS (Focal Fossa)
+docker: Docker version 24.0.6, build ed223bc
+docker compose: Docker Compose version v2.21.0
+DSM: 7.2.1-69057-1
+
+配置
+创建 docker-compose.yml
+
+
+更多的配置可以参考 Virtual DSM
+
+version: '3'services:  dsm:    container_name: dsm    image: docker.io/clistery/virtual-dsm:latest    environment:      URL: 'https://cndl.synology.cn/download/DSM/release/7.2.1/69057-1/DSM_VirtualDSM_69057.pat'      DISK_SIZE: '100G'      DISK2_SIZE: '100G'      RAM_SIZE: '4G'      CPU_CORES: '4'    devices:      - /dev/kvm      - /dev/net/tun      - /dev/vhost-net    device_cgroup_rules:      - 'c *:* rwm'    cap_add:      - NET_ADMIN    ports:      - '5000:5000'    volumes:      - ${PWD}/pat:/pat:ro      - ${PWD}/storage/sda1:/storage:rw      - ${PWD}/storage/sda2:/storage2:rw    restart: on-failure    stop_grace_period: 1m
+
+
+其中镜像 docker.io/clistery/virtual-dsm:latest 是基于 Virtual DSM 构建，在其之上做了一些加速优化，及一些工具配置，也可以直接替换为 vdsm/virtual-dsm:latest。
+
+
+创建目录
+
+
+创建 pat 目录
+创建 storage 目录
+
+
+创建完成后的目录结构如下：
+
+.├── docker-compose.yml├── pat└── storage
+
+安装加速（可选）
+如果使用的镜像是 virtual-dsm:latest，那么可以跳过这一步。这里我们实际安装的版本是 7.2.1，但是由于 7.2.1 中系统关键文件无法解包，只能先通过 7.0.1 解包出关键文件，再进行 7.2.1 版本的安装
+
+
+进入 pat 目录
+
+下载 PAT 文件
+
+7.0.1
+https://cndl.synology.cn/download/DSM/release/7.0.1/42218/DSM_VirtualDSM_42218.pat
+
+dsm.rd
+
+7.0.1 其中的关键文件，可用于加速安装，非必须，如果不提前准备的话，安装过程中会自动下载
+
+curl -r "65627648-71021835" -sfk -o "DSM_VirtualDSM_42218-dsm.rd" "https://cndl.synology.cn/download/DSM/release/7.0.1/42218/DSM_VirtualDSM_42218.pat"
+
+
+7.2.1: https://cndl.synology.cn/download/DSM/release/7.2.1/69057-1/DSM_VirtualDSM_69057.pat
+
+
+
+链接使用了大陆加速，如果无法下载，将链接中的 cndl.synology.cn 替换为 global.download.synology.com
+
+
+
+启动docker-compose up -d
+
+然后就可以打开 docker 日志查看安装进度了，直到看到如下日志，就可以用浏览器通过 :5000 端口访问 docker 容器下的 DSM 了
+❯ --------------------------------------------------------❯  You can now login to DSM at port 5000❯ --------------------------------------------------------
+]]></content>
+      <categories>
+        <category>dsm</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>dsm</tag>
+        <tag>virtual dsm</tag>
+        <tag>synology dsm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 token 访问 git 仓库</title>
+    <url>/2022/10/24/git/token-use/</url>
+    <content><![CDATA[
+可以在无需增加密钥配置的情况下访问指定的单个或多个仓库
+
+这里我们以 gitlab 为例
+创建 access_tokens
+创建 access token 的方式有两种
+项目级别，只对单个项目生效
+帐号级别，对该帐号下的所有项目生效
+
+
+
+项目 access token
+先进入到指定项目
+侧边栏 -&gt; Settings
+Access tokens
+配置 token 的名称，一般我们以用途为名，便于理解
+到期时间如果有需要则设置，不设置则永不过期
+权限范围按需设置
+创建
+将生成的 token 用个记事本保存下来先（离开页面或刷新后 token 都不会再显示了）
+
+帐号级别
+右上角头像 -&gt; Preferences
+侧边栏 -&gt; Access token
+配置 token 的名称，一般我们以用途为名，便于理解
+到期时间如果有需要则设置，不设置则永不过期
+权限范围按需设置
+创建
+将生成的 token 用个记事本保存下来先（离开页面或刷新后 token 都不会再显示了）
+
+配置仓库访问
+使用 token 创建仓库
+  git clone https://oauth2:${token}@xxx.git # 使用刚才创建的 token
+
+将已有仓库改为用 token 访问（同样适用于修改 token）
+  git remote rm origin # 先删除掉已有的远端git remote add origin https://oauth2:${token}@xxx.git # 使用刚才创建的 tokengit fetch origin
+
+最后使用 token 配置的仓库，能对远端仓库 pull/push 或其他操作的限制就取决于创建时配置的权限范围
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>token</tag>
+        <tag>gitlab</tag>
+        <tag>github</tag>
+        <tag>svc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修复 Gitlab-CE 仓库检查错误</title>
+    <url>/2024/10/30/gitlab-ce/fix-repository-checks-error/</url>
+    <content><![CDATA[
+某一天在 gitlab 管理员邮箱中收到了 ‘GitLab Admin | One project failed its last repository check’ 的邮件，点开一看有一个仓库的自检过不了，于是有了这篇博客
+
+原因调查
+根据文档提示，找到自检的日志文件
+/var/log/gitlab/gitlab-rails for Omnibus GitLab installations.
+/home/git/gitlab/log for installations from source.
+
+文件内容
+E, [2024-10-30T07:24:02.126920 #1053] ERROR -- : path/repository: Could not fsck repository: dangling commit d8e2ebdd41444c2b868d6a321c3246ab6831d351
+
+根据日志信息，看起来是一个 dangling commit 引起的，但是仓库本身并没有这个问题，那很可能是 gitlab 的一些缓存信息出现了问题
+
+
+解决方案
+查找 path/repository 仓库在服务器上的文件路径，这里引用官方的文档
+
+在左侧栏的底部，选择 Admin 。
+选择 概览 &gt; 项目，选择项目。
+定位 相对路径 字段。取值类似于："@hashed/0b/91/0b91...f9.git"
+
+
+找到项目文件路径后，我们就可以进行修复了
+
+为避免出现不可控的情况，请确保已经对 gitlab 备份
+
+
+切换到 git 用户
+ su - git
+
+执行检查(这一步出现 error 不用理会)
+
+将之前找到的项目文件路径替换到命令中
+
+ /opt/gitlab/embedded/bin/git \-C /var/opt/gitlab/git-data/repositories/@hashed/0b/91/0b91...f9.git fsck
+
+清理缓存
+ /opt/gitlab/embedded/bin/git \-C /var/opt/gitlab/git-data/repositories/@hashed/0b/91/0b91...f9.git gc
+
+重新执行检查
+ /opt/gitlab/embedded/bin/git \-C /var/opt/gitlab/git-data/repositories/@hashed/0b/91/0b91...f9.git fsck
+
+
+重新触发仓库自检
+
+
+]]></content>
+      <categories>
+        <category>gitlab</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>gitlab</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Google AOSP 源码获取</title>
     <url>/2022/10/19/android/aosp-get/</url>
     <content><![CDATA[
@@ -437,6 +1424,8 @@ mkdir -p /code/outcd /code/kernelmake ARCH=arm64 O=/code/out merge_kirin970_defc
         <category>android</category>
       </categories>
       <tags>
+        <tag>docker</tag>
+        <tag>ubuntu</tag>
         <tag>root</tag>
         <tag>huawei</tag>
         <tag>kernel</tag>
@@ -445,8 +1434,6 @@ mkdir -p /code/outcd /code/kernelmake ARCH=arm64 O=/code/out merge_kirin970_defc
         <tag>frida</tag>
         <tag>lsposed</tag>
         <tag>hook</tag>
-        <tag>docker</tag>
-        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -1498,993 +2485,6 @@ _
       <tags>
         <tag>android</tag>
         <tag>strings</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2023 年 Apple Developer Enterprise Program 续订审核</title>
-    <url>/2023/02/23/apple/2023-apple-developer-enterprise-program/</url>
-    <content><![CDATA[
-又到了一年一度的 Apple 企业级开发帐号的续费了，随之而来的就是帐号续订资格的审核，这里只能说一句，13事儿真多，审核这种东西真的有用？意思人家搞灰产的会给你在里面填：“噢，亲爱的库克，真是不好意思，我拿着你的资源搞了灰产，请你给我审核通过一下哦~”，此处应有掌声。我只想说给你钱还搞那么多逼事儿，真是恶心死人不偿命。
-
-步骤详解Your Organization
-Which best describes your entity? 组织的类型
-
-如实填写
-
-
-Is this the correct name of your organization? 组织的名称是否正确
-
-Yes
-
-
-Is this the correct URL for your organization’s website? 组织官网是否正确
-
-Yes
-
-
-Is this your correct email address? 电子邮件地址是否正确
-
-Yes
-
-
-Are you an employee of the organization? 你是否为该组织员工
-
-Yes
-
-
-Do you have the authority to accept legal agreements on behalf of your organization? 你是否有权代为接受法律协议
-
-Yes
-
-
-重点！！！How many employees does your organization have? 该组织的员工数量
-
-这里必须选择大于 100 人的选项，否则你就会收到 库克 ♂ 你 的邮件！
-
-
-Briefly describe your organization’s primary industry. 描述该组织的经营范围
-
-如实填写
-
-
-
-App Development
-Tell us about an app you’ve developed or distributed through the program that’s been used for at least 6 months. Describe the app’s purpose and functionality, and how frequently it’s used. Include the bundle identifier. 告诉我们您通过该计划开发或分发的应用，该应用已使用至少 6 个月。描述应用的用途和功能，以及使用频率。包括捆绑标识符。
-
-如实填写
-
-
-Who builds your in-house apps? 由谁生成应用程序
-
-Employees
-
-
-How many employees are on your internal app development team? 开发团队成员数量
-
-1-29
-
-
-How many enterprise apps have you built or are you currently building? 已构建或正在构建的应用数量
-
-1-9
-
-
-Do you own the intellectual property rights for all of your in-house apps? 是否拥有所有内部应用程序的知识产权？
-
-Yes
-
-
-Do you own the source code for all of your in-house apps? 是否拥有所有内部应用程序的源代码？
-
-Yes
-
-
-Are you currently developing or distributing enterprise apps for macOS? 目前正在开发或分发适用于 macOS 的企业应用程序吗？
-
-Yes
-
-
-
-App Distribution and Code Sharing
-Do you re-sign compiled apps from other developers to use within your organization? 是否对来自其他开发人员的已编译应用重新签名以在组织内使用？
-
-No
-
-
-Do you act as an app development contractor for other organizations? 您是否担任其他组织的应用程序开发承包商？
-
-No
-
-
-Who are your app’s users? 谁是应用的用户？
-
-Employees within your organization
-
-
-Describe in detail how you distribute your apps to users. 详细描述如何将应用分发给用户
-
-描述分发过程
-
-
-To how many devices does your organization distribute apps using this program? 您的组织使用此程序向多少台设备分发应用程序？
-
-尽量多
-
-
-
-Security and App Testing
-What mechanisms have you put in place to ensure your apps can only be installed by your employees and permitted users? 你采取了哪些机制来确保你的应用只能由你的员工和允许的用户安装？
-
-如实填写
-
-
-Have you ever shared the sign in credentials of the Account Holder with others, including contractors or coworkers? 您是否曾经与其他人（包括承包商或同事）共享帐户持有人的登录凭据？
-
-No
-
-
-Who has access to the sign in credentials of the Account Holder? 谁有权访问帐户持有人的登录凭据？
-
-Account holders
-
-
-Who has access to your Enterprise App Distribution Certificates? 谁有权访问您的企业应用分发证书？
-
-Account holders and authorized developers
-
-
-How do you monitor and control access to your Enterprise App Distribution Certificates? 如何监视和控制对企业应用分发证书的访问？
-
-Enable two-factor authentication, administrator hold, generate P12 to developers
-
-
-Do you use program resources to test apps before publishing them on the App Store? 在将应用发布到 App Store 之前，您是否使用程序资源来测试它们？
-
-No 因为未发布到AppStore
-
-
-Does your organization have more than one membership in the Apple Developer Enterprise Program? 您的组织是否在 Apple 开发人员企业计划中拥有多个成员资格？
-
-No
-
-
-Which of the following uses of the program are necessary for your organization? 您的组织需要以下哪些程序用途？
-
-如实填写
-
-
-
-]]></content>
-      <categories>
-        <category>apple</category>
-      </categories>
-      <tags>
-        <tag>Apple Developer Enterprise Program</tag>
-        <tag>内鬼‘蒂姆·库克’</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在 HexoMatery 主题下配置 utteranc 评论插件</title>
-    <url>/2022/10/20/blog/hexo-matery-setup-utteranc/</url>
-    <content><![CDATA[
-HexoMatery 主题没有自带 utteranc 评论插件，当然我们也可以依葫芦画瓢地搞一个上去
-
-先决条件
-可以保存 utteranc 评论的公共库
-可以提交修改的主题仓库
-
-配置 utteranc 评论库
-先跟以往创建 github 仓库的方式一样创建一个公共代码库
-安装 utteranc app
-
-将 utteranc 插件添加到主题仓库
-创建评论模版 在主题 layout\_partial\ 目录下创建 utterances.ejs 请修改文件中有注释说明的部分为你自己的配置信息
- &lt;div class="card" data-aos="fade-up"&gt;&lt;div id="comment_head"&gt;    &lt;div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;"&gt;        &lt;i class="fas fa-comments fa-fw" aria-hidden="true"&gt;&lt;/i&gt;        &lt;span&gt;评论&lt;/span&gt;    &lt;/div&gt;&lt;/div&gt;&lt;script type="text/javascript"&gt;    $(function() {        if(document.getElementById('contact_plan') !== null){            document.getElementById('comment_head').remove();        }    })&lt;/script&gt;&lt;div id="utterances-container" class="card-content center-align"&gt;    &lt;span class="utterances_loading" style="align-content: center;"&gt;        &lt;i class="fas fa-spinner fa-spin"&gt;&lt;/i&gt;    &lt;/span&gt;    &lt;script type="text/javascript"&gt;        function _checkUtteranc() {            document.getElementsByClassName('utterances').length == 1            ? ($('.utterances_loading').fadeTo(1e3, 0))            : setTimeout(_checkUtteranc, 1000);        }        setTimeout(() =&gt; {            var utterances = document.createElement('script');            utterances.type = 'text/javascript';            utterances.async = true;            utterances.setAttribute('issue-term','title') // 这里我们设置为使用页面标题作为 issue titile，更多的请参阅 utterances 官网            utterances.setAttribute('repo','CListery/hexo-utterances') // 这里设置你自己的 utteranc 评论仓库            utterances.setAttribute('label','comment') // 设置 issue 的标签            $('body').hasClass('DarkMode')            ? (utterances.setAttribute('theme','github-dark'))            : (utterances.setAttribute('theme','github-light')),            utterances.crossorigin = 'anonymous';            utterances.src = 'https://utteranc.es/client.js';            document.getElementById('utterances-container').appendChild(utterances);            _checkUtteranc();        }, 1);    &lt;/script&gt;&lt;/div&gt;&lt;/div&gt;
-
-修改主题模版文件
-
-修改 layout\_partial\post-detail.ejs  在 &lt;% if (theme.gitalk &amp;&amp; theme.gitalk.enable) { %&gt; 上一行添加
-  &lt;% if (theme.utterances &amp;&amp; theme.utterances.enable) { %&gt;    &lt;%- partial('_partial/utterances') %&gt;&lt;% } %&gt;
-
-修改 layout\contact.ejs  在 &lt;% if (theme.gitalk &amp;&amp; theme.gitalk.enable) { %&gt; 上一行添加
-  &lt;% if (theme.utterances &amp;&amp; theme.utterances.enable) { %&gt;    &lt;%- partial('_partial/utterances') %&gt;&lt;% } %&gt;
-
-修改主题中的 _config.yml  添加以下内容
-  utterances:    enable: true
-
-
-
-
-最后以上就完成了 utteranc 评论插件的配置，重启 hexo 服务，不出意外就可以看到了
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>Github Pages</tag>
-        <tag>utteranc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于 Github Pages 的 hexo 博客搭建</title>
-    <url>/2022/10/19/blog/hexo-setup/</url>
-    <content><![CDATA[先决条件网站源码库
-私有仓库，存放你手写的博客源代码，简称 库1
-
-主题库
-私有仓库，存放你自定义的主题代码，将其作为 git submodule 添加到 库1，简称 库2
-
-Github Pages 库(xxx.github.io)
-公共库，存放通过前两个仓库生成的网站页面，简称 库3
-
-
-配置给公共库配置部署密钥
-用于 库1 和 库2 的代码编译后自动部署到 库3
-
-生成密钥ssh-keygen -t ed25519 -C "clistery.github.io" # 这里的名字取什么都行
-
-上传密钥到 库3
-打开 库3 -&gt; Settings -&gt; Security -&gt; Deploy keys -&gt; 将刚才生成的公钥填到这里面
-
-配置 PAT(Personal Access Token)
-用于 Workflow 自动部署是可以对库进行读写
-
-
-点击 Github 右上角头像 -&gt; Settings -&gt; Developer settings -&gt; Personal access tokens -&gt; Tokens(classic) -&gt; Generate new token (classic)
-Note 可以随意填写，最好自己看见能懂就行
-Expiration 过期时间，可以选择不过期
-Select scopes 中勾选 workflow 和 write:packages
-Generate token
-然后把生成的 token(ghp_xxxxx) 保存下来备用
-
-创建 Workflow
-让 库1 &amp; 库2 生成的代码能自动发布到 库3
-
-
-打开 库1 -&gt; Action -&gt; New workflow -&gt; Simple workflow -&gt; Configure(或者直接在 库1 的根目录创建 .github/workflows/xxx.yml)
-name: Hexo Build &amp; Deploy - Private to Publicon:  push:    branches: [ main ]jobs:  build:    runs-on: ubuntu-latest    steps:    # 检出 库1 &amp; 库2    - name: Checkout    uses: actions/checkout@v3.0.0    with:      token: ${{ secrets.CHK_PAT }} # Personal Access Token，稍后我们会在 库1 中进行配置      submodules: 'true' # 检出 submodule      persist-credentials: false    # 设置 node 环境    - name: Prepare Node env    uses: actions/setup-node@v3    with:      node-version: 16    # 设置 hexo 环境并编译    - name: Hexo    run: |      npm i -g hexo-cli      npm i      hexo clean &amp;&amp; hexo g    # 将生成的文件发布到 库3    - name: Deploy    uses: JamesIves/github-pages-deploy-action@v4.3.3    with:      ssh-key: ${{ secrets.DEPLOY_KEY }} # 部署密钥的私钥，稍后我们会在 库1 中进行配置      repository-name: clistery/clistery.github.io # 库3的名字，格式为 user/repository      branch: main # 发布到库3的 main 分支      folder: public # 库3的类型，公共库      single-commit: true      commit-message: "Deploy by source"
-
-配置 Workflows 变量
-打开 库1 -&gt; Settings -&gt; Security -&gt; Secrets -&gt; Actions
-
-配置 CHK_PAT
-
-点击 New repository secret
-Name 输入 CHK_PAT
-Secret 输入 配置 PAT(Personal Access Token) 时生成的 token
-Add secret
-
-
-配置 DEPLOY_KEY
-
-点击 New repository secret
-Name 输入 DEPLOY_KEY
-Secret 输入 生成密钥 时生成的私钥
-Add secret
-
-
-
-
-最后现在一切配置妥当之后，你就可以向 库1 和 库2 中推送代码，workflow 就会自动将代码部署到 库3 中，不出意外的话就可以在 xxx.github.io 中看到更新了
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>Github Pages</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cygwin 自定义主题</title>
-    <url>/2023/02/16/cygwin/customize-theme-cygwin/</url>
-    <content><![CDATA[
-定制一个自己喜欢的主题，展示一些个性化的内容
-
-步骤
-官方自带的主题文件在 .oh-my-zsh/themes 目录下，可以通过 omz theme list 命令查看所有可用的主题
-
-先通过 omz theme set {theme_name} 命令设置主题，找到一个最贴切自己喜好的主题
-
-然后可以再查看 .oh-my-zsh/themes 下同名的主题文件，复制到 .oh-my-zsh/custom/themes 目录并改名即可
-
-编辑刚才创建的文件内容，并修改其内部样式直至完美，通过 omz theme set {theme_name} 命令设置自定义主题即可
-
-
-最后贴一份我自己的主题文件
-效果
-# clistery @ work in ~ on git:master x [ababa112] [10:09:31] C:0$
-
-cyh.zsh-theme
-# Clean, simple, compatible and meaningful.# Tested on Linux, Unix and Windows under ANSI colors.# It is recommended to use with a dark background.# Colors: black, red, green, yellow, *blue, magenta, cyan, and white.## Nov 2022 CListeryRED=$fg[red]YELLOW=$fg[yellow]GREEN=$fg[green]WHITE=$fg[white]BLUE=$fg[blue]RED_BOLD=$fg_bold[red]YELLOW_BOLD=$fg_bold[yellow]GREEN_BOLD=$fg_bold[green]WHITE_BOLD=$fg_bold[white]BLUE_BOLD=$fg_bold[blue]RESET_COLOR=$reset_color# VCSCL_VCS_PROMPT_PREFIX1=" %{$reset_color%}on%{$fg[blue]%} "CL_VCS_PROMPT_PREFIX2=":%{$fg[cyan]%}"CL_VCS_PROMPT_SUFFIX="%{$reset_color%}"CL_VCS_PROMPT_DIRTY=" %{$RED%}x"CL_VCS_PROMPT_CLEAN=" %{$GREEN%}o"# Git infolocal git_info='$(git_prompt_info)$(git_prompt_short_sha)'ZSH_THEME_GIT_PROMPT_PREFIX="${CL_VCS_PROMPT_PREFIX1}git${CL_VCS_PROMPT_PREFIX2}"ZSH_THEME_GIT_PROMPT_SUFFIX="$CL_VCS_PROMPT_SUFFIX"ZSH_THEME_GIT_PROMPT_DIRTY="$CL_VCS_PROMPT_DIRTY"ZSH_THEME_GIT_PROMPT_CLEAN="$CL_VCS_PROMPT_CLEAN"# Format for git_prompt_long_sha() and git_prompt_short_sha()ZSH_THEME_GIT_PROMPT_SHA_BEFORE=" %{$reset_color%}%{$fg[white]%}[%{$YELLOW%}"ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$fg[white]%}]"# SVN infolocal svn_info='$(svn_prompt_info)'ZSH_THEME_SVN_PROMPT_PREFIX="${CL_VCS_PROMPT_PREFIX1}svn${CL_VCS_PROMPT_PREFIX2}"ZSH_THEME_SVN_PROMPT_SUFFIX="$CL_VCS_PROMPT_SUFFIX"ZSH_THEME_SVN_PROMPT_DIRTY="$CL_VCS_PROMPT_DIRTY"ZSH_THEME_SVN_PROMPT_CLEAN="$CL_VCS_PROMPT_CLEAN"# HG infolocal hg_info='$(cl_hg_prompt_info)'cl_hg_prompt_info() {  # make sure this is a hg dir  if [ -d '.hg' ]; then    echo -n "${CL_VCS_PROMPT_PREFIX1}hg${CL_VCS_PROMPT_PREFIX2}"    echo -n $(hg branch 2&gt;/dev/null)    if [[ "$(hg config oh-my-zsh.hide-dirty 2&gt;/dev/null)" != "1" ]]; then      if [ -n "$(hg status 2&gt;/dev/null)" ]; then        echo -n "$CL_VCS_PROMPT_DIRTY"      else        echo -n "$CL_VCS_PROMPT_CLEAN"      fi    fi    echo -n "$CL_VCS_PROMPT_SUFFIX"  fi}# Virtualenvlocal venv_info='$(virtenv_prompt)'CL_THEME_VIRTUALENV_PROMPT_PREFIX=" %{$GREEN%}"CL_THEME_VIRTUALENV_PROMPT_SUFFIX=" %{$reset_color%}%"virtenv_prompt() {  [[ -n "${VIRTUAL_ENV:-}" ]] || return  echo "${CL_THEME_VIRTUALENV_PROMPT_PREFIX}${VIRTUAL_ENV:t}${CL_THEME_VIRTUALENV_PROMPT_SUFFIX}"}local exit_code="%(?,,C:%{$RED%}%?%{$reset_color%})"# Prompt format:## PRIVILEGES USER @ MACHINE in DIRECTORY on git:BRANCH STATE [SHA] [TIME] C:LAST_EXIT_CODE# $ COMMAND## For example:## % clistery @ work in ~ on git:master x [ababa112] [10:09:31] C:0# $PROMPT="%{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \%(#,%{$bg[yellow]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n) \%{$reset_color%}@ \%{$GREEN%}%m \%{$reset_color%}in \%{$terminfo[bold]$YELLOW%}%~%{$reset_color%}\${hg_info}\${git_info}\${svn_info}\${venv_info}\\[%*] $exit_code%{$terminfo[bold]$RED%}$ %{$reset_color%}"
-
-]]></content>
-      <categories>
-        <category>cygwin</category>
-      </categories>
-      <tags>
-        <tag>shell</tag>
-        <tag>cygwin</tag>
-        <tag>theme</tag>
-        <tag>linux</tag>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cygwin 创建文件权限问题</title>
-    <url>/2023/02/15/cygwin/fstab-error-cygwin/</url>
-    <content><![CDATA[
-在通过命令行，如：mkdir test 创建一个目录或文件后，通过右键属性打开安全选项卡时，Windows 会提示 test 上的权限顺序不正确，而后可能会导致一些文件权限操作上的异常问题发生
-
-原因Cygwin 的主要目的是通过重新编译，将 POSIX 系统（例如 Linux、BSD，以及其他 Unix 系统）上的软件移植到 Windows 上。
-所以 Cygwin 自带的对文件的创建命令同样也是通过移植 POSIX 的方式实现，这一点我们可以通过 cygwin 安装目录下的 /etc/fstab 文件内容得到验证
-# This is default anyway:none /cygdrive cygdrive binary,posix=0,user 0 0
-
-解决方案默认情况下，Cygwin 使用文件系统的访问控制列表 (ACL) 来实现真正的 POSIX 权限。
-某些 Windows 本地程序或进程可能会创建或修改 ACL，导致 Cygwin 将 POSIX 权限计算为 000。
-所以需要将 /etc/fstab 改为如下内容：
-none /cygdrive cygdrive binary,noacl,posix=0,user 0 0
-
-使用 noacl 挂载选项，Cygwin 会忽略文件系统 ACL，并且只会根据 DOS 只读属性伪造权限位的子集。
-最后关闭所有 Cygwin 及相关进程（或者直接重启系统），打开一个新终端并再次对您的文件执行 ls -l
-参考
-Cygwin
-cygwin-sets-file-permission-to-000
-
-]]></content>
-      <categories>
-        <category>cygwin</category>
-      </categories>
-      <tags>
-        <tag>shell</tag>
-        <tag>cygwin</tag>
-        <tag>linux</tag>
-        <tag>fstab</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>设置 Cygwin</title>
-    <url>/2022/11/15/cygwin/setup-cygwin/</url>
-    <content><![CDATA[Windows Terminal + CygwinWindows Terminal
-命令行：${Cygwin安装目录}\Cygwin.bat启动目录：勾选使用父进程
-
-zsh
-
-vim /etc/passwd
-
-找到你当前用户一行，将末尾改为 /bin/zsh
-IntelliJ系列 + CygwinSettings -&gt; Tools -&gt; Terminal -&gt; Application Settings -&gt; Shell path: ${Cygwin安装目录}\Cygwin.bat
-VSCode + Cygwin"terminal.integrated.profiles.windows": {    "Cygwin": {        "path": [            "${Cygwin安装目录}\Cygwin.bat"        ],        "icon": "terminal-cmd"    }}
-]]></content>
-      <categories>
-        <category>cygwin</category>
-      </categories>
-      <tags>
-        <tag>shell</tag>
-        <tag>cygwin</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cygwin 设置 HOME 目录</title>
-    <url>/2023/02/16/cygwin/setup-home-dir-cygwin/</url>
-    <content><![CDATA[
-由于 Windows 下复杂的环境问题，通过其他软件结合 Cygwin 打开命令行时，默认的 HOME 目录极有可能出现问题，且新版本 Windows Terminal + Cygwin 在 Windows 资源管理器中右键菜单打开终端时会出现无法直接进入到当前目录的情况
-
-环境Windows Terminal + Cygwin + zsh
-步骤
-勾选 Windows Terminal 中配置文件 Cygwin 启动目录中的 使用父进程目录
-
-
-修改 Cygwin.bat，添加以下内容
-set _T=%CD%.\zsh --login -i
-
-同时如果不想外部传入 HOME 环境变量可在第一行添加
-set HOME=
-
-修改 .zshrc
-_T=${_T//\\//}if [[ $_T != "C:/WINDOWS/System32" ]]; then cd "$_T"fi
-
-]]></content>
-      <categories>
-        <category>cygwin</category>
-      </categories>
-      <tags>
-        <tag>shell</tag>
-        <tag>cygwin</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>优化 docker 镜像构建时需要重复下载 apk</title>
-    <url>/2023/10/07/docker/apline-apk-locally/</url>
-    <content><![CDATA[
-众所周知，如果我们需要在 docker 镜像构建时通过包管理器下载一些软件，那么每次我们在修改 DockerFile 时，都需要重新下载一遍，这样会导致构建时间变长，而且如果我们的网络不是很好，那么下载的过程中还可能会出现失败的情况，这样就会导致构建失败，所以我们需要优化这个过程。
-
-环境
-宿主机: 20.04.6 LTS (Focal Fossa)
-docker: Docker version 24.0.4, build 3713ee1
-docker-compose: docker-compose version 1.27.4, build 40524192
-alpine: 3.11.6
-
-示例
-这里以 在 Docker 中为 Nginx:alpine 安装模块 为例
-
-在这个 DockerFile 中，我们需要编译 nginx，所以有以下这行命令被执行：
-# ...apk add --no-cache --virtual dependency gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers \# ...
-
-每次在构建镜像时都会重新下载这些包 gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers，每次只要修改的内容在这行命令之前都会重新触发下载，这将大大增加构建时间，也白白浪费带宽。
-
-优化思路
-
-办法很简单，就是将这些包保存到本地，在构建时在使用已经下载完成的包进行安装，整过构建流程就会被加快
-
-
-
-获取 apk 包
-这里以 gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers 为例
-
-
-进入 alpine 镜像
-docker run -it alpine:3.11.6 /bin/sh
-
-将包下载到本地
-# 设置镜像源sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories# 下载包apk fetch --recursive --no-cache gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers -o /tmp
-
-下载后的 apk 文件会保存在 /tmp 目录下
-
-将包复制到宿主机
-docker cp &lt;containerId&gt;:/tmp /host/path/apk
-
-使用本地 apk 包
-修改 DockerFile
-# ...COPY /host/path/apk /tmp # 将本地的 apk 复制到镜像中RUN apk add --no-cache --virtual dependency /tmp/*.apk \ # 使用本地的 apk 进行安装# ...
-
-构建镜像
-docker build -t nginx:alpine .
-
-到这里，我们就可以发现构建速度已经有了较大的提升
-
-
-后记总结一下优缺点：
-
-优点
-
-构建速度提升
-避免了因为网络问题而导致构建失败
-足够灵活，如果我们不需要某个包或需要临时增加某个包，只需要修改本地的 apk 包即可
-
-
-缺点
-
-需要手动下载 apk 包，并复制到镜像中
-需要匹配包的版本和镜像的版本，否则可能会出现不兼容的情况，当然这种情况只需要重新下载即可
-
-
-
-当然，不仅仅只有这一种方式，还有其他的方式，比如通过创建一个已经安装好这些包的基础镜像，再通过这个基础镜像进行后续编译，但是这种方式的弊端也比较明显，不够灵活，所以我个人还是更喜欢上面这种方式。
-]]></content>
-      <categories>
-        <category>docker</category>
-      </categories>
-      <tags>
-        <tag>alpine</tag>
-        <tag>docker</tag>
-        <tag>dockerfile</tag>
-        <tag>docker image</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在 Docker 中为 Nginx:alpine 安装模块</title>
-    <url>/2023/07/27/docker/apline-nginx-install-module/</url>
-    <content><![CDATA[
-通过 DockerFile 给基于 nginx:apline 构建的镜像安装 HTTP Echo 模块
-
-环境
-宿主机: 20.04.6 LTS (Focal Fossa)
-docker: Docker version 24.0.4, build 3713ee1
-docker-compose: docker-compose version 1.27.4, build 40524192
-nginx: nginx:1.19.1-alpine
-nginx-module
-HTTP Echo: 0.63
-
-
-
-DockerFileFROM nginx:1.19.1-alpine as baseRUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.cernet.edu.cn/g" /etc/apk/repositories;FROM base as buildENV ECHO_NGINX_MODULE_VERSION 0.63RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.cernet.edu.cn/g" /etc/apk/repositories;RUN NGINX_VER=`nginx -v 2&gt;&amp;1 | cut -d '/' -f 2` \    &amp;&amp; cd /tmp \    &amp;&amp; wget http://nginx.org/download/nginx-${NGINX_VER}.tar.gz -O nginx-${NGINX_VER}.tar.gz \    &amp;&amp; wget https://github.com/openresty/echo-nginx-module/archive/refs/tags/v${ECHO_NGINX_MODULE_VERSION}.tar.gz -O echo-nginx-module-${ECHO_NGINX_MODULE_VERSION}.tar.gz \    &amp;&amp; apk add --no-cache --virtual dependency gcc libc-dev make openssl-dev pcre-dev zlib-dev linux-headers \    &amp;&amp; tar zxf nginx-${NGINX_VER}.tar.gz \    &amp;&amp; tar zxf echo-nginx-module-${ECHO_NGINX_MODULE_VERSION}.tar.gz  \    &amp;&amp; cd nginx-${NGINX_VER} \    &amp;&amp; CONFARGS=$(nginx -V 2&gt;&amp;1 | sed -n -e 's/^configure arguments: //p') \    &amp;&amp; echo $CONFARGS \    &amp;&amp; sh -c "./configure --with-compat ${CONFARGS} --add-dynamic-module=../echo-nginx-module-${ECHO_NGINX_MODULE_VERSION}" \    &amp;&amp; make modules \    &amp;&amp; apk del dependency \    &amp;&amp; rm -rf /var/cache/apk/* \    &amp;&amp; mkdir -p /tmp/objs \    &amp;&amp; cp /tmp/nginx-${NGINX_VER}/objs/*.so /tmp/objs/ \    &amp;&amp; ls /tmp/objs -alFROM baseCOPY --from=build /tmp/objs/ngx_http_echo_module.so /etc/nginx/modulesRUN sed -i '1s/^/load_module \/etc\/nginx\/modules\/ngx_http_echo_module.so;\n/' /etc/nginx/nginx.confWORKDIR /www
-
-更多参考https://nginx.org/en/docs/configure.htmlhttps://www.nginx.com/resources/wiki/modules/
-]]></content>
-      <categories>
-        <category>docker</category>
-      </categories>
-      <tags>
-        <tag>alpine</tag>
-        <tag>docker</tag>
-        <tag>linux</tag>
-        <tag>nginx</tag>
-        <tag>nginx-module</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记一次 DockerCompose 配置 22 端口映射遇到的坑</title>
-    <url>/2022/11/11/docker/port-22-bug/</url>
-    <content><![CDATA[
-在一次偶然的机会下触发了一个端口映射的bug
-
-配置docker-compose.yml
-version: "3.8"services:    machine:        image: ubuntu:20.04        container_name: "ubuntu_2004"        restart: always        tty: true        ports:            - 9500:80            - 9501:22
-
-乍一看没啥毛病是吧，运行试一下
-$ docker-compose upCreating network "ubuntu2_default" with the default driverCreating ubuntu_2004 ... errorERROR: for ubuntu_2004  Cannot create container for service machine: invalid port specification: "570082"ERROR: for machine  Cannot create container for service machine: invalid port specification: "570082"ERROR: Encountered errors while bringing up the project.
-
-这就是 22 端口导致的问题，我们把配置文件的端口改为以下写法就可以解决问题了
-ports:    - "9500:80"    - "9501:22"
-]]></content>
-      <categories>
-        <category>docker</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>ssh</tag>
-        <tag>22-port</tag>
-        <tag>bugs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>通过 ssh 桥接方式连接远程 docker 中的 ubuntu</title>
-    <url>/2022/11/11/docker/ssh-bridge/</url>
-    <content><![CDATA[
-很多时候我们的 docker 环境都不在本地，而通过 ssh 连接远程服务器然后在通过 docker 命令进入容器貌似又有点繁琐，所以直接一步到位搞个跳板可以让我们直接访问到容器
-
-配置容器DockerCompose
-配置 docker-compose.yml
-  version: "3.8"services:    ccc:        image: ubuntu:20.04        container_name: "ubuntu_2004"        restart: always        tty: true        ports:            - "9500:80"            - "9501:22"
-
-运行
-  docker-compose up -d
-
-进入容器
-  docker exec -it ubuntu_2004 /bin/bash
-
-安装 openssh-server
-  apt update &amp;&amp; apt install openssh-server
-
-配置 ssh 公钥
-  mkdir ~/.ssh &amp;&amp; touch ~/.ssh/authorized_keys &amp;&amp; chmod 600 ~/.ssh/authorized_keys
-
-最后将公钥写入到 ~/.ssh/authorized_keys 文件中，就完成了容器配置
-本地跳板配置# 远程主机(跳板)Host ubuntu    Port 22    User ubuntu    IdentityFile ~/.ssh/id_rsa# docker 容器Host docker_ubuntu    HostName 0.0.0.0    Port 9501    User root    IdentityFile ~/.ssh/id_rsa    ProxyCommand ssh -q -W %h:%p ubuntu
-
-然后通过 ssh docker_ubuntu 命令就可以直接访问到远程 docker 容器了~
-]]></content>
-      <categories>
-        <category>docker</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>ubuntu</tag>
-        <tag>ssh</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>通过 ssh 连接 docker 中的 dsm</title>
-    <url>/2023/12/06/dsm/access-dsm-ssh/</url>
-    <content><![CDATA[
-之前我们在 在 docker 中安装 DSM 安装了 DSM，现在我们需要通过 ssh 连接到 DSM 中，本文将介绍如何通过 ssh 连接到 DSM 中。
-
-由于 DSM 是搭建在 docker 下的，所以我们要连接到 DSM 大概思路如下
-
-通过 ssh 连接到宿主机
-再通过宿主机 ssh 连接本地端口登录到 DSM
-
-有点繁琐，简化一下操作，通过宿主机建立一个 ssh jump server，然后通过 ssh jump server 连接到 DSM，这样一步就完成了登录 DSM
-关于 ssh jump server 的搭建流程可以查看这篇博客 通过 ssh 桥接方式连接远程 docker 中的 ubuntu, 这里不再赘述
-配置
-需要先打开 DSM 的 ssh 服务
-
-打开 DSM 控制面板 -&gt; 终端机和 SNMP -&gt; 终端机 -&gt; 启用 SSH 服务
-
-
-修改 docker-compose.yml
-services:  dsm:    # ...    ports:      - 3456:22
-
-重启 DSM
-docker-compose restart dsm
-
-创建 home 目录
-因为 ssh 登录后默认会进入到用户的 home 目录，所以我们需要创建一个用户所对应的 home 目录
-这一步需要在 DSM 中完成，操作非常简单，只需要安装 Synology Photos 即可，安装完成后会自动创建 home 目录
-
-配置 ssh 公钥
-将你的公钥写入到 /var/services/homes/&lt;username&gt;/authorized_keys 文件中
-vim /etc/ssh/sshd_config
-
-Match User &lt;username&gt;  AuthorizedKeysFile /var/services/homes/&lt;username&gt;/authorized_keys  PasswordAuthentication no  PubkeyAuthentication yes
-
-修改宿主机 ssh 跳板
-这一步可以参考 通过 ssh 桥接方式连接远程 docker 中的 ubuntu 完成
-sudo vim /etc/ssh/sshd_config
-
-Match User dsm  AuthorizedKeysFile /home/app/.ssh/authorized_keys  PasswordAuthentication no  PubkeyAuthentication yes
-
-配置客户端 ssh
-这一步可以参考 通过 ssh 桥接方式连接远程 docker 中的 ubuntu 完成
-vim ~/.ssh/config
-
-Host app HostName &lt;host&gt; Port 22 User dsm IdentityFile ~/.ssh/id_rsaHost docker_dsm  HostName 0.0.0.0  Port 3456  User &lt;username&gt;  IdentityFile ~/.ssh/id_rsa  ProxyCommand ssh -q -W %h:%p app
-
-连接 DSM
-ssh docker_dsm
-
-]]></content>
-      <categories>
-        <category>dsm</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>dsm</tag>
-        <tag>virtual dsm</tag>
-        <tag>synology dsm</tag>
-        <tag>ssh jump server</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>修复 virtual DSM 无法访问网络</title>
-    <url>/2023/12/06/dsm/fix-dsm-network-issue/</url>
-    <content><![CDATA[
-之前我们在 在 docker 中安装 DSM 时，我们在 docker 中安装了一个虚拟的 DSM，但是在安装完成后，我们发现 DSM 可以正常安装套件，但是 NTP 和 邮件通知 等服务都无法正常工作，所以我们需要修复这个问题。
-
-添加 DNS
-修改 docker-compose.yml
-services:  dsm:    # ...    dns:      - 8.8.8.8      - 1.0.0.1
-
-修改 DSM 网络配置
-
-打开 DSM 控制面板
-点击网络
-切换到常规选项卡
-勾选手动配置 DNS 服务器首选 DNS: 8.8.8.8备选 DNS: 1.0.0.1
-
-
-
-重启 DSMdocker-compose restart dsm
-]]></content>
-      <categories>
-        <category>dsm</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>dsm</tag>
-        <tag>virtual dsm</tag>
-        <tag>synology dsm</tag>
-        <tag>network error</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决反向代理群晖时客户端IP不正确</title>
-    <url>/2025/05/22/dsm/fix-reverse-proxy-dsm-remote-ip/</url>
-    <content><![CDATA[
-通过 nginx 反向代理群晖流量后导致群晖显示登录 IP 不正确
-
-问题诱因由于外部用作反向代理的 nginx 和 群晖 是通过 docker 容器搭建的，所以对于 nginx 和 群晖 来讲，它们分别是处于 docker 网络环境下的不同虚拟机，所以群晖内部 nginx 自带的 set_real_ip_from 127.0.0.1 配置就无效了
-群晖内部 nginx 配置
-由于群晖重启后会重置，所以直接修改 /etc/nginx/ 下的文件不是首选
-
-所以通过找寻 nginx 模板文件 /usr/syno/share/nginx/nginx.mustache 发现有以下内容
-real_ip_header            X-Forwarded-For;real_ip_recursive         on;set_real_ip_from          127.0.0.1;   ---&gt; 这里就是群晖默认自带的信任IP{{#DSM.trust_proxy}}set_real_ip_from          {{.}};       ---&gt; 通过 DSM.trust_proxy 即可动态配置信任IP{{/DSM.trust_proxy}}
-
-通过查找相关文档 DSM.trust_proxy 可以通过群晖的 控制面板-&gt;安全性-&gt;信任的代理服务器 配置，打开 信任的代理服务器 配置后，直接新增一条 外部代理nginx 的 IP 或 IP段 即可
-]]></content>
-      <categories>
-        <category>dsm</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>dsm</tag>
-        <tag>virtual dsm</tag>
-        <tag>synology dsm</tag>
-        <tag>reverse proxy</tag>
-        <tag>remote ip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在 Linux 环境下为 DSM 安装软件</title>
-    <url>/2023/12/06/dsm/install-pkg-with-entware/</url>
-    <content><![CDATA[
-之前介绍了如何通过 ssh 连接到 DSM，现在我们需要在 DSM 中安装一些软件，本文将介绍如何在 DSM 中安装软件。
-
-首先需要将 ssh 连接到 DSM 中，具体可以参考 通过 ssh 连接 docker 中的 dsm
-安装 Entware
-由于 Linux DSM 不同于普通的 Linux 发布版，所以我们不能直接使用 apt 或者 yum 等包管理器来安装软件，所以需要通过 Entware 来安装软件
-
-
-首先查看平台架构
-uname -m
-
-Entware 支持如下几种平台：
-
-armv7
-x86
-x86_64
-armv5
-mips
-mipsel
-armv8/aarch64
-
-
-创建 Entware 安装目录
-
-确保 /opt 目录可以被操作
-stat -c '%a' /opt
-
-如果返回大于等于 600，则可以继续操作
-
-创建 /opt 并挂载
-mkdir -p /volume1/@Entware/optrm -rf /optmkdir /optmount -o bind /volume1/@Entware/opt /opt
-
-
-如果挂载失败，则使用软链接的方式创建目录
-
-ln -s /volume1/@Entware/opt/ /opt
-
-
-安装 Entware
-
-
-根据平台架构选择对应的安装命令
-
-armv7
-wget -O - https://bin.entware.net/armv7sf-k2.6/installer/generic.sh | sh
-
-x86
-wget -O - https://bin.entware.net/x86-k2.6/installer/generic.sh | sh
-
-x86_64
-wget -O - https://bin.entware.net/x64-k3.2/installer/generic.sh | sh
-
-armv5
-wget -O - https://bin.entware.net/armv5sf-k3.2/installer/generic.sh | sh
-
-mips
-wget -O - https://bin.entware.net/mipssf-k3.4/installer/generic.sh | sh
-
-mipsel
-wget -O - https://bin.entware.net/mipselsf-k3.4/installer/generic.sh | sh
-
-armv8/aarch64
-wget -O - https://bin.entware.net/aarch64-k3.10/installer/generic.sh | sh
-
-
-EntWare 自启动
-
-使用具有管理员权限的账号登录 DSM
-
-打开控制面板
-
-选择任务计划
-
-新增 &gt; 触发的任务 &gt; 用户定义的脚本
-
-常规
-
-名称：EntWare StartUp
-用户账号：root
-事件：开机
-
-
-任务设置
-
-将下面的脚本粘贴到运行命令
-#!/bin/sh# Mount EntWaremkdir -p /optmount -o bind /volume1/@Entware/opt /opt/opt/etc/init.d/rc.unslung start# Add EntWare Profile in Global Profileif grep -qF '/opt/etc/profile' /etc/profile; then  echo "Confirmed: EntWare Profile in Global Profile"else  echo "Adding: EntWare Profile in Global Profile"  cat &gt;&gt;/etc/profile &lt;&lt;"EOF"# Load EntWare Profile[ -r "/opt/etc/profile" ] &amp;&amp; . /opt/etc/profileEOFfi# Configure EntWare Mirrorsed -i 's|https\?://bin.entware.net|https://mirrors.bfsu.edu.cn/entware|g' /opt/etc/opkg.conf# Update EntWare List/opt/bin/opkg update
-
-
-
-
-确定
-
-重启 DSM
-
-
-
-
-]]></content>
-      <categories>
-        <category>dsm</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>dsm</tag>
-        <tag>virtual dsm</tag>
-        <tag>synology dsm</tag>
-        <tag>Linux DSM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在 docker 中安装 DSM</title>
-    <url>/2023/12/06/dsm/install-with-docker/</url>
-    <content><![CDATA[
-是的，你没有看错，这篇文章的标题是在 docker 中安装 DSM，而不是在 docker 中安装 DSM，这里的 DSM 是指 Synology DSM，也就是群晖的操作系统，这里我们将在 docker 中安装一个虚拟的 DSM，这样我们就可以在不购买群晖硬件的情况下体验 DSM 的功能了。
-
-环境
-宿主机: 20.04.6 LTS (Focal Fossa)
-docker: Docker version 24.0.6, build ed223bc
-docker compose: Docker Compose version v2.21.0
-DSM: 7.2.1-69057-1
-
-配置
-创建 docker-compose.yml
-
-
-更多的配置可以参考 Virtual DSM
-
-version: '3'services:  dsm:    container_name: dsm    image: docker.io/clistery/virtual-dsm:latest    environment:      URL: 'https://cndl.synology.cn/download/DSM/release/7.2.1/69057-1/DSM_VirtualDSM_69057.pat'      DISK_SIZE: '100G'      DISK2_SIZE: '100G'      RAM_SIZE: '4G'      CPU_CORES: '4'    devices:      - /dev/kvm      - /dev/net/tun      - /dev/vhost-net    device_cgroup_rules:      - 'c *:* rwm'    cap_add:      - NET_ADMIN    ports:      - '5000:5000'    volumes:      - ${PWD}/pat:/pat:ro      - ${PWD}/storage/sda1:/storage:rw      - ${PWD}/storage/sda2:/storage2:rw    restart: on-failure    stop_grace_period: 1m
-
-
-其中镜像 docker.io/clistery/virtual-dsm:latest 是基于 Virtual DSM 构建，在其之上做了一些加速优化，及一些工具配置，也可以直接替换为 vdsm/virtual-dsm:latest。
-
-
-创建目录
-
-
-创建 pat 目录
-创建 storage 目录
-
-
-创建完成后的目录结构如下：
-
-.├── docker-compose.yml├── pat└── storage
-
-安装加速（可选）
-如果使用的镜像是 virtual-dsm:latest，那么可以跳过这一步。这里我们实际安装的版本是 7.2.1，但是由于 7.2.1 中系统关键文件无法解包，只能先通过 7.0.1 解包出关键文件，再进行 7.2.1 版本的安装
-
-
-进入 pat 目录
-
-下载 PAT 文件
-
-7.0.1
-https://cndl.synology.cn/download/DSM/release/7.0.1/42218/DSM_VirtualDSM_42218.pat
-
-dsm.rd
-
-7.0.1 其中的关键文件，可用于加速安装，非必须，如果不提前准备的话，安装过程中会自动下载
-
-curl -r "65627648-71021835" -sfk -o "DSM_VirtualDSM_42218-dsm.rd" "https://cndl.synology.cn/download/DSM/release/7.0.1/42218/DSM_VirtualDSM_42218.pat"
-
-
-7.2.1: https://cndl.synology.cn/download/DSM/release/7.2.1/69057-1/DSM_VirtualDSM_69057.pat
-
-
-
-链接使用了大陆加速，如果无法下载，将链接中的 cndl.synology.cn 替换为 global.download.synology.com
-
-
-
-启动docker-compose up -d
-
-然后就可以打开 docker 日志查看安装进度了，直到看到如下日志，就可以用浏览器通过 :5000 端口访问 docker 容器下的 DSM 了
-❯ --------------------------------------------------------❯  You can now login to DSM at port 5000❯ --------------------------------------------------------
-]]></content>
-      <categories>
-        <category>dsm</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>dsm</tag>
-        <tag>virtual dsm</tag>
-        <tag>synology dsm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 token 访问 git 仓库</title>
-    <url>/2022/10/24/git/token-use/</url>
-    <content><![CDATA[
-可以在无需增加密钥配置的情况下访问指定的单个或多个仓库
-
-这里我们以 gitlab 为例
-创建 access_tokens
-创建 access token 的方式有两种
-项目级别，只对单个项目生效
-帐号级别，对该帐号下的所有项目生效
-
-
-
-项目 access token
-先进入到指定项目
-侧边栏 -&gt; Settings
-Access tokens
-配置 token 的名称，一般我们以用途为名，便于理解
-到期时间如果有需要则设置，不设置则永不过期
-权限范围按需设置
-创建
-将生成的 token 用个记事本保存下来先（离开页面或刷新后 token 都不会再显示了）
-
-帐号级别
-右上角头像 -&gt; Preferences
-侧边栏 -&gt; Access token
-配置 token 的名称，一般我们以用途为名，便于理解
-到期时间如果有需要则设置，不设置则永不过期
-权限范围按需设置
-创建
-将生成的 token 用个记事本保存下来先（离开页面或刷新后 token 都不会再显示了）
-
-配置仓库访问
-使用 token 创建仓库
-  git clone https://oauth2:${token}@xxx.git # 使用刚才创建的 token
-
-将已有仓库改为用 token 访问（同样适用于修改 token）
-  git remote rm origin # 先删除掉已有的远端git remote add origin https://oauth2:${token}@xxx.git # 使用刚才创建的 tokengit fetch origin
-
-最后使用 token 配置的仓库，能对远端仓库 pull/push 或其他操作的限制就取决于创建时配置的权限范围
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-        <tag>token</tag>
-        <tag>gitlab</tag>
-        <tag>github</tag>
-        <tag>svc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>修复 Gitlab-CE 仓库检查错误</title>
-    <url>/2024/10/30/gitlab-ce/fix-repository-checks-error/</url>
-    <content><![CDATA[
-某一天在 gitlab 管理员邮箱中收到了 ‘GitLab Admin | One project failed its last repository check’ 的邮件，点开一看有一个仓库的自检过不了，于是有了这篇博客
-
-原因调查
-根据文档提示，找到自检的日志文件
-/var/log/gitlab/gitlab-rails for Omnibus GitLab installations.
-/home/git/gitlab/log for installations from source.
-
-文件内容
-E, [2024-10-30T07:24:02.126920 #1053] ERROR -- : path/repository: Could not fsck repository: dangling commit d8e2ebdd41444c2b868d6a321c3246ab6831d351
-
-根据日志信息，看起来是一个 dangling commit 引起的，但是仓库本身并没有这个问题，那很可能是 gitlab 的一些缓存信息出现了问题
-
-
-解决方案
-查找 path/repository 仓库在服务器上的文件路径，这里引用官方的文档
-
-在左侧栏的底部，选择 Admin 。
-选择 概览 &gt; 项目，选择项目。
-定位 相对路径 字段。取值类似于："@hashed/0b/91/0b91...f9.git"
-
-
-找到项目文件路径后，我们就可以进行修复了
-
-为避免出现不可控的情况，请确保已经对 gitlab 备份
-
-
-切换到 git 用户
- su - git
-
-执行检查(这一步出现 error 不用理会)
-
-将之前找到的项目文件路径替换到命令中
-
- /opt/gitlab/embedded/bin/git \-C /var/opt/gitlab/git-data/repositories/@hashed/0b/91/0b91...f9.git fsck
-
-清理缓存
- /opt/gitlab/embedded/bin/git \-C /var/opt/gitlab/git-data/repositories/@hashed/0b/91/0b91...f9.git gc
-
-重新执行检查
- /opt/gitlab/embedded/bin/git \-C /var/opt/gitlab/git-data/repositories/@hashed/0b/91/0b91...f9.git fsck
-
-
-重新触发仓库自检
-
-
-]]></content>
-      <categories>
-        <category>gitlab</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-        <tag>gitlab</tag>
       </tags>
   </entry>
   <entry>
